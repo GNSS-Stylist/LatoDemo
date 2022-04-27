@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jk4yhkoalwn3"
+path="res://.godot/imported/SputnikRing.obj-8edbff73f4bd85a633928b8b0aa4d10f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SputnikRing.obj-8edbff73f4bd85a633928b8b0aa4d10f.mesh"]
+
+source_file="res://Data/Satellite/SputnikRing.obj"
+dest_files=["res://.godot/imported/SputnikRing.obj-8edbff73f4bd85a633928b8b0aa4d10f.mesh", "res://.godot/imported/SputnikRing.obj-8edbff73f4bd85a633928b8b0aa4d10f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

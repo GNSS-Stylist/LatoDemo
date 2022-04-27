@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://httobws27rys"]
+
+[ext_resource type="Shader" path="res://Data/BlackHole/BlackHole.gdshader" id="1_7wcsu"]
+[ext_resource type="Script" path="res://Data/BlackHole/BlackHole.gd" id="1_582ig"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovj0o"]
+render_priority = 0
+shader = ExtResource( "1_7wcsu" )
+shader_param/eventHorizonRadius = 0.5
+shader_param/gravity = 5000.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ocp56"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbve5"]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(0, 0, 0, 0.996078)
+
+[sub_resource type="SphereMesh" id="SphereMesh_m7wbg"]
+radial_segments = 32
+
+[node name="BlackHole" type="Node3D"]
+script = ExtResource( "1_582ig" )
+shader = ExtResource( "1_7wcsu" )
+
+[node name="Visibles" type="Node3D" parent="."]
+
+[node name="DistorterMesh" type="MeshInstance3D" parent="Visibles"]
+material_override = SubResource( "ShaderMaterial_ovj0o" )
+mesh = SubResource( "QuadMesh_ocp56" )
+skeleton = NodePath("../..")
+
+[node name="BlackLight" type="OmniLight3D" parent="Visibles"]
+light_color = Color(0.501961, 1, 1, 1)
+light_energy = 0.44
+light_negative = true
+omni_attenuation = 3.24901
+
+[node name="EventHorizonSphere" type="MeshInstance3D" parent="Visibles"]
+material_override = SubResource( "StandardMaterial3D_qbve5" )
+cast_shadow = 0
+mesh = SubResource( "SphereMesh_m7wbg" )
+skeleton = NodePath("../..")

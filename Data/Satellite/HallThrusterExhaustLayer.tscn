@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7a4ewgasf336"]
+
+[ext_resource type="Script" path="res://Data/Satellite/HallThrusterExhaustLayer.gd" id="1_86bkg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq0u2"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 0.462745)
+
+[node name="HallThrusterExhaustLayer" type="Node3D"]
+script = ExtResource( "1_86bkg" )
+
+[node name="ExhaustCombiner" type="CSGCombiner3D" parent="."]
+material_override = SubResource( "StandardMaterial3D_sq0u2" )
+
+[node name="Outer" type="CSGCylinder3D" parent="ExhaustCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radius = 0.4
+sides = 24
+cone = true
+
+[node name="InnerSubtraction" type="CSGCylinder3D" parent="ExhaustCombiner"]
+transform = Transform3D(1, 0, 0, 0, -1, -1.22465e-16, 0, 1.22465e-16, -1, 0, 0, 0)
+operation = 2
+radius = 0.56
+height = 10.0
+sides = 24
+cone = true
+smooth_faces = false

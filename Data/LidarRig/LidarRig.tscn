@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5lp7jqy1wmid"]
+
+[ext_resource type="Script" path="res://Data/Main/LOScriptReplayer_Node3D.gd" id="1_qwnpd"]
+[ext_resource type="Script" path="res://Data/LidarRig/LidarRotator.gd" id="2_7mg7d"]
+[ext_resource type="Texture2D" uid="uid://b11yu86r0v4qf" path="res://Data/LidarRig/Lidar_Plastic_normal.png" id="2_8oako"]
+[ext_resource type="Texture2D" uid="uid://cxbor5u8tg6m" path="res://Data/LidarRig/Aluminium_scratch_normal.png" id="2_bqce3"]
+[ext_resource type="PackedScene" uid="uid://bbpofx61m3y0f" path="res://Data/Main/GNSSAntenna.tscn" id="3_2kufb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04xd0"]
+metallic = 0.9
+roughness = 0.3
+normal_enabled = true
+normal_scale = 0.21
+normal_texture = ExtResource( "2_bqce3" )
+uv1_scale = Vector3(10, 5, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_db7gy"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.5
+normal_enabled = true
+normal_scale = 0.05
+normal_texture = ExtResource( "2_8oako" )
+uv1_scale = Vector3(200, 100, 200)
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h0hvo"]
+top_radius = 0.038
+bottom_radius = 0.038
+height = 0.018
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bom18"]
+top_radius = 0.034
+bottom_radius = 0.037
+height = 0.023
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cixhn"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_42p2p"]
+material = SubResource( "StandardMaterial3D_cixhn" )
+radius = 0.005
+height = 0.01
+radial_segments = 16
+rings = 8
+
+[node name="LidarRig" type="Node3D"]
+script = ExtResource( "1_qwnpd" )
+loFilename = "res://GNSS_Stylus_Scripts/WalkAround2.LOScript"
+
+[node name="ForwardTube" type="Node3D" parent="."]
+transform = Transform3D(0.99991, 0, 0.0134386, 0, 1, 0, -0.0134386, 0, 0.99991, -0.0175, 0.602, 0)
+
+[node name="ForwardTube" type="CSGCombiner3D" parent="ForwardTube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0175, -1.4231)
+material_override = SubResource( "StandardMaterial3D_04xd0" )
+
+[node name="Outer" type="CSGBox3D" parent="ForwardTube/ForwardTube"]
+size = Vector3(0.035, 0.035, 3)
+
+[node name="Inner" type="CSGBox3D" parent="ForwardTube/ForwardTube"]
+operation = 2
+size = Vector3(0.031, 0.031, 3.001)
+
+[node name="Lidar" type="Node3D" parent="ForwardTube"]
+transform = Transform3D(0, -1, 6.93889e-18, 0.997185, 0, -0.0749787, 0.0749787, -6.93889e-18, 0.997185, -0.0175, 0.00825, -2.8261)
+
+[node name="Base" type="MeshInstance3D" parent="ForwardTube/Lidar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.009, 0)
+material_override = SubResource( "StandardMaterial3D_db7gy" )
+mesh = SubResource( "CylinderMesh_h0hvo" )
+
+[node name="Rotator" type="Node3D" parent="ForwardTube/Lidar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031, 0)
+script = ExtResource( "2_7mg7d" )
+idleRotationWaitTime = 10000
+eyeColors = PackedColorArray(1, 10, 1, 1, 0, 0, 1, 1, 0.564706, 0.545098, 0.584314, 1, 10, 1, 1, 1, 10, 1, 1, 1, 10, 1, 1, 1, 10, 1, 1, 1, 10, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+eyeFallbackColor = Color(0, 0, 1, 1)
+
+[node name="Cylinder" type="MeshInstance3D" parent="ForwardTube/Lidar/Rotator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.004, 0)
+material_override = SubResource( "StandardMaterial3D_db7gy" )
+mesh = SubResource( "CylinderMesh_bom18" )
+
+[node name="Eye" type="MeshInstance3D" parent="ForwardTube/Lidar/Rotator"]
+transform = Transform3D(1, 0, 0, -2.1684e-19, 1, -1.73472e-18, 1.38778e-17, 0, 1, 0, -1.38778e-17, 0.0339483)
+mesh = SubResource( "SphereMesh_42p2p" )
+
+[node name="CameraFlyingSpace" type="Node3D" parent="ForwardTube/Lidar/Rotator"]
+
+[node name="LocalOrigin_Rotator" type="Node3D" parent="ForwardTube/Lidar/Rotator/CameraFlyingSpace"]
+rotation_edit_mode = 1
+
+[node name="EditorCamera" type="Camera3D" parent="ForwardTube/Lidar/Rotator/CameraFlyingSpace/LocalOrigin_Rotator"]
+transform = Transform3D(1, 4.33681e-19, -4.51649e-08, 0, 1, 1.56125e-17, 1.38778e-17, -1.73472e-18, 1, 0, 0, 0)
+
+[node name="UpTube" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0175, 0.95, 0.035)
+material_override = SubResource( "StandardMaterial3D_04xd0" )
+
+[node name="Outer" type="CSGBox3D" parent="UpTube"]
+size = Vector3(0.035, 2, 0.035)
+
+[node name="Inner" type="CSGBox3D" parent="UpTube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0195427, 0)
+operation = 2
+size = Vector3(0.031, 2.01, 0.031)
+
+[node name="CrossBar" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0175, 0)
+material_override = SubResource( "StandardMaterial3D_04xd0" )
+
+[node name="Outer" type="CSGBox3D" parent="CrossBar"]
+size = Vector3(2, 0.035, 0.035)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CrossBar"]
+operation = 2
+size = Vector3(2.01, 0.031, 0.031)
+
+[node name="GNSSAntenna" parent="." instance=ExtResource( "3_2kufb" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975, 0, 0)
+
+[node name="GNSSAntenna2" parent="." instance=ExtResource( "3_2kufb" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975, 0, 0)
+
+[node name="GNSSAntenna3" parent="." instance=ExtResource( "3_2kufb" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, 1.95, 0.035)
+
+[node name="CameraFlyingSpace" type="Node3D" parent="."]
+
+[node name="LocalOrigin_LRig" type="Node3D" parent="CameraFlyingSpace"]
+rotation_edit_mode = 1
+
+[node name="EditorCamera" type="Camera3D" parent="CameraFlyingSpace/LocalOrigin_LRig"]

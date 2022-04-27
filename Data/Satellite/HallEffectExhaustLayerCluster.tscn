@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Data/Satellite/HallEffectExhausLayerCluster.gd" id="1_xy3n7"]
+[ext_resource type="PackedScene" uid="uid://c7a4ewgasf336" path="res://Data/Satellite/HallThrusterExhaustLayer.tscn" id="2_iqp4b"]
+
+[node name="HallEffectExhausLayerCluster" type="Node3D"]
+script = ExtResource( "1_xy3n7" )
+
+[node name="HallThrusterExhaustLayer" parent="." instance=ExtResource( "2_iqp4b" )]
+visible = false

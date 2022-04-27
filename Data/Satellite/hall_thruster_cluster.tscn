@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfuymc6rqotx8"]
+
+[ext_resource type="Script" path="res://Data/Satellite/HallThrusterCluster.gd" id="1_bicng"]
+[ext_resource type="PackedScene" uid="uid://7s037j3cth6j" path="res://Data/Satellite/hall_thruster.tscn" id="1_jrp6v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_768vr"]
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+metallic = 0.8
+roughness = 0.66
+
+[node name="HallThrusterCluster" type="Node3D"]
+script = ExtResource( "1_bicng" )
+
+[node name="HallThruster_XPlus" parent="." instance=ExtResource( "1_jrp6v" )]
+transform = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0.45, 0, 0)
+maxAcceleration = 0.2
+exhaustAlphaOverride = -1.0
+globalSpeedFilterCoeff = 0.001
+
+[node name="HallThruster_YPlus" parent="." instance=ExtResource( "1_jrp6v" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+maxAcceleration = 0.2
+exhaustAlphaOverride = -1.0
+globalSpeedFilterCoeff = 0.001
+
+[node name="HallThruster_YMinus" parent="." instance=ExtResource( "1_jrp6v" )]
+transform = Transform3D(-1, -1.22465e-16, 0, 1.22465e-16, -1, 0, 0, 0, 1, 0, -0.45, 0)
+maxAcceleration = 0.2
+exhaustAlphaOverride = -1.0
+globalSpeedFilterCoeff = 0.001
+
+[node name="HallThruster_ZPlus" parent="." instance=ExtResource( "1_jrp6v" )]
+transform = Transform3D(-1, -1.22465e-16, 0, 0, 0, 1, -1.22465e-16, 1, 0, 0, 0, 0.45)
+maxAcceleration = 0.2
+exhaustAlphaOverride = -1.0
+globalSpeedFilterCoeff = 0.001
+
+[node name="HallThruster_ZMinus" parent="." instance=ExtResource( "1_jrp6v" )]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, -0.45)
+maxAcceleration = 0.2
+exhaustAlphaOverride = -1.0
+globalSpeedFilterCoeff = 0.001
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.7, 0, 0)
+material_override = SubResource( "StandardMaterial3D_768vr" )
+size = Vector3(0.4, 1, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.707107, -0.5, 0.5, -5.55112e-17, 0.707107, 0.707107, -0.707107, -0.5, 0.5, -1.15, 0, -0.1)
+operation = 2
+size = Vector3(2, 2, 2)

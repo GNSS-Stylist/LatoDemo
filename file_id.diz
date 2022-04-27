@@ -1,0 +1,53 @@
+Lato by Nupo
+A demo for Revision/Instanssi 2022
+
+I have been experimenting with high-precision GNSS (="GPS")- and 
+lidar-devices and as they say, "make a demo about it". So I did and
+here is the result (party version). Funnily this matches quite well
+the satellite-theme of this year's Revision. Most of the parts were
+at a prototype-level before I heard about the theme so hearing about
+the theme gave a bit of extra boost to get this done.
+
+Sorry for the "ripped" soundtrack. Visuals took too long to get working
+so getting any customized soundtrack for this was impossible (and I'm
+not a musician).
+
+There are a lot of things to hone, but I ran out of time. Probably some
+kind of final version coming some time. Not promising it soon, though. 
+This took a lot of time to make and after the crunch of the last days
+(or actually weeks) I'm most probably blind to most shortcomings in this,
+so better to take a break now. Don't look at the code, it's super messed
+up after all the modifications and hacks piling up. Probably will make
+it a bit tidier for the final version.
+
+Links to some assets used in this:
+Sounds:
+
+Sputnik: Beep:
+https://soundcloud.com/nasa/sputnik-beep
+
+Luca Parmitano soyuz launch 28052013:
+https://soundcloud.com/esa/luca-parmitano-soyuz-launch?in=esa/sets/rockets-blasting-off&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+
+Huygens Alien Descent Radar
+https://soundcloud.com/esa/huygens-alien-descent-radar?in=esa/sets/esa-cc-audio&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+
+Sounds of Saturn: Hear Radio Emissions of the Planet and Its Moon Enceladus:
+https://soundcloud.com/nasa/enceladus-hiss-audio?in=nasa/sets/solar-system-beyond-sounds&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+
+Main tune:
+Vega 28231406 Ezequiel Rodríguez
+https://soundcloud.com/ezequiel-rodr-guez-1/vega-28231406?in=esa/sets/top-10&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+
+Beware of Jupiter’s Largest Moon Ganymede
+https://soundcloud.com/nasa/beware-of-jupiters-largest-moon-ganymede?in=nasa/sets/spookyspacesounds
+
+Others:
+
+Planet generator used to generate texture for the textured planet:
+http://hjemmesider.diku.dk/~torbenm/Planet/
+Generated with command: 
+planet -o test.bmp -s 0.41 -w 4096 -h 4096 -c
+
+Sky"box":
+https://www.hq.eso.org/public/images/eso0932a/
