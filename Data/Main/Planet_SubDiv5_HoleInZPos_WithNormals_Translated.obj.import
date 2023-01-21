@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b28r83ww6254v"
+path="res://.godot/imported/Planet_SubDiv5_HoleInZPos_WithNormals_Translated.obj-606f6b42e1dd788ebc5d2db4e3807cf4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Planet_SubDiv5_HoleInZPos_WithNormals_Translated.obj-606f6b42e1dd788ebc5d2db4e3807cf4.mesh"]
+
+source_file="res://Data/Main/Planet_SubDiv5_HoleInZPos_WithNormals_Translated.obj"
+dest_files=["res://.godot/imported/Planet_SubDiv5_HoleInZPos_WithNormals_Translated.obj-606f6b42e1dd788ebc5d2db4e3807cf4.mesh", "res://.godot/imported/Planet_SubDiv5_HoleInZPos_WithNormals_Translated.obj-606f6b42e1dd788ebc5d2db4e3807cf4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

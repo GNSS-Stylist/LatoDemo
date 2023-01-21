@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://belsi2a2vdnub"
+path="res://.godot/imported/JellyPlanet_NotTranslated.obj-7d29286441c7a13557988af54dd84926.mesh"
+
+[deps]
+
+files=["res://.godot/imported/JellyPlanet_NotTranslated.obj-7d29286441c7a13557988af54dd84926.mesh"]
+
+source_file="res://Data/Main/JellyPlanet_NotTranslated.obj"
+dest_files=["res://.godot/imported/JellyPlanet_NotTranslated.obj-7d29286441c7a13557988af54dd84926.mesh", "res://.godot/imported/JellyPlanet_NotTranslated.obj-7d29286441c7a13557988af54dd84926.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

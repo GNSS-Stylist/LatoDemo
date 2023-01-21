@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cssltkhf82nlb"
+path="res://.godot/imported/SpaceJunk.mp3-cf5c20e091ace645726f2202d47d9b1e.mp3str"
+
+[deps]
+
+source_file="res://Data/Sound/SpaceJunk.mp3"
+dest_files=["res://.godot/imported/SpaceJunk.mp3-cf5c20e091ace645726f2202d47d9b1e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0

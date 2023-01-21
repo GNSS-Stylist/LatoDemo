@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbs7gsw3wkwdo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l27xo"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8acij"]
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tkhcj"]
+material = SubResource( "StandardMaterial3D_8acij" )
+size = Vector3(1, 0.05, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cqwk"]
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6w2ey"]
+material = SubResource( "StandardMaterial3D_1cqwk" )
+size = Vector3(0.05, 1, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nx8uq"]
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2tngp"]
+material = SubResource( "StandardMaterial3D_nx8uq" )
+size = Vector3(0.05, 0.05, 1)
+
+[node name="DebugIndicator" type="Node3D"]
+
+[node name="Box" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource( "BoxMesh_l27xo" )
+skeleton = NodePath("../..")
+
+[node name="XAxis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+cast_shadow = 0
+mesh = SubResource( "BoxMesh_tkhcj" )
+skeleton = NodePath("../Box")
+
+[node name="YAxis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource( "BoxMesh_6w2ey" )
+
+[node name="ZAxis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+mesh = SubResource( "BoxMesh_2tngp" )

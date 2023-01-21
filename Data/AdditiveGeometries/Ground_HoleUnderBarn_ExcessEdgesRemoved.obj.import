@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dcael3gmltamy"
+path="res://.godot/imported/Ground_HoleUnderBarn_ExcessEdgesRemoved.obj-eb7152cf161ac6218cdff297d0949422.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Ground_HoleUnderBarn_ExcessEdgesRemoved.obj-eb7152cf161ac6218cdff297d0949422.mesh"]
+
+source_file="res://Data/AdditiveGeometries/Ground_HoleUnderBarn_ExcessEdgesRemoved.obj"
+dest_files=["res://.godot/imported/Ground_HoleUnderBarn_ExcessEdgesRemoved.obj-eb7152cf161ac6218cdff297d0949422.mesh", "res://.godot/imported/Ground_HoleUnderBarn_ExcessEdgesRemoved.obj-eb7152cf161ac6218cdff297d0949422.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

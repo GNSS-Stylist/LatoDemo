@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cs8vswqg5pdfg"
+path="res://.godot/imported/HareScan2_Poisson_7_SurfacePrecLapSmooth_5_Simpl_5k_Faces.obj-3fd445cfc7ccbe07bec18601812ad3b3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/HareScan2_Poisson_7_SurfacePrecLapSmooth_5_Simpl_5k_Faces.obj-3fd445cfc7ccbe07bec18601812ad3b3.mesh"]
+
+source_file="res://Data/BlackHole/Eegg/HareScan2_Poisson_7_SurfacePrecLapSmooth_5_Simpl_5k_Faces.obj"
+dest_files=["res://.godot/imported/HareScan2_Poisson_7_SurfacePrecLapSmooth_5_Simpl_5k_Faces.obj-3fd445cfc7ccbe07bec18601812ad3b3.mesh", "res://.godot/imported/HareScan2_Poisson_7_SurfacePrecLapSmooth_5_Simpl_5k_Faces.obj-3fd445cfc7ccbe07bec18601812ad3b3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

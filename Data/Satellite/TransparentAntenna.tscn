@@ -1,0 +1,218 @@
+[gd_scene load_steps=21 format=3 uid="uid://c30jsw5jwviam"]
+
+[ext_resource type="Script" path="res://Data/Satellite/antenna.gd" id="1_82acp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ohnp"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnemg"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81k5m"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_803ru"]
+transparency = 1
+albedo_color = Color(0.156863, 0.156863, 0.156863, 1)
+metallic = 0.35
+metallic_specular = 0.63
+roughness = 0.59
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rh2t7"]
+material = SubResource( "StandardMaterial3D_803ru" )
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.5
+radial_segments = 24
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbw4b"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wfj2"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xktfo"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7tnk"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smrgi"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6820y"]
+material = SubResource( "StandardMaterial3D_smrgi" )
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.5
+radial_segments = 24
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqko1"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_moj1s"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgkmt"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knwwf"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abr2c"]
+transparency = 1
+metallic = 1.0
+roughness = 0.33
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4dchw"]
+material = SubResource( "StandardMaterial3D_abr2c" )
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.21
+radial_segments = 24
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lloca"]
+transparency = 1
+metallic = 1.0
+roughness = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p8msb"]
+material = SubResource( "StandardMaterial3D_lloca" )
+top_radius = 0.05
+bottom_radius = 0.05
+height = 25.0
+radial_segments = 24
+rings = 1
+
+[node name="Antenna" type="Node3D"]
+script = ExtResource( "1_82acp" )
+antennaRodAngle = 10.0
+localTranslation = Vector3(0, 0, 0)
+baseAngle = 0.0
+
+[node name="GroupTransform" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Front" type="CSGCombiner3D" parent="GroupTransform"]
+
+[node name="MainBody" type="CSGPolygon3D" parent="GroupTransform/Front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
+snap = 0.01
+polygon = PackedVector2Array(0, -0.5, 0, 0.25, 0.1, 0.25, 0.7, -0.16, 0.7, -0.5)
+depth = 0.3
+material = SubResource( "StandardMaterial3D_4ohnp" )
+
+[node name="CornerRounder1" type="CSGBox3D" parent="GroupTransform/Front"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.16, 0.36, 0.32)
+operation = 2
+size = Vector3(0.5, 0.5, 0.5)
+material = SubResource( "StandardMaterial3D_pnemg" )
+
+[node name="CornerRounder2" type="CSGBox3D" parent="GroupTransform/Front"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.16, 0.36, -0.32)
+operation = 2
+size = Vector3(0.5, 0.5, 0.5)
+material = SubResource( "StandardMaterial3D_81k5m" )
+
+[node name="BlackPart" type="MeshInstance3D" parent="GroupTransform"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -0.2, 0.13, 0)
+mesh = SubResource( "CylinderMesh_rh2t7" )
+skeleton = NodePath("../..")
+
+[node name="HingeBase" type="CSGCombiner3D" parent="GroupTransform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 0)
+
+[node name="FrontSupport" type="CSGBox3D" parent="GroupTransform/HingeBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.25, 0)
+size = Vector3(0.1, 1, 0.3)
+material = SubResource( "StandardMaterial3D_cbw4b" )
+
+[node name="BackSupport" type="CSGBox3D" parent="GroupTransform/HingeBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.25, 0)
+size = Vector3(0.1, 1, 0.3)
+material = SubResource( "StandardMaterial3D_1wfj2" )
+
+[node name="CornerRounder1" type="CSGBox3D" parent="GroupTransform/HingeBase"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.36, 0.31)
+operation = 2
+size = Vector3(0.7, 0.5, 0.5)
+material = SubResource( "StandardMaterial3D_xktfo" )
+
+[node name="CornerRounder2" type="CSGBox3D" parent="GroupTransform/HingeBase"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.36, -0.31)
+operation = 2
+size = Vector3(0.7, 0.5, 0.5)
+material = SubResource( "StandardMaterial3D_t7tnk" )
+
+[node name="HingeBaseTube" type="MeshInstance3D" parent="GroupTransform/HingeBase"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0.08, 0.13, 0)
+mesh = SubResource( "CylinderMesh_6820y" )
+skeleton = NodePath("../../..")
+
+[node name="HingeBaseEnd" type="CSGCombiner3D" parent="GroupTransform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08, 0.13, 0)
+
+[node name="RoundEnd" type="CSGCylinder3D" parent="GroupTransform/HingeBaseEnd"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+radius = 0.08
+height = 0.1
+sides = 24
+material = SubResource( "StandardMaterial3D_jqko1" )
+
+[node name="CSGBox3D" type="CSGBox3D" parent="GroupTransform/HingeBaseEnd"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
+size = Vector3(0.1, 0.16, 0.1)
+material = SubResource( "StandardMaterial3D_moj1s" )
+
+[node name="Rod" type="Node3D" parent="GroupTransform"]
+transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, -1.08, 0.13, 0)
+
+[node name="Base" type="CSGCombiner3D" parent="GroupTransform/Rod"]
+
+[node name="Main" type="CSGPolygon3D" parent="GroupTransform/Rod/Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+polygon = PackedVector2Array(0.05, -0.06, 0.02, -0.09, -0.19, -0.23, -0.9, -0.23, -0.9, -0.03, -0.22, -0.03, -0.04, 0.07, 0.01, 0.08, 0.05, 0.06, 0.07, 0.02, 0.07, -0.03)
+depth = 0.2
+material = SubResource( "StandardMaterial3D_qgkmt" )
+
+[node name="Slot" type="CSGBox3D" parent="GroupTransform/Rod/Base/Main"]
+transform = Transform3D(0.868216, -0.496186, 0, 0.496186, 0.868216, 0, 0, 0, 1, -0.01, -0.02, -0.1)
+operation = 2
+size = Vector3(0.2, 0.2, 0.1)
+material = SubResource( "StandardMaterial3D_knwwf" )
+
+[node name="Pin" type="MeshInstance3D" parent="GroupTransform/Rod"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource( "CylinderMesh_4dchw" )
+skeleton = NodePath("../../..")
+
+[node name="AntennaRod" type="MeshInstance3D" parent="GroupTransform/Rod"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -13.4, -0.13, 0)
+mesh = SubResource( "CylinderMesh_p8msb" )
