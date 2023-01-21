@@ -1,11 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://wbaalqedwstv"]
+[gd_scene load_steps=25 format=3 uid="uid://wbaalqedwstv"]
 
 [ext_resource type="Shader" path="res://Data/Satellite/morph.gdshader" id="1_2xbut"]
 [ext_resource type="Script" path="res://Data/Satellite/satellite.gd" id="1_w78iv"]
-[ext_resource type="Texture2D" uid="uid://bebxop5fbehcq" path="res://Data/Satellite/Satellite_gold_normal.png" id="2_radfb"]
+[ext_resource type="Texture2D" uid="uid://ct4n731fbc6cg" path="res://Data/Satellite/Satellite_gold_normal.png" id="3_flxe8"]
 [ext_resource type="PackedScene" uid="uid://fly1a14m8ibv" path="res://Data/Satellite/antenna.tscn" id="3_tgdci"]
 [ext_resource type="PackedScene" uid="uid://c0nih8qqfqt4c" path="res://Data/Satellite/solar_panel.tscn" id="5_ir1am"]
-[ext_resource type="ArrayMesh" uid="uid://x5o5wby330sk" path="res://Data/Satellite/SputnikRing.obj" id="6_tqdcm"]
+[ext_resource type="ArrayMesh" uid="uid://w41rqwh1qtsb" path="res://Data/Satellite/SputnikRing.obj" id="6_tqdcm"]
 [ext_resource type="PackedScene" uid="uid://dfuymc6rqotx8" path="res://Data/Satellite/hall_thruster_cluster.tscn" id="7_e7vab"]
 [ext_resource type="PackedScene" uid="uid://dd6jsuufge7y5" path="res://Data/Oscilloscope/BlockableGNSSSignal.tscn" id="8_5dnmo"]
 [ext_resource type="Shader" path="res://Data/Satellite/SoundHalo.gdshader" id="9_81ygb"]
@@ -13,26 +13,26 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oe125"]
 render_priority = 0
-shader = ExtResource( "1_2xbut" )
-shader_param/albedo = Color(1, 1, 1, 1)
-shader_param/point_size = null
-shader_param/roughness = 0.25
-shader_param/metallic_texture_channel = Plane(1, 0, 0, 0)
-shader_param/specular = 0.5
-shader_param/metallic = 1.0
-shader_param/normal_scale = 0.0
-shader_param/uv1_blend_sharpness = 1.0
-shader_param/uv1_scale = Vector3(4, 4, 4)
-shader_param/uv1_offset = null
-shader_param/uv2_scale = Vector3(1, 1, 1)
-shader_param/uv2_offset = null
-shader_param/ballRadius = Vector3(0.29, 0.29, 0.29)
-shader_param/boxExtents = Vector3(1, 1.5, 1)
-shader_param/morphAmount = 1.0
-shader_param/texture_normal = ExtResource( "2_radfb" )
+shader = ExtResource("1_2xbut")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = null
+shader_parameter/roughness = 0.25
+shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(4, 4, 4)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/ballRadius = Vector3(0.29, 0.29, 0.29)
+shader_parameter/boxExtents = Vector3(1, 1.5, 1)
+shader_parameter/morphAmount = 1.0
+shader_parameter/texture_normal = ExtResource("3_flxe8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_tmlla"]
-material = SubResource( "ShaderMaterial_oe125" )
+material = SubResource("ShaderMaterial_oe125")
 subdivide_width = 16
 subdivide_height = 16
 subdivide_depth = 16
@@ -44,48 +44,48 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MainBody:mesh:material:shader_param/albedo")
+tracks/0/path = NodePath("MainBody:mesh:material:albedo")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MainBody:mesh:material:shader_param/morphAmount")
+tracks/1/path = NodePath("MainBody:mesh:material:morphAmount")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat64Array(0, 0.5, 1),
-"transitions": PackedFloat64Array(2, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
 "values": [1.0, 0.5, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MainBody:mesh:material:shader_param/normal_scale")
+tracks/2/path = NodePath("MainBody:mesh:material:normal_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MainBody:mesh:material:shader_param/roughness")
+tracks/3/path = NodePath("MainBody:mesh:material:roughness")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.25, 0.25]
 }
@@ -96,8 +96,8 @@ tracks/4/path = NodePath(".:useCommonAntennaRodAngle")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat64Array(0),
-"transitions": PackedFloat64Array(1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
@@ -108,8 +108,8 @@ tracks/5/path = NodePath(".:commonAntennaRodAngle")
 tracks/5/interp = 1
 tracks/5/loop_wrap = false
 tracks/5/keys = {
-"times": PackedFloat64Array(0, 0.5, 1),
-"transitions": PackedFloat64Array(2, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
 "values": [10.0, 50.0, 90.0]
 }
@@ -120,8 +120,8 @@ tracks/6/path = NodePath(".:commonAntennaBaseLocalTranslation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = false
 tracks/6/keys = {
-"times": PackedFloat64Array(0, 0.5, 1),
-"transitions": PackedFloat64Array(2, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0.115, 0), Vector3(0, 0.23, 0)]
 }
@@ -132,8 +132,8 @@ tracks/7/path = NodePath(".:antennaBaseAngle")
 tracks/7/interp = 1
 tracks/7/loop_wrap = false
 tracks/7/keys = {
-"times": PackedFloat64Array(0, 0.5, 1),
-"transitions": PackedFloat64Array(2, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
 "values": [-10.0, -5.0, 0.0]
 }
@@ -142,10 +142,10 @@ tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/path = NodePath("SputnikRing_Upper:position")
 tracks/8/interp = 1
-tracks/8/loop_wrap = true
+tracks/8/loop_wrap = false
 tracks/8/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1.46409, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.46409, 1),
 "update": 0,
 "values": [Vector3(0, 0.051503, 0), Vector3(0, 6, 0)]
 }
@@ -154,10 +154,10 @@ tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/path = NodePath("SputnikRing_Lower:position")
 tracks/9/interp = 1
-tracks/9/loop_wrap = true
+tracks/9/loop_wrap = false
 tracks/9/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1.68179, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.68179, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 5, 0)]
 }
@@ -166,10 +166,10 @@ tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/path = NodePath("SputnikRing_Upper:rotation")
 tracks/10/interp = 1
-tracks/10/loop_wrap = true
+tracks/10/loop_wrap = false
 tracks/10/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1.5708, 0, 0), Vector3(0, 0, 0)]
 }
@@ -178,10 +178,10 @@ tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/path = NodePath("SputnikRing_Lower:rotation")
 tracks/11/interp = 1
-tracks/11/loop_wrap = true
+tracks/11/loop_wrap = false
 tracks/11/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1.10957, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.10957, 1),
 "update": 0,
 "values": [Vector3(1.5708, 4.71239, 0), Vector3(3.14159, 1.15192, 0)]
 }
@@ -190,10 +190,10 @@ tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/path = NodePath("SputnikRing_Upper:visible")
 tracks/12/interp = 1
-tracks/12/loop_wrap = true
+tracks/12/loop_wrap = false
 tracks/12/keys = {
-"times": PackedFloat64Array(0, 0.99, 1),
-"transitions": PackedFloat64Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.99, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
 }
@@ -202,27 +202,32 @@ tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/path = NodePath("SputnikRing_Lower:visible")
 tracks/13/interp = 1
-tracks/13/loop_wrap = true
+tracks/13/loop_wrap = false
 tracks/13/keys = {
-"times": PackedFloat64Array(0, 0.99, 1),
-"transitions": PackedFloat64Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.99, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
 }
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2unsq"]
+_data = {
+"Morph": SubResource("Animation_wjyp3")
+}
+
 [sub_resource type="Animation" id="Animation_7d3r8"]
 resource_name = "ExoFramesFlying"
-loop_mode = 1
+loop_mode = 2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Frame_Upper:position")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(0.5, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector3(0, 10, 0), Vector3(0, 0, 0)]
 }
@@ -231,10 +236,10 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Frame_Upper:rotation")
 tracks/1/interp = 1
-tracks/1/loop_wrap = true
+tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat64Array(0, 0.72, 1),
-"transitions": PackedFloat64Array(0.75, 1, 1),
+"times": PackedFloat32Array(0, 0.72, 1),
+"transitions": PackedFloat32Array(0.75, 1, 1),
 "update": 0,
 "values": [Vector3(2.79253, 0, 1.39626), Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
@@ -243,10 +248,10 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Frame_Lower:position")
 tracks/2/interp = 1
-tracks/2/loop_wrap = true
+tracks/2/loop_wrap = false
 tracks/2/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(0.5, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector3(0, -10, 0), Vector3(0, 0, 0)]
 }
@@ -255,10 +260,10 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Frame_Lower:rotation")
 tracks/3/interp = 1
-tracks/3/loop_wrap = true
+tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat64Array(0, 0.72, 1),
-"transitions": PackedFloat64Array(0.75, 1, 1),
+"times": PackedFloat32Array(0, 0.72, 1),
+"transitions": PackedFloat32Array(0.75, 1, 1),
 "update": 0,
 "values": [Vector3(1.39626, 0, 2.79253), Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
@@ -267,10 +272,10 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("Frame_Upper:visible")
 tracks/4/interp = 1
-tracks/4/loop_wrap = true
+tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat64Array(0, 0.01),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
@@ -279,17 +284,22 @@ tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("Frame_Lower:visible")
 tracks/5/interp = 1
-tracks/5/loop_wrap = true
+tracks/5/loop_wrap = false
 tracks/5/keys = {
-"times": PackedFloat64Array(0, 0.01),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eoibu"]
+_data = {
+"ExoFramesFlying": SubResource("Animation_7d3r8")
+}
+
 [sub_resource type="Animation" id="Animation_vauhs"]
 resource_name = "SolarPanelConstruction"
-loop_mode = 1
+loop_mode = 2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -298,8 +308,8 @@ tracks/0/path = NodePath("SolarPanel1:constructionFraction")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
@@ -310,8 +320,8 @@ tracks/1/path = NodePath("SolarPanel2:constructionFraction")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
@@ -322,8 +332,8 @@ tracks/2/path = NodePath("SolarPanel3:constructionFraction")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
@@ -334,10 +344,15 @@ tracks/3/path = NodePath("SolarPanel4:constructionFraction")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat64Array(0, 1),
-"transitions": PackedFloat64Array(1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwbji"]
+_data = {
+"SolarPanelConstruction": SubResource("Animation_vauhs")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yws4a"]
@@ -362,74 +377,79 @@ rings = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cfwkl"]
 render_priority = 0
-shader = ExtResource( "9_81ygb" )
-shader_param/baseAlbedo = Color(0, 1, 0, 1)
-shader_param/centerHoleRadius = 0.0
-shader_param/numOfSamples = 1542747
-shader_param/soundPos = 0.0
-shader_param/soundOffset = 1500.0
-shader_param/soundLength = -80000.0
-shader_param/soundPreCut = 0.0
-shader_param/soundPostCut = 1e+09
-shader_param/soundAmplification = 2.0
+shader = ExtResource("9_81ygb")
+shader_parameter/baseAlbedo = Color(0, 1, 0, 1)
+shader_parameter/centerHoleRadius = 0.0
+shader_parameter/numOfSamples = 1542747
+shader_parameter/soundPos = 122739.0
+shader_parameter/soundOffset = 1500.0
+shader_parameter/soundLength = -80000.0
+shader_parameter/soundPreCut = 0.0
+shader_parameter/soundPostCut = 1e+09
+shader_parameter/soundAmplification = 2.0
 
-[sub_resource type="QuadMesh" id="QuadMesh_tscy5"]
+[sub_resource type="PlaneMesh" id="QuadMesh_tscy5"]
 size = Vector2(400, 400)
+orientation = 2
 
 [node name="Satellite" type="Node3D"]
-script = ExtResource( "1_w78iv" )
-commonAntennaRodAngle = 29.8246
-antennaBaseAngle = -7.52192
-commonAntennaBaseLocalTranslation = Vector3(0, 0.0569958, 0)
+script = ExtResource("1_w78iv")
+antennaBaseAngle = -10.0
+commonAntennaBaseLocalTranslation = Vector3(0, 0, 0)
 bodyMorphFraction = 0.352
 exoFrameFraction = -0.023
 solarPanelFraction = -0.231
 scopeActive = true
-scopeLightEnergy = 1.0
 
 [node name="MainBody" type="MeshInstance3D" parent="."]
-mesh = SubResource( "BoxMesh_tmlla" )
+mesh = SubResource("BoxMesh_tmlla")
 
 [node name="AnimationPlayer_BodyMorph" type="AnimationPlayer" parent="."]
 reset_on_save = false
 playback_speed = 0.0
-anims/Morph = SubResource( "Animation_wjyp3" )
+libraries = {
+"": SubResource("AnimationLibrary_2unsq")
+}
 
 [node name="AnimationPlayer_ExoFrames" type="AnimationPlayer" parent="."]
 reset_on_save = false
 playback_speed = 0.0
-anims/ExoFramesFlying = SubResource( "Animation_7d3r8" )
+libraries = {
+"": SubResource("AnimationLibrary_eoibu")
+}
 
 [node name="AnimationPlayer_SolarPanel" type="AnimationPlayer" parent="."]
 reset_on_save = false
 playback_speed = 0.0
-anims/SolarPanelConstruction = SubResource( "Animation_vauhs" )
+libraries = {
+"": SubResource("AnimationLibrary_fwbji")
+}
 
-[node name="Antenna1" parent="." instance=ExtResource( "3_tgdci" )]
+[node name="Antenna1" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(0, -1, 1.22465e-16, -1, 0, 0, 0, -1.22465e-16, -1, -0.28, -0.11, 0)
 antennaRodAngle = 29.8246
 localTranslation = Vector3(0, 0.0569958, 0)
 baseAngle = -7.52192
 
-[node name="Antenna2" parent="." instance=ExtResource( "3_tgdci" )]
+[node name="Antenna2" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0.28, -0.11, 0)
 antennaRodAngle = 29.8246
 localTranslation = Vector3(0, 0.0569958, 0)
 baseAngle = -7.52192
 
-[node name="Antenna3" parent="." instance=ExtResource( "3_tgdci" )]
+[node name="Antenna3" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(0, 0, 1, -1, 0, 0, 0, -1, 0, 0, -0.11, -0.28)
 antennaRodAngle = 29.8246
 localTranslation = Vector3(0, 0.0569958, 0)
 baseAngle = -7.52192
 
-[node name="Antenna4" parent="." instance=ExtResource( "3_tgdci" )]
+[node name="Antenna4" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, 0, -0.11, 0.28)
 antennaRodAngle = 29.8246
 localTranslation = Vector3(0, 0.0569958, 0)
 baseAngle = -7.52192
 
-[node name="SolarPanel1" parent="." instance=ExtResource( "5_ir1am" )]
+[node name="SolarPanel1" parent="." instance=ExtResource("5_ir1am")]
 transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, -2.175, -0.192573, -0.350028)
 columns = 8
 flyTime = 0.5
@@ -437,7 +457,7 @@ randomSeed = 424242424242
 constructionOrigin = Vector3(-1, 0, -0.5)
 constructionFraction = 0.0
 
-[node name="SolarPanel2" parent="." instance=ExtResource( "5_ir1am" )]
+[node name="SolarPanel2" parent="." instance=ExtResource("5_ir1am")]
 transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, -2.175, 0.212976, 0.352169)
 columns = 8
 flyTime = 0.5
@@ -447,7 +467,7 @@ randomSeed = 1337
 constructionOrigin = Vector3(-1, 0, 0.5)
 constructionFraction = 0.0
 
-[node name="SolarPanel3" parent="." instance=ExtResource( "5_ir1am" )]
+[node name="SolarPanel3" parent="." instance=ExtResource("5_ir1am")]
 transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, 2.175, -0.193, -0.35)
 columns = 8
 flyTime = 0.5
@@ -457,7 +477,7 @@ randomSeed = 6502
 constructionOrigin = Vector3(1, 0, -0.5)
 constructionFraction = 0.0
 
-[node name="SolarPanel4" parent="." instance=ExtResource( "5_ir1am" )]
+[node name="SolarPanel4" parent="." instance=ExtResource("5_ir1am")]
 transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, 2.175, 0.213, 0.352)
 columns = 8
 flyTime = 0.5
@@ -468,68 +488,68 @@ constructionOrigin = Vector3(1, 0, 0.5)
 constructionFraction = 0.0
 
 [node name="SputnikRing_Upper" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.014, 0, 0, 0, 0.532525, -0.86291, 0, 0.86291, 0.532525, 0, 1.34125, 0)
-mesh = ExtResource( "6_tqdcm" )
-surface_material_override/0 = SubResource( "StandardMaterial3D_yws4a" )
+transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
+mesh = ExtResource("6_tqdcm")
+surface_material_override/0 = SubResource("StandardMaterial3D_yws4a")
 
 [node name="SputnikRing_Lower" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.924307, -0.396307, 0.212991, 2.85325e-17, -0.486658, -0.90551, 0.449911, -0.81418, 0.437574, 0, 0.863674, 0)
-mesh = ExtResource( "6_tqdcm" )
-surface_material_override/0 = SubResource( "StandardMaterial3D_yws4a" )
+transform = Transform3D(9.92626e-07, -1.028, 3.72139e-06, 0, -3.72135e-06, -1.02801, 1.02799, 9.92636e-07, -3.59337e-12, 0, 0, 0)
+mesh = ExtResource("6_tqdcm")
+surface_material_override/0 = SubResource("StandardMaterial3D_yws4a")
 
 [node name="Frame_Upper" type="Node3D" parent="."]
-transform = Transform3D(0.173652, -0.984806, 2.77556e-17, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939694, 0, 10, 0)
+transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939694, 0, 10, 0)
 visible = false
 
 [node name="CSGCombiner_Frame" type="CSGCombiner3D" parent="Frame_Upper"]
+transform = Transform3D(1, 4.20926e-11, -3.63798e-12, 4.29168e-11, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Base" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+transform = Transform3D(1, 4.20926e-11, -7.27596e-12, 4.29168e-11, 1, 0, 0, 0, 1, -4.65661e-10, 0.375, -9.31323e-10)
 size = Vector3(1.01, 0.77, 1.01)
-material = SubResource( "StandardMaterial3D_qk8u7" )
+material = SubResource("StandardMaterial3D_qk8u7")
 
-[node name="VertCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+[node name="Cuts" type="CSGCombiner3D" parent="Frame_Upper/CSGCombiner_Frame/Base"]
 operation = 2
+
+[node name="VertCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base/Cuts"]
+transform = Transform3D(1, 4.21778e-11, -2.18279e-11, 4.29168e-11, 1, 5.04871e-29, 0, 0, 1, 3.25963e-09, -0.00999928, -5.58794e-09)
 size = Vector3(1, 0.77, 1)
 
-[node name="ZCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
-operation = 2
+[node name="ZCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base/Cuts"]
+transform = Transform3D(1, 4.21778e-11, -7.27596e-12, 4.29168e-11, 1, 5.04871e-29, 0, 0, 1, 9.31323e-10, -0.05, -9.31323e-10)
 size = Vector3(0.9, 0.77, 1.1)
 
-[node name="XCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
-operation = 2
+[node name="XCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base/Cuts"]
+transform = Transform3D(1, -6.93889e-18, 0, 0, 1, 5.04871e-29, 0, 0, 1, 5.55112e-17, -0.05, 0)
 size = Vector3(1.1, 0.77, 0.9)
 
-[node name="UpperHoleCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34755, 0)
-operation = 2
+[node name="UpperHoleCut" type="CSGBox3D" parent="Frame_Upper/CSGCombiner_Frame/Base/Cuts"]
+transform = Transform3D(1, -1.17961e-16, 0, 0, 1, 8.58281e-28, 0, 0, 1, -2.69931e-11, 0.370642, 0)
 size = Vector3(0.9, 0.1, 0.9)
 
-[node name="HallThrusterCluster" parent="Frame_Upper" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, -0.0707107, 0.0707107, 0.0707107, -5.55112e-18, 0.05, -0.05, 0.0707107, 0.503, 0.784, 0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
-[node name="HallThrusterCluster2" parent="Frame_Upper" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster2" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, 0.0707107, 0.0707107, 0.0707107, 5.55112e-18, -0.05, 0.05, 0.0707107, 0.503, 0.784, -0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
-[node name="HallThrusterCluster3" parent="Frame_Upper" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster3" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, 0.0707107, 0.0707107, 0.0707107, 0, -0.05, 0.05, -0.0707107, -0.503, 0.784, -0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
-[node name="HallThrusterCluster4" parent="Frame_Upper" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster4" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, -0.0707107, 0.0707107, 0.0707107, 0, 0.05, -0.05, -0.0707107, -0.503, 0.784, 0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
 [node name="Frame_Lower" type="Node3D" parent="."]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
 visible = false
 
 [node name="CSGCombiner_Frame" type="CSGCombiner3D" parent="Frame_Lower"]
@@ -537,10 +557,10 @@ visible = false
 [node name="Base" type="CSGBox3D" parent="Frame_Lower/CSGCombiner_Frame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
 size = Vector3(1.01, 0.77, 1.01)
-material = SubResource( "StandardMaterial3D_qk8u7" )
+material = SubResource("StandardMaterial3D_qk8u7")
 
 [node name="VertCut" type="CSGBox3D" parent="Frame_Lower/CSGCombiner_Frame/Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+transform = Transform3D(1, 1.41378e-09, 1.09139e-11, -4.48892e-10, 1, 9.31323e-10, -7.27596e-12, -9.31323e-10, 1, 4.65661e-09, 0.00999963, -9.31323e-10)
 operation = 2
 size = Vector3(1, 0.77, 1)
 
@@ -565,17 +585,17 @@ layers = 2
 radius = 1.5
 radial_segments = 48
 rings = 24
-material = SubResource( "StandardMaterial3D_ky23b" )
+material = SubResource("StandardMaterial3D_ky23b")
 
 [node name="In" type="CSGSphere3D" parent="Frame_Lower/DishAntenna/CSGCombiner_Dish/Out"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
+transform = Transform3D(1, -4.48807e-10, 0, -4.48807e-10, 1, 0, 0, 0, 1, 9.31323e-10, -0.00499964, -9.31323e-10)
 operation = 2
 radius = 1.5
 radial_segments = 48
 rings = 24
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Frame_Lower/DishAntenna/CSGCombiner_Dish/Out"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36941, 0)
+transform = Transform3D(1, -4.48807e-10, 0, -4.48807e-10, 1, 0, 0, 0, 1, 0, 1.36941, 0)
 operation = 1
 radius = 0.577
 height = 0.5
@@ -585,7 +605,7 @@ smooth_faces = false
 [node name="Radiator" type="MeshInstance3D" parent="Frame_Lower/DishAntenna"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 layers = 2
-mesh = SubResource( "CylinderMesh_75aq1" )
+mesh = SubResource("CylinderMesh_75aq1")
 
 [node name="CSGCombiner_Rod" type="CSGCombiner3D" parent="Frame_Lower/DishAntenna"]
 layers = 2
@@ -593,43 +613,44 @@ layers = 2
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Frame_Lower/DishAntenna/CSGCombiner_Rod"]
 polygon = PackedVector2Array(0.200368, -0.432249, 0.411237, -0.0604099, 0.459938, -0.0767729, 0.234973, -0.452758, 0.028, -0.508, 0.028, -0.492)
 depth = 0.01
-material = SubResource( "StandardMaterial3D_qk8u7" )
+material = SubResource("StandardMaterial3D_qk8u7")
 
 [node name="ScopeLight" type="OmniLight3D" parent="Frame_Lower/DishAntenna"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955002, 0)
 layers = 2
 light_color = Color(0, 1, 0, 1)
-light_energy = 0.3
+light_energy = 0.00137255
 light_specular = 0.0
 light_cull_mask = 4294967294
 
 [node name="DbgSignal" type="Node3D" parent="Frame_Lower/DishAntenna"]
 visible = false
 
-[node name="BlockableGNSSSignal" parent="Frame_Lower/DishAntenna/DbgSignal" instance=ExtResource( "8_5dnmo" )]
+[node name="BlockableGNSSSignal" parent="Frame_Lower/DishAntenna/DbgSignal" instance=ExtResource("8_5dnmo")]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="HallThrusterCluster" parent="Frame_Lower" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, 0.0707107, -0.0707107, -0.0707107, 0, 0.05, -0.05, -0.0707107, 0.503, -0.784, 0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
-[node name="HallThrusterCluster2" parent="Frame_Lower" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster2" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, -0.0707107, -0.0707107, -0.0707107, 0, -0.05, 0.05, -0.0707107, 0.503, -0.784, -0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
-[node name="HallThrusterCluster3" parent="Frame_Lower" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster3" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, -0.0707107, -0.0707107, -0.0707107, 0, -0.05, 0.05, 0.0707107, -0.503, -0.784, -0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
-[node name="HallThrusterCluster4" parent="Frame_Lower" instance=ExtResource( "7_e7vab" )]
+[node name="HallThrusterCluster4" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, 0.0707107, -0.0707107, -0.0707107, 0, 0.05, -0.05, 0.0707107, -0.503, -0.784, 0.503)
 maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
 [node name="SoundHalo" type="MeshInstance3D" parent="."]
-material_override = SubResource( "ShaderMaterial_cfwkl" )
-mesh = SubResource( "QuadMesh_tscy5" )
-script = ExtResource( "10_h5erg" )
+material_override = SubResource("ShaderMaterial_cfwkl")
+mesh = SubResource("QuadMesh_tscy5")
+script = ExtResource("10_h5erg")
+editorCameraPath = NodePath("")

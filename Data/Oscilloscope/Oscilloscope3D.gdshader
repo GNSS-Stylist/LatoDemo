@@ -3,7 +3,7 @@ shader_type spatial;
 render_mode blend_mix,cull_disabled,unshaded,world_vertex_coords, depth_draw_opaque;
 
 // isampler's values seem to be corrupted somehow, so use floats...
-uniform sampler2D soundDataSampler : hint_black;
+uniform sampler2D soundDataSampler : hint_default_black;
 uniform float lineWidthLow = 0.025;		// Smoothstep low value
 uniform float lineWidthHigh = 0.075;	// Smoothstep high value
 uniform float scopeHeight = 1;
@@ -22,7 +22,7 @@ uniform vec3 startOrigin_Object = vec3(0.0, 0.0, 0.0);
 uniform vec3 endOrigin_Object = vec3(1.0, 0.0, 0.0);
 
 uniform int numOfSamples = 1542747;	// Hoffman - Intrinsic.raw
-uniform vec4 baseAlbedo : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 baseAlbedo : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 uniform float startNarrowing_Level = 0.1;
 uniform float startNarrowing_Start = 0.0;
@@ -54,10 +54,16 @@ ivec2 getTexelCoord(int sampleIndex) {
 
 float getSampleValue(int sampleIndex) {
 //	return texelFetch(soundDataSampler, getTexelCoord(sampleIndex), 0).r;
-	float retVal = 0.5;
+	float retVal;
 	if ((sampleIndex >= 0) && (sampleIndex < numOfSamples)) {
 		retVal = texelFetch(soundDataSampler, getTexelCoord(sampleIndex), 0).r;
 	}
+	else
+	{
+		retVal = 0.5;
+	}
+	
+//	retVal = float(sampleIndex % 255) / 255.0;
 	return retVal;
 }
 
@@ -86,7 +92,7 @@ void fragment() {
 		
 	if ((sampleIndex < soundPreCut) || (sampleIndex > soundPostCut)) {
 //	if (true) {
-//		ALPHA = 0.2;
+//		ALPHA = 0.1;
 		discard;
 	}
 	else {

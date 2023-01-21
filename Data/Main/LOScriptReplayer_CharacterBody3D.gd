@@ -31,9 +31,9 @@ func loadFile(fileName):
 	loData.clear()
 	loDataKeys = []
 
-	var file = File.new()
+	var file = FileAccess.open(fileName, FileAccess.READ)
 	#var metadata = {}
-	if file.open(fileName, File.READ) != OK:
+	if (!file):
 		print("Can't open file " + fileName)
 		return
 	var line

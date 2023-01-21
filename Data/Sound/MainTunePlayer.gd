@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends AudioStreamPlayer
 
 var filteredPlaybackPosition:float = 0

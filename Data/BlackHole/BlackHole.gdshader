@@ -2,6 +2,9 @@ shader_type spatial;
 render_mode blend_mix,cull_disabled,unshaded;
 uniform float eventHorizonRadius = 0.5;
 uniform float gravity = 500.0;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+
 //uniform float radius = 0.5;
 
 //varying float gravityScale;

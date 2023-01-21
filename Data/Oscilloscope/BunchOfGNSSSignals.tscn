@@ -4,40 +4,40 @@
 [ext_resource type="Script" path="res://Data/Oscilloscope/BunchOfGNSSSignals.gd" id="1_fpqc1"]
 
 [node name="BunchOfGNSSSignals" type="Node3D"]
-script = ExtResource( "1_fpqc1" )
+script = ExtResource("1_fpqc1")
 
-[node name="BlockableGNSSSignal" parent="." instance=ExtResource( "1_emt6n" )]
-transform = Transform3D(-0.707107, -0.707107, 1.22465e-16, -0.707107, 0.707107, -6.16298e-33, -8.65956e-17, -8.65956e-17, -1, 0, 0, 0)
+[node name="BlockableGNSSSignal" parent="." instance=ExtResource("1_emt6n")]
+transform = Transform3D(-0.707107, -0.707107, 1.22465e-16, -0.707107, 0.707107, 0, -8.65956e-17, -8.65956e-17, -1, 0, 0, 0)
 
-[node name="BlockableGNSSSignal2" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal2" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(0.318419, 0.2574, -0.912335, -0.488548, 0.869329, 0.074756, 0.812361, 0.421915, 0.402563, 0, 0, 0)
 
-[node name="BlockableGNSSSignal3" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal3" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(-0.471354, -0.381028, -0.795389, -0.658086, -0.448459, 0.60482, -0.587152, 0.808519, -0.0393663, 0, 0, 0)
 
-[node name="BlockableGNSSSignal4" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal4" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(0.000963693, 0.00077902, 0.999999, -0.40487, 0.914374, -0.000322145, -0.914374, -0.40487, 0.00119658, 0, 0, 0)
 
-[node name="BlockableGNSSSignal5" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal5" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(-0.328332, -0.604287, 0.725972, -0.741392, 0.641095, 0.198331, -0.585266, -0.473111, -0.658506, 0, 0, 0)
 
-[node name="BlockableGNSSSignal6" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal6" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(-0.393363, -0.913004, -0.108113, -0.914478, 0.40068, -0.0564338, 0.0948432, 0.0766683, -0.992536, 0, 0, 0)
 
-[node name="BlockableGNSSSignal7" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal7" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(-0.898763, -0.267352, 0.347488, -0.32943, 0.934787, -0.132846, -0.289311, -0.23387, -0.928226, 0, 0, 0)
 
-[node name="BlockableGNSSSignal8" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal8" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(0.928489, -0.0184616, -0.370902, -0.324483, -0.526077, -0.786101, -0.18061, 0.850237, -0.494447, 0, 0, 0)
 
-[node name="BlockableGNSSSignal9" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal9" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(0.361188, 0.291973, 0.885604, -0.628656, 0.777684, 0, -0.68872, -0.55674, 0.46444, 0, 0, 0)
 
-[node name="BlockableGNSSSignal10" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal10" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(0.871209, 0.281343, -0.402294, -0.336132, 0.939123, -0.071158, 0.357783, 0.197218, 0.912741, 0, 0, 0)
 
-[node name="BlockableGNSSSignal11" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal11" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(-0.423403, -0.250674, -0.87057, -0.42565, 0.903329, -0.0530912, 0.79972, 0.348079, -0.489172, 0, 0, 0)
 
-[node name="BlockableGNSSSignal12" parent="." instance=ExtResource( "1_emt6n" )]
+[node name="BlockableGNSSSignal12" parent="." instance=ExtResource("1_emt6n")]
 transform = Transform3D(-0.785202, -0.398035, -0.47437, -0.426903, 0.902862, -0.0509428, 0.448567, 0.162509, -0.87885, 0, 0, 0)

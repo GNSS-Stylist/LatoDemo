@@ -2,22 +2,22 @@
 
 [ext_resource type="Script" path="res://Data/Oscilloscope/Oscilloscope3D.gd" id="1_4tbtt"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_fgsew"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_87xvd"]
 size = Vector2(500, 0.2)
 center_offset = Vector3(9, 0, 5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma3f0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fm4gl"]
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0, 1, 1, 1)
 
 [node name="Oscilloscope3D" type="Node3D"]
-script = ExtResource( "1_4tbtt" )
+script = ExtResource("1_4tbtt")
 
 [node name="Surface" type="MeshInstance3D" parent="."]
-mesh = SubResource( "PlaneMesh_fgsew" )
+mesh = SubResource("PlaneMesh_87xvd")
 
 [node name="DbgSurface" type="MeshInstance3D" parent="."]
 visible = false
-material_override = SubResource( "StandardMaterial3D_ma3f0" )
-mesh = SubResource( "PlaneMesh_fgsew" )
+material_override = SubResource("StandardMaterial3D_fm4gl")
+mesh = SubResource("PlaneMesh_87xvd")

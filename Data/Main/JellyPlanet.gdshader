@@ -4,15 +4,15 @@ render_mode depth_draw_opaque;
 //render_mode unshaded;
 //render_mode cull_disabled, depth_draw_always;
 
-uniform float replayTime;
+//uniform float replayTime;
 
 uniform float wobbleAmplitude_Min = 0.01;
 uniform float wobbleAmplitude_Max = 0.1;
 uniform float wobbleFrequency_Min = 0.001;
 uniform float wobbleFrequency_Max = 0.01;
 
-uniform vec4 edgeAlbedo_Front : hint_color = vec4(1.0, 1.0, 0.0, 1.0);
-uniform vec4 centerAlbedo_Front : hint_color = vec4(1.0, 1.0, 0.0, 0.1);
+uniform vec4 edgeAlbedo_Front : source_color = vec4(1.0, 1.0, 0.0, 1.0);
+uniform vec4 centerAlbedo_Front : source_color = vec4(1.0, 1.0, 0.0, 0.1);
 uniform float edgeWidth = 0.02;
 //uniform vec4 edgeAlbedo_Back : hint_color = vec4(0.5, 0.5, 0.0, 1.0);
 
@@ -63,15 +63,29 @@ void vertex()
 //	float wobbleFraction = 1.0 - smoothstep(0.0, initialWobbleTime, timeDiff);
 	const float wobbleFraction = 1.0;
 	
-	vec3 wobbleTranslation;
+//	vec3 wobbleTranslation;
 	
-	wobbleTranslation.x = calcWobble(wobbleFraction, replayTime, VERTEX.x);
-	wobbleTranslation.y = calcWobble(wobbleFraction, replayTime, VERTEX.y);
-	wobbleTranslation.z = calcWobble(wobbleFraction, replayTime, VERTEX.z);
+//	wobbleTranslation.x = calcWobble(wobbleFraction, replayTime, VERTEX.x);
+//	wobbleTranslation.y = calcWobble(wobbleFraction, replayTime, VERTEX.y);
+//	wobbleTranslation.z = calcWobble(wobbleFraction, replayTime, VERTEX.z);
 	
-	VERTEX += wobbleTranslation;
+//	VERTEX += wobbleTranslation;
 
-	fragmentDistanceFromEdge = CUSTOM3.gba;
+//	fragmentDistanceFromEdge = CUSTOM3.gba;
+
+	if (VERTEX_ID % 3 == 0)
+	{
+		fragmentDistanceFromEdge = vec3(1.0, 0.0, 0.0);
+	}
+	else if (VERTEX_ID % 3 == 1)
+	{
+		fragmentDistanceFromEdge = vec3(0.0, 1.0, 0.0);
+	}
+	else
+	{
+		fragmentDistanceFromEdge = vec3(0.0, 0.0, 1.0);
+	}
+
 }
 
 void fragment() {

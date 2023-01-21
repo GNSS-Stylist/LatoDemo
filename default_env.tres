@@ -4,4 +4,4 @@
 
 [resource]
 background_mode = 2
-sky = SubResource( "Sky_l827g" )
+sky = SubResource("Sky_l827g")

@@ -30,17 +30,19 @@ uniform float emissionFadeOutEndTime = 6000.0;
 
 uniform float initialColorTime = 1000.0;
 uniform float finalColorTime = 5000.0;
-uniform vec4 initialColor : hint_color = vec4(1.0, 1.0, 0.0, 1.0);
-uniform vec4 finalColor : hint_color = vec4(0.0, 1.0, 0.0, 1.0);
+uniform vec4 initialColor : source_color = vec4(1.0, 1.0, 0.0, 1.0);
+uniform vec4 finalColor : source_color = vec4(0.0, 1.0, 0.0, 1.0);
 
 uniform float initialEmissionTime = 1000.0;
 uniform float finalEmissionTime = 5000.0;
-uniform vec4 initialEmission: hint_color = vec4(10.0, 10.0, 0.0, 1.0);
-uniform vec4 finalEmission: hint_color = vec4(0.0, 10.0, 0.0, 1.0);
+uniform vec4 initialEmission: source_color = vec4(10.0, 10.0, 0.0, 1.0);
+uniform vec4 finalEmission: source_color = vec4(0.0, 10.0, 0.0, 1.0);
 
 uniform float emissionMixGamma = 4.0;
 
 uniform float edgeWidth = 0.02;
+
+uniform sampler2D customDataSampler;	// : source_color;
 
 
 // Source of hash- and random-functions:
@@ -86,7 +88,8 @@ varying vec3 fragmentDistanceFromEdge;
 
 void vertex()
 {
-	float timeDiff = replayTime - CUSTOM3.x;	// CUSTOM3.x = shotTime
+	int faceId = VERTEX_ID / 3;
+	float timeDiff = replayTime - texelFetch(customDataSampler, ivec2(faceId % 4096, faceId / 4096), 0).r;
 
 	if ((timeDiff <= 0.0) || (timeDiff > disappearanceDelay))
 	{
@@ -167,7 +170,18 @@ void vertex()
 			fragmentEmission = vec4(0.0, 0.0, 0.0, 0.0);
 		}
 		
-		fragmentDistanceFromEdge = CUSTOM3.gba;
+		if (VERTEX_ID % 3 == 0)
+		{
+			fragmentDistanceFromEdge = vec3(1.0, 0.0, 0.0);
+		}
+		else if (VERTEX_ID % 3 == 1)
+		{
+			fragmentDistanceFromEdge = vec3(0.0, 1.0, 0.0);
+		}
+		else
+		{
+			fragmentDistanceFromEdge = vec3(0.0, 0.0, 1.0);
+		}
 	}
 }
 

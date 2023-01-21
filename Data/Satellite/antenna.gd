@@ -23,6 +23,6 @@ func _process(_delta):
 	#Accessing children is apparently not possible since
 	# it causes "Invalid set index 'foo' (on base: 'null instance')
 	# So the children have not been created yet?
-	$GroupTransform/Rod.rotation = Vector3(0, 0, -deg2rad(antennaRodAngle))
+	$GroupTransform/Rod.rotation = Vector3(0, 0, -deg_to_rad(antennaRodAngle))
 	$GroupTransform.transform.origin = localTranslation
-	$GroupTransform.rotation = Vector3(0, 0, deg2rad(baseAngle))
+	$GroupTransform.rotation = Vector3(0, 0, deg_to_rad(baseAngle))

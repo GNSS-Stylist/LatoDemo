@@ -2,11 +2,11 @@
 
 shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_lambert,specular_disabled;
-uniform vec4 albedo : hint_color;
-uniform sampler2D texture_albedo : hint_albedo,filter_linear_mipmap,repeat_enable;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
 uniform float point_size : hint_range(0,128);
 uniform float roughness : hint_range(0,1);
-uniform sampler2D texture_metallic : hint_white,filter_linear_mipmap,repeat_enable;
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
 uniform vec4 metallic_texture_channel;
 uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
 uniform float specular;
@@ -16,8 +16,8 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
-uniform vec4 baseColor : hint_color = vec4(1.0);
-uniform vec4 baseLight : hint_color = vec4(0.0);
+uniform vec4 baseColor : source_color = vec4(1.0);
+uniform vec4 baseLight : source_color = vec4(0.0);
 uniform float lightFraction = 1.0;
 
 uniform int numOfBlackHoles = 4;
@@ -32,6 +32,8 @@ uniform float destructionFraction = 0.0;	// May need to be over 1 to get a total
 
 uniform float sphereOfAvoidanceRadius = 1;
 uniform vec3 sphereOfAvoidanceCenterPoint = vec3(0.0, 0.0, 0.0);
+
+uniform sampler2D customDataSampler;
 
 mat3 rotation3dX(float angle) {
 	float s = sin(angle);
@@ -96,10 +98,16 @@ float distanceSquared(vec3 A, vec3 B)
     return dot(C, C);
 }
 
+ivec2 getTexelCoord(int faceIndex) {
+	return ivec2(faceIndex % 4096, faceIndex / 4096);
+}
+
 void vertex() {
 //	UV=UV*uv1_scale.xy+uv1_offset.xy;
 
-	vec3 faceCenterPoint = CUSTOM0.xyz;
+	int faceId = VERTEX_ID / 3;
+
+	vec3 faceCenterPoint = texelFetch(customDataSampler, getTexelCoord(faceId), 0).xyz;
 	
 	// Find the nearest black hole (original location)
 	

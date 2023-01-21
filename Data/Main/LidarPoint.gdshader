@@ -32,20 +32,20 @@ uniform float flyStartOriginShift = 0.03;
 uniform float flySpeed = 100.0;			// m/s
 uniform float flyStartTime = 0.0;
 uniform float maxFlyEndTime = 200.0;	// ms
-uniform vec4 flyStartAlbedo : hint_color;
+uniform vec4 flyStartAlbedo : source_color;
 uniform float flyStartPointSize = 5.0;
-uniform vec4 flyEndAlbedo : hint_color;
+uniform vec4 flyEndAlbedo : source_color;
 uniform float flyEndPointSize = 5.0;
 
 uniform float hitAlbedoAttackHighTime = 1.0;
 uniform float hitAlbedoAttackFadeoutTime = 2.0;
-uniform vec4 hitAlbedoAttackColor : hint_color;
+uniform vec4 hitAlbedoAttackColor : source_color;
 uniform float hitAlbedoAttackPointSize = 10.0;
 
 
 // Indexes here are of type LSItemType from LidarDataStorage.gd
 // If alpha == 0, no point is drawn
-uniform vec4 pointColors[16] : hint_color;
+uniform vec4 pointColors[16] : source_color;
 
 uniform float mysticMultiplier = 1;
 

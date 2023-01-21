@@ -1,4 +1,4 @@
-#@tool
+@tool
 class_name LidarDataStorage
 
 extends Node
@@ -73,18 +73,17 @@ func loadFile(fileName, compression):
 	clearData()
 	var lineNumber:int = 0
 
-	var file = File.new()
-	var openResult = !OK
+	var file = null
 	
 	match compression:
 		CompressionMode.NO_COMPRESSION, CompressionMode.RAW:
-			openResult = file.open(fileName, File.READ)
+			file = FileAccess.open(fileName, FileAccess.READ)
 		CompressionMode.DEFLATE, CompressionMode.RAW_DEFLATE:
-			openResult = file.open_compressed(fileName, File.READ, File.COMPRESSION_DEFLATE)
+			file = FileAccess.open_compressed(fileName, FileAccess.READ, FileAccess.COMPRESSION_DEFLATE)
 		CompressionMode.GZIP:
-			openResult = file.open_compressed(fileName, File.READ, File.COMPRESSION_GZIP)
+			file = FileAccess.open_compressed(fileName, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 			
-	if openResult != OK:
+	if (!file):
 		print("Can't open file ", fileName)
 		return
 
@@ -99,8 +98,7 @@ func loadFile(fileName, compression):
 			# After several tries and banging my head to a wall I couldn't get 
 			# "external" compression working. So create a compressed file 
 			# using godot's own compression method instead.
-			var compressedFile = File.new()
-			compressedFile.open_compressed(fileName + ".godot_compressed", File.WRITE, File.COMPRESSION_DEFLATE)
+			var compressedFile = FileAccess.open_compressed(fileName + ".godot_compressed", FileAccess.WRITE, FileAccess.COMPRESSION_DEFLATE)
 			while not file.eof_reached():
 				var line = file.get_line()
 				compressedFile.store_line(line)
@@ -109,8 +107,7 @@ func loadFile(fileName, compression):
 			
 		# Use this to get uncompressed file back
 		if false:
-			var uncompressedFile = File.new()
-			uncompressedFile.open(fileName + ".uncompressed", File.WRITE)
+			var uncompressedFile = FileAccess.open(fileName + ".uncompressed", FileAccess.WRITE)
 			while not file.eof_reached():
 				var line = file.get_line()
 				uncompressedFile.store_line(line)
@@ -172,7 +169,7 @@ func loadFile(fileName, compression):
 					threadData.lastItem = totalItems - 1
 				beamDataReadingThreads[threadIndex] = Thread.new()
 				beamDataReadingThreadData[threadIndex] = threadData
-				beamDataReadingThreads[threadIndex].start(Callable(self, "rawDataReadThread"), beamDataReadingThreadData[threadIndex])
+				beamDataReadingThreads[threadIndex].start(Callable(self, "rawDataReadThread").bind(beamDataReadingThreadData[threadIndex]))
 				currentItemIndex += 1
 				
 			for threadIndex in range(0, numOfRawFileDataReadingThreads):
@@ -263,14 +260,14 @@ func loadFile(fileName, compression):
 	if (false):
 		# Create "raw" file that is faster to read
 		
-		var rawFile = File.new()
+		var rawFile = null
 
 		if (true):
 			# For non-compressed raw:
-			rawFile.open(fileName + ".raw.non-compressed.skiptest", File.WRITE)
+			rawFile = FileAccess.open(fileName + ".raw.non-compressed.skiptest", FileAccess.WRITE)
 		else:
 			# For compressed raw:
-			rawFile.open_compressed(fileName + ".raw.godot_compressed", File.WRITE, File.COMPRESSION_DEFLATE)
+			rawFile = FileAccess.open_compressed(fileName + ".raw.godot_compressed", FileAccess.WRITE, FileAccess.COMPRESSION_DEFLATE)
 		
 		# Only write every n:th (or "skipth") item 
 		var skip = 5

@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8j33tk5as6lx"
+uid="uid://yiy2kfdql46a"
 path.s3tc="res://.godot/imported/Lidar_Plastic_normal.png-ba74067e83565e7b29c8e54b6d7ff257.s3tc.ctex"
 path.etc2="res://.godot/imported/Lidar_Plastic_normal.png-ba74067e83565e7b29c8e54b6d7ff257.etc2.ctex"
 metadata={
@@ -31,5 +31,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0

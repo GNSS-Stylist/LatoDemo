@@ -1,4 +1,4 @@
-#@tool
+@tool
 class_name AdditiveGeometryStorage
 extends Node
 
@@ -30,25 +30,25 @@ func loadFiles():
 	clearData()
 
 	var vertexThread = Thread.new()
-	vertexThread.start(Callable(self, "loadVerticesThread"), baseFileName + ".vertices")
+	vertexThread.start(Callable(self, "loadVerticesThread").bind(baseFileName + ".vertices"))
 
 	var normalsThread = Thread.new()
-	normalsThread.start(Callable(self, "loadNormalsThread"), baseFileName + ".normals")
+	normalsThread.start(Callable(self, "loadNormalsThread").bind(baseFileName + ".normals"))
 
 	var vertexIndexesThread = Thread.new()
-	vertexIndexesThread.start(Callable(self, "loadVertexIndexesThread"), baseFileName + ".vertexindexes")
+	vertexIndexesThread.start(Callable(self, "loadVertexIndexesThread").bind(baseFileName + ".vertexindexes"))
 
 	var textureIndexesThread
 	var texCoordsThread
 	if (loadTextureData):
 		textureIndexesThread = Thread.new()
-		textureIndexesThread.start(Callable(self, "loadTextureIndexesThread"), baseFileName + ".texcoordindexes")
+		textureIndexesThread.start(Callable(self, "loadTextureIndexesThread").bind(baseFileName + ".texcoordindexes"))
 
 		texCoordsThread = Thread.new()
-		texCoordsThread.start(Callable(self, "loadTexCoordsThread"), baseFileName + ".texcoords")
+		texCoordsThread.start(Callable(self, "loadTexCoordsThread").bind(baseFileName + ".texcoords"))
 
 	var faceSyncThread = Thread.new()
-	faceSyncThread.start(Callable(self, "loadFaceSyncThread"), baseFileName + ".facesync")
+	faceSyncThread.start(Callable(self, "loadFaceSyncThread").bind(baseFileName + ".facesync"))
 
 	var success:bool = true
 	
@@ -83,8 +83,8 @@ func clearData():
 #	faceSyncKeys.resize(0)
 
 func loadVerticesThread(fileName):
-	var vertexFile = File.new()
-	if (vertexFile.open(fileName, File.READ) != OK):
+	var vertexFile = FileAccess.open(fileName, FileAccess.READ)
+	if (!vertexFile):
 		print("Can't open file ", fileName)
 		return false
 		
@@ -95,8 +95,8 @@ func loadVerticesThread(fileName):
 	return true
 
 func loadNormalsThread(fileName):
-	var normalFile = File.new()
-	if (normalFile.open(fileName, File.READ) != OK):
+	var normalFile = FileAccess.open(fileName, FileAccess.READ)
+	if (!normalFile):
 		print("Can't open file ", fileName)
 		return false
 		
@@ -107,8 +107,8 @@ func loadNormalsThread(fileName):
 	return true
 
 func loadTexCoordsThread(fileName):
-	var texCoordsFile = File.new()
-	if (texCoordsFile.open(fileName, File.READ) != OK):
+	var texCoordsFile = FileAccess.open(fileName, FileAccess.READ)
+	if (!texCoordsFile):
 		print("Can't open file ", fileName)
 		return false
 		
@@ -119,8 +119,8 @@ func loadTexCoordsThread(fileName):
 	return true
 
 func loadVertexIndexesThread(fileName):
-	var textureIndexFile = File.new()
-	if (textureIndexFile.open(fileName, File.READ) != OK):
+	var textureIndexFile = FileAccess.open(fileName, FileAccess.READ)
+	if (!textureIndexFile):
 		print("Can't open file ", fileName)
 		return
 	
@@ -131,8 +131,8 @@ func loadVertexIndexesThread(fileName):
 	return true
 
 func loadTextureIndexesThread(fileName):
-	var textureIndexFile = File.new()
-	if (textureIndexFile.open(fileName, File.READ) != OK):
+	var textureIndexFile = FileAccess.open(fileName, FileAccess.READ)
+	if (!textureIndexFile):
 		print("Can't open file ", fileName)
 		return
 	
@@ -143,8 +143,8 @@ func loadTextureIndexesThread(fileName):
 	return true
 
 func loadFaceSyncThread(fileName):
-	var faceSyncFile = File.new()
-	if (faceSyncFile.open(fileName, File.READ) != OK):
+	var faceSyncFile = FileAccess.open(fileName, FileAccess.READ)
+	if (!faceSyncFile):
 		print("Can't open file ", fileName)
 		return
 
@@ -173,7 +173,8 @@ func loadFaceSyncThread(fileName):
 
 	return true
 
-
+func getNumOfVertices():
+	return fileVertexIndexes.size()
 
 
 

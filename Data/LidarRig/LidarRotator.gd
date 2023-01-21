@@ -1,9 +1,7 @@
-#@tool
+@tool
 extends Node3D
 
-# @onready doesn't work with @tool in this case(?)
-@onready var dataStorage = get_node("/root/Main/LidarDataStorage")
-#var dataStorage = get_node("/root/Main/LidarDataStorage")
+@export var lidarDataStorageNodePath:NodePath	# = get_node("/root/Main/LidarDataStorage")
 
 # Time to wait after valid lidar data before starting to rotate the lidar by itself:
 @export var idleRotationWaitTime:int = 1000
@@ -31,8 +29,13 @@ func _process(_delta):
 	var currentReplayTime:float = Global.replayTime_Lidar
 	var itemIndex:int = 0
 	
-	# See @onready comment above...
-#	var dataStorage = get_node("/root/Main/LidarDataStorage")
+	if (lidarDataStorageNodePath.is_empty()):
+		return
+
+	var dataStorage = get_node(lidarDataStorageNodePath)
+
+	if (!dataStorage):
+		return
 
 	if (dataStorage.beamData.size() > 0):
 		itemIndex = dataStorage.beamDataKeys.bsearch(floor(currentReplayTime), true)

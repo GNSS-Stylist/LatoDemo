@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dom78kbx5glap"
+uid="uid://4ia7g17tovrd"
 path.s3tc="res://.godot/imported/DSC01137_Lato_Back_FullHD_DoubleCanvas.png-e39da50cf45c32f3cc1c83bcc6b72fec.s3tc.ctex"
 path.etc2="res://.godot/imported/DSC01137_Lato_Back_FullHD_DoubleCanvas.png-e39da50cf45c32f3cc1c83bcc6b72fec.etc2.ctex"
 metadata={
@@ -31,5 +31,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0

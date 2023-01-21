@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7s037j3cth6j"]
+[gd_scene load_steps=7 format=3 uid="uid://7s037j3cth6j"]
 
 [ext_resource type="Script" path="res://Data/Satellite/hall_thruster.gd" id="1_01r3e"]
-[ext_resource type="PackedScene" uid="uid://h146kw4y0jg4" path="res://Data/Satellite/HallEffectExhaustLayerCluster.tscn" id="2_loubw"]
+[ext_resource type="PackedScene" uid="uid://dokpp4yskklro" path="res://Data/Satellite/HallEffectExhaustLayerCluster.tscn" id="2_loubw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4be5"]
 transparency = 1
@@ -17,15 +17,21 @@ roughness = 0.66
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yu8um"]
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmksu"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.25098, 1, 1, 1)
+
 [node name="HallThruster" type="Node3D"]
-script = ExtResource( "1_01r3e" )
+script = ExtResource("1_01r3e")
 maxAcceleration = 200.0
-exhaustMaterial = SubResource( "StandardMaterial3D_p4be5" )
+exhaustMaterial = SubResource("StandardMaterial3D_p4be5")
 exhaustAlphaOverride = 1.0
 
 [node name="Body" type="CSGBox3D" parent="."]
 size = Vector3(1, 0.1, 1)
-material = SubResource( "StandardMaterial3D_768vr" )
+material = SubResource("StandardMaterial3D_768vr")
 
 [node name="Groove" type="CSGCylinder3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
@@ -34,7 +40,7 @@ radius = 0.4
 height = 0.1
 sides = 24
 smooth_faces = false
-material = SubResource( "StandardMaterial3D_yu8um" )
+material = SubResource("StandardMaterial3D_yu8um")
 
 [node name="InnerCore" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00175244, 0)
@@ -42,13 +48,13 @@ radius = 0.3
 height = 0.07
 sides = 48
 smooth_faces = false
-material = SubResource( "StandardMaterial3D_yu8um" )
+material = SubResource("StandardMaterial3D_yu8um")
 
 [node name="Innerplate" type="CSGCylinder3D" parent="."]
 radius = 0.28
 height = 0.1
 sides = 48
-material = SubResource( "StandardMaterial3D_768vr" )
+material = SubResource("StandardMaterial3D_768vr")
 
 [node name="InnerNozzle" type="CSGCylinder3D" parent="Innerplate"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0650121, 0)
@@ -56,11 +62,14 @@ operation = 2
 radius = 0.02
 height = 0.1
 
-[node name="HallEffectExhausLayerCluster" parent="." instance=ExtResource( "2_loubw" )]
+[node name="HallEffectExhaustLayerCluster" parent="." instance=ExtResource("2_loubw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material = SubResource("StandardMaterial3D_xmksu")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412998, 0)
+visible = false
 light_color = Color(0.25098, 1, 1, 1)
+light_energy = 0.0
 light_indirect_energy = 0.0
 omni_range = 0.3

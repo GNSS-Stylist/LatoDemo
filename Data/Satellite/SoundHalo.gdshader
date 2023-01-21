@@ -2,7 +2,7 @@
 
 shader_type spatial;
 render_mode blend_add,cull_disabled,unshaded;
-uniform vec4 baseAlbedo : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 baseAlbedo : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float centerHoleRadius = 0.0;
 uniform int numOfSamples = 1542747;	// Hoffman - Intrinsic.raw
 uniform float soundPos = 0.0;
@@ -11,7 +11,7 @@ uniform float soundLength = 8000.0;
 uniform float soundPreCut = 0.0;		// Don't draw samples before this time
 uniform float soundPostCut = 1e9;	// Don't draw samples after this time
 uniform float soundAmplification = 1.0;
-uniform sampler2D soundDataSampler : hint_black;
+uniform sampler2D soundDataSampler : hint_default_black;
 
 void vertex() {
 // This (moving the halo farther away to get the satellite itself not distracted by it)

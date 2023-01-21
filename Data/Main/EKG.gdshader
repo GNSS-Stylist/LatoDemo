@@ -3,7 +3,7 @@ shader_type spatial;
 render_mode blend_add,cull_disabled,unshaded,world_vertex_coords;
 
 // isampler's values seem to be corrupted somehow, so use floats...
-uniform sampler2D soundDataSampler : hint_black;
+uniform sampler2D soundDataSampler : hint_default_black;
 uniform float lineWidthLow = 0.025;
 uniform float lineWidthHigh = 0.075;
 uniform float scopeHeight = 1;
@@ -22,7 +22,7 @@ uniform vec3 startOrigin_Object = vec3(0.0, 0.0, 0.0);
 uniform vec3 endOrigin_Object = vec3(1.0, 0.0, 0.0);
 
 uniform int numOfSamples = 1542747;	// Hoffman - Intrinsic.raw
-uniform vec4 baseAlbedo : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 baseAlbedo : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 uniform float startNarrowing_Level = 0.1;
 uniform float startNarrowing_Start = 0.0;

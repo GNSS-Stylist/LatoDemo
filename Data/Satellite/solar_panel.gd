@@ -28,11 +28,14 @@ extends Node3D
 @export var rowsToSkip = []
 @export var columnsToSkip = []
 
+#var updateConstructionFractionReq:bool = false
+
 @export var constructionFraction:float = 1:
 	get:
 		return constructionFraction
 	set(newValue):
 		if (newValue != constructionFraction):
+#			updateConstructionFractionReq = true
 			updateFraction(newValue)
 		constructionFraction = newValue
 
@@ -94,7 +97,7 @@ func _ready():
 			newCell.initialPos = origin + initialTranslation
 			
 			newCell.initialRotations = Vector3(rng.randf() * maxInitialRotation, rng.randf() * maxInitialRotation, rng.randf() * maxInitialRotation)
-			newCell.rotationOrder = rng.randi_range(0, Basis.EULER_ORDER_ZYX)
+			newCell.rotationOrder = rng.randi_range(0, EULER_ORDER_ZYX)
 
 #			var cellIndex:int = (row * columns) + (column)
 #			var cellIndex:int = (row * columns) + (column)
@@ -116,6 +119,9 @@ func _ready():
 	updateFraction(constructionFraction)
 
 #func _process(_delta):
+#	if updateConstructionFractionReq:
+#		updateFraction(constructionFraction)
+#		updateConstructionFractionReq = false
 #	constructionFraction += _delta * 10
 #	updateFraction()
 

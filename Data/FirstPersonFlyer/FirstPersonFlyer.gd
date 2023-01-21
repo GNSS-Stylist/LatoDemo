@@ -206,8 +206,8 @@ func aim(delta):
 			navMode = NavigationMode.NAVMODE_6DOF
 		else:
 			navMode = NavigationMode.NAVMODE_FPS
-			camera_angle_x_filtered = -rad2deg(asin(transform.basis.z.y))
-			camera_angle_y_filtered = rad2deg(atan2(transform.basis.z.x, transform.basis.z.z))
+			camera_angle_x_filtered = -rad_to_deg(asin(transform.basis.z.y))
+			camera_angle_y_filtered = rad_to_deg(atan2(transform.basis.z.x, transform.basis.z.z))
 			camera_angle_x_unfiltered = camera_angle_x_filtered
 			camera_angle_y_unfiltered = camera_angle_y_filtered
 			
@@ -240,8 +240,8 @@ func aimFPS(delta):
 	last_camera_angle_x_filtered = camera_angle_x_filtered
 	last_camera_angle_y_filtered = camera_angle_y_filtered
 
-	rotate_x(deg2rad(camera_angle_x_filtered))
-	rotate_y(deg2rad(camera_angle_y_filtered))
+	rotate_x(deg_to_rad(camera_angle_x_filtered))
+	rotate_y(deg_to_rad(camera_angle_y_filtered))
 
 func aim6DOF(delta):
 	if camera_change.length() > 0:
@@ -274,9 +274,9 @@ func aim6DOF(delta):
 	ZAxis6DOFTurningSpeed = ZAxis6DOFTurningSpeed * correctedCoeff + unFilteredZAxisTurningSpeed * (1 -  correctedCoeff)
 	
 	var tempBasis = transform.basis
-	tempBasis = tempBasis.rotated(tempBasis.x, deg2rad(camera_angle_x_filtered_change))
-	tempBasis = tempBasis.rotated(tempBasis.y, deg2rad(camera_angle_y_filtered_change))
-	tempBasis = tempBasis.rotated(tempBasis.z, deg2rad(ZAxis6DOFTurningSpeed * delta))
+	tempBasis = tempBasis.rotated(tempBasis.x, deg_to_rad(camera_angle_x_filtered_change))
+	tempBasis = tempBasis.rotated(tempBasis.y, deg_to_rad(camera_angle_y_filtered_change))
+	tempBasis = tempBasis.rotated(tempBasis.z, deg_to_rad(ZAxis6DOFTurningSpeed * delta))
 	transform.basis = tempBasis.orthonormalized()
 
 func set_LocationOrientation(newTransform: Transform3D):
@@ -286,12 +286,12 @@ func set_LocationOrientation(newTransform: Transform3D):
 	if (navMode == NavigationMode.NAVMODE_FPS):
 		transform.basis = Basis()
 		var newBasis = newTransform.basis
-		camera_angle_x_unfiltered = - rad2deg(asin(newBasis.z.y))
+		camera_angle_x_unfiltered = - rad_to_deg(asin(newBasis.z.y))
 		camera_angle_x_filtered = camera_angle_x_unfiltered
-		camera_angle_y_unfiltered = rad2deg(atan2(newBasis.z.x, newBasis.z.z))
+		camera_angle_y_unfiltered = rad_to_deg(atan2(newBasis.z.x, newBasis.z.z))
 		camera_angle_y_filtered = camera_angle_y_unfiltered
-		rotate_x(deg2rad(camera_angle_x_filtered))
-		rotate_y(deg2rad(camera_angle_y_filtered))
+		rotate_x(deg_to_rad(camera_angle_x_filtered))
+		rotate_y(deg_to_rad(camera_angle_y_filtered))
 		
 #	firstPerson.camera_change = Vector2(0,0)
 

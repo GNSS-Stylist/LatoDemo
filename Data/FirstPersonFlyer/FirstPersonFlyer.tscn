@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://be3msxv4st7e1"]
 
 [ext_resource type="Script" path="res://Data/FirstPersonFlyer/FirstPersonFlyer.gd" id="1_0cyb0"]
-[ext_resource type="Texture2D" uid="uid://chksdoi830kih" path="res://Data/FirstPersonFlyer/Crosshair.png" id="2_ubvam"]
-[ext_resource type="Script" path="res://Data/FirstPersonFlyer/Crosshair.gd" id="3_6i17f"]
+[ext_resource type="Script" path="res://Data/FirstPersonFlyer/Crosshair.gd" id="2_col12"]
 [ext_resource type="PackedScene" uid="uid://dd6jsuufge7y5" path="res://Data/Oscilloscope/BlockableGNSSSignal.tscn" id="4_5qgi4"]
+[ext_resource type="Texture2D" uid="uid://bw0mry6gijxh8" path="res://Data/FirstPersonFlyer/Crosshair.png" id="4_6aj0l"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.6
@@ -15,7 +15,7 @@ points = PackedVector3Array(0, 2, 0.05, 0.0353553, 2, 0.0353553, 0.05, 2, 3.0616
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="4"]
-material = SubResource( "3" )
+material = SubResource("3")
 top_radius = 0.05
 bottom_radius = 0.05
 height = 4.0
@@ -30,7 +30,7 @@ transparency = 1
 albedo_color = Color(0.0627451, 0.894118, 0.0666667, 0.505882)
 
 [sub_resource type="CylinderMesh" id="8"]
-material = SubResource( "7" )
+material = SubResource("7")
 top_radius = 0.05
 bottom_radius = 0.05
 radial_segments = 8
@@ -40,18 +40,18 @@ rings = 1
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="10"]
-material = SubResource( "9" )
+material = SubResource("9")
 size = Vector3(5, 0.2, 5)
 
 [sub_resource type="ConvexPolygonShape3D" id="11"]
 points = PackedVector3Array(-2.5, 0.1, 2.5, 2.5, 0.1, -2.5, 2.5, 0.1, 2.5, -2.5, 0.1, -2.5, -2.5, -0.1, 2.5, 2.5, -0.1, -2.5, 2.5, -0.1, 2.5, -2.5, -0.1, -2.5, 2.5, 0.1, 2.5, -2.5, 0.1, -2.5, 2.5, 0.1, -2.5, -2.5, 0.1, 2.5, 2.5, -0.1, 2.5, -2.5, -0.1, -2.5, 2.5, -0.1, -2.5, -2.5, -0.1, 2.5, 2.5, 0.1, 2.5, -2.5, -0.1, 2.5, -2.5, 0.1, 2.5, 2.5, -0.1, 2.5, 2.5, 0.1, -2.5, -2.5, -0.1, -2.5, -2.5, 0.1, -2.5, 2.5, -0.1, -2.5)
 
 [node name="FirstPersonFlyer" type="CharacterBody3D"]
-script = ExtResource( "1_0cyb0" )
+script = ExtResource("1_0cyb0")
 
 [node name="Capsule" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-shape = SubResource( "1" )
+shape = SubResource("1")
 
 [node name="Head" type="Node3D" parent="."]
 
@@ -65,42 +65,43 @@ omni_range = 25.0
 
 [node name="ManipulatorCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -1.5, -3.5)
-shape = SubResource( "2" )
+shape = SubResource("2")
 
 [node name="ManipulatorMeshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="ManipulatorMesh" type="MeshInstance3D" parent="ManipulatorMeshes"]
 transform = Transform3D(1, -2.98023e-08, 0, 0, -1.62921e-07, -1, 2.98023e-08, 1, -1.62921e-07, 1.19209e-06, 0, -3.5)
-mesh = SubResource( "4" )
+mesh = SubResource("4")
 
 [node name="ManipulatorTip" type="MeshInstance3D" parent="ManipulatorMeshes"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 9.53674e-07, 0, -5.5)
-mesh = SubResource( "5" )
+mesh = SubResource("5")
 
 [node name="ManipulatorExtension" type="MeshInstance3D" parent="ManipulatorMeshes"]
 transform = Transform3D(1, -2.98023e-08, 0, 0, -1.62921e-07, -1, 2.98023e-08, 1, -1.62921e-07, 0, 0, -6.5)
-mesh = SubResource( "8" )
+mesh = SubResource("8")
 
 [node name="RMBManipulatorMeshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="Plate" type="MeshInstance3D" parent="RMBManipulatorMeshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.37924, -10.7638)
-mesh = SubResource( "10" )
+mesh = SubResource("10")
 
 [node name="RMBManipulatorCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9, -10.764)
 visible = false
-shape = SubResource( "11" )
+shape = SubResource("11")
 
 [node name="Crosshair" type="Sprite2D" parent="."]
-position = Vector2(500, 300)
-texture = ExtResource( "2_ubvam" )
-script = ExtResource( "3_6i17f" )
+process_mode = 3
+visible = false
+texture = ExtResource("4_6aj0l")
+script = ExtResource("2_col12")
 
 [node name="Node3D" type="Node3D" parent="."]
 visible = false
 
-[node name="BlockableGNSSSignal" parent="Node3D" instance=ExtResource( "4_5qgi4" )]
+[node name="BlockableGNSSSignal" parent="Node3D" instance=ExtResource("4_5qgi4")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -0.431994, 0)

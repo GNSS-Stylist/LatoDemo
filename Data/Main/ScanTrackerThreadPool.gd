@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Node
 
 enum DRAWN_POINT_TYPES { all, onlyAccepted }
@@ -45,13 +45,22 @@ class ThreadData:
 	var mesh_Points:Mesh	# Actually ArrayMesh
 	var mesh_Lines:Mesh	# Actually ArrayMesh
 
-@onready var dataStorage = get_node("../LidarDataStorage")
+@onready var dataStorage:LidarDataStorage = get_node("../LidarDataStorage")
 
 var workerThreads = []
 var workerThreadData = []	# Instances of ThreadData
+#var textureIndexes = {}		# key = time (as in lidarDataStorage.beamData), value = index (/offset) in texture (in which index data for this time starts)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	var textureIndex = 0
+#	for time in dataStorage.beamDataKeys:
+#		textureIndexes[time] = textureIndex
+#		textureIndex += dataStorage.beamData[time].size()
+#	
+#	print("textureIndex final value: ", textureIndex)
+
+
 	
 #	var dbg_Mesh = constructPointMeshArray(925000, 926000, getCircleMeshArrays(billboardCirclePoints, pointSize), getLidarLineMeshArrays())
 	
@@ -70,7 +79,7 @@ func _ready():
 		threadData.mesh_Points = null
 		threadData.mesh_Lines = null
 		workerThreadData[threadIndex] = threadData
-		workerThreads[threadIndex].start(Callable(self, "threadCode"), threadIndex)
+		workerThreads[threadIndex].start(Callable(self, "threadCode").bind(threadIndex))
 
 var dbg_AccumulatedDelta:float = 0
 var dbg_Done:bool = false
@@ -253,8 +262,8 @@ func constructPointMeshArray(firstReplayTime:float, lastReplayTime:float, shapeA
 #	arrayMeshArray_Points[Mesh.ARRAY_INDEX] = PackedInt32Array()
 	arrayMeshArray_Points[Mesh.ARRAY_TEX_UV] = PackedVector2Array()
 	arrayMeshArray_Points[Mesh.ARRAY_TEX_UV2] = PackedVector2Array()
-	arrayMeshArray_Points[Mesh.ARRAY_CUSTOM0] = PackedColorArray()
-	arrayMeshArray_Points[Mesh.ARRAY_CUSTOM1] = PackedColorArray()
+	arrayMeshArray_Points[Mesh.ARRAY_CUSTOM0] = PackedFloat32Array()
+	arrayMeshArray_Points[Mesh.ARRAY_CUSTOM1] = PackedFloat32Array()
 
 	var arrayMeshArray_Lines = []
 	arrayMeshArray_Lines.resize(Mesh.ARRAY_MAX)
@@ -263,28 +272,28 @@ func constructPointMeshArray(firstReplayTime:float, lastReplayTime:float, shapeA
 #	arrayMeshArray_Lines[Mesh.ARRAY_INDEX] = PackedInt32Array()
 	arrayMeshArray_Lines[Mesh.ARRAY_TEX_UV] = PackedVector2Array()
 	arrayMeshArray_Lines[Mesh.ARRAY_TEX_UV2] = PackedVector2Array()
-	arrayMeshArray_Lines[Mesh.ARRAY_CUSTOM0] = PackedColorArray()
-	arrayMeshArray_Lines[Mesh.ARRAY_CUSTOM1] = PackedColorArray()
+	arrayMeshArray_Lines[Mesh.ARRAY_CUSTOM0] = PackedFloat32Array()
+	arrayMeshArray_Lines[Mesh.ARRAY_CUSTOM1] = PackedFloat32Array()
 
 	var arrayToAppend_Points = shapeArray_Point.duplicate(true)
 
 	arrayToAppend_Points[Mesh.ARRAY_TEX_UV2] = PackedVector2Array()
-	arrayToAppend_Points[Mesh.ARRAY_CUSTOM0] = PackedColorArray()
-	arrayToAppend_Points[Mesh.ARRAY_CUSTOM1] = PackedColorArray()
+	arrayToAppend_Points[Mesh.ARRAY_CUSTOM0] = PackedFloat32Array()
+	arrayToAppend_Points[Mesh.ARRAY_CUSTOM1] = PackedFloat32Array()
 
 	arrayToAppend_Points[Mesh.ARRAY_TEX_UV2].resize(arrayToAppend_Points[Mesh.ARRAY_VERTEX].size())
-	arrayToAppend_Points[Mesh.ARRAY_CUSTOM0].resize(arrayToAppend_Points[Mesh.ARRAY_VERTEX].size())
-	arrayToAppend_Points[Mesh.ARRAY_CUSTOM1].resize(arrayToAppend_Points[Mesh.ARRAY_VERTEX].size())
+	arrayToAppend_Points[Mesh.ARRAY_CUSTOM0].resize(arrayToAppend_Points[Mesh.ARRAY_VERTEX].size() * 4)
+	arrayToAppend_Points[Mesh.ARRAY_CUSTOM1].resize(arrayToAppend_Points[Mesh.ARRAY_VERTEX].size() * 4)
 
 	var arrayToAppend_Lines = shapeArray_Line.duplicate(true)
 
 #	arrayToAppend_Lines[Mesh.ARRAY_TEX_UV2] = PackedVector2Array()
-	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0] = PackedColorArray()
-	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1] = PackedColorArray()
+	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0] = PackedFloat32Array()
+	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1] = PackedFloat32Array()
 
 #	arrayToAppend_Lines[Mesh.ARRAY_TEX_UV2].resize(arrayToAppend_Lines[Mesh.ARRAY_VERTEX].size())
-	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0].resize(arrayToAppend_Lines[Mesh.ARRAY_VERTEX].size())
-	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1].resize(arrayToAppend_Lines[Mesh.ARRAY_VERTEX].size())
+	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0].resize(arrayToAppend_Lines[Mesh.ARRAY_VERTEX].size() * 4)
+	arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1].resize(arrayToAppend_Lines[Mesh.ARRAY_VERTEX].size() * 4)
 
 	var numOfVerticesPerItem_Points:int = shapeArray_Point[Mesh.ARRAY_VERTEX].size()
 #	var numOfIndexesPerItem_Points:int = shapeArray_Point[Mesh.ARRAY_INDEX].size()
@@ -327,13 +336,21 @@ func constructPointMeshArray(firstReplayTime:float, lastReplayTime:float, shapeA
 						arrayToAppend_Points[Mesh.ARRAY_VERTEX][i] = shapeArray_Point[Mesh.ARRAY_VERTEX][i] + hitPoint
 						# Note: Time used in shader is relative to currentShaderBaseTime to keep it as accurate as possible
 						arrayToAppend_Points[Mesh.ARRAY_TEX_UV2][i] = Vector2(interpolatedReplayTime - currentShaderBaseTime, subItem.type)
-						arrayToAppend_Points[Mesh.ARRAY_CUSTOM0][i] = Color(hitPoint.x, hitPoint.y, hitPoint.z, hitIndex)
-						arrayToAppend_Points[Mesh.ARRAY_CUSTOM1][i] = Color(origin.x, origin.y, origin.z, (hitPoint - origin).length());
+						
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM0][i * 4 + 0] = hitPoint.x
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM0][i * 4 + 1] = hitPoint.y
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM0][i * 4 + 2] = hitPoint.z
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM0][i * 4 + 3] = hitIndex
+						
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM1][i * 4 + 0] = origin.x
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM1][i * 4 + 1] = origin.y
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM1][i * 4 + 2] = origin.z
+						arrayToAppend_Points[Mesh.ARRAY_CUSTOM1][i * 4 + 3] = (hitPoint - origin).length()
 					
 #					for i in range(numOfIndexesPerItem_Points):
 #						arrayToAppend_Points[Mesh.ARRAY_INDEX][i] = shapeArray_Point[Mesh.ARRAY_INDEX][i] + indexShift_Points
 
-					for i in range(Mesh.ARRAY_MAX):
+					for i in range(int(Mesh.ARRAY_MAX)):
 						if (arrayToAppend_Points[i] != null and arrayMeshArray_Points[i] != null):
 							arrayMeshArray_Points[i].append_array(arrayToAppend_Points[i])
 						
@@ -345,13 +362,21 @@ func constructPointMeshArray(firstReplayTime:float, lastReplayTime:float, shapeA
 						arrayToAppend_Lines[Mesh.ARRAY_VERTEX][i] = shapeArray_Line[Mesh.ARRAY_VERTEX][i] + hitPoint
 						# Note: Time used in shader is relative to currentShaderBaseTime to keep it as accurate as possible
 						arrayToAppend_Lines[Mesh.ARRAY_TEX_UV2][i] = Vector2(interpolatedReplayTime - currentShaderBaseTime, (int(shapeArray_Line[Mesh.ARRAY_TEX_UV2][i].y) | subItem.type))
-						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0][i] = Color(hitPoint.x, hitPoint.y, hitPoint.z, hitIndex)
-						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1][i] = Color(origin.x, origin.y, origin.z, (hitPoint - origin).length());
+						
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0][i * 4 + 0] = hitPoint.x
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0][i * 4 + 1] = hitPoint.y
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0][i * 4 + 2] = hitPoint.z
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM0][i * 4 + 3] = hitIndex
+						
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1][i * 4 + 0] = origin.x
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1][i * 4 + 1] = origin.y
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1][i * 4 + 2] = origin.z
+						arrayToAppend_Lines[Mesh.ARRAY_CUSTOM1][i * 4 + 3] = (hitPoint - origin).length()
 					
 #					for i in range(numOfIndexesPerItem_Lines):
 #						arrayToAppend_Lines[Mesh.ARRAY_INDEX][i] = shapeArray_Line[Mesh.ARRAY_INDEX][i] + indexShift_Lines
 
-					for i in range(Mesh.ARRAY_MAX):
+					for i in range(int(Mesh.ARRAY_MAX)):
 						if (arrayToAppend_Lines[i] != null and arrayMeshArray_Lines[i] != null):
 							arrayMeshArray_Lines[i].append_array(arrayToAppend_Lines[i])
 			hitIndex += 1
@@ -371,7 +396,7 @@ func getCircleMeshArrays(numOfEdgePoints:int, radius:float):
 	var vertexArray:PackedVector3Array = PackedVector3Array()
 	var uvArray:PackedVector2Array = PackedVector2Array()
 
-	var angleOffset = deg2rad(-120)
+	var angleOffset = deg_to_rad(-120)
 
 	for pointIndex in range(0, numOfEdgePoints):
 		var angle:float = pointIndex * (2 * PI) / numOfEdgePoints + angleOffset
@@ -388,9 +413,9 @@ func getCircleMeshArrays(numOfEdgePoints:int, radius:float):
 #		indexArray.push_back(triangleIndex + 1)
 #		indexArray.push_back(triangleIndex + 2)
 	
-	uvArray.push_back(Vector2(-sin(deg2rad(60)) * 2,   -1))
-	uvArray.push_back(Vector2(0, sqrt(1 + pow((sin(deg2rad(60)) * 2), 2))))
-	uvArray.push_back(Vector2(sin(deg2rad(60)) * 2,   -1))
+	uvArray.push_back(Vector2(-sin(deg_to_rad(60)) * 2,   -1))
+	uvArray.push_back(Vector2(0, sqrt(1 + pow((sin(deg_to_rad(60)) * 2), 2))))
+	uvArray.push_back(Vector2(sin(deg_to_rad(60)) * 2,   -1))
 	
 	var meshArrays = []
 	meshArrays.resize(Mesh.ARRAY_MAX)

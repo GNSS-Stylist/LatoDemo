@@ -3,12 +3,9 @@
 [ext_resource type="Script" path="res://Data/Satellite/solar_panel.gd" id="1_1lspv"]
 
 [node name="SolarPanel" type="Node3D"]
-script = ExtResource( "1_1lspv" )
+script = ExtResource("1_1lspv")
 rows = 21
-size0Time = 0.0
 size1Time = 0.7
-flyDistance_Min = 3.0
-flyDistance_Max = 5.0
 flyDirLimits_Min = Vector3(0, 0, 0)
 maxInitialRotation = 25.0
 randomSeed = 0

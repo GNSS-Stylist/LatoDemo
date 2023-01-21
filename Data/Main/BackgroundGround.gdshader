@@ -2,8 +2,8 @@ shader_type spatial;
 
 render_mode cull_disabled, depth_draw_always, specular_disabled;
 
-uniform vec4 baseColor : hint_color = vec4(1.0);
-uniform vec4 baseLight : hint_color = vec4(0.0);
+uniform vec4 baseColor : source_color = vec4(1.0);
+uniform vec4 baseLight : source_color = vec4(0.0);
 uniform float lightFraction = 1.0;
 
 void fragment() {

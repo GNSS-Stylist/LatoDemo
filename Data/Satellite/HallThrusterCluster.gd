@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 @export var maxAcceleration:float = 1:
@@ -28,4 +29,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta):
+#	print("_process, ", self.name)
 #	pass

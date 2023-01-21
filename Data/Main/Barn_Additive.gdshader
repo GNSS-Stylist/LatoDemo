@@ -32,22 +32,22 @@ uniform float edgeEmissionFadeOutStartTime = 5000.0;
 uniform float edgeEmissionFadeOutEndTime = 6000.0;
 uniform float edgeEmissionFadeGammaCorrection = 0.5;
 
-uniform vec4 baseColor : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform vec4 edgeColor : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform vec4 edgeEmission : hint_color = vec4(10.0, 0.0, 0.0, 1.0);
+uniform vec4 baseColor : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 edgeColor : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 edgeEmission : source_color = vec4(10.0, 0.0, 0.0, 1.0);
 
 uniform float edgeWidth = 0.02;
 
-uniform sampler2D albedo_texture : hint_albedo,filter_linear_mipmap,repeat_disable;
+uniform sampler2D albedo_texture : source_color,filter_linear_mipmap,repeat_disable;
 uniform float textureFadeInStartTime = 10000.0;
 uniform float textureFadeInEndTime = 15000.0;
-uniform vec4 albedo_texture_base_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 albedo_texture_base_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 //uniform vec4 baseLight : hint_color = vec4(1.0);
 //uniform float lightFraction = 1.0;
 
-uniform vec4 baseLightInitialValue : hint_color = vec4(0.0);
-uniform vec4 baseLightFinalValue : hint_color = vec4(1.0);
+uniform vec4 baseLightInitialValue : source_color = vec4(0.0);
+uniform vec4 baseLightFinalValue : source_color = vec4(1.0);
 uniform float baseLightInitialValueTime = 10000.0;
 uniform float baseLightFinalValueTime = 15000.0;
 
@@ -65,6 +65,8 @@ uniform bool edgeNormalSmoothing = false;
 uniform vec2 edgeNormalSmoothOriginXZ = vec2(0.0, 0.0);
 uniform float edgeNormalSmoothStartDistance = 1.0e9;
 uniform float edgeNormalSmoothEndDistance = 2.0e9;
+
+uniform sampler2D customDataSampler;	// : source_color;
 
 mat3 rotation3dX(float angle) {
 	float s = sin(angle);
@@ -123,6 +125,11 @@ float random(float f) {
 	return r2 - 1.0;
 }
 
+ivec2 getTexelCoord(int faceIndex, int offset) {
+	int index = faceIndex * 3 + offset;
+	return ivec2(index % 4096, index / 4096);
+}
+
 varying flat float discardFragment;	// This is bool
 varying flat float fragmentTimeDiff;
 varying flat float fragmentEdgeColorFraction;
@@ -138,10 +145,12 @@ void vertex()
 //	int faceIndex = int(UV2.y);
 //	float shotTime = UV2.x;
 	float timeDiff;
+	
+	int faceId = VERTEX_ID / 3;
 
 	if (faceTimeOverride == 0.0) 
 	{
-		timeDiff = replayTime - CUSTOM3.x;	// CUSTOM3.x = shotTime
+		timeDiff = replayTime - texelFetch(customDataSampler, getTexelCoord(faceId, 0), 0).a;
 	}
 	else
 	{
@@ -167,13 +176,13 @@ void vertex()
 			if (timeDiff < flatFaceMinDelayTime) {
 				// Face is completely flat
 				// Normal for flat shading is relayed in CUSTOM2
-				NORMAL = CUSTOM2.xyz;
+				NORMAL = texelFetch(customDataSampler, getTexelCoord(faceId, 0), 0).xyz;
 			}
 			else if (timeDiff < flatFaceMaxDelayTime) {
 				// Interpolate "flatness"
 				// Not using quaternion or any fancy methods as
 				// face normal and vertex normal are likely near enough
-				vec3 flatFaceNormal = CUSTOM2.xyz;
+				vec3 flatFaceNormal = texelFetch(customDataSampler, getTexelCoord(faceId, 0), 0).xyz;
 				float fraction = (timeDiff - flatFaceMinDelayTime) / (flatFaceMaxDelayTime - flatFaceMinDelayTime);
 				NORMAL = normalize(mix(flatFaceNormal, NORMAL, fraction));
 			}
@@ -182,8 +191,15 @@ void vertex()
 			{
 				// Face flying
 				
-				vec3 startOrigin = CUSTOM0.xyz;
-				vec3 finalOrigin = CUSTOM1.xyz;
+//				vec3 startOrigin = CUSTOM0.xyz;
+//				vec3 finalOrigin = CUSTOM1.xyz;
+
+//				ivec2 startTexelCoord = ivec2((VERTEX_ID * 4) % 4096, (VERTEX_ID * 4) / 4096);
+
+				vec3 finalOrigin = texelFetch(customDataSampler, getTexelCoord(faceId, 1), 0).xyz;
+//				vec3 startOrigin = texelFetch(customDataSampler, startTexelCoord, 0).xyz;
+				vec3 startOrigin = texelFetch(customDataSampler, getTexelCoord(faceId, 2), 0).xyz;
+//				vec3 finalOrigin = texelFetch(customDataSampler, ivec2(startTexelCoord.x + 1, startTexelCoord.y), 0).xyz;
 				
 				// Fraction runs from 1 to 0 when time increases
 				// Both ends smoothstepped:
@@ -211,7 +227,20 @@ void vertex()
 			}
 		}
 		
-		fragmentDistanceFromEdge = CUSTOM3.gba;
+//		fragmentDistanceFromEdge = CUSTOM3.gba;
+
+		if (VERTEX_ID % 3 == 0)
+		{
+			fragmentDistanceFromEdge = vec3(1.0, 0.0, 0.0);
+		}
+		else if (VERTEX_ID % 3 == 1)
+		{
+			fragmentDistanceFromEdge = vec3(0.0, 1.0, 0.0);
+		}
+		else
+		{
+			fragmentDistanceFromEdge = vec3(0.0, 0.0, 1.0);
+		}
 		
 		if ((timeDiff > initialEdgeColorFadeInStartTime) &&
 				(timeDiff < initialEdgeColorFadeInEndTime))

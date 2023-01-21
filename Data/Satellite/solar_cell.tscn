@@ -1,39 +1,39 @@
 [gd_scene load_steps=14 format=3 uid="uid://d2b1o8nrptafr"]
 
 [ext_resource type="Script" path="res://Data/Satellite/solar_cell.gd" id="1_8fu06"]
-[ext_resource type="Texture2D" uid="uid://dyjrirqsic48u" path="res://Data/Satellite/SolarCell.png" id="1_w2fej"]
+[ext_resource type="Texture2D" uid="uid://ds36qx65dxs4c" path="res://Data/Satellite/SolarCell.png" id="1_w2fej"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3jio"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orseu"]
 depth_draw_mode = 1
 albedo_color = Color(0.992157, 1, 1, 1)
 metallic = 1.0
 roughness = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8c8m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76ldu"]
 render_priority = 1
-next_pass = SubResource( "StandardMaterial3D_m3jio" )
+next_pass = SubResource("StandardMaterial3D_orseu")
 transparency = 1
-albedo_texture = ExtResource( "1_w2fej" )
+albedo_texture = ExtResource("1_w2fej")
 metallic = 0.95
 roughness = 0.1
 clearcoat_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rufgr"]
-material = SubResource( "StandardMaterial3D_n8c8m" )
+[sub_resource type="PlaneMesh" id="PlaneMesh_jmida"]
+material = SubResource("StandardMaterial3D_76ldu")
 size = Vector2(0.101, 0.101)
 center_offset = Vector3(0, 0.002, 0)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_gkikl"]
-material = SubResource( "StandardMaterial3D_m3jio" )
+[sub_resource type="PlaneMesh" id="PlaneMesh_0ohxb"]
+material = SubResource("StandardMaterial3D_orseu")
 size = Vector2(0.101, 0.101)
 center_offset = Vector3(0, 0.002, 0)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_dh1th"]
-material = SubResource( "StandardMaterial3D_m3jio" )
+[sub_resource type="PlaneMesh" id="PlaneMesh_x7pvw"]
+material = SubResource("StandardMaterial3D_orseu")
 size = Vector2(0.004, 0.1)
 center_offset = Vector3(0, 0.05, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqllf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqnk1"]
 resource_local_to_scene = true
 transparency = 1
 depth_draw_mode = 1
@@ -41,13 +41,13 @@ albedo_color = Color(0.992157, 1, 1, 1)
 metallic = 1.0
 roughness = 0.4
 
-[sub_resource type="BoxMesh" id="BoxMesh_pv7x3"]
-material = SubResource( "StandardMaterial3D_sqllf" )
+[sub_resource type="BoxMesh" id="BoxMesh_3uor4"]
+material = SubResource("StandardMaterial3D_aqnk1")
 size = Vector3(0.1, 0.01, 0.1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cj4ek"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rxtw6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljvh0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yng7i"]
 resource_local_to_scene = true
 transparency = 1
 depth_draw_mode = 1
@@ -55,53 +55,53 @@ albedo_color = Color(0.992157, 1, 1, 1)
 metallic = 1.0
 roughness = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88lcn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blypf"]
 resource_local_to_scene = true
 render_priority = 1
-next_pass = SubResource( "StandardMaterial3D_ljvh0" )
+next_pass = SubResource("StandardMaterial3D_yng7i")
 transparency = 1
-albedo_texture = SubResource( "CompressedTexture2D_cj4ek" )
+albedo_texture = SubResource("CompressedTexture2D_rxtw6")
 metallic = 0.95
 roughness = 0.1
 clearcoat_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_dn2hl"]
-material = SubResource( "StandardMaterial3D_88lcn" )
+[sub_resource type="PlaneMesh" id="PlaneMesh_6n312"]
+material = SubResource("StandardMaterial3D_blypf")
 size = Vector2(0.1, 0.1)
 center_offset = Vector3(0, 0.006, 0)
 
 [node name="SolarCell" type="Node3D"]
-script = ExtResource( "1_8fu06" )
-baseMaterial = SubResource( "StandardMaterial3D_m3jio" )
-cellMaterial = SubResource( "StandardMaterial3D_n8c8m" )
+script = ExtResource("1_8fu06")
+baseMaterial = SubResource("StandardMaterial3D_orseu")
+cellMaterial = SubResource("StandardMaterial3D_76ldu")
 
 [node name="Front" type="MeshInstance3D" parent="."]
-mesh = SubResource( "PlaneMesh_rufgr" )
+mesh = SubResource("PlaneMesh_jmida")
 
 [node name="Back" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -1.22465e-16, 0, 1.22465e-16, -1, 0, 0, 0)
-mesh = SubResource( "PlaneMesh_gkikl" )
+mesh = SubResource("PlaneMesh_0ohxb")
 
 [node name="MinusX" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource( "PlaneMesh_dh1th" )
+mesh = SubResource("PlaneMesh_x7pvw")
 
 [node name="PlusX" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 1, 1.22465e-16, 1, 0, 0, 0, 1.22465e-16, -1, 0, 0, 0)
-mesh = SubResource( "PlaneMesh_dh1th" )
+mesh = SubResource("PlaneMesh_x7pvw")
 
 [node name="MinusZ" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, -1, 1, 0, 0, 0, -1, 0, 0, 0, 0)
-mesh = SubResource( "PlaneMesh_dh1th" )
+mesh = SubResource("PlaneMesh_x7pvw")
 
 [node name="PlusZ" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0)
-mesh = SubResource( "PlaneMesh_dh1th" )
+mesh = SubResource("PlaneMesh_x7pvw")
 
 [node name="Base" type="MeshInstance3D" parent="."]
 visible = false
-mesh = SubResource( "BoxMesh_pv7x3" )
+mesh = SubResource("BoxMesh_3uor4")
 
 [node name="Cell" type="MeshInstance3D" parent="."]
 visible = false
-mesh = SubResource( "PlaneMesh_dn2hl" )
+mesh = SubResource("PlaneMesh_6n312")

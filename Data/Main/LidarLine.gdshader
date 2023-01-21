@@ -64,7 +64,7 @@ uniform float initialTEAlbedoAttackEndTime = 10.0;
 uniform float initialTEAlbedoAttackEndColorGamma = 5.0;
 */
 
-uniform vec4 initialAlbedoAttackColor : hint_color;
+uniform vec4 initialAlbedoAttackColor : source_color;
 
 uniform float fadeOutStartTime = 5.0;
 uniform float fadeOutEndTime = 50.0;
@@ -90,7 +90,7 @@ uniform float disappearanceTime = 200;
 
 // Indexes here are of type LSItemType from LidarDataStorage.gd
 // If alpha == 0, no point is drawn
-uniform vec4 pointColors[16] : hint_color;
+uniform vec4 pointColors[16] : source_color;
 
 uniform int lineAntiAliasing = 10;
 

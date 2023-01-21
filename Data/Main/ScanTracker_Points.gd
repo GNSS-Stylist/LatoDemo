@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends MeshInstance3D
 
 #enum STATE { 

@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Node
 
 # "Godot's scene system, while powerful and flexible, has a drawback:
@@ -36,13 +36,24 @@ extends Node
 
 @export var scopeAutoSoundPosAdjustFractionByCurrentCamera:float = 0
 
-@onready var tunePlayer:AudioStreamPlayer = get_node("/root/Main/MainTunePlayer")
+#@onready var tunePlayer:AudioStreamPlayer = get_node("/root/Main/MainTunePlayer")
 
-@onready var scopeAutoSoundPosAdjustStartRefPointNode = get_node("/root/Main/World/LidarRig/ScopeAutoSoundPosAdjustEndRefPoint")
-@onready var scopeAutoSoundPosAdjustEndRefPointNode = get_node("/root/Main/ScopeAutoSoundPosAdjustStartRefPoint")
+@export var scopeAutoSoundPosAdjustStartRefPointNodePath:NodePath	# = get_node("/root/Main/World/LidarRig/ScopeAutoSoundPosAdjustEndRefPoint")
+@export var scopeAutoSoundPosAdjustEndRefPointNodePath:NodePath	# = get_node("/root/Main/ScopeAutoSoundPosAdjustStartRefPoint")
+
+@export var editorCameraNodePath:NodePath	# = get_node("/root/Main/InterpolatedCamera")
+
+var scopeAutoSoundPosAdjustStartRefPointNode
+var scopeAutoSoundPosAdjustEndRefPointNode
+
+var editorCameraNode:Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	scopeAutoSoundPosAdjustStartRefPointNode = get_node(scopeAutoSoundPosAdjustStartRefPointNodePath)
+	scopeAutoSoundPosAdjustEndRefPointNode = get_node(scopeAutoSoundPosAdjustEndRefPointNodePath)
+	editorCameraNode = get_node(editorCameraNodePath)
+	
 	Global.lidarPointMaterial = lidarPointMaterial
 	Global.lidarLineMaterial = lidarLineMaterial
 
@@ -56,6 +67,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if (Engine.is_editor_hint() && Global.cleanTempToolData):
+		return
+
 	Global.replayTime_Lidar = replayTime_Lidar + replayTimeShift_Lidar
 	Global.replayTimeShift_Lidar = replayTimeShift_Lidar
 
@@ -72,19 +86,33 @@ func _process(_delta):
 #	blockableGNSSSignalMaterial.set_shader_param("soundLength", scopeSoundLength)
 #	blockableGNSSSignalMaterial.set_shader_param("baseAlbedo", scopeBaseAlbedo)
 
-	var currentCamera = get_viewport().get_camera_3d()
-	var currentCameraOrigin:Vector3 = currentCamera.global_transform.origin
-	var startPointOrigin:Vector3 = scopeAutoSoundPosAdjustStartRefPointNode.global_transform.origin
-	var endPointOrigin:Vector3 = scopeAutoSoundPosAdjustEndRefPointNode.global_transform.origin
+	var currentCamera
 	
-	var proj = ((currentCameraOrigin - startPointOrigin).dot(endPointOrigin - startPointOrigin)) / (endPointOrigin - startPointOrigin).length_squared()
-#	print (proj)
-	var adjustment = clamp((1 - proj), 0, 1) * blockableGNSSSignalMaterial.get_shader_param("soundLength") * scopeAutoSoundPosAdjustFractionByCurrentCamera
-#	print (adjustment)
+	if (Engine.is_editor_hint()):
+		currentCamera = editorCameraNode
+	else:
+		currentCamera = get_viewport().get_camera_3d()
 
-	var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
-	var oscilloscopeSoundMasterPosition = int((tunePlaybackPosition) * 8000 + adjustment)
-	Global.oscilloscopeSoundMasterPosition = oscilloscopeSoundMasterPosition
-	blockableGNSSSignalMaterial.set_shader_param("soundPos", oscilloscopeSoundMasterPosition)
+	var currentCameraOrigin:Vector3
+	
+	if (currentCamera):
+		currentCameraOrigin = currentCamera.global_transform.origin
+	
+	if scopeAutoSoundPosAdjustStartRefPointNode && scopeAutoSoundPosAdjustEndRefPointNode:
+		var startPointOrigin:Vector3 = scopeAutoSoundPosAdjustStartRefPointNode.global_transform.origin
+		var endPointOrigin:Vector3 = scopeAutoSoundPosAdjustEndRefPointNode.global_transform.origin
+		
+		var proj = ((currentCameraOrigin - startPointOrigin).dot(endPointOrigin - startPointOrigin)) / (endPointOrigin - startPointOrigin).length_squared()
+#		print (proj)
+		var adjustment = clamp((1 - proj), 0, 1) * blockableGNSSSignalMaterial.get_shader_parameter("soundLength") * scopeAutoSoundPosAdjustFractionByCurrentCamera
+#		print (adjustment)
+
+#		var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
+#		var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
+		var oscilloscopeSoundMasterPosition = int((Global.masterReplayTime) * 8000 + adjustment)
+		Global.oscilloscopeSoundMasterPosition = oscilloscopeSoundMasterPosition
+		Global.blockableGNSSSignalMaterial.set_shader_parameter("soundPos", oscilloscopeSoundMasterPosition)
+#		print("Global.masterReplayTime: ", Global.masterReplayTime)
+#		print("Global.oscilloscopeSoundMasterPosition: ", Global.oscilloscopeSoundMasterPosition)
 
 #	blockableGNSSSignalMaterial.set_shader_param("",#var scopeSoundPos:float = 0.0

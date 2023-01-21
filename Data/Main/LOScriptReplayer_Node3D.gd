@@ -1,4 +1,4 @@
-#@tool
+@tool
 class_name LOScriptReplayer_Node3D
 extends Node3D
 
@@ -38,9 +38,9 @@ func loadFile(fileName):
 	loData.clear()
 	loDataKeys = []
 
-	var file = File.new()
+	var file = FileAccess.open(fileName, FileAccess.READ)
 	#var metadata = {}
-	if file.open(fileName, File.READ) != OK:
+	if (!file):
 		print("Can't open file " + fileName)
 		return
 	var line
@@ -197,7 +197,7 @@ func _process(_delta):
 					# Causes even stranger jitter
 					var quat_pre_a:Quaternion = loData[loDataKeys[lastReplayTimeIndex - 1]].quat
 					var quat_post_b:Quaternion = loData[loDataKeys[nextReplayTimeIndex + 1]].quat
-					quat = quat_a.cubic_slerp(quat_b, quat_pre_a, quat_post_b, fraction)
+					quat = quat_a.spherical_cubic_interpolate(quat_b, quat_pre_a, quat_post_b, fraction)
 				_:
 					quat = quat_a
 
@@ -216,4 +216,6 @@ func _process(_delta):
 # really seem to output differently ordered values.
 # Can live with this, so...
 
-	transform = Transform3D(basisTemp.transposed(), origin.lerp(locationOverride, loOverrideFraction))
+#	transform = Transform3D(basisTemp.transposed(), origin.lerp(locationOverride, loOverrideFraction))
+# ... and recently (3-Sep-2022) this was changed back to 3.x-way...
+	transform = Transform3D(basisTemp, origin.lerp(locationOverride, loOverrideFraction))
