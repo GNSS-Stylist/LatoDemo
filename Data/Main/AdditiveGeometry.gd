@@ -46,6 +46,11 @@ func _ready():
 		meshMaterial.set_shader_parameter("customDataSampler", null)
 		wireframeMaterial.set_shader_parameter("customDataSampler", null)
 		return
+
+# Tried to make editing more agile (no regenerating everything every time) with this. Didn't work
+#	elif (Engine.is_editor_hint() && mesh):
+#		print(self.name, ": mesh already created (loaded from .tscn?). Using it instead of creating new.")
+#		return
 	
 	additiveGeometryStorage = get_node(additiveGeometryStorageNodePath)
 	lidarDataStorage = get_node(lidarDataStorageNodePath)

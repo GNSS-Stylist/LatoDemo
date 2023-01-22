@@ -97,7 +97,7 @@ func loadFile(fileName):
 func _process(_delta):
 	
 #func _physics_process(delta):
-	if loData.is_empty():
+	if ((!Global) || (loData.is_empty())):
 		return
 	
 	var currentReplayTime:float

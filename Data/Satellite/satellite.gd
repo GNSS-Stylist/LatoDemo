@@ -49,7 +49,7 @@ func _ready():
 	$AnimationPlayer_ExoFrames.current_animation = "ExoFramesFlying"
 	$AnimationPlayer_SolarPanel.current_animation = "SolarPanelConstruction"
 
-	if (Engine.is_editor_hint() && Global.cleanTempToolData):
+	if ((!Global) || (Engine.is_editor_hint() && Global.cleanTempToolData)):
 		# @tool-scripts will generate changes that are saved into .tscn (scene)-files.
 		# Clean them when requested
 		
@@ -59,7 +59,7 @@ func _ready():
 
 
 func _process(_delta):
-	if (Engine.is_editor_hint() && Global.cleanTempToolData):
+	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 
 	if (Global.lowPassFilteredSoundDataTexture != null) && (!initDone):

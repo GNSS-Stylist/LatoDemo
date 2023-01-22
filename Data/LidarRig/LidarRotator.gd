@@ -26,6 +26,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if (!Global):
+		return
+	
 	var currentReplayTime:float = Global.replayTime_Lidar
 	var itemIndex:int = 0
 	

@@ -54,6 +54,9 @@ func _ready():
 	scopeAutoSoundPosAdjustEndRefPointNode = get_node(scopeAutoSoundPosAdjustEndRefPointNodePath)
 	editorCameraNode = get_node(editorCameraNodePath)
 	
+	if (!Global):
+		return
+	
 	Global.lidarPointMaterial = lidarPointMaterial
 	Global.lidarLineMaterial = lidarLineMaterial
 
@@ -67,7 +70,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (Engine.is_editor_hint() && Global.cleanTempToolData):
+	if ((!Global) || (Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 
 	Global.replayTime_Lidar = replayTime_Lidar + replayTimeShift_Lidar

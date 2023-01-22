@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (Engine.is_editor_hint() && Global.cleanTempToolData):
+	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 		
 	# Tried to do this in the shader, but failed...
