@@ -98,6 +98,8 @@ uniform float antialiasingGamma = 2.2;
 
 uniform int pointSkip = 0;
 
+uniform float timeMultiplier = 1.0;
+
 //uniform vec4 pointOkColor : hint_color = vec4(0.0, 1.0, 0.0, 1.0);
 //uniform vec4 pointOkColor : hint_color = vec4(0.0, 1.0, 0.0, 1.0);
 
@@ -169,7 +171,7 @@ varying flat float fragmentTimeDiff;
 void vertex() {
 //	return;
 	
-	float timeDiff = replayTime - UV2.x;	// UV2.x = shotTime
+	float timeDiff = (replayTime - UV2.x) * timeMultiplier;	// UV2.x = shotTime
 	timeDiff += replayTimeRemainder;
 	int pointColorIndex = int(UV2.y + 0.5) & 0x0F;
 	float pointAlpha = pointColors[pointColorIndex].a;

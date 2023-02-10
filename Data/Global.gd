@@ -13,6 +13,7 @@ extends Node
 
 # This is meant to be used in @tool-scripts so they can clean the tree of any 
 # generated nodes etc (if true) to prevent bloat in tscn-files
+# Note: The following note is not true any more: Note: This is set in GlobalInit.gd
 var cleanTempToolData:bool = true
 
 # "Master" replay time used to sycn things during playback.
@@ -56,7 +57,9 @@ var lowPassFilteredSoundDataTexture:ImageTexture
 # TODO: Update this somewhere!
 var scanTrackerShaderBaseTime:float = 2415057	# 2415057 from walkaround2
 
-@onready var oscilloscopeDataStorage:OscilloscopeDataStorage = get_node("/root/Main/OscilloscopeDataStorage")
+var oscilloscopeDataStorage:OscilloscopeDataStorage
+
+var blockableGNSSSignalRaycast:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

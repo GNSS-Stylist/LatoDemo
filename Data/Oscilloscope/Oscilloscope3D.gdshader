@@ -32,20 +32,24 @@ uniform float endNarrowing_Level = 0.1;
 uniform float endNarrowing_Start = 0.99;
 uniform float endNarrowing_End = 1.0;
 
+uniform bool skipBillboarding = false;
+
 void vertex() {
-	vec3 startOrigin = (MODEL_MATRIX * vec4(startOrigin_Object, 1.0)).xyz;
-	vec3 endOrigin = (MODEL_MATRIX * vec4(endOrigin_Object, 1.0)).xyz;
-	
-	vec3 fromStartOriginToEndOrigin = endOrigin - startOrigin;
-	vec3 fromStartOriginToCamera = INV_VIEW_MATRIX[3].xyz - startOrigin;
-	
-	// TODO: zero from cross-product not handled (very unlikely to happen though)
-	// rightAngleVec becomes 0.5 m length here so it is possible to set scope height in m
-	vec3 rightAngleVec = 0.5 * normalize(cross(fromStartOriginToEndOrigin, fromStartOriginToCamera));
-	
-	vec3 centerPoint = mix(startOrigin, endOrigin, UV.x);
-	
-	VERTEX = centerPoint + scopeHeight * (UV.y - 0.5) * rightAngleVec;
+	if (!skipBillboarding) {
+		vec3 startOrigin = (MODEL_MATRIX * vec4(startOrigin_Object, 1.0)).xyz;
+		vec3 endOrigin = (MODEL_MATRIX * vec4(endOrigin_Object, 1.0)).xyz;
+		
+		vec3 fromStartOriginToEndOrigin = endOrigin - startOrigin;
+		vec3 fromStartOriginToCamera = INV_VIEW_MATRIX[3].xyz - startOrigin;
+		
+		// TODO: zero from cross-product not handled (very unlikely to happen though)
+		// rightAngleVec becomes 0.5 m length here so it is possible to set scope height in m
+		vec3 rightAngleVec = 0.5 * normalize(cross(fromStartOriginToEndOrigin, fromStartOriginToCamera));
+		
+		vec3 centerPoint = mix(startOrigin, endOrigin, UV.x);
+		
+		VERTEX = centerPoint + scopeHeight * (UV.y - 0.5) * rightAngleVec;
+	}
 }
 
 ivec2 getTexelCoord(int sampleIndex) {

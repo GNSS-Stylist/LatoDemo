@@ -16,10 +16,11 @@ func _process(_delta):
 	# (moving the halo farther away to get the satellite itself not distracted by it)
 	# As this kind-of billboarding is done here anyway, also basis is calculated here
 
-	var camera:Camera3D
+	var camera:Camera3D = null
 	
 	if (Engine.is_editor_hint()):
-		camera = get_node(editorCameraPath)
+		if (!editorCameraPath.is_empty()):
+			camera = get_node(editorCameraPath)
 	else:
 		camera = get_viewport().get_camera_3d()
 		

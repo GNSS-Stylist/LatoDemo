@@ -4,8 +4,8 @@ extends MeshInstance3D
 #@export var replayTime:float = 0
 @export var generatedFlyingDistance:float = 5.0
 
-@export var meshMaterial:Material
-@export var wireframeMaterial:Material
+@export var meshMaterial:ShaderMaterial
+@export var wireframeMaterial:ShaderMaterial
 
 @export var readTextureData:bool = true
 @export var additiveGeometryStorageNodePath:String = "/root/Main/AdditiveGeometryStorage"
@@ -37,7 +37,7 @@ class WireframeLine:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if (Engine.is_editor_hint() && Global.cleanTempToolData):
+	if (Global && Engine.is_editor_hint() && Global.cleanTempToolData):
 		# @tool-scripts will generate changes that are saved into .tscn (scene)-files.
 		# Clean them when requested
 		
@@ -240,7 +240,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (mesh):
+	if (mesh && Global):
 		if (overrideReplayTime_AdditiveGeometry_Local):
 			get_active_material(0).set_shader_parameter("replayTime", localReplayTimeOverride_AdditiveGeometry - shaderBaseTimeInUse)
 		elif (Global.overrideReplayTime_AdditiveGeometries):
@@ -255,3 +255,28 @@ func _process(_delta):
 		else:
 			get_active_material(1).set_shader_parameter("replayTime", Global.replayTime_Lidar - shaderBaseTimeInUse)
 
+class StashData:
+	var mesh
+	var customDataSampler_Mesh
+	var customDataSampler_Wireframe
+
+func stashToolData():
+	var stashStorage:StashData = StashData.new()
+	
+	stashStorage.mesh = mesh
+	stashStorage.customDataSampler_Mesh = meshMaterial.get_shader_parameter("customDataSampler")
+	stashStorage.customDataSampler_Wireframe = wireframeMaterial.get_shader_parameter("customDataSampler")
+
+	mesh = null
+	meshMaterial.set_shader_parameter("customDataSampler", null)
+	wireframeMaterial.set_shader_parameter("customDataSampler", null)
+
+	return stashStorage
+
+func stashPullToolData(stashStorage:StashData):
+	mesh = stashStorage.mesh
+#	meshMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Mesh)
+#	wireframeMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Wireframe)
+#	mesh.surface_set_material((mesh.get_surface_count() - 1), wireframeMaterial)
+#	mesh.surface_set_material((mesh.get_surface_count() - 2), meshMaterial)
+	pass

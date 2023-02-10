@@ -32,6 +32,7 @@ func _process(_delta):
 
 	return
 	
+	# No need for these here as material is shared
 	if (Global.soundDataTexture != null) && (!initDone):
 		$Surface.material_override.set_shader_parameter("soundDataSampler", Global.soundDataTexture)
 		initDone = true

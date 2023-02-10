@@ -92,11 +92,13 @@ func _process(_delta):
 
 #	if (scopeActive && tunePlayer && Global.soundData):
 #		var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
+	var tunePlaybackPosition:float = Global.masterReplayTime
+
 	if (scopeActive && Global.soundData):
-		var tunePlaybackPosition:float = Global.masterReplayTime
 #		$Frame_Lower/DishAntenna/ScopeLight.light_energy = abs((Global.soundData[tunePlaybackPosition * 8000] - 128.0) / 128.0) * scopeLightEnergy
 		$Frame_Lower/DishAntenna/ScopeLight.light_energy = Global.lowPassFilteredSoundAmplitudeData[tunePlaybackPosition * 8000] * scopeLightEnergy
-		$SoundHalo.material_override.set_shader_parameter("soundPos", tunePlaybackPosition * 8000)
+
+	$SoundHalo.material_override.set_shader_parameter("soundPos", tunePlaybackPosition * 8000)
 	$SoundHalo.material_override.set_shader_parameter("baseAlbedo", haloAlbedo)
 
 	if (useRotationOverride):

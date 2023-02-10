@@ -30,7 +30,6 @@ uniform vec3 ballRadius;
 uniform vec3 boxExtents;
 uniform float morphAmount;
 
-const float sqrt2 = sqrt(2);
 const float overshoot = 2.0;
 
 void vertex() {

@@ -45,9 +45,20 @@ var animationCameraAnchorNodes = []
 
 @export var dbgPlayStartPos:float
 @export var animationPosition:float
+@export var dbgAnimJump:float = 0
+@export var lidarPreCutTime:int = 0
+
+enum StashCommand {NONE, STASH, STASH_PULL}
+@export var stashCommand:StashCommand = StashCommand.NONE
 
 var demoStarted:bool = false
 var demoStartRitualsDone:bool = false
+
+#@export var cleanTempToolData:bool:
+#	set(_dummy):
+#		if (_dummy):
+#			print("Cleaning temp tool data (main)...")
+#			$DebugThings/MeshInstance3D_SoundImageDbg.material_override.albedo_texture = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -86,8 +97,8 @@ func _ready():
 	animationCameraAnchorSpaceNames.push_back("Global origin (B)")
 
 	animationCameraAnchorSpaces.push_back($CameraFlyingSpace_Satellite_Angled)
-	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/LocalOrigin)
-#	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/Path3D/PathFollow3D/LocalOrigin)
+#	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/LocalOrigin)
+	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/Path_Satellite/PathFollow_Satellite/LocalOrigin)
 	animationCameraAnchorSpaceNames.push_back("Satellite, angled")
 
 	animationCameraAnchorSpaces.push_back($World/CameraRig/CameraObject/DisplayCameraAnchor)
@@ -102,9 +113,14 @@ func _ready():
 	animationCameraAnchorNodes.push_back($World/LidarRig/CameraFlyingSpace/LocalOrigin_LRig)
 	animationCameraAnchorSpaceNames.push_back("Lidar rig")
 
-	animationCameraAnchorSpaces.push_back($World/LidarRig/ForwardTube/Lidar/Rotator/CameraFlyingSpace)
-	animationCameraAnchorNodes.push_back($World/LidarRig/ForwardTube/Lidar/Rotator/CameraFlyingSpace/LocalOrigin_Rotator)
-	animationCameraAnchorSpaceNames.push_back("Lidar rotator")
+	animationCameraAnchorSpaces.push_back($CameraFlyingSpace_Descent)
+	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Descent/Descender)
+	animationCameraAnchorSpaceNames.push_back("Descender")
+
+	animationCameraAnchorSpaces.push_back($MainPaths/Path_Barn1_Cam)
+	animationCameraAnchorNodes.push_back($MainPaths/Path_Barn1_Cam/PathFollow_Barn1_Cam/Path_Barn1_Orientator)
+	animationCameraAnchorSpaceNames.push_back("Path_Barn1")
+
 
 	$DebugThings/Panel_CurrentCameraTransform/OptionButton_PosReference.clear()
 
@@ -135,7 +151,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
+		#print("Clean (dbg, main)")
 		return
+
+	if (stashCommand == StashCommand.STASH):
+		stashToolData()
+	elif (stashCommand == StashCommand.STASH_PULL):
+		stashPullToolData()
+	stashCommand = StashCommand.NONE
 
 	if (delta < 0):
 		print("Negative delta: ", delta)
@@ -145,7 +168,7 @@ func _process(delta):
 
 	if (firstRound):
 		if ((lidarDataStorage.beamDataKeys) and (!lidarDataStorage.beamDataKeys.is_empty())):
-			var lidarDataStartTime:int = lidarDataStorage.beamDataKeys[0]
+			var lidarDataStartTime:int = max(lidarDataStorage.beamDataKeys[0], lidarPreCutTime)
 			var lidarDataEndTime:int = lidarDataStorage.beamDataKeys[lidarDataStorage.beamDataKeys.size()-1]
 	#		var lidarDataStartTime:int = 930001
 	#		var lidarDataEndTime:int = 960001
@@ -206,6 +229,7 @@ func _process(delta):
 #			Global.masterReplayTime = 0
 #		else:
 #			Global.masterReplayTime = masterAnimationPlayer.current_animation_position
+
 		Global.masterReplayTime = animationPosition
 			
 #		print("is_playing: ", animationPlayer.is_playing())
@@ -226,6 +250,9 @@ func _process(delta):
 		else:
 			tunePlayer.pause()
 			
+		if (dbgAnimJump != 0):
+			masterAnimationPlayer.seek(masterAnimationPlayer.current_animation_position - dbgAnimJump)
+			dbgAnimJump = 0
 	
 	else:
 		Global.masterReplayTime = tunePlaybackPosition
@@ -234,20 +261,23 @@ func _process(delta):
 				# Animation playback position differs too much from the tune -> Hard sync
 				print("anim hard resync: ", animationPlayer.current_animation_position - tunePlaybackPosition)
 				animationPlayer.seek(tunePlaybackPosition)
-				animationPlayer.playback_speed = tunePlayer.pitch_scale
+				animationPlayer.speed_scale = tunePlayer.pitch_scale
+#				animationPlayer.playback_speed = tunePlayer.pitch_scale
 			else:
 				if (tunePlayer.playing):
 					if (!animationPlayer.is_playing()):
 						animationPlayer.play()
 					var playbackSpeed = (tunePlayer.pitch_scale * 
 						(1.0 + (tunePlaybackPosition - animationPlayer.current_animation_position) * 1.0))
-					animationPlayer.playback_speed = playbackSpeed
+					animationPlayer.speed_scale = playbackSpeed
+#					animationPlayer.playback_speed = playbackSpeed
 		#			print(playbackSpeed)
 				else:
 					if (absf(animationPlayer.current_animation_position - tunePlaybackPosition) > 0.001):
 						# seek doesn't seem to update things if not played for at least one frame
 						# Bit hacky way to do this, but seems to work...
-						animationPlayer.playback_speed = 0
+						animationPlayer.speed_scale = 0
+#						animationPlayer.playback_speed = 0
 						animationPlayer.play()
 						animationPlayer.seek(tunePlaybackPosition)
 					else:
@@ -543,3 +573,34 @@ func killMe():
 	
 func _exit_tree():
 	print("Exit tree (Main)")
+
+#func cleanTempToolData():
+#	print("Cleaning temp tool data (main)...")
+#	$DebugThings/MeshInstance3D_SoundImageDbg.material_override.albedo_texture = null
+
+class Stash:
+	var valid:bool = false
+	var barnData
+#	var blackHoleData = [3]
+
+var stashStorage:Stash = Stash.new()
+
+func stashToolData():
+	print("Stashing data...")
+	stashStorage.barnData = $World/AdditiveGeometries/Barn/BarnMesh.stashToolData()
+	stashStorage.valid = true
+	
+func stashPullToolData():
+	if (stashStorage.valid):
+		print("Unstashing data...")
+		$World/AdditiveGeometries/Barn/BarnMesh.stashPullToolData(stashStorage.barnData)
+	else:
+		print("Stash data not valid")
+	
+var dbgRewindMarker:float
+
+func dbgAnimSetMarker():
+	dbgRewindMarker = $AnimationPlayer_Camera.current_animation_position
+	
+func dbgAnimGoMarker():
+	$AnimationPlayer_Camera.seek(dbgRewindMarker)

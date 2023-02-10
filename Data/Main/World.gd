@@ -3,6 +3,7 @@ extends Node3D
 
 @export var originShift:Vector3
 @export var scalingOverride:float
+@export var inverseScalingOverride:float
 @export var editorCameraNodePath:NodePath
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +32,13 @@ func _process(_delta):
 	var scaling:float = 1.0 / (20000.0 - (19999.0 * (1.0 - smoothstep(100, 3900, distance))))
 	
 	if (scalingOverride != 0):
-		scaling = scalingOverride
+		# Godot rounds floats to 0.001 precision in the editor so to be able to feed 
+		# meaningful values here, we need to scale this...
+		# So now 1 means that the planet looks correct when looked at from the distance of the satellite
+		# and 10000 when on the surface of the planet.
+		scaling = scalingOverride * 0.0001
+	elif (inverseScalingOverride != 0):
+		scaling = 1.0 / inverseScalingOverride
 	
 	if ((lastScaling != 1.0) || (scaling != 1.0) || self.transform.origin != scaling * originShift):
 		# Physics seem to freeze if scaling is set on _process

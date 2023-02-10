@@ -1,13 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://httobws27rys"]
+[gd_scene load_steps=6 format=3 uid="uid://httobws27rys"]
 
 [ext_resource type="Shader" path="res://Data/BlackHole/BlackHole.gdshader" id="1_7wcsu"]
 [ext_resource type="Script" path="res://Data/BlackHole/BlackHole.gd" id="1_582ig"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktv0s"]
-render_priority = 0
-shader = ExtResource("1_7wcsu")
-shader_parameter/eventHorizonRadius = 0.5
-shader_parameter/gravity = 0.5
 
 [sub_resource type="PlaneMesh" id="QuadMesh_ocp56"]
 size = Vector2(1, 1)
@@ -29,7 +23,6 @@ shader = ExtResource("1_7wcsu")
 [node name="Visibles" type="Node3D" parent="."]
 
 [node name="DistorterMesh" type="MeshInstance3D" parent="Visibles"]
-material_override = SubResource("ShaderMaterial_ktv0s")
 mesh = SubResource("QuadMesh_ocp56")
 skeleton = NodePath("../..")
 

@@ -5,6 +5,9 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if (!Global):
+		return
+	
 	if (Engine.is_editor_hint() && Global.cleanTempToolData):
 		# @tool-scripts will generate changes that are saved into .tscn (scene)-files.
 		# Clean them when requested
@@ -42,16 +45,19 @@ func _physics_process(_delta):
 	if (!Global || (Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 
+	if (Global.blockableGNSSSignalRaycast):
 #	$Surface.visible = true
 #	return
 	
 #	if (Engine.is_editor_hint()):
 #		$Surface.visible = true
 #	else:
-	var space_state = get_world_3d().direct_space_state
-	# use global coordinates, not local to node
-	var params:PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
-	params.from = self.global_transform.origin
-	params.to = self.global_transform.origin - global_transform.basis.x * 20
-	var result = space_state.intersect_ray(params)
-	$Surface.visible = result.is_empty()
+		var space_state = get_world_3d().direct_space_state
+		# use global coordinates, not local to node
+		var params:PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
+		params.from = self.global_transform.origin
+		params.to = self.global_transform.origin - global_transform.basis.x * 20
+		var result = space_state.intersect_ray(params)
+		$Surface.visible = result.is_empty()
+	else:
+		$Surface.visible = true

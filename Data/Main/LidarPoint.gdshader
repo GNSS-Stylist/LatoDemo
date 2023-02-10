@@ -47,7 +47,9 @@ uniform float hitAlbedoAttackPointSize = 10.0;
 // If alpha == 0, no point is drawn
 uniform vec4 pointColors[16] : source_color;
 
-uniform float mysticMultiplier = 1;
+//uniform float mysticMultiplier = 1;
+
+uniform float timeMultiplier = 1.0;
 
 //uniform vec4 pointOkColor : hint_color = vec4(0.0, 1.0, 0.0, 1.0);
 //uniform vec4 pointOkColor : hint_color = vec4(0.0, 1.0, 0.0, 1.0);
@@ -57,7 +59,7 @@ varying flat vec3 fragmentAlbedo;
 varying flat float fragmentAlpha;
 
 void vertex() {
-	float timeDiff = replayTime - UV2.x;	// UV2.x = shotTime
+	float timeDiff = (replayTime - UV2.x) * timeMultiplier;	// UV2.x = shotTime
 	timeDiff += replayTimeRemainder;
 	int pointColorIndex = int(UV2.y + 0.5) & 0x0F;
 	float pointAlpha = pointColors[pointColorIndex].a;

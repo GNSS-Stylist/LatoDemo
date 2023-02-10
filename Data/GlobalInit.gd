@@ -40,8 +40,11 @@ extends Node
 
 @export var scopeAutoSoundPosAdjustStartRefPointNodePath:NodePath	# = get_node("/root/Main/World/LidarRig/ScopeAutoSoundPosAdjustEndRefPoint")
 @export var scopeAutoSoundPosAdjustEndRefPointNodePath:NodePath	# = get_node("/root/Main/ScopeAutoSoundPosAdjustStartRefPoint")
+@export var scopeDataStorage:NodePath
 
 @export var editorCameraNodePath:NodePath	# = get_node("/root/Main/InterpolatedCamera")
+@export var blockableGNSSSignalRaycast:bool = false
+#@export var cleanTempToolData:bool = false
 
 var scopeAutoSoundPosAdjustStartRefPointNode
 var scopeAutoSoundPosAdjustEndRefPointNode
@@ -59,6 +62,7 @@ func _ready():
 	
 	Global.lidarPointMaterial = lidarPointMaterial
 	Global.lidarLineMaterial = lidarLineMaterial
+	Global.oscilloscopeDataStorage = get_node(scopeDataStorage)
 
 #	blockableGNSSSignalMaterial.set_shader_param("startOrigin_Object", Vector3($Surface.mesh.size.x / 2, 0, 0) + $Surface.mesh.center_offset)
 #	blockableGNSSSignalMaterial.set_shader_param("endOrigin_Object", Vector3(-$Surface.mesh.size.x / 2, 0, 0) + $Surface.mesh.center_offset)
@@ -68,10 +72,17 @@ func _ready():
 	Global.oscilloscope3DShader = oscilloscope3DShader
 #	Global.oscTestShader = oscTestShader
 
+	await get_tree().process_frame
+
+	Global.soundDataTexture = get_node(scopeDataStorage).imageTexture
+	Global.lowPassFilteredSoundDataTexture = get_node(scopeDataStorage).lowPassFilteredAmplitudeImageTexture
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if ((!Global) || (Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
+
+#	Global.cleanTempToolData = cleanTempToolData
 
 	Global.replayTime_Lidar = replayTime_Lidar + replayTimeShift_Lidar
 	Global.replayTimeShift_Lidar = replayTimeShift_Lidar
@@ -81,6 +92,7 @@ func _process(_delta):
 
 	Global.replayTimeOverride_AdditiveGeometries = replayTimeOverride_AdditiveGeometries + replayTimeShift_Lidar
 	Global.overrideReplayTime_AdditiveGeometries = overrideReplayTime_AdditiveGeometries
+	Global.blockableGNSSSignalRaycast = blockableGNSSSignalRaycast
 
 #	blockableGNSSSignalMaterial.set_shader_param("lineWidthLow", scopeLineWidthLow)
 #	blockableGNSSSignalMaterial.set_shader_param("lineWidthHigh", scopeLineWidthHigh)

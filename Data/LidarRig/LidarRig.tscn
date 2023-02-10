@@ -75,7 +75,6 @@ mesh = SubResource("CylinderMesh_h0hvo")
 [node name="Rotator" type="Node3D" parent="ForwardTube/Lidar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031, 0)
 script = ExtResource("2_7mg7d")
-lidarDataStorageNodePath = NodePath("")
 idleRotationWaitTime = 10000
 eyeColors = PackedColorArray(1, 10, 1, 1, 0, 0, 1, 1, 0.564706, 0.545098, 0.584314, 1, 10, 1, 1, 1, 10, 1, 1, 1, 10, 1, 1, 1, 10, 1, 1, 1, 10, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 eyeFallbackColor = Color(0, 0, 1, 1)

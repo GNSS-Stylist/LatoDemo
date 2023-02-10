@@ -320,6 +320,13 @@ func constructPointMeshArray(firstReplayTime:float, lastReplayTime:float, shapeA
 			
 			if (abs(subItem.rotation - lastRotationAngle) < minRotationAngleDiff):
 				continue
+			
+			# This is for Latodemo purposes: Rejects point measured
+			# from our beloved rig operator
+			# (need to keep at least some kind of privacy!)
+			if ((subItem.rotation > 5.236) || (subItem.rotation < 0.367)):
+				continue
+
 			lastRotationAngle = subItem.rotation
 			
 			var interpolatedReplayTime:float = (replayTime + float(subItemIndex) / numOfSubItems)

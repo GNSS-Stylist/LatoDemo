@@ -44,7 +44,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MainBody:mesh:material:albedo")
+tracks/0/path = NodePath("MainBody:mesh:material:shader_parameter/albedo")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -56,7 +56,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MainBody:mesh:material:morphAmount")
+tracks/1/path = NodePath("MainBody:mesh:material:shader_parameter/morphAmount")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -68,7 +68,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MainBody:mesh:material:normal_scale")
+tracks/2/path = NodePath("MainBody:mesh:material:shader_parameter/normal_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
@@ -80,7 +80,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MainBody:mesh:material:roughness")
+tracks/3/path = NodePath("MainBody:mesh:material:shader_parameter/roughness")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
@@ -381,7 +381,7 @@ shader = ExtResource("9_81ygb")
 shader_parameter/baseAlbedo = Color(0, 1, 0, 1)
 shader_parameter/centerHoleRadius = 0.0
 shader_parameter/numOfSamples = 1542747
-shader_parameter/soundPos = 122739.0
+shader_parameter/soundPos = 0.0
 shader_parameter/soundOffset = 1500.0
 shader_parameter/soundLength = -80000.0
 shader_parameter/soundPreCut = 0.0
@@ -395,7 +395,6 @@ orientation = 2
 [node name="Satellite" type="Node3D"]
 script = ExtResource("1_w78iv")
 antennaBaseAngle = -10.0
-commonAntennaBaseLocalTranslation = Vector3(0, 0, 0)
 bodyMorphFraction = 0.352
 exoFrameFraction = -0.023
 solarPanelFraction = -0.231
@@ -406,21 +405,21 @@ mesh = SubResource("BoxMesh_tmlla")
 
 [node name="AnimationPlayer_BodyMorph" type="AnimationPlayer" parent="."]
 reset_on_save = false
-playback_speed = 0.0
+speed_scale = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_2unsq")
 }
 
 [node name="AnimationPlayer_ExoFrames" type="AnimationPlayer" parent="."]
 reset_on_save = false
-playback_speed = 0.0
+speed_scale = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_eoibu")
 }
 
 [node name="AnimationPlayer_SolarPanel" type="AnimationPlayer" parent="."]
 reset_on_save = false
-playback_speed = 0.0
+speed_scale = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_fwbji")
 }
@@ -619,7 +618,7 @@ material = SubResource("StandardMaterial3D_qk8u7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955002, 0)
 layers = 2
 light_color = Color(0, 1, 0, 1)
-light_energy = 0.00137255
+light_energy = 0.277506
 light_specular = 0.0
 light_cull_mask = 4294967294
 
@@ -653,4 +652,3 @@ globalSpeedFilterCoeff = 0.01
 material_override = SubResource("ShaderMaterial_cfwkl")
 mesh = SubResource("QuadMesh_tscy5")
 script = ExtResource("10_h5erg")
-editorCameraPath = NodePath("")
