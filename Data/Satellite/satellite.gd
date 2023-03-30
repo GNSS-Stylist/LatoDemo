@@ -111,7 +111,11 @@ func _process(_delta):
 
 	if (scopeActive && Global.soundData):
 #		$Frame_Lower/DishAntenna/ScopeLight.light_energy = abs((Global.soundData[tunePlaybackPosition * 8000] - 128.0) / 128.0) * scopeLightEnergy
+		$Frame_Lower/DishAntenna/ScopeLight.visible = true
 		$Frame_Lower/DishAntenna/ScopeLight.light_energy = Global.lowPassFilteredSoundAmplitudeData[tunePlaybackPosition * 8000] * scopeLightEnergy
+	else:
+		$Frame_Lower/DishAntenna/ScopeLight.visible = false
+		$Frame_Lower/DishAntenna/ScopeLight.light_energy = 0
 
 	$SoundHalo.material_override.set_shader_parameter("soundPos", tunePlaybackPosition * 8000)
 	$SoundHalo.material_override.set_shader_parameter("baseAlbedo", haloAlbedo)
