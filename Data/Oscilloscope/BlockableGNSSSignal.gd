@@ -1,9 +1,17 @@
 @tool
 extends Node3D
 
-#var initDone:bool = false
+var animResetStashDone:bool = false
 
-# Called when the node enters the scene tree for the first time.
+@export var trigStashToolData:bool = false:
+	set(param):
+		print("trigStashToolData setter called (BlockableGNSSSignal): ", param)
+		if (!animResetStashDone && param):
+			stashToolData()
+			animResetStashDone = true
+	get:
+		return false
+		
 func _ready():
 	if (!Global):
 		return
@@ -45,6 +53,10 @@ func _physics_process(_delta):
 	if (!Global || (Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 
+	if (animResetStashDone):
+		stashPullToolData()
+		animResetStashDone = false
+
 	if (Global.blockableGNSSSignalRaycast):
 #	$Surface.visible = true
 #	return
@@ -61,3 +73,29 @@ func _physics_process(_delta):
 		$Surface.visible = result.is_empty()
 	else:
 		$Surface.visible = true
+
+class StashData:
+	var blockableGNSSSignalMaterial
+	var startOrigin_Object
+	var endOrigin_Object
+
+var stashStorage:StashData = StashData.new()
+
+func stashToolData():
+	var surface = get_node_or_null("Surface")
+	
+	if (surface):
+		print("Stashing tool data (BlockableGNSSSignal)")
+		stashStorage.blockableGNSSSignalMaterial = surface.material_override
+		stashStorage.startOrigin_Object = surface.material_override.get_shader_parameter("startOrigin_Object")
+		stashStorage.endOrigin_Object = surface.material_override.get_shader_parameter("endOrigin_Object")
+		surface.material_override = null
+
+func stashPullToolData():
+	var surface = get_node_or_null("Surface")
+	
+	if (surface):
+		print("Stash pulling tool data (BlockableGNSSSignal)")
+		surface.material_override = stashStorage.blockableGNSSSignalMaterial
+		surface.material_override.set_shader_parameter("startOrigin_Object", stashStorage.startOrigin_Object)
+		surface.material_override.set_shader_parameter("endOrigin_Object", stashStorage.endOrigin_Object)
