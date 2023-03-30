@@ -9588,6 +9588,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5wbrc")
 [node name="MainTunePlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1000000
 stream = ExtResource("19_qdtb0")
+pitch_scale = 1.00098
 script = ExtResource("18_fyjuc")
 
 [node name="DebugThings" type="Node3D" parent="."]
@@ -10311,7 +10312,7 @@ mesh = SubResource("BoxMesh_psnnd")
 skeleton = NodePath("../..")
 
 [node name="JellyPlanet" type="MeshInstance3D" parent="World"]
-transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 0, -106.5, 0)
+transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 14.521, -106.5, -1.238)
 visible = false
 material_override = SubResource("ShaderMaterial_bpk7y")
 cast_shadow = 0
