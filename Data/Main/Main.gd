@@ -687,7 +687,7 @@ func camSwitch(uptime):
 	if Input.is_action_just_pressed("camera_first_person_global"):
 		var firstPerson = get_node("FirstPersonFlyer")
 		var flyCamera = get_node("FirstPersonFlyer/Head/FirstPersonCamera")
-		firstPerson.set_LocationOrientation(get_viewport().get_camera_3d().get_global_transform())
+		firstPerson.set_LocationOrientation(self.transform.affine_inverse() * get_viewport().get_camera_3d().get_global_transform())
 		newCamera = flyCamera
 		camera_InterpolationTime = camera_InterpolationTime_Fast
 		
