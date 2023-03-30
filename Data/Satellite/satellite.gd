@@ -44,6 +44,17 @@ extends Node3D
 
 var initDone:bool = false
 
+var animResetStashDone:bool = false
+
+@export var trigStashToolData:bool = false:
+	set(param):
+		print("trigStashToolData setter called (satellite): ", param)
+		if (!animResetStashDone && param):
+			stashToolData()
+			animResetStashDone = true
+	get:
+		return false
+
 func _ready():
 	$AnimationPlayer_BodyMorph.current_animation = "Morph"
 	$AnimationPlayer_ExoFrames.current_animation = "ExoFramesFlying"
@@ -65,6 +76,10 @@ func _process(_delta):
 	if (Global.lowPassFilteredSoundDataTexture != null) && (!initDone):
 		$SoundHalo.material_override.set_shader_parameter("soundDataSampler", Global.lowPassFilteredSoundDataTexture)
 		initDone = true
+
+	if (animResetStashDone):
+		stashPullToolData()
+		animResetStashDone = false
 
 	# Animations seem to loop around if not clamped:
 	$AnimationPlayer_BodyMorph.seek(clamp(bodyMorphFraction, 0, 1))
@@ -120,3 +135,23 @@ func _process(_delta):
 			self.transform.basis =  newBasis.scaled(Vector3(scaling, scaling, scaling))
 		else:
 			self.transform.basis =  newBasis
+
+class StashData:
+	var haloSoundDataSampler
+
+var stashStorage:StashData = StashData.new()
+
+func stashToolData():
+	var soundHalo = get_node_or_null("SoundHalo")
+	
+	if (soundHalo):
+		print("Stashing tool data (satellite)")
+		stashStorage.haloSoundDataSampler = soundHalo.material_override.get_shader_parameter("soundDataSampler")
+		soundHalo.material_override.set_shader_parameter("soundDataSampler", null)
+
+func stashPullToolData():
+	var soundHalo = get_node_or_null("SoundHalo")
+	
+	if (soundHalo):
+		print("Stash pulling tool data (satellite)")
+		soundHalo.material_override.set_shader_parameter("soundDataSampler", stashStorage.haloSoundDataSampler)

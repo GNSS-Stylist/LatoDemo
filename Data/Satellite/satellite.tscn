@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wbaalqedwstv"]
+[gd_scene load_steps=26 format=3 uid="uid://wbaalqedwstv"]
 
 [ext_resource type="Shader" path="res://Data/Satellite/morph.gdshader" id="1_2xbut"]
 [ext_resource type="Script" path="res://Data/Satellite/satellite.gd" id="1_w78iv"]
@@ -7,20 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://c0nih8qqfqt4c" path="res://Data/Satellite/solar_panel.tscn" id="5_ir1am"]
 [ext_resource type="ArrayMesh" uid="uid://w41rqwh1qtsb" path="res://Data/Satellite/SputnikRing.obj" id="6_tqdcm"]
 [ext_resource type="PackedScene" uid="uid://dfuymc6rqotx8" path="res://Data/Satellite/hall_thruster_cluster.tscn" id="7_e7vab"]
-[ext_resource type="PackedScene" uid="uid://dd6jsuufge7y5" path="res://Data/Oscilloscope/BlockableGNSSSignal.tscn" id="8_5dnmo"]
+[ext_resource type="PackedScene" uid="uid://clx04teaxhoo7" path="res://Data/Satellite/DishAntenna.tscn" id="8_m5klc"]
 [ext_resource type="Shader" path="res://Data/Satellite/SoundHalo.gdshader" id="9_81ygb"]
 [ext_resource type="Script" path="res://Data/Satellite/SoundHalo.gd" id="10_h5erg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oe125"]
 render_priority = 0
 shader = ExtResource("1_2xbut")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo = Color(1, 1, 0.648, 1)
 shader_parameter/point_size = null
 shader_parameter/roughness = 0.25
 shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 1.0
-shader_parameter/normal_scale = 0.0
+shader_parameter/normal_scale = 0.352
 shader_parameter/uv1_blend_sharpness = 1.0
 shader_parameter/uv1_scale = Vector3(4, 4, 4)
 shader_parameter/uv1_offset = null
@@ -28,7 +28,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = null
 shader_parameter/ballRadius = Vector3(0.29, 0.29, 0.29)
 shader_parameter/boxExtents = Vector3(1, 1.5, 1)
-shader_parameter/morphAmount = 1.0
+shader_parameter/morphAmount = 0.752192
 shader_parameter/texture_normal = ExtResource("3_flxe8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_tmlla"]
@@ -364,24 +364,13 @@ roughness = 0.7
 metallic = 1.0
 roughness = 0.32
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky23b"]
-metallic = 0.7
-roughness = 0.32
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_75aq1"]
-top_radius = 0.03
-bottom_radius = 0.03
-height = 0.02
-radial_segments = 48
-rings = 1
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cfwkl"]
 render_priority = 0
 shader = ExtResource("9_81ygb")
 shader_parameter/baseAlbedo = Color(0, 1, 0, 1)
 shader_parameter/centerHoleRadius = 0.0
 shader_parameter/numOfSamples = 1542747
-shader_parameter/soundPos = 0.0
+shader_parameter/soundPos = 96000.0
 shader_parameter/soundOffset = 1500.0
 shader_parameter/soundLength = -80000.0
 shader_parameter/soundPreCut = 0.0
@@ -392,11 +381,37 @@ shader_parameter/soundAmplification = 2.0
 size = Vector2(400, 400)
 orientation = 2
 
+[sub_resource type="Animation" id="Animation_ue6o3"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:trigStashToolData")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s0nrm"]
+resource_name = "dummy"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_phptd"]
+_data = {
+"RESET": SubResource("Animation_ue6o3"),
+"dummy": SubResource("Animation_s0nrm")
+}
+
 [node name="Satellite" type="Node3D"]
 script = ExtResource("1_w78iv")
-antennaBaseAngle = -10.0
+commonAntennaRodAngle = 29.8246
+antennaBaseAngle = -7.52192
+commonAntennaBaseLocalTranslation = Vector3(0, 0.0569958, 0)
 bodyMorphFraction = 0.352
-exoFrameFraction = -0.023
 solarPanelFraction = -0.231
 scopeActive = true
 
@@ -487,12 +502,12 @@ constructionOrigin = Vector3(1, 0, 0.5)
 constructionFraction = 0.0
 
 [node name="SputnikRing_Upper" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
+transform = Transform3D(1.014, 0, 0, 0, 0.532525, -0.86291, 0, 0.86291, 0.532525, 0, 1.34125, 0)
 mesh = ExtResource("6_tqdcm")
 surface_material_override/0 = SubResource("StandardMaterial3D_yws4a")
 
 [node name="SputnikRing_Lower" type="MeshInstance3D" parent="."]
-transform = Transform3D(9.92626e-07, -1.028, 3.72139e-06, 0, -3.72135e-06, -1.02801, 1.02799, 9.92636e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(-0.924307, -0.396307, 0.212993, 0, -0.486658, -0.905519, 0.449911, -0.81418, 0.437578, 0, 0.863674, 0)
 mesh = ExtResource("6_tqdcm")
 surface_material_override/0 = SubResource("StandardMaterial3D_yws4a")
 
@@ -573,60 +588,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 0)
 operation = 2
 size = Vector3(1.1, 0.52, 0.9)
 
-[node name="DishAntenna" type="Node3D" parent="Frame_Lower"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.759, 0)
+[node name="DishAntenna" parent="Frame_Lower" instance=ExtResource("8_m5klc")]
 
-[node name="CSGCombiner_Dish" type="CSGCombiner3D" parent="Frame_Lower/DishAntenna"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
-layers = 2
-
-[node name="Out" type="CSGSphere3D" parent="Frame_Lower/DishAntenna/CSGCombiner_Dish"]
-radius = 1.5
-radial_segments = 48
-rings = 24
-material = SubResource("StandardMaterial3D_ky23b")
-
-[node name="In" type="CSGSphere3D" parent="Frame_Lower/DishAntenna/CSGCombiner_Dish/Out"]
-transform = Transform3D(1, -4.48807e-10, 0, -4.48807e-10, 1, 0, 0, 0, 1, 9.31323e-10, -0.00499964, -9.31323e-10)
-operation = 2
-radius = 1.5
-radial_segments = 48
-rings = 24
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Frame_Lower/DishAntenna/CSGCombiner_Dish/Out"]
-transform = Transform3D(1, -4.48807e-10, 0, -4.48807e-10, 1, 0, 0, 0, 1, 0, 1.36941, 0)
-operation = 1
-radius = 0.577
-height = 0.5
-sides = 48
-smooth_faces = false
-
-[node name="Radiator" type="MeshInstance3D" parent="Frame_Lower/DishAntenna"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-layers = 2
-mesh = SubResource("CylinderMesh_75aq1")
-
-[node name="CSGCombiner_Rod" type="CSGCombiner3D" parent="Frame_Lower/DishAntenna"]
-layers = 2
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Frame_Lower/DishAntenna/CSGCombiner_Rod"]
-polygon = PackedVector2Array(0.200368, -0.432249, 0.411237, -0.0604099, 0.459938, -0.0767729, 0.234973, -0.452758, 0.028, -0.508, 0.028, -0.492)
-depth = 0.01
-material = SubResource("StandardMaterial3D_qk8u7")
-
-[node name="ScopeLight" type="OmniLight3D" parent="Frame_Lower/DishAntenna"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955002, 0)
-layers = 2
-light_color = Color(0, 1, 0, 1)
-light_energy = 0.277506
-light_specular = 0.0
-light_cull_mask = 4294967294
-
-[node name="DbgSignal" type="Node3D" parent="Frame_Lower/DishAntenna"]
-visible = false
-
-[node name="BlockableGNSSSignal" parent="Frame_Lower/DishAntenna/DbgSignal" instance=ExtResource("8_5dnmo")]
-transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
+[node name="ScopeLight" parent="Frame_Lower/DishAntenna" index="3"]
+light_energy = 0.030898
 
 [node name="HallThrusterCluster" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, 0.0707107, -0.0707107, -0.0707107, 0, 0.05, -0.05, -0.0707107, 0.503, -0.784, 0.503)
@@ -652,3 +617,10 @@ globalSpeedFilterCoeff = 0.01
 material_override = SubResource("ShaderMaterial_cfwkl")
 mesh = SubResource("QuadMesh_tscy5")
 script = ExtResource("10_h5erg")
+
+[node name="AnimationPlayer_ToolDataStasher" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_phptd")
+}
+
+[editable path="Frame_Lower/DishAntenna"]

@@ -244,7 +244,7 @@ func breakGeometry():
 	
 	var customDataImageTexture = ImageTexture.create_from_image(customDataImage)
 	
-	get_active_material(mesh.get_surface_count() - 1).set_shader_parameter("customDataSampler", customDataImageTexture)
+	material_override.set_shader_parameter("customDataSampler", customDataImageTexture)
 	
 	
 	
@@ -262,3 +262,24 @@ func breakGeometry():
 #	if (accumulatedTime > 1):
 #		breakGeometry()
 #		accumulatedTime = 0
+
+class StashData:
+	var mesh
+	var customDataSampler
+
+func stashToolData():
+	var stashStorage:StashData = StashData.new()
+	
+	stashStorage.mesh = mesh
+	stashStorage.customDataSampler = material_override.get_shader_parameter("customDataSampler")
+
+	material_override.set_shader_parameter("customDataSampler", null)
+	mesh = null
+	
+	# TODO: Add albedo texture when read runtime
+
+	return stashStorage
+
+func stashPullToolData(stashStorage:StashData):
+	mesh = stashStorage.mesh
+	material_override.set_shader_parameter("customDataSampler", stashStorage.customDataSampler)

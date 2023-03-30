@@ -29,3 +29,16 @@ func _process(delta):
 	material_override.set_shader_parameter("soundLength", soundLength)
 #	$Surface.material_override.set_shader_parameter("startOrigin_Object", Vector3($Surface.mesh.size.x / 2, 0, 0) + $Surface.mesh.center_offset)
 #	$Surface.material_override.set_shader_parameter("endOrigin_Object", Vector3(-$Surface.mesh.size.x / 2, 0, 0) + $Surface.mesh.center_offset)
+
+class StashData:
+	var soundDataSampler
+
+func stashToolData():
+	var stashStorage:StashData = StashData.new()
+	stashStorage.soundDataSampler = material_override.get_shader_parameter("soundDataSampler")
+	material_override.set_shader_parameter("soundDataSampler", null)
+
+	return stashStorage
+
+func stashPullToolData(stashStorage:StashData):
+	material_override.set_shader_parameter("soundDataSampler", stashStorage.soundDataSampler)

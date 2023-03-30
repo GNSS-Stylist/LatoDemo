@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://clx04teaxhoo7"]
+
+[ext_resource type="PackedScene" uid="uid://dd6jsuufge7y5" path="res://Data/Oscilloscope/BlockableGNSSSignal.tscn" id="1_k0obi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky23b"]
+metallic = 0.7
+roughness = 0.32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_75aq1"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.02
+radial_segments = 48
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk8u7"]
+metallic = 1.0
+roughness = 0.32
+
+[node name="DishAntenna" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.759, 0)
+
+[node name="CSGCombiner_Dish" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+layers = 2
+
+[node name="Out" type="CSGSphere3D" parent="CSGCombiner_Dish"]
+radius = 1.5
+radial_segments = 48
+rings = 24
+material = SubResource("StandardMaterial3D_ky23b")
+
+[node name="In" type="CSGSphere3D" parent="CSGCombiner_Dish/Out"]
+transform = Transform3D(1, -4.48807e-10, 0, -4.48807e-10, 1, 0, 0, 0, 1, 9.31323e-10, -0.00499964, -9.31323e-10)
+operation = 2
+radius = 1.5
+radial_segments = 48
+rings = 24
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner_Dish/Out"]
+transform = Transform3D(1, -4.48807e-10, 0, -4.48807e-10, 1, 0, 0, 0, 1, 0, 1.36941, 0)
+operation = 1
+radius = 0.577
+height = 0.5
+sides = 48
+smooth_faces = false
+
+[node name="Radiator" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+layers = 2
+mesh = SubResource("CylinderMesh_75aq1")
+
+[node name="CSGCombiner_Rod" type="CSGCombiner3D" parent="."]
+layers = 2
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner_Rod"]
+polygon = PackedVector2Array(0.200368, -0.432249, 0.411237, -0.0604099, 0.459938, -0.0767729, 0.234973, -0.452758, 0.028, -0.508, 0.028, -0.492)
+depth = 0.01
+material = SubResource("StandardMaterial3D_qk8u7")
+
+[node name="ScopeLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955002, 0)
+layers = 2
+light_color = Color(0, 1, 0, 1)
+light_energy = 0.533599
+light_specular = 0.0
+light_cull_mask = 4294967294
+
+[node name="DbgSignal" type="Node3D" parent="."]
+visible = false
+
+[node name="BlockableGNSSSignal" parent="DbgSignal" instance=ExtResource("1_k0obi")]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
