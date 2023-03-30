@@ -591,6 +591,18 @@ tracks/35/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(305)
 }
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath(".:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = false
+tracks/36/keys = {
+"times": PackedFloat32Array(301, 318.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1414, -1414, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7lvqo"]
 resource_name = "Backup"
@@ -3866,6 +3878,18 @@ tracks/133/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/134/type = "value"
+tracks/134/imported = false
+tracks/134/enabled = true
+tracks/134/path = NodePath(".:position")
+tracks/134/interp = 1
+tracks/134/loop_wrap = false
+tracks/134/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
 resource_name = "Descent"
@@ -4164,6 +4188,18 @@ tracks/24/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 4]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath(".:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = false
+tracks/25/keys = {
+"times": PackedFloat32Array(56, 75.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1414, -1414, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_62hyn"]
@@ -5422,6 +5458,18 @@ tracks/103/keys = {
 "update": 0,
 "values": [Color(0, 0.145098, 0, 1)]
 }
+tracks/104/type = "value"
+tracks/104/imported = false
+tracks/104/enabled = true
+tracks/104/path = NodePath(".:position")
+tracks/104/interp = 1
+tracks/104/loop_wrap = true
+tracks/104/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ks6w7"]
 resource_name = "GreatTexts"
@@ -5904,6 +5952,18 @@ tracks/39/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0.14, 0, 1), Color(0, 1.5, 0, 1)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath(".:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = false
+tracks/40/keys = {
+"times": PackedFloat32Array(318),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1414, -1414, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ss0a7"]
@@ -8027,6 +8087,138 @@ tracks/177/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/178/type = "value"
+tracks/178/imported = false
+tracks/178/enabled = true
+tracks/178/path = NodePath("World/Planet:process_mode")
+tracks/178/interp = 1
+tracks/178/loop_wrap = true
+tracks/178/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/179/type = "value"
+tracks/179/imported = false
+tracks/179/enabled = true
+tracks/179/path = NodePath("World/JellyPlanet:process_mode")
+tracks/179/interp = 1
+tracks/179/loop_wrap = true
+tracks/179/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/180/type = "value"
+tracks/180/imported = false
+tracks/180/enabled = true
+tracks/180/path = NodePath("World/LidarRig:process_mode")
+tracks/180/interp = 1
+tracks/180/loop_wrap = true
+tracks/180/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/181/type = "value"
+tracks/181/imported = false
+tracks/181/enabled = true
+tracks/181/path = NodePath("World/CameraRig:process_mode")
+tracks/181/interp = 1
+tracks/181/loop_wrap = true
+tracks/181/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/182/type = "value"
+tracks/182/imported = false
+tracks/182/enabled = true
+tracks/182/path = NodePath("World/AdditiveGeometries:process_mode")
+tracks/182/interp = 1
+tracks/182/loop_wrap = true
+tracks/182/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/183/type = "value"
+tracks/183/imported = false
+tracks/183/enabled = true
+tracks/183/path = NodePath("World/PlanetCore:process_mode")
+tracks/183/interp = 1
+tracks/183/loop_wrap = true
+tracks/183/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/184/type = "value"
+tracks/184/imported = false
+tracks/184/enabled = true
+tracks/184/path = NodePath("World/LOScriptReplayer_MainBlackHole:process_mode")
+tracks/184/interp = 1
+tracks/184/loop_wrap = true
+tracks/184/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/185/type = "value"
+tracks/185/imported = false
+tracks/185/enabled = true
+tracks/185/path = NodePath("World/LidarLineSets:process_mode")
+tracks/185/interp = 1
+tracks/185/loop_wrap = true
+tracks/185/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/186/type = "value"
+tracks/186/imported = false
+tracks/186/enabled = true
+tracks/186/path = NodePath("World/LidarPointSets:process_mode")
+tracks/186/interp = 1
+tracks/186/loop_wrap = true
+tracks/186/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/187/type = "value"
+tracks/187/imported = false
+tracks/187/enabled = true
+tracks/187/path = NodePath("SatelliteWreck:process_mode")
+tracks/187/interp = 1
+tracks/187/loop_wrap = true
+tracks/187/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/188/type = "value"
+tracks/188/imported = false
+tracks/188/enabled = true
+tracks/188/path = NodePath("MainTunePlayer:pitch_scale")
+tracks/188/interp = 1
+tracks/188/loop_wrap = true
+tracks/188/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.00098]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -8594,6 +8786,18 @@ tracks/46/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [10.0]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath(".:position")
+tracks/47/interp = 1
+tracks/47/loop_wrap = false
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1414, -1414, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
@@ -9384,7 +9588,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5wbrc")
 [node name="MainTunePlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1000000
 stream = ExtResource("19_qdtb0")
-pitch_scale = 1.00006
 script = ExtResource("18_fyjuc")
 
 [node name="DebugThings" type="Node3D" parent="."]
@@ -9848,7 +10051,7 @@ transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
-light_energy = 1.44437
+light_energy = 0.0
 
 [node name="BlockableGNSSSignal" parent="Satellite/Frame_Lower/DishAntenna/DbgSignal" index="0"]
 visible = false
@@ -9966,7 +10169,6 @@ transform = Transform3D(1, 0, -5.55112e-17, 0, 1, 0, 5.55112e-17, 0, 1, 0, 3.014
 shape = SubResource("ConvexPolygonShape3D_6xyp5")
 
 [node name="Planet" type="MeshInstance3D" parent="World"]
-process_mode = 4
 transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 7000, -3402.98, 0)
 visible = false
 material_override = SubResource("ShaderMaterial_mwlb5")
@@ -9988,7 +10190,7 @@ radius = 150.0
 
 [node name="CameraRig" type="Node3D" parent="World"]
 process_mode = 4
-transform = Transform3D(0.984949, -0.0187166, 0.171827, 0.00600451, 0.997225, 0.0742054, -0.172739, -0.0720568, 0.982328, 3.26616, 2.05204, 16.6159)
+transform = Transform3D(-0.177804, -0.134123, -0.974883, 0.00405957, 0.99056, -0.13702, 0.984058, -0.0283203, -0.175581, -10.3326, 0.975387, -3.2074)
 script = ExtResource("15_he12w")
 loFilename = "res://Data/GNSS_Stylus_Scripts/BarnCam.LOScript"
 replayTimeShift = 1.08e+06
@@ -10109,7 +10311,6 @@ mesh = SubResource("BoxMesh_psnnd")
 skeleton = NodePath("../..")
 
 [node name="JellyPlanet" type="MeshInstance3D" parent="World"]
-process_mode = 4
 transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 0, -106.5, 0)
 visible = false
 material_override = SubResource("ShaderMaterial_bpk7y")
@@ -10118,7 +10319,6 @@ script = ExtResource("36_wgi5c")
 sourceMesh = ExtResource("39_fthyn")
 
 [node name="AdditiveGeometries" type="Node3D" parent="World"]
-process_mode = 4
 visible = false
 
 [node name="Ground" type="MeshInstance3D" parent="World/AdditiveGeometries"]
@@ -10234,7 +10434,6 @@ mesh = ExtResource("50_tuaqt")
 shape = SubResource("ConvexPolygonShape3D_tdw0n")
 
 [node name="PlanetCore" type="MeshInstance3D" parent="World"]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.48042e+06, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_1owkc")
@@ -10246,7 +10445,6 @@ visible = false
 mesh = SubResource("PlaneMesh_vsqpl")
 
 [node name="LOScriptReplayer_MainBlackHole" type="Node3D" parent="World"]
-process_mode = 4
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 4.512, 10, 10.35)
 script = ExtResource("15_he12w")
 loFilename = "res://Data/GNSS_Stylus_Scripts/WalkAround_2022.LOScript"
@@ -10274,7 +10472,7 @@ transform = Transform3D(0, 0, 1, -1, 0, 0, 0, -1, 0, 0, 0, -0.25)
 transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
-transform = Transform3D(1384.02, -8200.97, 5500.65, -9798.54, -451.258, 1792.63, -1225.42, -5654.11, -8121.46, 0, 0, 0)
+transform = Transform3D(1387.99, -8224.5, 5516.43, -9826.66, -452.552, 1797.77, -1228.94, -5670.34, -8144.76, 0, 0, 0)
 script = ExtResource("51_osqmg")
 
 [node name="DeathRay" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent" instance=ExtResource("52_2li0a")]
@@ -10286,11 +10484,9 @@ material_override = SubResource("ShaderMaterial_vrj7d")
 [node name="DeathRayAutoSoundPosAdjustEndRefPoint" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
 
 [node name="LidarLineSets" type="Node3D" parent="World"]
-process_mode = 4
 visible = false
 
 [node name="LidarPointSets" type="Node3D" parent="World"]
-process_mode = 4
 visible = false
 
 [node name="DeathRayParent" type="Node3D" parent="World"]
@@ -10556,7 +10752,6 @@ visible = false
 mesh = SubResource("TextMesh_u082j")
 
 [node name="SatelliteWreck" parent="." instance=ExtResource("61_adtc1")]
-process_mode = 4
 transform = Transform3D(-3.53553, 3.53553, 7.54979e-07, 3.53553, 3.53553, 0, -5.33851e-07, 5.33851e-07, -5, 1413.51, 1413.51, 9.7891e-08)
 visible = false
 

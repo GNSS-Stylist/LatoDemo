@@ -449,7 +449,11 @@ func _process(delta):
 		#print("Clean (dbg, main)")
 		return
 	
-	if (animResetStashDone):
+#	print($AnimatedCamera.global_transform.origin)
+	
+	if (animResetStashDone && $MainAnimationPlayer.current_animation_position > 0.1):
+		# Time limit to prevent unstashing while showing RESET animation on the editor
+		# (current_animation only works while playing)
 		stashPullToolData()
 		animResetStashDone = false
 
