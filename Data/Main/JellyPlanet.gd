@@ -52,7 +52,7 @@ func _ready():
 	
 	# "Subdivided triangles"
 #	if false:
-	for i in range(14):
+	for i in range(17):
 		var newV1 = (v1 + v2) / 2
 		var newV2 = (v2 + v3) / 2
 		var newV3 = (v3 + v1) / 2
@@ -157,3 +157,15 @@ func _process(_delta):
 		return
 	pass
 #	material_override.set_shader_parameter("replayTime", tunePlayer.getFilteredPlaybackPosition())
+
+class StashData:
+	var mesh
+
+func stashToolData():
+	var stashStorage:StashData = StashData.new()
+	stashStorage.mesh = mesh
+	mesh = null
+	return stashStorage
+
+func stashPullToolData(stashStorage:StashData):
+	mesh = stashStorage.mesh

@@ -414,7 +414,7 @@ void light() {
 	}
 	
     DIFFUSE_LIGHT += LIGHT_COLOR * clamp(dot(NORMAL, LIGHT), 0.0, 1.0) * ATTENUATION * ALBEDO * lightLightFraction;
-	
+
 // This barn aint no specular
 //    vec3 H = normalize(VIEW + LIGHT);
 //    float NdotH = max(0, dot(NORMAL, H));

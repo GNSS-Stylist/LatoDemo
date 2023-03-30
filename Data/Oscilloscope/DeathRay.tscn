@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://lxn4q58iarx6"]
+
+[ext_resource type="Shader" path="res://Data/Oscilloscope/DeathRay.gdshader" id="1_n5iu6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pq00o"]
+render_priority = 0
+shader = ExtResource("1_n5iu6")
+shader_parameter/numOfSamplesA = 1542747
+shader_parameter/soundAmplificationA = 0.9
+shader_parameter/soundPosA = 0.0
+shader_parameter/soundOffsetA = 0.0
+shader_parameter/soundLengthA = 4096.0
+shader_parameter/numOfSamplesB = 1542747
+shader_parameter/soundAmplificationB = 0.9
+shader_parameter/soundPosB = 0.0
+shader_parameter/soundLengthB = 4096.0
+shader_parameter/innerLineWidthLow = 0.025
+shader_parameter/innerLineWidthHigh = 0.075
+shader_parameter/lineFadeOutLow = 0.1
+shader_parameter/lineFadeOutHigh = 0.15
+shader_parameter/scopeHeight = 1.0
+shader_parameter/startOrigin_Object = Vector3(0, 0, 0)
+shader_parameter/endOrigin_Object = Vector3(-2000, 0, 0)
+shader_parameter/innerAlbedo = Color(0, 1, 0, 1)
+shader_parameter/outerAlbedo = Color(0, 0, 0, 1)
+shader_parameter/startNarrowing_Level = 0.1
+shader_parameter/startNarrowing_Start = 0.0
+shader_parameter/startNarrowing_End = 0.01
+shader_parameter/endNarrowing_Level = 0.1
+shader_parameter/endNarrowing_Start = 0.99
+shader_parameter/endNarrowing_End = 1.0
+shader_parameter/skipBillboarding = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2bv8c"]
+size = Vector2(2000, 0.2)
+subdivide_width = 20
+center_offset = Vector3(-1000, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l5vgw"]
+size = Vector2(2000, 0.2)
+center_offset = Vector3(-1000, 0, 0)
+
+[node name="DeathRay" type="Node3D"]
+
+[node name="Surface" type="MeshInstance3D" parent="."]
+sorting_offset = 0.1
+sorting_use_aabb_center = false
+material_override = SubResource("ShaderMaterial_pq00o")
+mesh = SubResource("PlaneMesh_2bv8c")
+
+[node name="DebugSurface" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_l5vgw")

@@ -40,14 +40,21 @@ extends Node
 
 @export var scopeAutoSoundPosAdjustStartRefPointNodePath:NodePath	# = get_node("/root/Main/World/LidarRig/ScopeAutoSoundPosAdjustEndRefPoint")
 @export var scopeAutoSoundPosAdjustEndRefPointNodePath:NodePath	# = get_node("/root/Main/ScopeAutoSoundPosAdjustStartRefPoint")
+
+@export var deathRayAutoSoundPosAdjustStartRefPointNodePath:NodePath
+@export var deathRayAutoSoundPosAdjustEndRefPointNodePath:NodePath
+
 @export var scopeDataStorage:NodePath
 
 @export var editorCameraNodePath:NodePath	# = get_node("/root/Main/InterpolatedCamera")
 @export var blockableGNSSSignalRaycast:bool = false
 #@export var cleanTempToolData:bool = false
 
-var scopeAutoSoundPosAdjustStartRefPointNode
-var scopeAutoSoundPosAdjustEndRefPointNode
+var scopeAutoSoundPosAdjustStartRefPointNode:Node3D
+var scopeAutoSoundPosAdjustEndRefPointNode:Node3D
+
+var deathRayAutoSoundPosAdjustStartRefPointNode:Node3D
+var deathRayAutoSoundPosAdjustEndRefPointNode:Node3D
 
 var editorCameraNode:Node3D
 
@@ -55,6 +62,10 @@ var editorCameraNode:Node3D
 func _ready():
 	scopeAutoSoundPosAdjustStartRefPointNode = get_node(scopeAutoSoundPosAdjustStartRefPointNodePath)
 	scopeAutoSoundPosAdjustEndRefPointNode = get_node(scopeAutoSoundPosAdjustEndRefPointNodePath)
+
+	deathRayAutoSoundPosAdjustStartRefPointNode = get_node(deathRayAutoSoundPosAdjustStartRefPointNodePath)
+	deathRayAutoSoundPosAdjustEndRefPointNode = get_node(deathRayAutoSoundPosAdjustEndRefPointNodePath)
+
 	editorCameraNode = get_node(editorCameraNodePath)
 	
 	if (!Global):
@@ -120,6 +131,7 @@ func _process(_delta):
 		var proj = ((currentCameraOrigin - startPointOrigin).dot(endPointOrigin - startPointOrigin)) / (endPointOrigin - startPointOrigin).length_squared()
 #		print (proj)
 		var adjustment = clamp((1 - proj), 0, 1) * blockableGNSSSignalMaterial.get_shader_parameter("soundLength") * scopeAutoSoundPosAdjustFractionByCurrentCamera
+		
 #		print (adjustment)
 
 #		var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
@@ -129,5 +141,23 @@ func _process(_delta):
 		Global.blockableGNSSSignalMaterial.set_shader_parameter("soundPos", oscilloscopeSoundMasterPosition)
 #		print("Global.masterReplayTime: ", Global.masterReplayTime)
 #		print("Global.oscilloscopeSoundMasterPosition: ", Global.oscilloscopeSoundMasterPosition)
+
+	if deathRayAutoSoundPosAdjustStartRefPointNode && deathRayAutoSoundPosAdjustEndRefPointNode:
+		var startPointOrigin:Vector3 = deathRayAutoSoundPosAdjustStartRefPointNode.global_transform.origin
+		var endPointOrigin:Vector3 = deathRayAutoSoundPosAdjustEndRefPointNode.global_transform.origin
+		
+		var proj = ((currentCameraOrigin - startPointOrigin).dot(endPointOrigin - startPointOrigin)) / (endPointOrigin - startPointOrigin).length_squared()
+#		print (proj)
+
+		# Death ray is in the same position as GNSS-signal so only the sound length needs to be taken into account here
+		# (Sound length is now hardcoded here, sorry...)
+		var adjustment = clamp((1 - proj), 0, 1) * 4096 * scopeAutoSoundPosAdjustFractionByCurrentCamera
+		
+#		var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
+#		var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
+		Global.deathRaySoundMasterPosition = int((Global.masterReplayTime) * 8000 + adjustment)
+#		print("Global.masterReplayTime: ", Global.masterReplayTime)
+#		print("Global.oscilloscopeSoundMasterPosition: ", Global.oscilloscopeSoundMasterPosition)
+
 
 #	blockableGNSSSignalMaterial.set_shader_param("",#var scopeSoundPos:float = 0.0

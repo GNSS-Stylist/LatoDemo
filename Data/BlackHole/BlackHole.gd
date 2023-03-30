@@ -23,13 +23,17 @@ func _ready():
 func _process(_delta):
 	if ((!Global) || (Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
-		
+
 	$Visibles/DistorterMesh.material_override.set_shader_parameter("eventHorizonRadius", eventHorizonRadius)
 	$Visibles/DistorterMesh.material_override.set_shader_parameter("gravity", gravity)
-	
+
 	# This is needed due to unorthodox way to billboard
 	# ( see shader )
-	global_transform.basis = Basis.IDENTITY * radius * 2
-	
+#	global_transform.basis = Basis(Vector3(randf(), randf(), randf()),
+#			Vector3(randf(), randf(), randf()),
+#			Vector3(randf(), randf(), randf()))
+	$Visibles.global_transform.basis = (Basis.IDENTITY * radius * 2)
+
 	# Scale event horizon sphere
 	$Visibles/EventHorizonSphere.basis = Basis.IDENTITY * (eventHorizonRadius)
+

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://b86crfapqncum"]
+
+[ext_resource type="Script" path="res://Data/MeshDisintegrator/MeshDisintegrator.gd" id="2_pc4jl"]
+[ext_resource type="Shader" path="res://Data/MeshDisintegrator/MeshDisintegrator.gdshader" id="3_26kp2"]
+[ext_resource type="FontFile" uid="uid://dcefjwagtd6c7" path="res://Data/Font/FetteNationalFraktur.ttf" id="3_vb3dj"]
+
+[sub_resource type="TextMesh" id="TextMesh_pf52w"]
+font = ExtResource("3_vb3dj")
+pixel_size = 0.05
+depth = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjq3l"]
+
+[sub_resource type="TextMesh" id="TextMesh_woeg7"]
+text = "T"
+font = ExtResource("3_vb3dj")
+pixel_size = 0.05
+depth = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6jph"]
+render_priority = 0
+shader = ExtResource("3_26kp2")
+
+[node name="MeshDisintegrator" type="Node3D"]
+script = ExtResource("2_pc4jl")
+sourceTextMesh = SubResource("TextMesh_pf52w")
+maxEdgeLength = 0.01
+randomSeed = 1
+disintegrationMethod = 1
+depth = 0.1
+
+[node name="SmoothMesh" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_hjq3l")
+mesh = SubResource("TextMesh_woeg7")
+
+[node name="DisintegratedMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_u6jph")
+instance_shader_parameters/albedo = Color(1, 1, 1, 1)
+instance_shader_parameters/disintegrationFraction = 0.0
+instance_shader_parameters/displacementMaxDeviation = Vector3(1, 1, 0)
+instance_shader_parameters/displacementMinDeviation = Vector3(-1, -1, -2)
+instance_shader_parameters/displacementMultiplier = 5.0
+instance_shader_parameters/fragmentScaling = 1.0

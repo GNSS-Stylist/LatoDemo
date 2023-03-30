@@ -25,7 +25,7 @@ func _process(_delta):
 	else:
 		camera = get_viewport().get_camera_3d()
 			
-	var distance:float = camera.global_transform.origin.length()
+	var distance:float = (self.global_transform.origin - camera.global_transform.origin).length()
 	
 #	var scaling:float = 1.0 - (0.9999 * smoothstep(100, 400, distance))
 #	var scaling:float = 1.0 / (20000.0 - (19999.0 * (1.0 - smoothstep(500, 3500, distance))))
@@ -34,8 +34,8 @@ func _process(_delta):
 	if (scalingOverride != 0):
 		# Godot rounds floats to 0.001 precision in the editor so to be able to feed 
 		# meaningful values here, we need to scale this...
-		# So now 1 means that the planet looks correct when looked at from the distance of the satellite
-		# and 10000 when on the surface of the planet.
+		# So now 10k means that the planet looks correct when looked at from the distance of the satellite
+		# and 1 when on the surface of the planet.
 		scaling = scalingOverride * 0.0001
 	elif (inverseScalingOverride != 0):
 		scaling = 1.0 / inverseScalingOverride

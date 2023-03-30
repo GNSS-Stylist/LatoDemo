@@ -13,8 +13,7 @@ extends Node
 
 # This is meant to be used in @tool-scripts so they can clean the tree of any 
 # generated nodes etc (if true) to prevent bloat in tscn-files
-# Note: The following note is not true any more: Note: This is set in GlobalInit.gd
-var cleanTempToolData:bool = true
+var cleanTempToolData:bool = false
 
 # "Master" replay time used to sycn things during playback.
 # This is used differently when using editor (@tool) and running the project
@@ -45,6 +44,7 @@ var lidarPointVisibleTime:int = 100000
 var lidarLineVisibleTime:int = 20000
 
 var oscilloscopeSoundMasterPosition:int = 0
+var deathRaySoundMasterPosition:int = 0
 
 var soundData = []
 var lowPassFilteredSoundAmplitudeData = []
@@ -98,8 +98,24 @@ func _process(_delta):
 	fractionConvertFloat32Array.push_back(shiftedReplayTime)
 	var replayTimeRemainder = shiftedReplayTime - fractionConvertFloat32Array[0]
 	
-	lidarPointMaterial.set_shader_parameter("replayTime", shiftedReplayTime)
-	lidarPointMaterial.set_shader_parameter("replayTimeRemainder", replayTimeRemainder)
+	if (lidarPointMaterial):
+		lidarPointMaterial.set_shader_parameter("replayTime", shiftedReplayTime)
+		lidarPointMaterial.set_shader_parameter("replayTimeRemainder", replayTimeRemainder)
 
-	lidarLineMaterial.set_shader_parameter("replayTime", shiftedReplayTime)
-	lidarLineMaterial.set_shader_parameter("replayTimeRemainder", replayTimeRemainder)
+	if (lidarLineMaterial):
+		lidarLineMaterial.set_shader_parameter("replayTime", shiftedReplayTime)
+		lidarLineMaterial.set_shader_parameter("replayTimeRemainder", replayTimeRemainder)
+
+class StashData:
+	var blockableGNSSSignalMaterial_SoundDataSampler
+
+func stashToolData():
+	var stashStorage:StashData = StashData.new()
+	
+	stashStorage.blockableGNSSSignalMaterial_SoundDataSampler = blockableGNSSSignalMaterial.get_shader_parameter("soundDataSampler")
+	blockableGNSSSignalMaterial.set_shader_parameter("soundDataSampler", null)
+
+	return stashStorage
+
+func stashPullToolData(stashStorage:StashData):
+	blockableGNSSSignalMaterial.set_shader_parameter("soundDataSampler", stashStorage.blockableGNSSSignalMaterial_SoundDataSampler)

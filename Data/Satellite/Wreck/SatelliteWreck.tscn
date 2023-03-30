@@ -1,0 +1,157 @@
+[gd_scene load_steps=6 format=3 uid="uid://7nc7et6vohhv"]
+
+[ext_resource type="ArrayMesh" uid="uid://b6mo15mxv3jm7" path="res://Data/Satellite/Wreck/SputnikMangledBody.obj" id="1_j8xmq"]
+[ext_resource type="PackedScene" uid="uid://fly1a14m8ibv" path="res://Data/Satellite/antenna.tscn" id="2_a4tga"]
+[ext_resource type="PackedScene" uid="uid://3nndur53hh6u" path="res://Data/Satellite/Wreck/SolarPanelWreck.tscn" id="3_o0kfx"]
+[ext_resource type="PackedScene" uid="uid://clx04teaxhoo7" path="res://Data/Satellite/DishAntenna.tscn" id="4_1c5cl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syp3f"]
+metallic = 1.0
+roughness = 0.25
+
+[node name="SatelliteWreck" type="Node3D"]
+
+[node name="MainBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_syp3f")
+mesh = ExtResource("1_j8xmq")
+
+[node name="Antenna" parent="." instance=ExtResource("2_a4tga")]
+transform = Transform3D(-0.00886727, 0.0674172, -0.997685, -0.96397, -0.265845, -0.00939647, -0.265863, 0.961656, 0.0673455, 0, -0.110205, 0.271024)
+antennaRodAngle = 50.0
+
+[node name="Antenna2" parent="." instance=ExtResource("2_a4tga")]
+transform = Transform3D(-0.0512014, 0.212224, 0.975879, -0.972109, -0.234531, -1.02517e-08, 0.228874, -0.94866, 0.218314, 0, -0.11, -0.274035)
+antennaRodAngle = 100.0
+
+[node name="Antenna3" parent="." instance=ExtResource("2_a4tga")]
+transform = Transform3D(0.378164, -0.925739, -8.09306e-08, -0.925739, -0.378164, -3.30601e-08, -3.82137e-15, 8.74228e-08, -1, -0.250732, -0.11, 0)
+antennaRodAngle = 56.0
+
+[node name="Rod" parent="Antenna3/GroupTransform" index="4"]
+transform = Transform3D(0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 0, 0, 1, -1.08, 0.13, 0)
+
+[node name="Antenna4" parent="." instance=ExtResource("2_a4tga")]
+transform = Transform3D(-0.249636, 0.965616, 0.0725767, -0.96817, -0.250296, 0, 0.0181656, -0.0702666, 0.997363, 0.268159, -0.11, 0)
+antennaRodAngle = 80.377
+
+[node name="SolarPanelWreck" parent="." instance=ExtResource("3_o0kfx")]
+transform = Transform3D(-0.980022, 0.198889, 8.50167e-08, 0.198889, 0.980022, 8.41904e-08, -6.65737e-08, 9.94173e-08, -1, -0.610376, 0.0592108, -0.0572244)
+
+[node name="SolarCell3" parent="SolarPanelWreck/Strip" index="2"]
+visible = false
+
+[node name="SolarCell4" parent="SolarPanelWreck/Strip" index="3"]
+visible = false
+
+[node name="SolarCell5" parent="SolarPanelWreck/Strip" index="4"]
+visible = false
+
+[node name="SolarCell6" parent="SolarPanelWreck/Strip" index="5"]
+visible = false
+
+[node name="SolarCell7" parent="SolarPanelWreck/Strip" index="6"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip" index="7"]
+visible = false
+
+[node name="SolarCell5" parent="SolarPanelWreck/Strip2" index="4"]
+visible = false
+
+[node name="SolarCell6" parent="SolarPanelWreck/Strip2" index="5"]
+visible = false
+
+[node name="SolarCell7" parent="SolarPanelWreck/Strip2" index="6"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip2" index="7"]
+visible = false
+
+[node name="SolarCell6" parent="SolarPanelWreck/Strip3" index="5"]
+visible = false
+
+[node name="SolarCell7" parent="SolarPanelWreck/Strip3" index="6"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip3" index="7"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip4" index="7"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip5" index="7"]
+visible = false
+
+[node name="SolarCell7" parent="SolarPanelWreck/Strip8" index="6"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip8" index="7"]
+visible = false
+
+[node name="SolarCell7" parent="SolarPanelWreck/Strip9" index="6"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip9" index="7"]
+visible = false
+
+[node name="SolarCell4" parent="SolarPanelWreck/Strip10" index="3"]
+visible = false
+
+[node name="SolarCell5" parent="SolarPanelWreck/Strip10" index="4"]
+visible = false
+
+[node name="SolarCell6" parent="SolarPanelWreck/Strip10" index="5"]
+visible = false
+
+[node name="SolarCell7" parent="SolarPanelWreck/Strip10" index="6"]
+visible = false
+
+[node name="SolarCell8" parent="SolarPanelWreck/Strip10" index="7"]
+visible = false
+
+[node name="SolarPanelWreck2" parent="." instance=ExtResource("3_o0kfx")]
+transform = Transform3D(-0.980022, 0.198889, 8.50167e-08, 0.198889, 0.980022, 8.41904e-08, -6.65737e-08, 9.94173e-08, -1, -0.610376, 0.0592108, 0.766528)
+
+[node name="SolarCell" parent="SolarPanelWreck2/Strip" index="0"]
+visible = false
+
+[node name="SolarCell2" parent="SolarPanelWreck2/Strip" index="1"]
+visible = false
+
+[node name="SolarCell" parent="SolarPanelWreck2/Strip2" index="0"]
+visible = false
+
+[node name="SolarCell" parent="SolarPanelWreck2/Strip5" index="0"]
+visible = false
+
+[node name="SolarCell2" parent="SolarPanelWreck2/Strip5" index="1"]
+visible = false
+
+[node name="SolarCell" parent="SolarPanelWreck2/Strip6" index="0"]
+visible = false
+
+[node name="SolarCell2" parent="SolarPanelWreck2/Strip6" index="1"]
+visible = false
+
+[node name="SolarCell" parent="SolarPanelWreck2/Strip7" index="0"]
+visible = false
+
+[node name="SolarCell" parent="SolarPanelWreck2/Strip9" index="0"]
+visible = false
+
+[node name="SolarCell" parent="SolarPanelWreck2/Strip10" index="0"]
+visible = false
+
+[node name="SolarCell2" parent="SolarPanelWreck2/Strip10" index="1"]
+visible = false
+
+[node name="SolarCell3" parent="SolarPanelWreck2/Strip10" index="2"]
+visible = false
+
+[node name="DishAntenna" parent="." instance=ExtResource("4_1c5cl")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.291352, 0)
+
+[editable path="Antenna3"]
+[editable path="SolarPanelWreck"]
+[editable path="SolarPanelWreck2"]

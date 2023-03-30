@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://btxyx7uix6ix3"]
+
+[ext_resource type="PackedScene" uid="uid://b86crfapqncum" path="res://Data/MeshDisintegrator/MeshDisintegrator.tscn" id="1_1mrne"]
+[ext_resource type="Script" path="res://Data/GreatTextAnimator/GreatTextAnimator.gd" id="1_jtu6c"]
+
+[sub_resource type="Animation" id="Animation_2fkkx"]
+resource_name = "GreatText"
+length = 10.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshDisintegrator:position:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.25245, -1.0278, 0, -0.134383, 0.510738, 0.0358917, -0.0823955, -0.1, -0.031, 0, 0.189498, -0.00562791),
+"times": PackedFloat32Array(0, 0.5, 0.584794)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshDisintegrator:disintegrationFraction")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_q75vw"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshDisintegrator:position:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshDisintegrator:disintegrationFraction")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfvmk"]
+_data = {
+"GreatText": SubResource("Animation_2fkkx"),
+"RESET": SubResource("Animation_q75vw")
+}
+
+[node name="GreatTextAnimator" type="Node3D"]
+script = ExtResource("1_jtu6c")
+progress = 0.262
+
+[node name="MeshDisintegrator" parent="." instance=ExtResource("1_1mrne")]
+randomSeed = 0
+
+[node name="GreatAnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.0
+libraries = {
+"": SubResource("AnimationLibrary_lfvmk")
+}

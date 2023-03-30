@@ -275,8 +275,7 @@ func stashToolData():
 
 func stashPullToolData(stashStorage:StashData):
 	mesh = stashStorage.mesh
-#	meshMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Mesh)
-#	wireframeMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Wireframe)
-#	mesh.surface_set_material((mesh.get_surface_count() - 1), wireframeMaterial)
-#	mesh.surface_set_material((mesh.get_surface_count() - 2), meshMaterial)
-	pass
+	meshMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Mesh)
+	wireframeMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Wireframe)
+	mesh.surface_set_material((mesh.get_surface_count() - 1), wireframeMaterial)
+	mesh.surface_set_material((mesh.get_surface_count() - 2), meshMaterial)
