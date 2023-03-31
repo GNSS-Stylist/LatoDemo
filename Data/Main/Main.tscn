@@ -522,8 +522,8 @@ tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "handle_modes": PackedInt32Array(3, 0),
-"points": PackedFloat32Array(50, -3, 0, 3, 0, 1995, -5.60098, 3.45361, 0.25, 0),
-"times": PackedFloat32Array(301, 313)
+"points": PackedFloat32Array(50, -3, 0, 3, 0, 1999.03, -5.60098, 3.45361, 0.25, 0),
+"times": PackedFloat32Array(301, 318)
 }
 tracks/30/type = "bezier"
 tracks/30/imported = false
@@ -5527,24 +5527,24 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/UpperText1:visible")
-tracks/4/interp = 1
+tracks/4/interp = 0
 tracks/4/loop_wrap = false
 tracks/4/keys = {
 "times": PackedFloat32Array(321, 322, 326.92, 327.92, 332.84, 333.84),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true, false, true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/UpperText2:visible")
-tracks/5/interp = 1
+tracks/5/interp = 0
 tracks/5/loop_wrap = false
 tracks/5/keys = {
 "times": PackedFloat32Array(322.5, 323.5, 328.42, 329.42),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 tracks/6/type = "value"
@@ -5575,12 +5575,12 @@ tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/UpperText3:visible")
-tracks/8/interp = 1
+tracks/8/interp = 0
 tracks/8/loop_wrap = false
 tracks/8/keys = {
 "times": PackedFloat32Array(323.96, 324.96, 329.88, 330.88),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 tracks/9/type = "value"
@@ -5611,12 +5611,12 @@ tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/UpperText4:visible")
-tracks/11/interp = 1
+tracks/11/interp = 0
 tracks/11/loop_wrap = false
 tracks/11/keys = {
 "times": PackedFloat32Array(325.46, 326.46, 331.38, 332.38),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 tracks/12/type = "value"
@@ -5647,12 +5647,12 @@ tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/LowerText1:visible")
-tracks/14/interp = 1
+tracks/14/interp = 0
 tracks/14/loop_wrap = false
 tracks/14/keys = {
 "times": PackedFloat32Array(321.76, 322.76, 327.68, 328.68),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 tracks/15/type = "value"
@@ -5683,12 +5683,12 @@ tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/LowerText2:visible")
-tracks/17/interp = 1
+tracks/17/interp = 0
 tracks/17/loop_wrap = false
 tracks/17/keys = {
 "times": PackedFloat32Array(323.2, 324.2, 329.12, 330.12),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 tracks/18/type = "value"
@@ -5719,12 +5719,12 @@ tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/LowerText3:visible")
-tracks/20/interp = 1
+tracks/20/interp = 0
 tracks/20/loop_wrap = false
 tracks/20/keys = {
 "times": PackedFloat32Array(324.72, 325.72, 330.64, 331.64),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 tracks/21/type = "value"
@@ -5755,12 +5755,12 @@ tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts/LowerText4:visible")
-tracks/23/interp = 1
+tracks/23/interp = 0
 tracks/23/loop_wrap = false
 tracks/23/keys = {
 "times": PackedFloat32Array(326.16, 327.16, 332.08, 333.08),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 tracks/24/type = "value"
@@ -5777,15 +5777,15 @@ tracks/24/keys = {
 }
 tracks/25/type = "value"
 tracks/25/imported = false
-tracks/25/enabled = false
+tracks/25/enabled = true
 tracks/25/path = NodePath(".:dbgAnimJump")
 tracks/25/interp = 0
 tracks/25/loop_wrap = false
 tracks/25/keys = {
-"times": PackedFloat32Array(327.54),
+"times": PackedFloat32Array(338.01),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10.0]
+"values": [20.0]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -5830,10 +5830,10 @@ tracks/29/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/De
 tracks/29/interp = 1
 tracks/29/loop_wrap = false
 tracks/29/keys = {
-"times": PackedFloat32Array(318, 319.38, 320.86, 337.6),
+"times": PackedFloat32Array(318.477, 319.857, 321.86, 338.077),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [390.0, 1100.0, 1860.0, 10000.0]
+"values": [390.0, 1100.0, 2150.0, 10000.0]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
@@ -5873,13 +5873,13 @@ tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
 tracks/33/path = NodePath("World/PlanetCore:visible")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
+tracks/33/interp = 0
+tracks/33/loop_wrap = false
 tracks/33/keys = {
-"times": PackedFloat32Array(319),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(318, 319),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
 }
 tracks/34/type = "value"
 tracks/34/imported = false
@@ -5948,10 +5948,10 @@ tracks/39/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/De
 tracks/39/interp = 1
 tracks/39/loop_wrap = false
 tracks/39/keys = {
-"times": PackedFloat32Array(318.004, 320),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(318.004, 320, 329.78, 336.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0.14, 0, 1), Color(0, 1.5, 0, 1)]
+"values": [Color(0, 0.14, 0, 1), Color(0, 1.5, 0, 1), Color(1.2, 1.2, 0, 1), Color(1.5, 0, 0, 1)]
 }
 tracks/40/type = "value"
 tracks/40/imported = false
@@ -5964,6 +5964,66 @@ tracks/40/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1414, -1414, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("CameraFlyingSpace_Ascend/Ascender:distance")
+tracks/41/interp = 1
+tracks/41/loop_wrap = false
+tracks/41/keys = {
+"times": PackedFloat32Array(318, 318.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.0, 1.0]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("CameraFlyingSpace_Ascend/Ascender:height")
+tracks/42/interp = 1
+tracks/42/loop_wrap = false
+tracks/42/keys = {
+"times": PackedFloat32Array(318),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1999.03]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("CameraFlyingSpace_Ascend/Ascender:angle")
+tracks/43/interp = 1
+tracks/43/loop_wrap = false
+tracks/43/keys = {
+"times": PackedFloat32Array(318),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-90.0]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/scopeHeight")
+tracks/44/interp = 1
+tracks/44/loop_wrap = false
+tracks/44/keys = {
+"times": PackedFloat32Array(318, 318.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 2.5]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("SatelliteWreck:scopeLightColor")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(320, 329.76, 336.32),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ss0a7"]
@@ -8219,6 +8279,18 @@ tracks/188/keys = {
 "update": 0,
 "values": [1.00098]
 }
+tracks/189/type = "value"
+tracks/189/imported = false
+tracks/189/enabled = true
+tracks/189/path = NodePath("SatelliteWreck:scopeLightColor")
+tracks/189/interp = 1
+tracks/189/loop_wrap = true
+tracks/189/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -8690,10 +8762,10 @@ tracks/38/path = NodePath("Satellite:scopeActive")
 tracks/38/interp = 1
 tracks/38/loop_wrap = false
 tracks/38/keys = {
-"times": PackedFloat32Array(0, 50),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 50, 59),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/39/type = "value"
 tracks/39/imported = false
@@ -8798,6 +8870,30 @@ tracks/47/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1414, -1414, 0)]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = false
+tracks/48/path = NodePath("SatelliteWreck:visible")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = false
+tracks/49/path = NodePath("SatelliteWreck:process_mode")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
@@ -9400,8 +9496,8 @@ shader_parameter/soundLengthA = 4096.0
 shader_parameter/numOfSamplesB = 1542747
 shader_parameter/soundAmplificationB = 0.0
 shader_parameter/soundPosB = 0.0
-shader_parameter/soundOffsetB = -300000
-shader_parameter/soundLengthB = 300000.0
+shader_parameter/soundOffsetB = -1500000
+shader_parameter/soundLengthB = 1.5e+06
 shader_parameter/innerLineWidthLow = 0.0
 shader_parameter/innerLineWidthHigh = 0.027
 shader_parameter/lineFadeOutLow = 0.1
@@ -9415,8 +9511,8 @@ shader_parameter/startNarrowing_Level = 0.3
 shader_parameter/startNarrowing_Start = 0.0
 shader_parameter/startNarrowing_End = 0.5
 shader_parameter/endNarrowing_Level = 0.1
-shader_parameter/endNarrowing_Start = 99.829
-shader_parameter/endNarrowing_End = 99.85
+shader_parameter/endNarrowing_Start = 99.977
+shader_parameter/endNarrowing_End = 99.981
 shader_parameter/skipBillboarding = false
 
 [sub_resource type="Curve3D" id="Curve3D_wa7bu"]
@@ -10753,7 +10849,7 @@ visible = false
 mesh = SubResource("TextMesh_u082j")
 
 [node name="SatelliteWreck" parent="." instance=ExtResource("61_adtc1")]
-transform = Transform3D(-3.53553, 3.53553, 7.54979e-07, 3.53553, 3.53553, 0, -5.33851e-07, 5.33851e-07, -5, 1413.51, 1413.51, 9.7891e-08)
+transform = Transform3D(-0.707107, 0.707107, 1.50996e-07, 0.707107, 0.707107, 0, -1.0677e-07, 1.0677e-07, -1, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="CameraFlyingSpace_Ascend" type="Node3D" parent="."]
@@ -10774,7 +10870,7 @@ script = ExtResource("43_1mg0k")
 eulerAnglesFraction = 1.0
 
 [node name="GreatTexts" type="Node3D" parent="CameraFlyingSpace_Ascend"]
-transform = Transform3D(2.84217e-14, 4.37114e-08, 1, 1, -5.96046e-08, 3.55271e-15, 5.96046e-08, 1, -4.37114e-08, 0, 0, 1994.83)
+transform = Transform3D(6.93175e-15, 1.09278e-08, 0.25, 0.25, -1.09278e-08, -6.45408e-15, 1.09278e-08, 0.25, -1.09278e-08, 0, 0, 1999.03)
 
 [node name="UpperText1" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(5.96046e-08, 1, -8.74228e-08, 1, -5.96047e-08, -7.10543e-15, 2.13163e-14, -8.74228e-08, -1, 0.8, 0, 0)
@@ -10824,8 +10920,8 @@ progress = 0.0
 randomSeed = 1911
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
