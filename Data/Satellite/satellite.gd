@@ -29,7 +29,6 @@ extends Node3D
 
 @export var bodyMorphFraction:float
 @export var exoFrameFraction:float
-@export var solarPanelFraction:float
 @export var scopeActive:bool
 @export var scopeLightEnergy:float = 1
 @export var haloAlbedo:Color = Color(0, 1, 0, 1)
@@ -58,7 +57,6 @@ var animResetStashDone:bool = false
 func _ready():
 	$AnimationPlayer_BodyMorph.current_animation = "Morph"
 	$AnimationPlayer_ExoFrames.current_animation = "ExoFramesFlying"
-	$AnimationPlayer_SolarPanel.current_animation = "SolarPanelConstruction"
 
 	if ((!Global) || (Engine.is_editor_hint() && Global.cleanTempToolData)):
 		# @tool-scripts will generate changes that are saved into .tscn (scene)-files.
@@ -88,9 +86,6 @@ func _process(_delta):
 	if ($AnimationPlayer_ExoFrames.current_animation_position != clamp(exoFrameFraction, 0, 1)):
 		$AnimationPlayer_ExoFrames.seek(clamp(exoFrameFraction, 0, 1))
 	
-	if ($AnimationPlayer_SolarPanel.current_animation_position != clamp(solarPanelFraction, 0, 1)):
-		$AnimationPlayer_SolarPanel.seek(clamp(solarPanelFraction, 0, 1))
-
 	if (useCommonAntennaRodAngle):
 		if ($Antenna1.antennaRodAngle != commonAntennaRodAngle):
 			$Antenna1.antennaRodAngle = commonAntennaRodAngle

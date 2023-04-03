@@ -24,17 +24,14 @@ transform = Transform3D(1.00191, 0, 0, 0, 1, 0, 0, 0, 1.00191, 0, 0, 0)
 [node name="Antenna" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(-0.000886727, 0.00674172, -0.0997685, -0.096397, -0.0265845, -0.000939647, -0.0265863, 0.0961656, 0.00673455, 0, -0.110205, 0.271024)
 antennaRodAngle = 50.0
-collisionObjectEnabled = false
 
 [node name="Antenna2" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(-0.00512014, 0.0212224, 0.0975879, -0.0972109, -0.0234531, -1.6263e-08, 0.0228874, -0.094866, 0.0218313, 0, -0.11, -0.274035)
 antennaRodAngle = 100.0
-collisionObjectEnabled = false
 
 [node name="Antenna3" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(0.0378164, -0.0925739, -1.50996e-08, -0.0925739, -0.0378164, -3.30601e-09, -2.64961e-09, 1.52285e-08, -0.1, -0.250732, -0.11, 0)
 antennaRodAngle = 56.0
-collisionObjectEnabled = false
 
 [node name="Rod" parent="MainWreck/Antenna3/GroupTransform" index="4"]
 transform = Transform3D(0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 0, 0, 1, -1.08, 0.13, 0)
@@ -45,7 +42,6 @@ transform = Transform3D(0.829038, -0.559193, 3.55271e-15, 0.559193, 0.829038, -1
 [node name="Antenna4" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(-0.0249636, 0.0965616, 0.00725768, -0.0968169, -0.0250296, -7.81592e-09, 0.00181656, -0.00702666, 0.0997363, 0.268159, -0.11, 0)
 antennaRodAngle = 80.377
-collisionObjectEnabled = false
 
 [node name="SolarPanelWreck" parent="MainWreck" instance=ExtResource("3_o0kfx")]
 transform = Transform3D(-0.980021, 0.0430237, -0.19418, 0.198889, 0.211999, -0.956817, -5.95609e-08, -0.976322, -0.21632, -0.822028, 0.0506405, -0.012606)

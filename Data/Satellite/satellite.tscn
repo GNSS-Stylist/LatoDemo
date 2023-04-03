@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://wbaalqedwstv"]
+[gd_scene load_steps=24 format=3 uid="uid://wbaalqedwstv"]
 
 [ext_resource type="Shader" path="res://Data/Satellite/morph.gdshader" id="1_2xbut"]
 [ext_resource type="Script" path="res://Data/Satellite/satellite.gd" id="1_w78iv"]
 [ext_resource type="Texture2D" uid="uid://ct4n731fbc6cg" path="res://Data/Satellite/Satellite_gold_normal.png" id="3_flxe8"]
 [ext_resource type="PackedScene" uid="uid://fly1a14m8ibv" path="res://Data/Satellite/antenna.tscn" id="3_tgdci"]
-[ext_resource type="PackedScene" uid="uid://c0nih8qqfqt4c" path="res://Data/Satellite/solar_panel.tscn" id="5_ir1am"]
 [ext_resource type="ArrayMesh" uid="uid://w41rqwh1qtsb" path="res://Data/Satellite/SputnikRing.obj" id="6_tqdcm"]
 [ext_resource type="PackedScene" uid="uid://dfuymc6rqotx8" path="res://Data/Satellite/hall_thruster_cluster.tscn" id="7_e7vab"]
 [ext_resource type="PackedScene" uid="uid://clx04teaxhoo7" path="res://Data/Satellite/DishAntenna.tscn" id="8_m5klc"]
@@ -14,13 +13,13 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oe125"]
 render_priority = 0
 shader = ExtResource("1_2xbut")
-shader_parameter/albedo = Color(1, 1, 0, 1)
+shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/point_size = null
 shader_parameter/roughness = 0.25
 shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 1.0
-shader_parameter/normal_scale = 1.0
+shader_parameter/normal_scale = 0.0
 shader_parameter/uv1_blend_sharpness = 1.0
 shader_parameter/uv1_scale = Vector3(4, 4, 4)
 shader_parameter/uv1_offset = null
@@ -28,7 +27,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = null
 shader_parameter/ballRadius = Vector3(0.29, 0.29, 0.29)
 shader_parameter/boxExtents = Vector3(1, 1.5, 1)
-shader_parameter/morphAmount = 0.0
+shader_parameter/morphAmount = 1.0
 shader_parameter/texture_normal = ExtResource("3_flxe8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_tmlla"]
@@ -291,215 +290,62 @@ tracks/5/keys = {
 "update": 1,
 "values": [false, true]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eoibu"]
-_data = {
-"ExoFramesFlying": SubResource("Animation_7d3r8")
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Frame_Upper:process_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Frame_Lower:process_mode")
+tracks/7/interp = 1
+tracks/7/loop_wrap = false
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
 }
 
-[sub_resource type="Animation" id="Animation_ym7xp"]
+[sub_resource type="Animation" id="Animation_08grc"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SolarPanel1:process_mode")
+tracks/0/path = NodePath("Frame_Upper:process_mode")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SolarPanel2:process_mode")
+tracks/1/path = NodePath("Frame_Lower:process_mode")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SolarPanel3:process_mode")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
 "values": [0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SolarPanel4:process_mode")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SolarPanel1:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SolarPanel2:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
-[sub_resource type="Animation" id="Animation_vauhs"]
-resource_name = "SolarPanelConstruction"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("SolarPanel1:constructionFraction")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("SolarPanel2:constructionFraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0.0, 1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SolarPanel3:constructionFraction")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SolarPanel4:constructionFraction")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/path = NodePath("SolarPanel1:process_mode")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [4, 0, 4]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = false
-tracks/5/path = NodePath("SolarPanel2:process_mode")
-tracks/5/interp = 1
-tracks/5/loop_wrap = false
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [4, 0, 4]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SolarPanel3:process_mode")
-tracks/6/interp = 1
-tracks/6/loop_wrap = false
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [4, 0, 4]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("SolarPanel4:process_mode")
-tracks/7/interp = 1
-tracks/7/loop_wrap = false
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [4, 0, 4]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("SolarPanel1:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = false
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("SolarPanel2:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwbji"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eoibu"]
 _data = {
-"RESET": SubResource("Animation_ym7xp"),
-"SolarPanelConstruction": SubResource("Animation_vauhs")
+"ExoFramesFlying": SubResource("Animation_7d3r8"),
+"RESET": SubResource("Animation_08grc")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yws4a"]
@@ -517,7 +363,7 @@ shader = ExtResource("9_81ygb")
 shader_parameter/baseAlbedo = Color(0, 1, 0, 1)
 shader_parameter/centerHoleRadius = 0.0
 shader_parameter/numOfSamples = 1542747
-shader_parameter/soundPos = 163200.0
+shader_parameter/soundPos = 0.0
 shader_parameter/soundOffset = 2000.0
 shader_parameter/soundLength = -80000.0
 shader_parameter/soundPreCut = 0.0
@@ -575,80 +421,25 @@ libraries = {
 "": SubResource("AnimationLibrary_eoibu")
 }
 
-[node name="AnimationPlayer_SolarPanel" type="AnimationPlayer" parent="."]
-reset_on_save = false
-speed_scale = 0.0
-libraries = {
-"": SubResource("AnimationLibrary_fwbji")
-}
-
 [node name="Antenna1" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(4.37114e-09, -0.1, -8.74228e-09, -0.1, -4.37114e-09, 0, -3.82137e-16, 8.74228e-09, -0.1, -0.28, -0.11, 0)
 antennaRodAngle = 10.0
 baseAngle = -10.0
-collisionObjectEnabled = false
 
 [node name="Antenna2" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, 0.28, -0.11, 0)
 antennaRodAngle = 10.0
 baseAngle = -10.0
-collisionObjectEnabled = false
 
 [node name="Antenna3" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4.37114e-09, -0.1, -4.37114e-09, 0, -0.11, -0.28)
 antennaRodAngle = 10.0
 baseAngle = -10.0
-collisionObjectEnabled = false
 
 [node name="Antenna4" parent="." instance=ExtResource("3_tgdci")]
 transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, -0.11, 0.28)
 antennaRodAngle = 10.0
 baseAngle = -10.0
-collisionObjectEnabled = false
-
-[node name="SolarPanel1" parent="." instance=ExtResource("5_ir1am")]
-process_mode = 4
-transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, -2.175, -0.192573, -0.350028)
-visible = false
-columns = 8
-flyTime = 0.5
-randomSeed = 424242424242
-constructionOrigin = Vector3(-1, 0, -0.5)
-constructionFraction = 1.0
-
-[node name="SolarPanel2" parent="." instance=ExtResource("5_ir1am")]
-process_mode = 4
-transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, -2.175, 0.212976, 0.352169)
-visible = false
-columns = 8
-flyTime = 0.5
-flyDirLimits_Min = Vector3(0, 0, -1)
-flyDirLimits_Max = Vector3(1, 1, 0)
-randomSeed = 1337
-constructionOrigin = Vector3(-1, 0, 0.5)
-constructionFraction = 1.0
-
-[node name="SolarPanel3" parent="." instance=ExtResource("5_ir1am")]
-process_mode = 4
-transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, 2.175, -0.193, -0.35)
-columns = 8
-flyTime = 0.5
-flyDirLimits_Min = Vector3(-1, 0, 0)
-flyDirLimits_Max = Vector3(0, 1, 1)
-randomSeed = 6502
-constructionOrigin = Vector3(1, 0, -0.5)
-constructionFraction = 0.0
-
-[node name="SolarPanel4" parent="." instance=ExtResource("5_ir1am")]
-process_mode = 4
-transform = Transform3D(-1, 6.12323e-17, 1.06058e-16, 0, 0.866025, -0.5, -1.22465e-16, -0.5, -0.866025, 2.175, 0.213, 0.352)
-columns = 8
-flyTime = 0.5
-flyDirLimits_Min = Vector3(-1, 0, -1)
-flyDirLimits_Max = Vector3(0, 1, 0)
-randomSeed = 68000
-constructionOrigin = Vector3(1, 0, 0.5)
-constructionFraction = 0.0
 
 [node name="SputnikRing_Upper" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
@@ -661,6 +452,7 @@ mesh = ExtResource("6_tqdcm")
 surface_material_override/0 = SubResource("StandardMaterial3D_yws4a")
 
 [node name="Frame_Upper" type="Node3D" parent="."]
+process_mode = 4
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939694, 0, 10, 0)
 visible = false
 
@@ -712,6 +504,7 @@ maxAcceleration = 0.01
 globalSpeedFilterCoeff = 0.01
 
 [node name="Frame_Lower" type="Node3D" parent="."]
+process_mode = 4
 transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
 visible = false
 
@@ -740,7 +533,7 @@ size = Vector3(1.1, 0.52, 0.9)
 [node name="DishAntenna" parent="Frame_Lower" instance=ExtResource("8_m5klc")]
 
 [node name="ScopeLight" parent="Frame_Lower/DishAntenna" index="3"]
-light_energy = 0.337803
+light_energy = 0.00137255
 
 [node name="HallThrusterCluster" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, 0.0707107, -0.0707107, -0.0707107, 0, 0.05, -0.05, -0.0707107, 0.503, -0.784, 0.503)
