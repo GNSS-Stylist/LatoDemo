@@ -32,9 +32,9 @@ var replayTimeOverride_WireFrames:float = 0
 var overrideReplayTime_AdditiveGeometries:bool = false
 var replayTimeOverride_AdditiveGeometries:float = 0
 
-var lidarPointMaterial:Material
-var lidarLineMaterial:Material
-var blockableGNSSSignalMaterial:Material
+var lidarPointMaterial:ShaderMaterial
+var lidarLineMaterial:ShaderMaterial
+var blockableGNSSSignalMaterial:ShaderMaterial
 
 #var oscilloscopeCanvasShader:Shader
 var oscilloscope3DShader:Shader

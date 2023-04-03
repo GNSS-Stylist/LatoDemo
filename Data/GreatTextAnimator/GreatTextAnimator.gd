@@ -8,17 +8,17 @@ const MeshDisintegrator = preload("res://Data/MeshDisintegrator/MeshDisintegrato
 
 @export var text:String:
 	set(newText):
-		if (meshDisintegrator):
+		if ((meshDisintegrator) && (text != newText)):
 			meshDisintegrator.textOverride = newText
-		text = newText
+			text = newText
 	get:
 		return text
 
 @export var progress:float = 0:
 	set(newProgress):
-		if (greatAnimationPlayer):
+		if (greatAnimationPlayer && (newProgress != progress)):
 			greatAnimationPlayer.seek(newProgress)
-		progress = newProgress
+			progress = newProgress
 	get:
 		return progress
 

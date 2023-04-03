@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=149 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -595,12 +595,12 @@ tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
 tracks/36/path = NodePath(".:position")
-tracks/36/interp = 1
+tracks/36/interp = 0
 tracks/36/loop_wrap = false
 tracks/36/keys = {
 "times": PackedFloat32Array(301, 318.2),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector3(0, 0, 0), Vector3(-1414, -1414, 0)]
 }
 
@@ -2269,7 +2269,6 @@ tracks/137/keys = {
 resource_name = "Construction"
 length = 600.0
 loop_mode = 1
-step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2279,7 +2278,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 201),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true]
 }
 tracks/1/type = "value"
@@ -2320,7 +2319,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("Satellite:visible")
 tracks/4/interp = 0
 tracks/4/loop_wrap = false
@@ -2332,7 +2331,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("Satellite:process_mode")
 tracks/5/interp = 0
 tracks/5/loop_wrap = false
@@ -2392,7 +2391,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/imported = false
-tracks/10/enabled = true
+tracks/10/enabled = false
 tracks/10/path = NodePath("Satellite:haloAlbedo")
 tracks/10/interp = 1
 tracks/10/loop_wrap = false
@@ -2449,7 +2448,7 @@ tracks/14/keys = {
 }
 tracks/15/type = "value"
 tracks/15/imported = false
-tracks/15/enabled = true
+tracks/15/enabled = false
 tracks/15/path = NodePath("GlobalInit:scopeAutoSoundPosAdjustFractionByCurrentCamera")
 tracks/15/interp = 1
 tracks/15/loop_wrap = false
@@ -2461,7 +2460,7 @@ tracks/15/keys = {
 }
 tracks/16/type = "value"
 tracks/16/imported = false
-tracks/16/enabled = true
+tracks/16/enabled = false
 tracks/16/path = NodePath("World/JellyPlanet:material_override:shader_parameter/edgeAlbedo_Front")
 tracks/16/interp = 1
 tracks/16/loop_wrap = false
@@ -2473,7 +2472,7 @@ tracks/16/keys = {
 }
 tracks/17/type = "value"
 tracks/17/imported = false
-tracks/17/enabled = true
+tracks/17/enabled = false
 tracks/17/path = NodePath("World/JellyPlanet:material_override:shader_parameter/centerAlbedo_Front")
 tracks/17/interp = 1
 tracks/17/loop_wrap = false
@@ -2565,7 +2564,7 @@ tracks/24/keys = {
 }
 tracks/25/type = "value"
 tracks/25/imported = false
-tracks/25/enabled = true
+tracks/25/enabled = false
 tracks/25/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/soundOffset")
 tracks/25/interp = 1
 tracks/25/loop_wrap = false
@@ -2577,7 +2576,7 @@ tracks/25/keys = {
 }
 tracks/26/type = "value"
 tracks/26/imported = false
-tracks/26/enabled = true
+tracks/26/enabled = false
 tracks/26/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/scopeHeight")
 tracks/26/interp = 1
 tracks/26/loop_wrap = false
@@ -2980,7 +2979,7 @@ tracks/59/loop_wrap = false
 tracks/59/keys = {
 "times": PackedFloat32Array(146, 177.5, 254),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [true, false, false]
 }
 tracks/60/type = "value"
@@ -2992,7 +2991,7 @@ tracks/60/loop_wrap = false
 tracks/60/keys = {
 "times": PackedFloat32Array(146, 254),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [false, false]
 }
 tracks/61/type = "value"
@@ -3021,7 +3020,7 @@ tracks/62/keys = {
 }
 tracks/63/type = "value"
 tracks/63/imported = false
-tracks/63/enabled = true
+tracks/63/enabled = false
 tracks/63/path = NodePath("AnimatedCamera:fov")
 tracks/63/interp = 1
 tracks/63/loop_wrap = false
@@ -3033,7 +3032,7 @@ tracks/63/keys = {
 }
 tracks/64/type = "value"
 tracks/64/imported = false
-tracks/64/enabled = true
+tracks/64/enabled = false
 tracks/64/path = NodePath("AnimatedCamera:near")
 tracks/64/interp = 1
 tracks/64/loop_wrap = false
@@ -3045,7 +3044,7 @@ tracks/64/keys = {
 }
 tracks/65/type = "value"
 tracks/65/imported = false
-tracks/65/enabled = true
+tracks/65/enabled = false
 tracks/65/path = NodePath("AnimatedCamera:far")
 tracks/65/interp = 1
 tracks/65/loop_wrap = false
@@ -3332,7 +3331,7 @@ tracks/87/keys = {
 }
 tracks/88/type = "value"
 tracks/88/imported = false
-tracks/88/enabled = true
+tracks/88/enabled = false
 tracks/88/path = NodePath("World/LOScriptReplayer_MainBlackHole:visible")
 tracks/88/interp = 1
 tracks/88/loop_wrap = false
@@ -3344,7 +3343,7 @@ tracks/88/keys = {
 }
 tracks/89/type = "value"
 tracks/89/imported = false
-tracks/89/enabled = true
+tracks/89/enabled = false
 tracks/89/path = NodePath("World/LOScriptReplayer_MainBlackHole:locationOverride")
 tracks/89/interp = 1
 tracks/89/loop_wrap = false
@@ -3356,7 +3355,7 @@ tracks/89/keys = {
 }
 tracks/90/type = "value"
 tracks/90/imported = false
-tracks/90/enabled = true
+tracks/90/enabled = false
 tracks/90/path = NodePath("World/LOScriptReplayer_MainBlackHole:loOverrideFraction")
 tracks/90/interp = 1
 tracks/90/loop_wrap = false
@@ -3392,7 +3391,7 @@ tracks/92/keys = {
 }
 tracks/93/type = "value"
 tracks/93/imported = false
-tracks/93/enabled = true
+tracks/93/enabled = false
 tracks/93/path = NodePath("World/LOScriptReplayer_MainBlackHole:orientationOverride")
 tracks/93/interp = 1
 tracks/93/loop_wrap = false
@@ -3404,7 +3403,7 @@ tracks/93/keys = {
 }
 tracks/94/type = "value"
 tracks/94/imported = false
-tracks/94/enabled = true
+tracks/94/enabled = false
 tracks/94/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:eventHorizonRadius")
 tracks/94/interp = 1
 tracks/94/loop_wrap = false
@@ -3416,7 +3415,7 @@ tracks/94/keys = {
 }
 tracks/95/type = "value"
 tracks/95/imported = false
-tracks/95/enabled = true
+tracks/95/enabled = false
 tracks/95/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:gravity")
 tracks/95/interp = 1
 tracks/95/loop_wrap = false
@@ -3428,7 +3427,7 @@ tracks/95/keys = {
 }
 tracks/96/type = "value"
 tracks/96/imported = false
-tracks/96/enabled = true
+tracks/96/enabled = false
 tracks/96/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:radius")
 tracks/96/interp = 1
 tracks/96/loop_wrap = false
@@ -3440,7 +3439,7 @@ tracks/96/keys = {
 }
 tracks/97/type = "value"
 tracks/97/imported = false
-tracks/97/enabled = true
+tracks/97/enabled = false
 tracks/97/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/Visibles/BlackLight:omni_range")
 tracks/97/interp = 1
 tracks/97/loop_wrap = false
@@ -3452,7 +3451,7 @@ tracks/97/keys = {
 }
 tracks/98/type = "value"
 tracks/98/imported = false
-tracks/98/enabled = true
+tracks/98/enabled = false
 tracks/98/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/Visibles/BlackLight:light_energy")
 tracks/98/interp = 1
 tracks/98/loop_wrap = false
@@ -3536,7 +3535,7 @@ tracks/104/keys = {
 }
 tracks/105/type = "value"
 tracks/105/imported = false
-tracks/105/enabled = true
+tracks/105/enabled = false
 tracks/105/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas:rotation")
 tracks/105/interp = 1
 tracks/105/loop_wrap = false
@@ -3548,7 +3547,7 @@ tracks/105/keys = {
 }
 tracks/106/type = "value"
 tracks/106/imported = false
-tracks/106/enabled = true
+tracks/106/enabled = false
 tracks/106/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas:scale")
 tracks/106/interp = 1
 tracks/106/loop_wrap = false
@@ -3596,7 +3595,7 @@ tracks/109/keys = {
 }
 tracks/110/type = "value"
 tracks/110/imported = false
-tracks/110/enabled = true
+tracks/110/enabled = false
 tracks/110/path = NodePath("Label_Subtitle:text")
 tracks/110/interp = 0
 tracks/110/loop_wrap = false
@@ -3612,7 +3611,7 @@ Vega 28231406 by Ezequiel Rodríguez (Licensed under CC BY 3.0)", "\"The Milky W
 }
 tracks/111/type = "value"
 tracks/111/imported = false
-tracks/111/enabled = true
+tracks/111/enabled = false
 tracks/111/path = NodePath("Label_Subtitle:visible")
 tracks/111/interp = 0
 tracks/111/loop_wrap = false
@@ -3624,7 +3623,7 @@ tracks/111/keys = {
 }
 tracks/112/type = "value"
 tracks/112/imported = false
-tracks/112/enabled = true
+tracks/112/enabled = false
 tracks/112/path = NodePath("Label_Subtitle:modulate")
 tracks/112/interp = 1
 tracks/112/loop_wrap = false
@@ -3636,7 +3635,7 @@ tracks/112/keys = {
 }
 tracks/113/type = "value"
 tracks/113/imported = false
-tracks/113/enabled = true
+tracks/113/enabled = false
 tracks/113/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:visible")
 tracks/113/interp = 0
 tracks/113/loop_wrap = false
@@ -3696,7 +3695,7 @@ tracks/117/keys = {
 }
 tracks/118/type = "bezier"
 tracks/118/imported = false
-tracks/118/enabled = true
+tracks/118/enabled = false
 tracks/118/path = NodePath("CameraFlyingSpace_Satellite_Angled/Path_Satellite/PathFollow_Satellite:progress")
 tracks/118/interp = 1
 tracks/118/loop_wrap = true
@@ -3707,7 +3706,7 @@ tracks/118/keys = {
 }
 tracks/119/type = "value"
 tracks/119/imported = false
-tracks/119/enabled = true
+tracks/119/enabled = false
 tracks/119/path = NodePath("Satellite:scopeActive")
 tracks/119/interp = 1
 tracks/119/loop_wrap = false
@@ -3731,7 +3730,7 @@ tracks/120/keys = {
 }
 tracks/121/type = "bezier"
 tracks/121/imported = false
-tracks/121/enabled = true
+tracks/121/enabled = false
 tracks/121/path = NodePath("CameraFlyingSpace_Descent/Descender:distance")
 tracks/121/interp = 1
 tracks/121/loop_wrap = true
@@ -3742,7 +3741,7 @@ tracks/121/keys = {
 }
 tracks/122/type = "bezier"
 tracks/122/imported = false
-tracks/122/enabled = true
+tracks/122/enabled = false
 tracks/122/path = NodePath("CameraFlyingSpace_Descent/Descender:height")
 tracks/122/interp = 1
 tracks/122/loop_wrap = true
@@ -3753,7 +3752,7 @@ tracks/122/keys = {
 }
 tracks/123/type = "bezier"
 tracks/123/imported = false
-tracks/123/enabled = true
+tracks/123/enabled = false
 tracks/123/path = NodePath("CameraFlyingSpace_Descent/Descender:angle")
 tracks/123/interp = 1
 tracks/123/loop_wrap = true
@@ -3778,7 +3777,7 @@ tracks/125/type = "value"
 tracks/125/imported = false
 tracks/125/enabled = true
 tracks/125/path = NodePath("GlobalInit:blockableGNSSSignalRaycast")
-tracks/125/interp = 1
+tracks/125/interp = 0
 tracks/125/loop_wrap = false
 tracks/125/keys = {
 "times": PackedFloat32Array(0, 121.5),
@@ -3868,7 +3867,7 @@ tracks/132/keys = {
 }
 tracks/133/type = "value"
 tracks/133/imported = false
-tracks/133/enabled = true
+tracks/133/enabled = false
 tracks/133/path = NodePath("World:inverseScalingOverride")
 tracks/133/interp = 1
 tracks/133/loop_wrap = false
@@ -3880,7 +3879,7 @@ tracks/133/keys = {
 }
 tracks/134/type = "value"
 tracks/134/imported = false
-tracks/134/enabled = true
+tracks/134/enabled = false
 tracks/134/path = NodePath(".:position")
 tracks/134/interp = 1
 tracks/134/loop_wrap = false
@@ -3905,7 +3904,7 @@ tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 35.7),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true]
 }
 tracks/1/type = "value"
@@ -3915,9 +3914,9 @@ tracks/1/path = NodePath("Satellite:visible")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 70),
+"times": PackedFloat32Array(0, 59),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [true, false]
 }
 tracks/2/type = "value"
@@ -3929,7 +3928,7 @@ tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 82),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [5, 5]
 }
 tracks/3/type = "value"
@@ -3941,7 +3940,7 @@ tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 81.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [1, 6]
 }
 tracks/4/type = "value"
@@ -4181,10 +4180,10 @@ tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/path = NodePath("Satellite:process_mode")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
+tracks/24/interp = 0
+tracks/24/loop_wrap = false
 tracks/24/keys = {
-"times": PackedFloat32Array(55, 70),
+"times": PackedFloat32Array(55, 57.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 4]
@@ -4193,13 +4192,37 @@ tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/path = NodePath(".:position")
-tracks/25/interp = 1
+tracks/25/interp = 0
 tracks/25/loop_wrap = false
 tracks/25/keys = {
 "times": PackedFloat32Array(56, 75.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector3(-1414, -1414, 0), Vector3(0, 0, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Satellite/SoundHalo:material_override:shader_parameter/soundPreCut")
+tracks/26/interp = 0
+tracks/26/loop_wrap = false
+tracks/26/keys = {
+"times": PackedFloat32Array(55),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [446228.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Satellite:haloAlbedo")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(55.4066),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_62hyn"]
@@ -5462,13 +5485,13 @@ tracks/104/type = "value"
 tracks/104/imported = false
 tracks/104/enabled = true
 tracks/104/path = NodePath(".:position")
-tracks/104/interp = 1
-tracks/104/loop_wrap = true
+tracks/104/interp = 0
+tracks/104/loop_wrap = false
 tracks/104/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
+"times": PackedFloat32Array(0, 256),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ks6w7"]
@@ -5532,7 +5555,7 @@ tracks/4/loop_wrap = false
 tracks/4/keys = {
 "times": PackedFloat32Array(321, 322, 326.92, 327.92, 332.84, 333.84),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true, false, true]
 }
 tracks/5/type = "value"
@@ -5544,7 +5567,7 @@ tracks/5/loop_wrap = false
 tracks/5/keys = {
 "times": PackedFloat32Array(322.5, 323.5, 328.42, 329.42),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true]
 }
 tracks/6/type = "value"
@@ -5580,7 +5603,7 @@ tracks/8/loop_wrap = false
 tracks/8/keys = {
 "times": PackedFloat32Array(323.96, 324.96, 329.88, 330.88),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true]
 }
 tracks/9/type = "value"
@@ -5616,7 +5639,7 @@ tracks/11/loop_wrap = false
 tracks/11/keys = {
 "times": PackedFloat32Array(325.46, 326.46, 331.38, 332.38),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true]
 }
 tracks/12/type = "value"
@@ -5652,7 +5675,7 @@ tracks/14/loop_wrap = false
 tracks/14/keys = {
 "times": PackedFloat32Array(321.76, 322.76, 327.68, 328.68),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true]
 }
 tracks/15/type = "value"
@@ -5688,7 +5711,7 @@ tracks/17/loop_wrap = false
 tracks/17/keys = {
 "times": PackedFloat32Array(323.2, 324.2, 329.12, 330.12),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true]
 }
 tracks/18/type = "value"
@@ -5724,7 +5747,7 @@ tracks/20/loop_wrap = false
 tracks/20/keys = {
 "times": PackedFloat32Array(324.72, 325.72, 330.64, 331.64),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true]
 }
 tracks/21/type = "value"
@@ -5760,7 +5783,7 @@ tracks/23/loop_wrap = false
 tracks/23/keys = {
 "times": PackedFloat32Array(326.16, 327.16, 332.08, 333.08),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, false, true]
 }
 tracks/24/type = "value"
@@ -5878,7 +5901,7 @@ tracks/33/loop_wrap = false
 tracks/33/keys = {
 "times": PackedFloat32Array(318, 319),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [true, false]
 }
 tracks/34/type = "value"
@@ -5957,12 +5980,12 @@ tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
 tracks/40/path = NodePath(".:position")
-tracks/40/interp = 1
+tracks/40/interp = 0
 tracks/40/loop_wrap = false
 tracks/40/keys = {
 "times": PackedFloat32Array(318),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector3(-1414, -1414, 0)]
 }
 tracks/41/type = "value"
@@ -6018,12 +6041,24 @@ tracks/45/imported = false
 tracks/45/enabled = true
 tracks/45/path = NodePath("SatelliteWreck:scopeLightColor")
 tracks/45/interp = 1
-tracks/45/loop_wrap = true
+tracks/45/loop_wrap = false
 tracks/45/keys = {
 "times": PackedFloat32Array(320, 329.76, 336.32),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 0, 0, 1)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("SatelliteWreck:mainWreckRotation")
+tracks/46/interp = 1
+tracks/46/loop_wrap = false
+tracks/46/keys = {
+"times": PackedFloat32Array(320, 560),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-30.0, 1340.0]
 }
 
 [sub_resource type="Animation" id="Animation_ss0a7"]
@@ -8291,6 +8326,42 @@ tracks/189/keys = {
 "update": 0,
 "values": [Color(0, 1, 0, 1)]
 }
+tracks/190/type = "value"
+tracks/190/imported = false
+tracks/190/enabled = true
+tracks/190/path = NodePath("SatelliteWreck:mainWreckRotation")
+tracks/190/interp = 1
+tracks/190/loop_wrap = true
+tracks/190/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-100.0]
+}
+tracks/191/type = "value"
+tracks/191/imported = false
+tracks/191/enabled = true
+tracks/191/path = NodePath("Satellite/SoundHalo:material_override:shader_parameter/soundPreCut")
+tracks/191/interp = 1
+tracks/191/loop_wrap = true
+tracks/191/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/192/type = "value"
+tracks/192/imported = false
+tracks/192/enabled = true
+tracks/192/path = NodePath(".:animDbgPrint")
+tracks/192/interp = 1
+tracks/192/loop_wrap = true
+tracks/192/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -8354,7 +8425,7 @@ tracks/4/loop_wrap = false
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 35.7),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true]
 }
 tracks/5/type = "value"
@@ -8366,7 +8437,7 @@ tracks/5/loop_wrap = false
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 64.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [true, false]
 }
 tracks/6/type = "value"
@@ -8390,7 +8461,7 @@ tracks/7/loop_wrap = false
 tracks/7/keys = {
 "times": PackedFloat32Array(0, 70),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [true, false]
 }
 tracks/8/type = "value"
@@ -8402,7 +8473,7 @@ tracks/8/loop_wrap = false
 tracks/8/keys = {
 "times": PackedFloat32Array(0, 61),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 4]
 }
 tracks/9/type = "value"
@@ -8522,7 +8593,7 @@ tracks/18/loop_wrap = false
 tracks/18/keys = {
 "times": PackedFloat32Array(-0.2, 88),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [true, false]
 }
 tracks/19/type = "value"
@@ -8705,7 +8776,7 @@ tracks/33/loop_wrap = false
 tracks/33/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [false]
 }
 tracks/34/type = "value"
@@ -8759,7 +8830,7 @@ tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
 tracks/38/path = NodePath("Satellite:scopeActive")
-tracks/38/interp = 1
+tracks/38/interp = 0
 tracks/38/loop_wrap = false
 tracks/38/keys = {
 "times": PackedFloat32Array(0, 50, 59),
@@ -8826,7 +8897,7 @@ tracks/43/keys = {
 }
 tracks/44/type = "bezier"
 tracks/44/imported = false
-tracks/44/enabled = true
+tracks/44/enabled = false
 tracks/44/path = NodePath("World:inverseScalingOverride")
 tracks/44/interp = 1
 tracks/44/loop_wrap = true
@@ -8839,7 +8910,7 @@ tracks/45/type = "value"
 tracks/45/imported = false
 tracks/45/enabled = true
 tracks/45/path = NodePath("GlobalInit:blockableGNSSSignalRaycast")
-tracks/45/interp = 1
+tracks/45/interp = 0
 tracks/45/loop_wrap = false
 tracks/45/keys = {
 "times": PackedFloat32Array(0),
@@ -8863,20 +8934,20 @@ tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
 tracks/47/path = NodePath(".:position")
-tracks/47/interp = 1
+tracks/47/interp = 0
 tracks/47/loop_wrap = false
 tracks/47/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector3(-1414, -1414, 0)]
 }
 tracks/48/type = "value"
 tracks/48/imported = false
 tracks/48/enabled = false
 tracks/48/path = NodePath("SatelliteWreck:visible")
-tracks/48/interp = 1
-tracks/48/loop_wrap = true
+tracks/48/interp = 0
+tracks/48/loop_wrap = false
 tracks/48/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -8887,13 +8958,52 @@ tracks/49/type = "value"
 tracks/49/imported = false
 tracks/49/enabled = false
 tracks/49/path = NodePath("SatelliteWreck:process_mode")
-tracks/49/interp = 1
-tracks/49/loop_wrap = true
+tracks/49/interp = 0
+tracks/49/loop_wrap = false
 tracks/49/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("Satellite/SoundHalo:material_override:shader_parameter/soundPreCut")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath(".:animDbgPrint")
+tracks/51/interp = 0
+tracks/51/loop_wrap = false
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["anim DbgPrint Test"]
+}
+
+[sub_resource type="Animation" id="Animation_yrg1s"]
+resource_name = "SatMorph_INIT"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animDbgPrint")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SatMorph_INIT"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
@@ -8905,7 +9015,8 @@ _data = {
 "Destruction": SubResource("Animation_62hyn"),
 "GreatTexts": SubResource("Animation_ks6w7"),
 "RESET": SubResource("Animation_ss0a7"),
-"SatMorph": SubResource("Animation_qtsft")
+"SatMorph": SubResource("Animation_qtsft"),
+"SatMorph_INIT": SubResource("Animation_yrg1s")
 }
 
 [sub_resource type="Animation" id="Animation_3g7bl"]
@@ -8915,7 +9026,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:animChangeReq")
-tracks/0/interp = 1
+tracks/0/interp = 0
 tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 55, 82, 256, 301, 318),
@@ -10089,34 +10200,9 @@ script = ExtResource("13_wtmy4")
 
 [node name="Satellite" parent="." instance=ExtResource("19_n5l64")]
 transform = Transform3D(0.883022, -0.34202, 0.321394, -0.321394, -0.939693, -0.116978, 0.342021, 0, -0.939692, 1414.74, 1414.74, 0)
-commonAntennaRodAngle = 10.0
-antennaBaseAngle = -10.0
-commonAntennaBaseLocalTranslation = Vector3(0, 0, 0)
-bodyMorphFraction = 0.0
-solarPanelFraction = 0.0
 scopeActive = false
 scopeLightEnergy = 10.0
 rotationOverride = Vector3(0, 2000, 1600)
-
-[node name="Antenna1" parent="Satellite" index="4"]
-antennaRodAngle = 10.0
-localTranslation = Vector3(0, 0, 0)
-baseAngle = -10.0
-
-[node name="Antenna2" parent="Satellite" index="5"]
-antennaRodAngle = 10.0
-localTranslation = Vector3(0, 0, 0)
-baseAngle = -10.0
-
-[node name="Antenna3" parent="Satellite" index="6"]
-antennaRodAngle = 10.0
-localTranslation = Vector3(0, 0, 0)
-baseAngle = -10.0
-
-[node name="Antenna4" parent="Satellite" index="7"]
-antennaRodAngle = 10.0
-localTranslation = Vector3(0, 0, 0)
-baseAngle = -10.0
 
 [node name="SputnikRing_Upper" parent="Satellite" index="12"]
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
@@ -10125,7 +10211,7 @@ transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067
 transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="14"]
-transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
+transform = Transform3D(0.173651, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
 
 [node name="HallThrusterCluster" parent="Satellite/Frame_Upper" index="1"]
 maxAcceleration = 5.0
@@ -10557,16 +10643,16 @@ gravity = 100.0
 [node name="SputnikAntennas" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
 
 [node name="Antenna" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas" instance=ExtResource("53_08tcy")]
-transform = Transform3D(0, -1, 1.22465e-16, -1, 0, 0, 0, -1.22465e-16, -1, -0.25, 0, 0)
+transform = Transform3D(4.37114e-09, -0.1, -8.74228e-09, -0.1, -4.37114e-09, 0, -3.82137e-16, 8.74228e-09, -0.1, -0.25, 0, 0)
 
 [node name="Antenna2" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas" instance=ExtResource("53_08tcy")]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0.25, 0, 0)
+transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, 0.25, 0, 0)
 
 [node name="Antenna3" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas" instance=ExtResource("53_08tcy")]
-transform = Transform3D(0, 0, 1, -1, 0, 0, 0, -1, 0, 0, 0, -0.25)
+transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4.37114e-09, -0.1, -4.37114e-09, 0, 0, -0.25)
 
 [node name="Antenna4" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas" instance=ExtResource("53_08tcy")]
-transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0.25)
+transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
 transform = Transform3D(1387.99, -8224.5, 5516.43, -9826.66, -452.552, 1797.77, -1228.94, -5670.34, -8144.76, 0, 0, 0)
@@ -10851,6 +10937,7 @@ mesh = SubResource("TextMesh_u082j")
 [node name="SatelliteWreck" parent="." instance=ExtResource("61_adtc1")]
 transform = Transform3D(-0.707107, 0.707107, 1.50996e-07, 0.707107, 0.707107, 0, -1.0677e-07, 1.0677e-07, -1, 1414.21, 1414.21, 0)
 visible = false
+mainWreckRotation = -100.0
 
 [node name="CameraFlyingSpace_Ascend" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -0.000610352, 0.000854492, 0.0008258)
@@ -10875,53 +10962,45 @@ transform = Transform3D(6.93175e-15, 1.09278e-08, 0.25, 0.25, -1.09278e-08, -6.4
 [node name="UpperText1" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(5.96046e-08, 1, -8.74228e-08, 1, -5.96047e-08, -7.10543e-15, 2.13163e-14, -8.74228e-08, -1, 0.8, 0, 0)
 visible = false
-progress = 0.0
 
 [node name="UpperText2" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0.8, 0, 0)
 visible = false
-progress = 0.0
 randomSeed = 42
 
 [node name="UpperText3" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0.8, 0, 0)
 visible = false
-progress = 0.0
 randomSeed = 1337
 
 [node name="UpperText4" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0.8, 0, 0)
 visible = false
-progress = 0.0
 randomSeed = 1957
 
 [node name="LowerText1" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -2.84217e-14, -3.55271e-14, -8.74228e-08, -1, -1, 0, 0)
 visible = false
-progress = 0.0
 randomSeed = 2023
 
 [node name="LowerText2" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -2.84217e-14, -3.55271e-14, -8.74228e-08, -1, -1, 0, 0)
 visible = false
-progress = 0.0
 randomSeed = 12345
 
 [node name="LowerText3" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -2.84217e-14, -3.55271e-14, -8.74228e-08, -1, -1, 0, 0)
 visible = false
-progress = 0.0
 randomSeed = 7447
 
 [node name="LowerText4" parent="CameraFlyingSpace_Ascend/GreatTexts" instance=ExtResource("58_hfu8w")]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, -2.84217e-14, -3.55271e-14, -8.74228e-08, -1, -1, 0, 0)
 visible = false
-progress = 0.0
 randomSeed = 1911
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 

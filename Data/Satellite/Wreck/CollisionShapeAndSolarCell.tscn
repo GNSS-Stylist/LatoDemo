@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bewkchcuygkha"]
+
+[ext_resource type="PackedScene" uid="uid://d2b1o8nrptafr" path="res://Data/Satellite/solar_cell.tscn" id="1_kvmay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srilq"]
+size = Vector3(0.1, 0.005, 0.1)
+
+[node name="CollisionShapeAndSolarCell" type="CollisionShape3D"]
+shape = SubResource("BoxShape3D_srilq")
+
+[node name="SolarCell" parent="." instance=ExtResource("1_kvmay")]

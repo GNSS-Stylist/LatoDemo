@@ -41,10 +41,11 @@ enum DisintegrationMethod { PLANAR_2D, PLANAR_CUT }
 		
 @export var disintegrationFraction:float:
 	set(newFraction):
-		$SmoothMesh.visible = (newFraction == 0)
-		$DisintegratedMesh.visible = (newFraction != 0)
-		disintegrationFraction = newFraction
-		$DisintegratedMesh.set_instance_shader_parameter("disintegrationFraction", disintegrationFraction)
+		if (newFraction != disintegrationFraction):
+			$SmoothMesh.visible = (newFraction == 0)
+			$DisintegratedMesh.visible = (newFraction != 0)
+			disintegrationFraction = newFraction
+			$DisintegratedMesh.set_instance_shader_parameter("disintegrationFraction", disintegrationFraction)
 	get:
 		return disintegrationFraction
 					
@@ -103,7 +104,6 @@ func threadCode():
 			break
 			
 		var newText = textOverride
-		workerThreadMutex.unlock()
 			
 		if ((newText != workerThreadLastText) || (workerThreadForceUpdate)):
 			workerThreadLastText = newText
@@ -125,11 +125,12 @@ func threadCode():
 #				DisintegrationMethod.PLANAR_CUT:
 #					faceCount = breakGeometry_PlanarCut(baseMesh)
 					
-					
 			var elapsedTime = Time.get_ticks_msec() - elapsedStartTime
 			
 			print("Breaking text \"", newText, "\" took ", elapsedTime, " ms. Faces: ", faceCount)
 		
+		workerThreadMutex.unlock()
+
 #		var newMeshes = createMesh(threadIndex)
 
 #		workerThreadData[threadIndex].dataMutex.lock()

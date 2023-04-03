@@ -1,11 +1,252 @@
-[gd_scene load_steps=2 format=3 uid="uid://3nndur53hh6u"]
+[gd_scene load_steps=3 format=3 uid="uid://3nndur53hh6u"]
 
+[ext_resource type="PackedScene" uid="uid://bewkchcuygkha" path="res://Data/Satellite/Wreck/CollisionShapeAndSolarCell.tscn" id="1_e50im"]
 [ext_resource type="PackedScene" uid="uid://d2b1o8nrptafr" path="res://Data/Satellite/solar_cell.tscn" id="1_xaxjl"]
 
-[node name="SolarPanelWreck" type="Node3D"]
+[node name="SolarPanelWreck" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0.05)
 
+[node name="CollisionShapeAndSolarCell1" parent="." instance=ExtResource("1_e50im")]
+
+[node name="CollisionShapeAndSolarCell2" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell3" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell4" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell5" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell6" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell7" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell8" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell9" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+
+[node name="CollisionShapeAndSolarCell10" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell11" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell12" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell13" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell14" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell15" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell16" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell17" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+
+[node name="CollisionShapeAndSolarCell18" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell19" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell20" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell21" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell22" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell23" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell24" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell25" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+
+[node name="CollisionShapeAndSolarCell26" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell27" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell28" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell29" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell30" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell31" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell32" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell33" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="CollisionShapeAndSolarCell34" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell35" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell36" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell37" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell38" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell39" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell40" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell41" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="CollisionShapeAndSolarCell42" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell43" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell44" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell45" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell46" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell47" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell48" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell49" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+
+[node name="CollisionShapeAndSolarCell50" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell51" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell52" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell53" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell54" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell55" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell56" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell57" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
+
+[node name="CollisionShapeAndSolarCell58" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell59" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell60" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell61" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell62" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell63" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell64" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell65" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
+
+[node name="CollisionShapeAndSolarCell66" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell67" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell68" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell69" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell70" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell71" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell72" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.7)
+
+[node name="CollisionShapeAndSolarCell73" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+
+[node name="CollisionShapeAndSolarCell74" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell75" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.2)
+
+[node name="CollisionShapeAndSolarCell76" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.3)
+
+[node name="CollisionShapeAndSolarCell77" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.4)
+
+[node name="CollisionShapeAndSolarCell78" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.5)
+
+[node name="CollisionShapeAndSolarCell79" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.6)
+
+[node name="CollisionShapeAndSolarCell80" parent="." instance=ExtResource("1_e50im")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0.7)
+
 [node name="Strip" type="Node3D" parent="."]
+visible = false
 
 [node name="SolarCell" parent="Strip" instance=ExtResource("1_xaxjl")]
 
@@ -32,6 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip2" instance=ExtResource("1_xaxjl")]
 
@@ -58,6 +300,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip3" instance=ExtResource("1_xaxjl")]
 
@@ -84,6 +327,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip4" instance=ExtResource("1_xaxjl")]
 
@@ -110,6 +354,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip5" instance=ExtResource("1_xaxjl")]
 
@@ -136,6 +381,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip6" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip6" instance=ExtResource("1_xaxjl")]
 
@@ -162,6 +408,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip7" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip7" instance=ExtResource("1_xaxjl")]
 
@@ -188,6 +435,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip8" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip8" instance=ExtResource("1_xaxjl")]
 
@@ -214,6 +462,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip9" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip9" instance=ExtResource("1_xaxjl")]
 
@@ -240,6 +489,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
 
 [node name="Strip10" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+visible = false
 
 [node name="SolarCell" parent="Strip10" instance=ExtResource("1_xaxjl")]
 

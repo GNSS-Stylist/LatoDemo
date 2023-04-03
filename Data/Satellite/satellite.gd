@@ -82,28 +82,36 @@ func _process(_delta):
 		animResetStashDone = false
 
 	# Animations seem to loop around if not clamped:
-	$AnimationPlayer_BodyMorph.seek(clamp(bodyMorphFraction, 0, 1))
-	$AnimationPlayer_ExoFrames.seek(clamp(exoFrameFraction, 0, 1))
-	$AnimationPlayer_SolarPanel.seek(clamp(solarPanelFraction, 0, 1))
+	if ($AnimationPlayer_BodyMorph.current_animation_position != clamp(bodyMorphFraction, 0, 1)):
+		$AnimationPlayer_BodyMorph.seek(clamp(bodyMorphFraction, 0, 1))
+		
+	if ($AnimationPlayer_ExoFrames.current_animation_position != clamp(exoFrameFraction, 0, 1)):
+		$AnimationPlayer_ExoFrames.seek(clamp(exoFrameFraction, 0, 1))
+	
+	if ($AnimationPlayer_SolarPanel.current_animation_position != clamp(solarPanelFraction, 0, 1)):
+		$AnimationPlayer_SolarPanel.seek(clamp(solarPanelFraction, 0, 1))
 
 	if (useCommonAntennaRodAngle):
-		$Antenna1.antennaRodAngle = commonAntennaRodAngle
-		$Antenna2.antennaRodAngle = commonAntennaRodAngle
-		$Antenna3.antennaRodAngle = commonAntennaRodAngle
-		$Antenna4.antennaRodAngle = commonAntennaRodAngle
+		if ($Antenna1.antennaRodAngle != commonAntennaRodAngle):
+			$Antenna1.antennaRodAngle = commonAntennaRodAngle
+			$Antenna2.antennaRodAngle = commonAntennaRodAngle
+			$Antenna3.antennaRodAngle = commonAntennaRodAngle
+			$Antenna4.antennaRodAngle = commonAntennaRodAngle
 	
-		$Antenna1.baseAngle = antennaBaseAngle
-		$Antenna2.baseAngle = antennaBaseAngle
-		$Antenna3.baseAngle = antennaBaseAngle
-		$Antenna4.baseAngle = antennaBaseAngle
+		if ($Antenna1.baseAngle != antennaBaseAngle):
+			$Antenna1.baseAngle = antennaBaseAngle
+			$Antenna2.baseAngle = antennaBaseAngle
+			$Antenna3.baseAngle = antennaBaseAngle
+			$Antenna4.baseAngle = antennaBaseAngle
 
-		$Antenna1.localTranslation = commonAntennaBaseLocalTranslation
-		$Antenna2.localTranslation = commonAntennaBaseLocalTranslation
-		$Antenna3.localTranslation = commonAntennaBaseLocalTranslation
-		$Antenna4.localTranslation = commonAntennaBaseLocalTranslation
+		if ($Antenna1.localTranslation != commonAntennaBaseLocalTranslation):
+			$Antenna1.localTranslation = commonAntennaBaseLocalTranslation
+			$Antenna2.localTranslation = commonAntennaBaseLocalTranslation
+			$Antenna3.localTranslation = commonAntennaBaseLocalTranslation
+			$Antenna4.localTranslation = commonAntennaBaseLocalTranslation
 
-	$Frame_Lower/DishAntenna/ScopeLight.visible = scopeActive
-	$Frame_Lower/DishAntenna/DbgSignal/BlockableGNSSSignal.visible = scopeActive
+#	$Frame_Lower/DishAntenna/ScopeLight.visible = scopeActive
+#	$Frame_Lower/DishAntenna/DbgSignal/BlockableGNSSSignal.visible = scopeActive
 
 #	if (scopeActive && tunePlayer && Global.soundData):
 #		var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
@@ -111,11 +119,13 @@ func _process(_delta):
 
 	if (scopeActive && Global.soundData):
 #		$Frame_Lower/DishAntenna/ScopeLight.light_energy = abs((Global.soundData[tunePlaybackPosition * 8000] - 128.0) / 128.0) * scopeLightEnergy
-		$Frame_Lower/DishAntenna/ScopeLight.visible = true
+		if (!$Frame_Lower/DishAntenna/ScopeLight.visible):
+			$Frame_Lower/DishAntenna/ScopeLight.visible = true
 		$Frame_Lower/DishAntenna/ScopeLight.light_energy = Global.lowPassFilteredSoundAmplitudeData[tunePlaybackPosition * 8000] * scopeLightEnergy
 	else:
-		$Frame_Lower/DishAntenna/ScopeLight.visible = false
-		$Frame_Lower/DishAntenna/ScopeLight.light_energy = 0
+		if ($Frame_Lower/DishAntenna/ScopeLight.visible):
+			$Frame_Lower/DishAntenna/ScopeLight.visible = false
+			$Frame_Lower/DishAntenna/ScopeLight.light_energy = 0
 
 	$SoundHalo.material_override.set_shader_parameter("soundPos", tunePlaybackPosition * 8000)
 	$SoundHalo.material_override.set_shader_parameter("baseAlbedo", haloAlbedo)
@@ -137,8 +147,8 @@ func _process(_delta):
 			
 			
 			self.transform.basis =  newBasis.scaled(Vector3(scaling, scaling, scaling))
-		else:
-			self.transform.basis =  newBasis
+		elif (self.transform.basis != newBasis):
+			self.transform.basis = newBasis
 
 class StashData:
 	var haloSoundDataSampler

@@ -69,6 +69,14 @@ var animResetStashDone:bool = false
 @export var animChangeReq:String = ""
 var lastActiveAnim:String = ""
 
+@export var animDbgPrint:String = "":
+	set(dbgString):
+		print("anim debug: ", dbgString)
+		if (dbgString != animDbgPrint):
+			animDbgPrint = dbgString
+	get:
+		return animDbgPrint
+
 var demoStarted:bool = false
 var demoStartRitualsDone:bool = false
 
@@ -201,6 +209,14 @@ func animChangeCheck(delta: float) -> bool:
 #			mainAnimationPlayer.set_blend_time(lastActiveAnim, animChangeReq, -1)
 
 #		mainAnimationPlayer.current_animation = animChangeReq
+
+		var initAnimName = animChangeReq + "_INIT"
+		
+		if (mainAnimationPlayer.has_animation(initAnimName)):
+			print("Playing init animation: " + initAnimName)
+			mainAnimationPlayer.play(initAnimName)
+			mainAnimationPlayer.advance(0)
+
 		mainAnimationPlayer.play(animChangeReq)
 		lastActiveAnim = animChangeReq
 		

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3gcjgvoducnk"]
+
+[ext_resource type="PackedScene" uid="uid://bewkchcuygkha" path="res://Data/Satellite/Wreck/CollisionShapeAndSolarCell.tscn" id="1_blf0x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4xmg4"]
+friction = 0.5
+bounce = 0.5
+
+[node name="RigidBodySolarCell" type="RigidBody3D"]
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_4xmg4")
+custom_integrator = true
+
+[node name="CollisionShapeAndSolarCell" parent="." instance=ExtResource("1_blf0x")]
