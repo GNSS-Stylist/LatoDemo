@@ -17,8 +17,13 @@ instance uniform float autoFragmentScalingEndFraction = 1.0;
 
 instance uniform vec3 displacementMinDeviation = vec3(0.0, 0.0, 0.0);
 instance uniform vec3 displacementMaxDeviation = vec3(0.0, 0.0, 0.0);
+instance uniform vec3 displacementMultiplier = vec3(1.0, 1.0, 1.0);
+instance uniform float centerXDragMultiplier = 0.0;
+instance uniform float centerXDragMinWidth = 0.0;
+instance uniform float centerXDragMaxWidth = 1.0;
+instance uniform float centerXDragPower = 1.0;
 
-instance uniform float displacementMultiplier = 1.0;
+//instance uniform float displacementMultiplier = 1.0;
 
 mat3 rotation3dX(float angle) {
 	float s = sin(angle);
@@ -111,7 +116,16 @@ void vertex() {
 		);
 	
 	NORMAL = linearPart * NORMAL;
-	VERTEX = rotatedAndScaledRelVertPos + faceScalingCenterPoint + (faceCenterPoint - faceScalingCenterPoint) * (1.0 + disintegrationFraction * displacementMultiplier) + displacementDeviation;
+	VERTEX = rotatedAndScaledRelVertPos + 
+			faceScalingCenterPoint + 
+			(faceCenterPoint - faceScalingCenterPoint) * displacementMultiplier *
+			(1.0 + disintegrationFraction) + 
+			displacementDeviation;
+			
+	VERTEX.x += centerXDragMultiplier * 
+			(1.0 - 1.0 / pow(clamp((abs(faceCenterPoint.y) - centerXDragMinWidth) / (centerXDragMaxWidth - centerXDragMinWidth), 0.0, 1.0), centerXDragPower));
+			
+//	VERTEX.x += centerXDrag * (1.0 - smoothstep(0, centerXDragWidth, abs(faceCenterPoint.y)));
 }
 
 void fragment() {

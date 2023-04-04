@@ -40,5 +40,4 @@ instance_shader_parameters/albedo = Color(1, 1, 1, 1)
 instance_shader_parameters/disintegrationFraction = 0.0
 instance_shader_parameters/displacementMaxDeviation = Vector3(1, 1, 0)
 instance_shader_parameters/displacementMinDeviation = Vector3(-1, -1, -2)
-instance_shader_parameters/displacementMultiplier = 5.0
 instance_shader_parameters/fragmentScaling = 1.0
