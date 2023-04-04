@@ -4,6 +4,10 @@ extends Node3D
 enum DisintegrationMethod { PLANAR_2D, PLANAR_CUT }
 
 @export var sourceTextMesh:TextMesh
+
+# If defined, will be used for smooth mesh
+@export var sourceTextMesh_Smooth:TextMesh
+
 @export var maxEdgeLength:float = 1
 @export var randomSeed:int = 0
 @export var disintegrationMethod:DisintegrationMethod = DisintegrationMethod.PLANAR_2D
@@ -110,7 +114,11 @@ func threadCode():
 			workerThreadForceUpdate = false
 			var elapsedStartTime:int = Time.get_ticks_msec()
 			var baseMesh:TextMesh = sourceTextMesh.duplicate()
-			var smoothMesh:TextMesh = sourceTextMesh.duplicate()
+			var smoothMesh:TextMesh
+			if (sourceTextMesh_Smooth):
+				smoothMesh = sourceTextMesh_Smooth.duplicate()
+			else:
+				smoothMesh = sourceTextMesh.duplicate()
 			smoothMesh.text = ""
 			smoothMesh.depth = depth
 			smoothMesh.text = newText
