@@ -184,7 +184,7 @@ tracks/8/path = NodePath("SolarPanel1:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = false
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.99),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -194,9 +194,9 @@ tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/path = NodePath("SolarPanel2:visible")
 tracks/9/interp = 1
-tracks/9/loop_wrap = true
+tracks/9/loop_wrap = false
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.99),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
