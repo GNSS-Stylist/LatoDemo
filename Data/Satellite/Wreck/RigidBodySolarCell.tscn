@@ -10,5 +10,6 @@ bounce = 0.5
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_4xmg4")
 custom_integrator = true
+can_sleep = false
 
 [node name="CollisionShapeAndSolarCell" parent="." instance=ExtResource("1_blf0x")]
