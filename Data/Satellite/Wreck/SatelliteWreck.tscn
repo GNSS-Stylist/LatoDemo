@@ -5,21 +5,25 @@
 [ext_resource type="PackedScene" uid="uid://fly1a14m8ibv" path="res://Data/Satellite/antenna.tscn" id="2_a4tga"]
 [ext_resource type="PackedScene" uid="uid://3nndur53hh6u" path="res://Data/Satellite/Wreck/SolarPanelWreck.tscn" id="3_o0kfx"]
 [ext_resource type="PackedScene" uid="uid://clx04teaxhoo7" path="res://Data/Satellite/DishAntenna.tscn" id="4_1c5cl"]
-[ext_resource type="PackedScene" uid="uid://3gcjgvoducnk" path="res://Data/Satellite/Wreck/RigidBodySolarCell.tscn" id="5_v5a4q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syp3f"]
 metallic = 1.0
 roughness = 0.25
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6yvqa"]
+points = PackedVector3Array(-0.488486, -1.16558, 0.209653, 0.158206, 1.19551, -0.247167, 0.158583, 1.19852, -0.362606, 1.14631, -0.481696, 0.0195999, 0.0437057, 0.27974, 1.24056, -0.865956, 0.16398, -0.927564, 0.422875, -0.442437, -1.1183, -1.16831, 0.125878, 0.398283, 1.06806, 0.695259, -0.0559942, -0.183379, -0.705994, 1.04058, -0.108128, -1.16544, -0.512152, 0.913591, -0.214614, 0.851655, -0.670286, 0.95095, -0.0552221, 0.458715, 1.03169, 0.548078, 0.646658, -1.04352, -0.0930935, -0.0320007, 0.882875, -0.850601, 0.988325, 0.314512, -0.698308, -0.709451, -0.589932, -0.846035, -0.637182, 0.466018, 0.964736, -1.05295, -0.516804, 0.473239, -1.21455, 0.24134, -0.170795, 0.871104, -0.702547, -0.619729, -0.299682, 0.088809, -1.20193, 0.719109, 0.387439, 0.958419, -0.0318506, 1.06748, 0.547198, 1.2248, 0.126768, 0.28595, -0.60119, 0.657192, -0.890498, -0.561317, 0.0500548, 1.11574, 0.00570005, -1.19685, 0.284084, -0.748381, -0.930303, -0.281843, 0.343002, -0.550009, 1.03174, 0.535198, 1.07142, -0.434052)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_s8ttl"]
-radius = 1.2
+radius = 1.25
 
 [node name="SatelliteWreck" type="Node3D"]
 transform = Transform3D(1.00027, 0, 0, 0, 1, 0, 0, 0, 1.00027, 0, 0, 0)
 script = ExtResource("1_877rw")
+randomDebrisSeed = 1337
 
 [node name="MainWreck" type="Node3D" parent="."]
-transform = Transform3D(1.00191, 0, 0, 0, 1, 0, 0, 0, 1.00191, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
+rotation_order = 1
 
 [node name="Antenna" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(-0.000886727, 0.00674172, -0.0997685, -0.096397, -0.0265845, -0.000939647, -0.0265863, 0.0961656, 0.00673455, 0, -0.110205, 0.271024)
@@ -37,60 +41,72 @@ antennaRodAngle = 56.0
 transform = Transform3D(0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 0, 0, 1, -1.08, 0.13, 0)
 
 [node name="CharacterBody3D_Rod" parent="MainWreck/Antenna3" index="1"]
-transform = Transform3D(0.829038, -0.559193, 3.55271e-15, 0.559193, 0.829038, -1.42109e-14, 0, -1.42109e-14, 1, -8.45728, 10.8348, -2.55795e-13)
+process_mode = 4
+transform = Transform3D(0.829038, -0.559193, 0, 0.559193, 0.829038, 0, 0, 2.23517e-08, 1, -8.45728, 10.8348, 1.78814e-07)
 
 [node name="Antenna4" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(-0.0249636, 0.0965616, 0.00725768, -0.0968169, -0.0250296, -7.81592e-09, 0.00181656, -0.00702666, 0.0997363, 0.268159, -0.11, 0)
 antennaRodAngle = 80.377
 
 [node name="SolarPanelWreck" parent="MainWreck" instance=ExtResource("3_o0kfx")]
-transform = Transform3D(-0.980021, 0.0430237, -0.19418, 0.198889, 0.211999, -0.956817, -5.95609e-08, -0.976322, -0.21632, -0.822028, 0.0506405, -0.012606)
+transform = Transform3D(-0.98002, 0.153255, 0.126766, 0.198889, 0.755163, 0.624636, -6.22714e-08, 0.63737, -0.770557, -0.803401, 0.142424, -0.0425994)
 
 [node name="CollisionShapeAndSolarCell4" parent="MainWreck/SolarPanelWreck" index="3"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell5" parent="MainWreck/SolarPanelWreck" index="4"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell6" parent="MainWreck/SolarPanelWreck" index="5"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell7" parent="MainWreck/SolarPanelWreck" index="6"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 5.96046e-08, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell8" parent="MainWreck/SolarPanelWreck" index="7"]
+process_mode = 4
 transform = Transform3D(1, -8.19631e-09, 4.87514e-09, 4.59394e-10, 1, -2.98023e-08, -2.41836e-09, -1.49012e-08, 1, 5.96046e-08, -2.6077e-08, 0.7)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell13" parent="MainWreck/SolarPanelWreck" index="12"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell14" parent="MainWreck/SolarPanelWreck" index="13"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell15" parent="MainWreck/SolarPanelWreck" index="14"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell16" parent="MainWreck/SolarPanelWreck" index="15"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.7)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell24" parent="MainWreck/SolarPanelWreck" index="23"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell32" parent="MainWreck/SolarPanelWreck" index="31"]
+process_mode = 4
 visible = false
 disabled = true
 
@@ -98,1616 +114,1751 @@ disabled = true
 transform = Transform3D(1, -5.88245e-09, -7.9806e-09, -6.98595e-10, 1, -2.98023e-08, -1.73184e-08, 0, 1, 0.5, -2.6077e-08, 0.4)
 
 [node name="CollisionShapeAndSolarCell63" parent="MainWreck/SolarPanelWreck" index="62"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell64" parent="MainWreck/SolarPanelWreck" index="63"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell68" parent="MainWreck/SolarPanelWreck" index="67"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell69" parent="MainWreck/SolarPanelWreck" index="68"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell70" parent="MainWreck/SolarPanelWreck" index="69"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell71" parent="MainWreck/SolarPanelWreck" index="70"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.8, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell72" parent="MainWreck/SolarPanelWreck" index="71"]
+process_mode = 4
 transform = Transform3D(0.999999, -3.0548e-08, 7.9381e-08, 1.48263e-08, 0.999999, -8.9407e-08, -1.49617e-08, -7.45058e-08, 1, 0.8, -4.09782e-08, 0.7)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell75" parent="MainWreck/SolarPanelWreck" index="74"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell76" parent="MainWreck/SolarPanelWreck" index="75"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell77" parent="MainWreck/SolarPanelWreck" index="76"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell78" parent="MainWreck/SolarPanelWreck" index="77"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell79" parent="MainWreck/SolarPanelWreck" index="78"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 9.31323e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell80" parent="MainWreck/SolarPanelWreck" index="79"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 3.72529e-09, 0.7)
 visible = false
 disabled = true
 
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck/Strip" index="2"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck/Strip" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck/Strip" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck/Strip" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck/Strip" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip" index="7"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck/Strip2" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck/Strip2" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck/Strip2" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip2" index="7"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck/Strip3" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck/Strip3" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip3" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip4" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip5" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck/Strip8" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip8" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck/Strip9" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip9" index="7"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck/Strip10" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck/Strip10" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck/Strip10" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck/Strip10" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck/Strip10" index="7"]
-visible = false
-
 [node name="SolarPanelWreck2" parent="MainWreck" instance=ExtResource("3_o0kfx")]
-transform = Transform3D(-0.980021, 0.195622, -0.0359032, 0.198889, 0.963922, -0.176913, -6.548e-08, -0.180519, -0.98357, -0.783186, 0.242033, 0.744883)
+transform = Transform3D(-0.980021, 0.184807, 0.0735064, 0.198889, 0.910634, 0.3622, -7.03768e-08, 0.369585, -0.929196, -0.866482, -0.168408, 0.704497)
 
 [node name="CollisionShapeAndSolarCell1" parent="MainWreck/SolarPanelWreck2" index="0"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell2" parent="MainWreck/SolarPanelWreck2" index="1"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 5.96046e-08, 0, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell3" parent="MainWreck/SolarPanelWreck2" index="2"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell25" parent="MainWreck/SolarPanelWreck2" index="24"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, 0, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell26" parent="MainWreck/SolarPanelWreck2" index="25"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, -7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell33" parent="MainWreck/SolarPanelWreck2" index="32"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell34" parent="MainWreck/SolarPanelWreck2" index="33"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, -7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell35" parent="MainWreck/SolarPanelWreck2" index="34"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell36" parent="MainWreck/SolarPanelWreck2" index="35"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, 0.3)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell41" parent="MainWreck/SolarPanelWreck2" index="40"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell42" parent="MainWreck/SolarPanelWreck2" index="41"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell43" parent="MainWreck/SolarPanelWreck2" index="42"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell44" parent="MainWreck/SolarPanelWreck2" index="43"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 1.49012e-08, 0.3)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell49" parent="MainWreck/SolarPanelWreck2" index="48"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.6, 1.49012e-08, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell65" parent="MainWreck/SolarPanelWreck2" index="64"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.8, -2.98023e-08, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell73" parent="MainWreck/SolarPanelWreck2" index="72"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell74" parent="MainWreck/SolarPanelWreck2" index="73"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 2.23517e-08, 0.1)
 visible = false
 disabled = true
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck2/Strip" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck2/Strip" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck2/Strip2" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck2/Strip5" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck2/Strip5" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck2/Strip6" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck2/Strip6" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck2/Strip7" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck2/Strip9" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck2/Strip10" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck2/Strip10" index="1"]
-visible = false
-
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck2/Strip10" index="2"]
-visible = false
 
 [node name="SolarPanelWreck3" parent="MainWreck" instance=ExtResource("3_o0kfx")]
 transform = Transform3D(-0.980021, 0.192713, -0.0491793, 0.198889, 0.949589, -0.24233, -5.66653e-08, -0.247269, -0.968946, -1.88789, 0.31466, -0.0582488)
 
 [node name="CollisionShapeAndSolarCell2" parent="MainWreck/SolarPanelWreck3" index="1"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell3" parent="MainWreck/SolarPanelWreck3" index="2"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell4" parent="MainWreck/SolarPanelWreck3" index="3"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell5" parent="MainWreck/SolarPanelWreck3" index="4"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell6" parent="MainWreck/SolarPanelWreck3" index="5"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell7" parent="MainWreck/SolarPanelWreck3" index="6"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 5.96046e-08, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell8" parent="MainWreck/SolarPanelWreck3" index="7"]
+process_mode = 4
 transform = Transform3D(1, -8.19631e-09, 4.87514e-09, 4.59394e-10, 1, -2.98023e-08, -2.41836e-09, -1.49012e-08, 1, 5.96046e-08, -2.6077e-08, 0.7)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell12" parent="MainWreck/SolarPanelWreck3" index="11"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell13" parent="MainWreck/SolarPanelWreck3" index="12"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell14" parent="MainWreck/SolarPanelWreck3" index="13"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell15" parent="MainWreck/SolarPanelWreck3" index="14"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell16" parent="MainWreck/SolarPanelWreck3" index="15"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.7)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell23" parent="MainWreck/SolarPanelWreck3" index="22"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell24" parent="MainWreck/SolarPanelWreck3" index="23"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell32" parent="MainWreck/SolarPanelWreck3" index="31"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell37" parent="MainWreck/SolarPanelWreck3" index="36"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell38" parent="MainWreck/SolarPanelWreck3" index="37"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell39" parent="MainWreck/SolarPanelWreck3" index="38"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell40" parent="MainWreck/SolarPanelWreck3" index="39"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell45" parent="MainWreck/SolarPanelWreck3" index="44"]
+process_mode = 4
 transform = Transform3D(1, -5.88245e-09, -7.9806e-09, -6.98595e-10, 1, -2.98023e-08, -1.73184e-08, 0, 1, 0.5, -2.6077e-08, 0.4)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell46" parent="MainWreck/SolarPanelWreck3" index="45"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell47" parent="MainWreck/SolarPanelWreck3" index="46"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell48" parent="MainWreck/SolarPanelWreck3" index="47"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell54" parent="MainWreck/SolarPanelWreck3" index="53"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell55" parent="MainWreck/SolarPanelWreck3" index="54"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell56" parent="MainWreck/SolarPanelWreck3" index="55"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell59" parent="MainWreck/SolarPanelWreck3" index="58"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell60" parent="MainWreck/SolarPanelWreck3" index="59"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell61" parent="MainWreck/SolarPanelWreck3" index="60"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell62" parent="MainWreck/SolarPanelWreck3" index="61"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell63" parent="MainWreck/SolarPanelWreck3" index="62"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell64" parent="MainWreck/SolarPanelWreck3" index="63"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell65" parent="MainWreck/SolarPanelWreck3" index="64"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell66" parent="MainWreck/SolarPanelWreck3" index="65"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell67" parent="MainWreck/SolarPanelWreck3" index="66"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell68" parent="MainWreck/SolarPanelWreck3" index="67"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell69" parent="MainWreck/SolarPanelWreck3" index="68"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell70" parent="MainWreck/SolarPanelWreck3" index="69"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell71" parent="MainWreck/SolarPanelWreck3" index="70"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.8, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell72" parent="MainWreck/SolarPanelWreck3" index="71"]
+process_mode = 4
 transform = Transform3D(0.999999, -3.0548e-08, 7.9381e-08, 1.48263e-08, 0.999999, -8.9407e-08, -1.49617e-08, -7.45058e-08, 1, 0.8, -4.09782e-08, 0.7)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell73" parent="MainWreck/SolarPanelWreck3" index="72"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell74" parent="MainWreck/SolarPanelWreck3" index="73"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell75" parent="MainWreck/SolarPanelWreck3" index="74"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell76" parent="MainWreck/SolarPanelWreck3" index="75"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell77" parent="MainWreck/SolarPanelWreck3" index="76"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell78" parent="MainWreck/SolarPanelWreck3" index="77"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell79" parent="MainWreck/SolarPanelWreck3" index="78"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 9.31323e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell80" parent="MainWreck/SolarPanelWreck3" index="79"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 3.72529e-09, 0.7)
 visible = false
 disabled = true
 
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck3/Strip" index="2"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck3/Strip" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck3/Strip" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck3/Strip" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck3/Strip" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip" index="7"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck3/Strip2" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck3/Strip2" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck3/Strip2" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip2" index="7"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck3/Strip3" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck3/Strip3" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip3" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip4" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip5" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck3/Strip8" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip8" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck3/Strip9" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip9" index="7"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck3/Strip10" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck3/Strip10" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck3/Strip10" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck3/Strip10" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck3/Strip10" index="7"]
-visible = false
-
 [node name="SolarPanelWreck4" parent="MainWreck" instance=ExtResource("3_o0kfx")]
-transform = Transform3D(-0.98002, 0.131548, -0.14917, 0.198889, 0.648203, -0.735034, -7.38153e-08, -0.750018, -0.661416, -1.77387, 0.891838, 0.501157)
+transform = Transform3D(-0.980019, 0.134794, 0.146245, 0.198889, 0.664196, 0.720614, -5.19849e-08, 0.735305, -0.677735, -1.99842, -0.214626, 0.514759)
 
 [node name="CollisionShapeAndSolarCell1" parent="MainWreck/SolarPanelWreck4" index="0"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell2" parent="MainWreck/SolarPanelWreck4" index="1"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 5.96046e-08, 0, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell3" parent="MainWreck/SolarPanelWreck4" index="2"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell4" parent="MainWreck/SolarPanelWreck4" index="3"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell5" parent="MainWreck/SolarPanelWreck4" index="4"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell6" parent="MainWreck/SolarPanelWreck4" index="5"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell9" parent="MainWreck/SolarPanelWreck4" index="8"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell10" parent="MainWreck/SolarPanelWreck4" index="9"]
+process_mode = 4
 transform = Transform3D(1, -5.50682e-09, -9.68367e-10, 2.66361e-08, 1, 0, -3.11665e-09, -1.49012e-08, 1, 0.0999998, 8.19564e-08, 0.0999998)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell11" parent="MainWreck/SolarPanelWreck4" index="10"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell12" parent="MainWreck/SolarPanelWreck4" index="11"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell13" parent="MainWreck/SolarPanelWreck4" index="12"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell14" parent="MainWreck/SolarPanelWreck4" index="13"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell17" parent="MainWreck/SolarPanelWreck4" index="16"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell18" parent="MainWreck/SolarPanelWreck4" index="17"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell19" parent="MainWreck/SolarPanelWreck4" index="18"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell20" parent="MainWreck/SolarPanelWreck4" index="19"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell21" parent="MainWreck/SolarPanelWreck4" index="20"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell25" parent="MainWreck/SolarPanelWreck4" index="24"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, 0, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell26" parent="MainWreck/SolarPanelWreck4" index="25"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, -7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell27" parent="MainWreck/SolarPanelWreck4" index="26"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell28" parent="MainWreck/SolarPanelWreck4" index="27"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell29" parent="MainWreck/SolarPanelWreck4" index="28"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell33" parent="MainWreck/SolarPanelWreck4" index="32"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell34" parent="MainWreck/SolarPanelWreck4" index="33"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, -7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell35" parent="MainWreck/SolarPanelWreck4" index="34"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell36" parent="MainWreck/SolarPanelWreck4" index="35"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, 0.3)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell41" parent="MainWreck/SolarPanelWreck4" index="40"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell42" parent="MainWreck/SolarPanelWreck4" index="41"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell43" parent="MainWreck/SolarPanelWreck4" index="42"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell44" parent="MainWreck/SolarPanelWreck4" index="43"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 1.49012e-08, 0.3)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell49" parent="MainWreck/SolarPanelWreck4" index="48"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.6, 1.49012e-08, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell50" parent="MainWreck/SolarPanelWreck4" index="49"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell51" parent="MainWreck/SolarPanelWreck4" index="50"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell52" parent="MainWreck/SolarPanelWreck4" index="51"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell57" parent="MainWreck/SolarPanelWreck4" index="56"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell58" parent="MainWreck/SolarPanelWreck4" index="57"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell59" parent="MainWreck/SolarPanelWreck4" index="58"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell60" parent="MainWreck/SolarPanelWreck4" index="59"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell65" parent="MainWreck/SolarPanelWreck4" index="64"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.8, -2.98023e-08, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell66" parent="MainWreck/SolarPanelWreck4" index="65"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell67" parent="MainWreck/SolarPanelWreck4" index="66"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell68" parent="MainWreck/SolarPanelWreck4" index="67"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell69" parent="MainWreck/SolarPanelWreck4" index="68"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell73" parent="MainWreck/SolarPanelWreck4" index="72"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell74" parent="MainWreck/SolarPanelWreck4" index="73"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 2.23517e-08, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell75" parent="MainWreck/SolarPanelWreck4" index="74"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell76" parent="MainWreck/SolarPanelWreck4" index="75"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell77" parent="MainWreck/SolarPanelWreck4" index="76"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell78" parent="MainWreck/SolarPanelWreck4" index="77"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell79" parent="MainWreck/SolarPanelWreck4" index="78"]
+process_mode = 4
 visible = false
 disabled = true
 
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck4/Strip" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck4/Strip" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck4/Strip2" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck4/Strip5" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck4/Strip5" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck4/Strip6" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck4/Strip6" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck4/Strip7" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck4/Strip9" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck4/Strip10" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck4/Strip10" index="1"]
-visible = false
-
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck4/Strip10" index="2"]
-visible = false
-
 [node name="SolarPanelWreck5" parent="MainWreck" instance=ExtResource("3_o0kfx")]
-transform = Transform3D(-0.994311, 0.105949, -0.0107361, 0.0779909, 0.793141, 0.604023, 0.0725107, 0.599751, -0.796894, 2.79732, -0.173783, -0.229291)
+transform = Transform3D(-0.994311, 0.0390618, -0.0990687, 0.0779909, 0.900556, -0.427685, 0.0725107, -0.43298, -0.898482, 2.79276, -0.226208, -0.235389)
+
+[node name="CollisionShapeAndSolarCell1" parent="MainWreck/SolarPanelWreck5" index="0"]
+process_mode = 4
+transform = Transform3D(1, -7.45058e-09, 6.33299e-08, 0, 1, -2.98023e-08, 3.72529e-09, 0, 1, 0, 0, 0)
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell2" parent="MainWreck/SolarPanelWreck5" index="1"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell3" parent="MainWreck/SolarPanelWreck5" index="2"]
+process_mode = 4
+visible = false
+disabled = true
 
 [node name="CollisionShapeAndSolarCell4" parent="MainWreck/SolarPanelWreck5" index="3"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell5" parent="MainWreck/SolarPanelWreck5" index="4"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell6" parent="MainWreck/SolarPanelWreck5" index="5"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell7" parent="MainWreck/SolarPanelWreck5" index="6"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 5.96046e-08, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell8" parent="MainWreck/SolarPanelWreck5" index="7"]
+process_mode = 4
 transform = Transform3D(1, -8.19631e-09, 4.87514e-09, 4.59394e-10, 1, -2.98023e-08, -2.41836e-09, -1.49012e-08, 1, 5.96046e-08, -2.6077e-08, 0.7)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell9" parent="MainWreck/SolarPanelWreck5" index="8"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell10" parent="MainWreck/SolarPanelWreck5" index="9"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell11" parent="MainWreck/SolarPanelWreck5" index="10"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell12" parent="MainWreck/SolarPanelWreck5" index="11"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell13" parent="MainWreck/SolarPanelWreck5" index="12"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell14" parent="MainWreck/SolarPanelWreck5" index="13"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell15" parent="MainWreck/SolarPanelWreck5" index="14"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell16" parent="MainWreck/SolarPanelWreck5" index="15"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.7)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell20" parent="MainWreck/SolarPanelWreck5" index="19"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell21" parent="MainWreck/SolarPanelWreck5" index="20"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell22" parent="MainWreck/SolarPanelWreck5" index="21"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell23" parent="MainWreck/SolarPanelWreck5" index="22"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell24" parent="MainWreck/SolarPanelWreck5" index="23"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell29" parent="MainWreck/SolarPanelWreck5" index="28"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell30" parent="MainWreck/SolarPanelWreck5" index="29"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell31" parent="MainWreck/SolarPanelWreck5" index="30"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell32" parent="MainWreck/SolarPanelWreck5" index="31"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell39" parent="MainWreck/SolarPanelWreck5" index="38"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell40" parent="MainWreck/SolarPanelWreck5" index="39"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell45" parent="MainWreck/SolarPanelWreck5" index="44"]
 transform = Transform3D(1, -5.88245e-09, -7.9806e-09, -6.98595e-10, 1, -2.98023e-08, -1.73184e-08, 0, 1, 0.5, -2.6077e-08, 0.4)
 
+[node name="CollisionShapeAndSolarCell47" parent="MainWreck/SolarPanelWreck5" index="46"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell48" parent="MainWreck/SolarPanelWreck5" index="47"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell52" parent="MainWreck/SolarPanelWreck5" index="51"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell53" parent="MainWreck/SolarPanelWreck5" index="52"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell54" parent="MainWreck/SolarPanelWreck5" index="53"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell55" parent="MainWreck/SolarPanelWreck5" index="54"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell56" parent="MainWreck/SolarPanelWreck5" index="55"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell60" parent="MainWreck/SolarPanelWreck5" index="59"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell61" parent="MainWreck/SolarPanelWreck5" index="60"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell62" parent="MainWreck/SolarPanelWreck5" index="61"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell63" parent="MainWreck/SolarPanelWreck5" index="62"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell64" parent="MainWreck/SolarPanelWreck5" index="63"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell67" parent="MainWreck/SolarPanelWreck5" index="66"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell68" parent="MainWreck/SolarPanelWreck5" index="67"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell69" parent="MainWreck/SolarPanelWreck5" index="68"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell70" parent="MainWreck/SolarPanelWreck5" index="69"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell71" parent="MainWreck/SolarPanelWreck5" index="70"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.8, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell72" parent="MainWreck/SolarPanelWreck5" index="71"]
+process_mode = 4
 transform = Transform3D(0.999999, -3.0548e-08, 7.9381e-08, 1.48263e-08, 0.999999, -8.9407e-08, -1.49617e-08, -7.45058e-08, 1, 0.8, -4.09782e-08, 0.7)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell74" parent="MainWreck/SolarPanelWreck5" index="73"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell75" parent="MainWreck/SolarPanelWreck5" index="74"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell76" parent="MainWreck/SolarPanelWreck5" index="75"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell77" parent="MainWreck/SolarPanelWreck5" index="76"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell78" parent="MainWreck/SolarPanelWreck5" index="77"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell79" parent="MainWreck/SolarPanelWreck5" index="78"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 9.31323e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell80" parent="MainWreck/SolarPanelWreck5" index="79"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 3.72529e-09, 0.7)
 visible = false
 disabled = true
-
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck5/Strip" index="2"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck5/Strip" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck5/Strip" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck5/Strip" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck5/Strip" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip" index="7"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck5/Strip2" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck5/Strip2" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck5/Strip2" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip2" index="7"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck5/Strip3" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck5/Strip3" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip3" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip4" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip5" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck5/Strip8" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip8" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck5/Strip9" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip9" index="7"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck5/Strip10" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck5/Strip10" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck5/Strip10" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck5/Strip10" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck5/Strip10" index="7"]
-visible = false
 
 [node name="SolarPanelWreck6" parent="MainWreck" instance=ExtResource("3_o0kfx")]
 transform = Transform3D(-0.993949, 0.0690923, -0.0853594, 0.0831398, 0.981257, -0.173845, 0.0717481, -0.179891, -0.981063, 2.8601, -0.0776944, 0.558708)
 
 [node name="CollisionShapeAndSolarCell1" parent="MainWreck/SolarPanelWreck6" index="0"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell2" parent="MainWreck/SolarPanelWreck6" index="1"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 5.96046e-08, 0, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell3" parent="MainWreck/SolarPanelWreck6" index="2"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell4" parent="MainWreck/SolarPanelWreck6" index="3"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell5" parent="MainWreck/SolarPanelWreck6" index="4"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell9" parent="MainWreck/SolarPanelWreck6" index="8"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell10" parent="MainWreck/SolarPanelWreck6" index="9"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell11" parent="MainWreck/SolarPanelWreck6" index="10"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell17" parent="MainWreck/SolarPanelWreck6" index="16"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell18" parent="MainWreck/SolarPanelWreck6" index="17"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell19" parent="MainWreck/SolarPanelWreck6" index="18"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell25" parent="MainWreck/SolarPanelWreck6" index="24"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, 0, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell26" parent="MainWreck/SolarPanelWreck6" index="25"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, -7.45058e-09, 0.1)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell27" parent="MainWreck/SolarPanelWreck6" index="26"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell28" parent="MainWreck/SolarPanelWreck6" index="27"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell29" parent="MainWreck/SolarPanelWreck6" index="28"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell33" parent="MainWreck/SolarPanelWreck6" index="32"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell34" parent="MainWreck/SolarPanelWreck6" index="33"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, -7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell35" parent="MainWreck/SolarPanelWreck6" index="34"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell36" parent="MainWreck/SolarPanelWreck6" index="35"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, 0.3)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell37" parent="MainWreck/SolarPanelWreck6" index="36"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell41" parent="MainWreck/SolarPanelWreck6" index="40"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell42" parent="MainWreck/SolarPanelWreck6" index="41"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell43" parent="MainWreck/SolarPanelWreck6" index="42"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell44" parent="MainWreck/SolarPanelWreck6" index="43"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 1.49012e-08, 0.3)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell45" parent="MainWreck/SolarPanelWreck6" index="44"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell49" parent="MainWreck/SolarPanelWreck6" index="48"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.6, 1.49012e-08, 0)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell50" parent="MainWreck/SolarPanelWreck6" index="49"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell57" parent="MainWreck/SolarPanelWreck6" index="56"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell58" parent="MainWreck/SolarPanelWreck6" index="57"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell65" parent="MainWreck/SolarPanelWreck6" index="64"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.8, -2.98023e-08, 0)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell66" parent="MainWreck/SolarPanelWreck6" index="65"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell73" parent="MainWreck/SolarPanelWreck6" index="72"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell74" parent="MainWreck/SolarPanelWreck6" index="73"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 2.23517e-08, 0.1)
 visible = false
 disabled = true
 
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck6/Strip" index="0"]
+[node name="CollisionShapeAndSolarCell75" parent="MainWreck/SolarPanelWreck6" index="74"]
+process_mode = 4
 visible = false
+disabled = true
 
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck6/Strip" index="1"]
+[node name="CollisionShapeAndSolarCell76" parent="MainWreck/SolarPanelWreck6" index="75"]
+process_mode = 4
 visible = false
+disabled = true
 
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck6/Strip2" index="0"]
+[node name="CollisionShapeAndSolarCell77" parent="MainWreck/SolarPanelWreck6" index="76"]
+process_mode = 4
 visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck6/Strip5" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck6/Strip5" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck6/Strip6" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck6/Strip6" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck6/Strip7" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck6/Strip9" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck6/Strip10" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck6/Strip10" index="1"]
-visible = false
-
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck6/Strip10" index="2"]
-visible = false
+disabled = true
 
 [node name="SolarPanelWreck7" parent="MainWreck" instance=ExtResource("3_o0kfx")]
-transform = Transform3D(-0.994305, 0.0942649, -0.0496831, 0.0777276, 0.96057, 0.266951, 0.0728881, 0.261569, -0.962428, 1.68202, -0.0975864, -0.158027)
+transform = Transform3D(-0.994305, -0.0397078, -0.0988816, 0.0777276, 0.364486, -0.927958, 0.0728881, -0.93036, -0.359325, 1.67918, -0.165472, -0.124372)
 
 [node name="CollisionShapeAndSolarCell2" parent="MainWreck/SolarPanelWreck7" index="1"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell3" parent="MainWreck/SolarPanelWreck7" index="2"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell4" parent="MainWreck/SolarPanelWreck7" index="3"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell5" parent="MainWreck/SolarPanelWreck7" index="4"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell6" parent="MainWreck/SolarPanelWreck7" index="5"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell7" parent="MainWreck/SolarPanelWreck7" index="6"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 5.96046e-08, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell8" parent="MainWreck/SolarPanelWreck7" index="7"]
+process_mode = 4
 transform = Transform3D(1, -8.19631e-09, 4.87514e-09, 4.59394e-10, 1, -2.98023e-08, -2.41836e-09, -1.49012e-08, 1, 5.96046e-08, -2.6077e-08, 0.7)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell10" parent="MainWreck/SolarPanelWreck7" index="9"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell11" parent="MainWreck/SolarPanelWreck7" index="10"]
+process_mode = 4
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell12" parent="MainWreck/SolarPanelWreck7" index="11"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell13" parent="MainWreck/SolarPanelWreck7" index="12"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell14" parent="MainWreck/SolarPanelWreck7" index="13"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell15" parent="MainWreck/SolarPanelWreck7" index="14"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell16" parent="MainWreck/SolarPanelWreck7" index="15"]
+process_mode = 4
 transform = Transform3D(1, -4.47103e-09, 4.87513e-09, -1.45398e-09, 1, -1.49012e-08, -2.0169e-09, -1.49012e-08, 1, 0.1, -1.11759e-08, 0.7)
 visible = false
 disabled = true
 
+[node name="CollisionShapeAndSolarCell19" parent="MainWreck/SolarPanelWreck7" index="18"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell20" parent="MainWreck/SolarPanelWreck7" index="19"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell21" parent="MainWreck/SolarPanelWreck7" index="20"]
+process_mode = 4
+transform = Transform3D(1, -5.58794e-09, 0, 5.58794e-09, 1, -2.98023e-08, 7.45058e-09, 0, 1, 0.2, -2.98023e-08, 0.4)
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell22" parent="MainWreck/SolarPanelWreck7" index="21"]
+process_mode = 4
+transform = Transform3D(1, -5.58794e-09, 0, 5.58794e-09, 1, -2.98023e-08, 7.45058e-09, 0, 1, 0.2, -1.49012e-08, 0.5)
+visible = false
+disabled = true
+
 [node name="CollisionShapeAndSolarCell23" parent="MainWreck/SolarPanelWreck7" index="22"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell24" parent="MainWreck/SolarPanelWreck7" index="23"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell28" parent="MainWreck/SolarPanelWreck7" index="27"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell29" parent="MainWreck/SolarPanelWreck7" index="28"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell30" parent="MainWreck/SolarPanelWreck7" index="29"]
+process_mode = 4
+transform = Transform3D(1, -5.58794e-09, 0, 5.58794e-09, 1, -2.98023e-08, 7.45058e-09, 0, 1, 0.3, -1.49012e-08, 0.5)
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell31" parent="MainWreck/SolarPanelWreck7" index="30"]
+process_mode = 4
+transform = Transform3D(1, -7.45058e-09, 0, 1.11759e-08, 1, -2.98023e-08, 7.45058e-09, 2.98023e-08, 1, 0.3, -2.98023e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell32" parent="MainWreck/SolarPanelWreck7" index="31"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell36" parent="MainWreck/SolarPanelWreck7" index="35"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell37" parent="MainWreck/SolarPanelWreck7" index="36"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell38" parent="MainWreck/SolarPanelWreck7" index="37"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell39" parent="MainWreck/SolarPanelWreck7" index="38"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell40" parent="MainWreck/SolarPanelWreck7" index="39"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell44" parent="MainWreck/SolarPanelWreck7" index="43"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell45" parent="MainWreck/SolarPanelWreck7" index="44"]
+process_mode = 4
 transform = Transform3D(1, -5.88245e-09, -7.9806e-09, -6.98595e-10, 1, -2.98023e-08, -1.73184e-08, 0, 1, 0.5, -2.6077e-08, 0.4)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell46" parent="MainWreck/SolarPanelWreck7" index="45"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell47" parent="MainWreck/SolarPanelWreck7" index="46"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell48" parent="MainWreck/SolarPanelWreck7" index="47"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell51" parent="MainWreck/SolarPanelWreck7" index="50"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell52" parent="MainWreck/SolarPanelWreck7" index="51"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell53" parent="MainWreck/SolarPanelWreck7" index="52"]
+process_mode = 4
+transform = Transform3D(1, -7.45058e-09, 0, 1.11759e-08, 1, -2.98023e-08, 7.45058e-09, 2.98023e-08, 1, 0.6, -1.49012e-08, 0.4)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell54" parent="MainWreck/SolarPanelWreck7" index="53"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell55" parent="MainWreck/SolarPanelWreck7" index="54"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell56" parent="MainWreck/SolarPanelWreck7" index="55"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell58" parent="MainWreck/SolarPanelWreck7" index="57"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell59" parent="MainWreck/SolarPanelWreck7" index="58"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell60" parent="MainWreck/SolarPanelWreck7" index="59"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell61" parent="MainWreck/SolarPanelWreck7" index="60"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell62" parent="MainWreck/SolarPanelWreck7" index="61"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell63" parent="MainWreck/SolarPanelWreck7" index="62"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell64" parent="MainWreck/SolarPanelWreck7" index="63"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell65" parent="MainWreck/SolarPanelWreck7" index="64"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell66" parent="MainWreck/SolarPanelWreck7" index="65"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell67" parent="MainWreck/SolarPanelWreck7" index="66"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell68" parent="MainWreck/SolarPanelWreck7" index="67"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell69" parent="MainWreck/SolarPanelWreck7" index="68"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell70" parent="MainWreck/SolarPanelWreck7" index="69"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell71" parent="MainWreck/SolarPanelWreck7" index="70"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.8, 3.72529e-09, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell72" parent="MainWreck/SolarPanelWreck7" index="71"]
+process_mode = 4
 transform = Transform3D(0.999999, -3.0548e-08, 7.9381e-08, 1.48263e-08, 0.999999, -8.9407e-08, -1.49617e-08, -7.45058e-08, 1, 0.8, -4.09782e-08, 0.7)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell73" parent="MainWreck/SolarPanelWreck7" index="72"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell74" parent="MainWreck/SolarPanelWreck7" index="73"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell75" parent="MainWreck/SolarPanelWreck7" index="74"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell76" parent="MainWreck/SolarPanelWreck7" index="75"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell77" parent="MainWreck/SolarPanelWreck7" index="76"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell78" parent="MainWreck/SolarPanelWreck7" index="77"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell79" parent="MainWreck/SolarPanelWreck7" index="78"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 9.31323e-08, 0.6)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell80" parent="MainWreck/SolarPanelWreck7" index="79"]
+process_mode = 4
 transform = Transform3D(1, -3.0548e-08, 4.95786e-08, 1.25091e-08, 1, -8.9407e-08, -1.46497e-08, -7.45058e-08, 1, 0.9, 3.72529e-09, 0.7)
 visible = false
 disabled = true
-
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck7/Strip" index="2"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck7/Strip" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck7/Strip" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck7/Strip" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck7/Strip" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip" index="7"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck7/Strip2" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck7/Strip2" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck7/Strip2" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip2" index="7"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck7/Strip3" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck7/Strip3" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip3" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip4" index="7"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip5" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck7/Strip8" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip8" index="7"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck7/Strip9" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip9" index="7"]
-visible = false
-
-[node name="SolarCell4" parent="MainWreck/SolarPanelWreck7/Strip10" index="3"]
-visible = false
-
-[node name="SolarCell5" parent="MainWreck/SolarPanelWreck7/Strip10" index="4"]
-visible = false
-
-[node name="SolarCell6" parent="MainWreck/SolarPanelWreck7/Strip10" index="5"]
-visible = false
-
-[node name="SolarCell7" parent="MainWreck/SolarPanelWreck7/Strip10" index="6"]
-visible = false
-
-[node name="SolarCell8" parent="MainWreck/SolarPanelWreck7/Strip10" index="7"]
-visible = false
 
 [node name="SolarPanelWreck8" parent="MainWreck" instance=ExtResource("3_o0kfx")]
 transform = Transform3D(-0.993964, 0.0956866, -0.0536006, 0.0824064, 0.974063, 0.210733, 0.0723749, 0.205046, -0.976071, 1.72748, -0.270885, 0.635222)
 
 [node name="CollisionShapeAndSolarCell1" parent="MainWreck/SolarPanelWreck8" index="0"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0, 0, 0)
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0, 0, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell2" parent="MainWreck/SolarPanelWreck8" index="1"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 5.96046e-08, 0, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell3" parent="MainWreck/SolarPanelWreck8" index="2"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell4" parent="MainWreck/SolarPanelWreck8" index="3"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell5" parent="MainWreck/SolarPanelWreck8" index="4"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell6" parent="MainWreck/SolarPanelWreck8" index="5"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell9" parent="MainWreck/SolarPanelWreck8" index="8"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell10" parent="MainWreck/SolarPanelWreck8" index="9"]
+process_mode = 4
 transform = Transform3D(1, -5.50682e-09, -9.68367e-10, 2.66361e-08, 1, 0, -3.11665e-09, -1.49012e-08, 1, 0.0999998, 8.19564e-08, 0.0999998)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell11" parent="MainWreck/SolarPanelWreck8" index="10"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell12" parent="MainWreck/SolarPanelWreck8" index="11"]
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell13" parent="MainWreck/SolarPanelWreck8" index="12"]
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell14" parent="MainWreck/SolarPanelWreck8" index="13"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell17" parent="MainWreck/SolarPanelWreck8" index="16"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell18" parent="MainWreck/SolarPanelWreck8" index="17"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, -5.58794e-09, 1, 0, 0, 0, 1, 0.2, -2.98023e-08, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell19" parent="MainWreck/SolarPanelWreck8" index="18"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell20" parent="MainWreck/SolarPanelWreck8" index="19"]
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell21" parent="MainWreck/SolarPanelWreck8" index="20"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell25" parent="MainWreck/SolarPanelWreck8" index="24"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, 0, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell26" parent="MainWreck/SolarPanelWreck8" index="25"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.3, -7.45058e-09, 0.1)
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell27" parent="MainWreck/SolarPanelWreck8" index="26"]
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell28" parent="MainWreck/SolarPanelWreck8" index="27"]
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell29" parent="MainWreck/SolarPanelWreck8" index="28"]
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.3, -6.70552e-08, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell33" parent="MainWreck/SolarPanelWreck8" index="32"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, -5.96046e-08)
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.4, -5.96046e-08, -5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell34" parent="MainWreck/SolarPanelWreck8" index="33"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, -7.45058e-09, 0.1)
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell35" parent="MainWreck/SolarPanelWreck8" index="34"]
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.4, -6.70552e-08, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell36" parent="MainWreck/SolarPanelWreck8" index="35"]
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.4, 0, 0.3)
-visible = false
-disabled = true
 
 [node name="CollisionShapeAndSolarCell41" parent="MainWreck/SolarPanelWreck8" index="40"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 0, 0)
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.5, -7.45058e-08, 5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell42" parent="MainWreck/SolarPanelWreck8" index="41"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 7.45058e-09, 0.1)
-visible = false
-disabled = true
-
-[node name="CollisionShapeAndSolarCell43" parent="MainWreck/SolarPanelWreck8" index="42"]
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.5, -5.96046e-08, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell44" parent="MainWreck/SolarPanelWreck8" index="43"]
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.5, 1.49012e-08, 0.3)
-visible = false
-disabled = true
 
 [node name="CollisionShapeAndSolarCell49" parent="MainWreck/SolarPanelWreck8" index="48"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.6, 1.49012e-08, 0)
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.6, -3.72529e-08, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell50" parent="MainWreck/SolarPanelWreck8" index="49"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, -5.58794e-09, 1, 0, 0, 0, 1, 0.6, -7.45058e-09, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell51" parent="MainWreck/SolarPanelWreck8" index="50"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, -5.58794e-09, 1, 0, 0, 0, 1, 0.6, -1.49012e-08, 0.2)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell52" parent="MainWreck/SolarPanelWreck8" index="51"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell57" parent="MainWreck/SolarPanelWreck8" index="56"]
+process_mode = 4
+transform = Transform3D(1, -1.86265e-09, 0, -1.30385e-08, 1, 0, 0, 0, 1, 0.7, -2.98023e-08, 0)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell58" parent="MainWreck/SolarPanelWreck8" index="57"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell59" parent="MainWreck/SolarPanelWreck8" index="58"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell60" parent="MainWreck/SolarPanelWreck8" index="59"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, -5.58794e-09, 1, 0, 0, 0, 1, 0.7, -2.98023e-08, 0.3)
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell61" parent="MainWreck/SolarPanelWreck8" index="60"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell65" parent="MainWreck/SolarPanelWreck8" index="64"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.8, -2.98023e-08, 0)
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.8, -1.04308e-07, 5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell66" parent="MainWreck/SolarPanelWreck8" index="65"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell67" parent="MainWreck/SolarPanelWreck8" index="66"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell68" parent="MainWreck/SolarPanelWreck8" index="67"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell69" parent="MainWreck/SolarPanelWreck8" index="68"]
+process_mode = 4
+visible = false
+disabled = true
+
+[node name="CollisionShapeAndSolarCell70" parent="MainWreck/SolarPanelWreck8" index="69"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell73" parent="MainWreck/SolarPanelWreck8" index="72"]
-transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 0, 0)
+process_mode = 4
+transform = Transform3D(1, -2.23517e-08, 0, -1.30385e-08, 1, 0, 0, -1.49012e-08, 1, 0.9, -8.9407e-08, 5.96046e-08)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell74" parent="MainWreck/SolarPanelWreck8" index="73"]
+process_mode = 4
 transform = Transform3D(1, -2.0408e-08, 2.75692e-09, -3.08077e-09, 1, 0, 1.07438e-09, -1.49012e-08, 1, 0.9, 2.23517e-08, 0.1)
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell75" parent="MainWreck/SolarPanelWreck8" index="74"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell76" parent="MainWreck/SolarPanelWreck8" index="75"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell77" parent="MainWreck/SolarPanelWreck8" index="76"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell78" parent="MainWreck/SolarPanelWreck8" index="77"]
+process_mode = 4
 visible = false
 disabled = true
 
 [node name="CollisionShapeAndSolarCell79" parent="MainWreck/SolarPanelWreck8" index="78"]
+process_mode = 4
 visible = false
 disabled = true
 
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck8/Strip" index="0"]
+[node name="CollisionShapeAndSolarCell80" parent="MainWreck/SolarPanelWreck8" index="79"]
+process_mode = 4
 visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck8/Strip" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck8/Strip2" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck8/Strip5" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck8/Strip5" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck8/Strip6" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck8/Strip6" index="1"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck8/Strip7" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck8/Strip9" index="0"]
-visible = false
-
-[node name="SolarCell" parent="MainWreck/SolarPanelWreck8/Strip10" index="0"]
-visible = false
-
-[node name="SolarCell2" parent="MainWreck/SolarPanelWreck8/Strip10" index="1"]
-visible = false
-
-[node name="SolarCell3" parent="MainWreck/SolarPanelWreck8/Strip10" index="2"]
-visible = false
+disabled = true
 
 [node name="DishAntenna" parent="MainWreck" instance=ExtResource("4_1c5cl")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.291352, 0)
@@ -1720,54 +1871,15 @@ material_override = SubResource("StandardMaterial3D_syp3f")
 mesh = ExtResource("1_j8xmq")
 skeleton = NodePath("../../..")
 
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MainWreck/MainBody"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6yvqa")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainWreck/MainBody"]
 transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0, 0)
+visible = false
 shape = SubResource("SphereShape3D_s8ttl")
-
-[node name="Debris" type="Node3D" parent="."]
-
-[node name="RigidBodySolarCell" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.492468, 0.501066)
-
-[node name="RigidBodySolarCell2" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0612063, -0.806403)
-
-[node name="RigidBodySolarCell3" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0612063, -0.654985)
-
-[node name="RigidBodySolarCell4" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199183, -0.0612063, -0.83999)
-angular_velocity = Vector3(0.174533, 0.0872665, 0.0523599)
-
-[node name="RigidBodySolarCell6" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199183, -0.0612063, -0.477131)
-
-[node name="RigidBodySolarCell7" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0222931, -0.0612063, -0.477131)
-
-[node name="RigidBodySolarCell8" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263295, -0.0612063, -0.477131)
-
-[node name="RigidBodySolarCell9" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263295, -0.0612063, -0.664856)
-
-[node name="RigidBodySolarCell10" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263295, -0.0612063, -0.847644)
-
-[node name="RigidBodySolarCell11" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263295, -0.0612063, -0.990922)
-
-[node name="RigidBodySolarCell12" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0412794, -0.0612063, -0.990922)
-
-[node name="RigidBodySolarCell13" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0412794, -0.194421, -0.990922)
-
-[node name="RigidBodySolarCell5" parent="Debris" instance=ExtResource("5_v5a4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199183, -0.0612063, -0.654985)
-
-[node name="SolarPanelWreck" parent="." instance=ExtResource("3_o0kfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257232, -6.01626, -0.952102)
+disabled = true
 
 [editable path="MainWreck/Antenna3"]
 [editable path="MainWreck/SolarPanelWreck"]
