@@ -411,8 +411,8 @@ func animChangeCheck(delta: float) -> bool:
 
 				$GlobalLights.visible = true
 
-				$SatelliteWreck.visible = true
-				$SatelliteWreck.process_mode =Node.PROCESS_MODE_INHERIT
+				$SatelliteWreck.visible = false
+				$SatelliteWreck.process_mode =Node.PROCESS_MODE_DISABLED
 
 			"GreatTexts":
 				$Satellite.visible = false
@@ -447,8 +447,8 @@ func animChangeCheck(delta: float) -> bool:
 
 				$GlobalLights.visible = true
 
-				$SatelliteWreck.visible = true
-				$SatelliteWreck.process_mode =Node.PROCESS_MODE_INHERIT
+				$SatelliteWreck.visible = false
+				$SatelliteWreck.process_mode =Node.PROCESS_MODE_DISABLED
 			_:
 				print("Anim change defaults not handled!")
 		
@@ -612,7 +612,12 @@ func _process(delta):
 				else:
 					mainAnimationPlayer.pause()
 #						mainAnimationPlayer.stop(false)
-	
+		
+		if (dbgAnimJump != 0):
+			if (!subAnimChanged):
+				tunePlayer.my_seek(tunePlayer.getFilteredPlaybackPosition() - dbgAnimJump)
+			dbgAnimJump = 0
+
 	if (!Engine.is_editor_hint()):
 		updateCameraCopyPasteFields()
 
