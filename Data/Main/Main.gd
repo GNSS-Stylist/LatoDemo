@@ -226,7 +226,7 @@ func animChangeCheck(delta: float) -> bool:
 		# Also disabling / hiding some things not used in the current
 		# "sub-animation" at all
 		match(animChangeReq):
-			"SatMorph":
+			"SatMorph_obsolete":
 				$World.scalingOverride = 0
 				$World.inverseScalingOverride = 0
 				
