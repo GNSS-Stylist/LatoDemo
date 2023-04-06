@@ -378,7 +378,7 @@ func animChangeCheck(delta: float) -> bool:
 				$SatelliteWreck.visible = false
 				$SatelliteWreck.process_mode =Node.PROCESS_MODE_DISABLED
 
-			"AscensionToGreatness":
+			"AscensionToGreatness_Obsolete":
 				$Satellite.visible = false
 				$Satellite.process_mode = Node.PROCESS_MODE_DISABLED
 				
@@ -414,7 +414,7 @@ func animChangeCheck(delta: float) -> bool:
 				$SatelliteWreck.visible = false
 				$SatelliteWreck.process_mode =Node.PROCESS_MODE_DISABLED
 
-			"GreatTexts":
+			"GreatTexts_Obsolete":
 				$Satellite.visible = false
 				$Satellite.process_mode = Node.PROCESS_MODE_DISABLED
 				
