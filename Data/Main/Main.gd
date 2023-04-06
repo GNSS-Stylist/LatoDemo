@@ -339,7 +339,7 @@ func animChangeCheck(delta: float) -> bool:
 				$SatelliteWreck.visible = false
 				$SatelliteWreck.process_mode =Node.PROCESS_MODE_DISABLED
 
-			"Destruction":
+			"Destruction_obsolete":
 				$World.scalingOverride = 0
 				$World.inverseScalingOverride = 0
 
