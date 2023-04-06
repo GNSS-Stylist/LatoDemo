@@ -265,7 +265,7 @@ func animChangeCheck(delta: float) -> bool:
 				$SatelliteWreck.visible = false
 				$SatelliteWreck.process_mode =Node.PROCESS_MODE_DISABLED
 			
-			"Descent":
+			"Descent_obsolete":
 				$Satellite.process_mode = Node.PROCESS_MODE_INHERIT
 				
 				$World/Planet.visible = false
