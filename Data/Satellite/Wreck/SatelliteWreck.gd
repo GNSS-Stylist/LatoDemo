@@ -115,9 +115,15 @@ func regenerateRandomDebris():
 	randomDebris = Node3D.new()
 	randomDebris.name = "RandomDebris"
 
-	for i in range(150):
+	# This is used to make limits work on the main body's rotation plane
+	# (45 deg rotated around x-axis):
+	var originTransform:Transform3D = Transform3D.IDENTITY.rotated(Vector3(0, 0, 1), deg_to_rad(-45))
+
+	for i in range(300):
 		var newSolarCell = RigidBodySolarCell.instantiate()
-		newSolarCell.transform = Transform3D(Basis(Vector3(myRandf(), myRandf(), myRandf()), Vector3(myRandf(), myRandf(), myRandf()), Vector3(myRandf(), myRandf(), myRandf())).orthonormalized(), Vector3(myRandf_range(-randomDebrisMaxPos.x, randomDebrisMaxPos.x), myRandf_range(-randomDebrisMaxPos.y, randomDebrisMaxPos.y), myRandf_range(-randomDebrisMaxPos.z, randomDebrisMaxPos.z)))
+		var newBasis = Basis(Vector3(myRandf(), myRandf(), myRandf()), Vector3(myRandf(), myRandf(), myRandf()), Vector3(myRandf(), myRandf(), myRandf())).orthonormalized()
+		var newOrigin = originTransform * Vector3(myRandf_range(-randomDebrisMaxPos.x, randomDebrisMaxPos.x), myRandf_range(-randomDebrisMaxPos.y, randomDebrisMaxPos.y), myRandf_range(-randomDebrisMaxPos.z, randomDebrisMaxPos.z))
+		newSolarCell.transform = Transform3D(newBasis, newOrigin)
 		newSolarCell.linear_velocity = Vector3(myRandf_range(-randomDebrisMaxLinearVelocity.x, randomDebrisMaxLinearVelocity.x), myRandf_range(-randomDebrisMaxLinearVelocity.y, randomDebrisMaxLinearVelocity.y), myRandf_range(-randomDebrisMaxLinearVelocity.z, randomDebrisMaxLinearVelocity.z))
 		newSolarCell.angular_velocity = Vector3(myRandf_range(-randomDebrisMaxAngularVelocity.x, randomDebrisMaxAngularVelocity.x), myRandf_range(-randomDebrisMaxAngularVelocity.y, randomDebrisMaxAngularVelocity.y), myRandf_range(-randomDebrisMaxAngularVelocity.z, randomDebrisMaxAngularVelocity.z))
 		randomDebris.add_child(newSolarCell)

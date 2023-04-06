@@ -42,7 +42,7 @@ transform = Transform3D(0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 0, 0, 1, 
 
 [node name="CharacterBody3D_Rod" parent="MainWreck/Antenna3" index="1"]
 process_mode = 4
-transform = Transform3D(0.829038, -0.559193, 0, 0.559193, 0.829038, 0, 0, 2.23517e-08, 1, -8.45728, 10.8348, 1.78814e-07)
+transform = Transform3D(0.829038, -0.559193, 0, 0.559193, 0.829038, 1.49012e-08, 0, -7.45058e-09, 1, -8.45728, 10.8348, -1.78814e-07)
 
 [node name="Antenna4" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(-0.0249636, 0.0965616, 0.00725768, -0.0968169, -0.0250296, -7.81592e-09, 0.00181656, -0.00702666, 0.0997363, 0.268159, -0.11, 0)
