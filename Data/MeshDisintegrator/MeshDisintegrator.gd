@@ -26,12 +26,12 @@ enum DisintegrationMethod { PLANAR_2D, PLANAR_CUT }
 		if (newString.is_empty()):
 			# No point asking the thread to do this job.
 			# Also asking it to do so probably caused a lot of crashes when saving the scene. This was very likely
-			# caused by thread setting the mesh _while_ saving of the scene was in progress
+			# likely caused by thread setting the mesh _while_ saving of the scene was in progress
 			# (due to animation reset track).
-			$DisintegratedMesh.mesh = null
-			$SmoothMesh.mesh = null
-			workerThreadLastText = ""
 			workerThreadMutex.lock()
+			disintegratedMesh.mesh = null
+			smoothMesh.mesh = null
+			workerThreadLastText = ""
 			textOverride = newString
 			workerThreadMutex.unlock()
 		else:
@@ -46,10 +46,10 @@ enum DisintegrationMethod { PLANAR_2D, PLANAR_CUT }
 @export var disintegrationFraction:float:
 	set(newFraction):
 		if (newFraction != disintegrationFraction):
-			$SmoothMesh.visible = (newFraction == 0)
-			$DisintegratedMesh.visible = (newFraction != 0)
+			smoothMesh.visible = (newFraction == 0)
+			disintegratedMesh.visible = (newFraction != 0)
 			disintegrationFraction = newFraction
-			$DisintegratedMesh.set_instance_shader_parameter("disintegrationFraction", disintegrationFraction)
+			disintegratedMesh.set_instance_shader_parameter("disintegrationFraction", disintegrationFraction)
 	get:
 		return disintegrationFraction
 					
@@ -66,14 +66,17 @@ var workerThreadSemaphore:Semaphore = Semaphore.new()
 var workerThreadForceUpdate:bool = false
 var workerThreadLastText:String = ""
 
+@onready var disintegratedMesh = get_node("DisintegratedMesh")
+@onready var smoothMesh = get_node("SmoothMesh")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	breakGeometry()
 	workerThread.start(Callable(self, "threadCode"))
 	workerThreadMutex.lock()
 	if (textOverride.is_empty()):
-		$DisintegratedMesh.mesh = null
-		$SmoothMesh.mesh = null
+		disintegratedMesh.mesh = null
+		smoothMesh.mesh = null
 		workerThreadLastText = ""
 	else:
 		workerThreadForceUpdate = true;
@@ -114,16 +117,16 @@ func threadCode():
 			workerThreadForceUpdate = false
 			var elapsedStartTime:int = Time.get_ticks_msec()
 			var baseMesh:TextMesh = sourceTextMesh.duplicate()
-			var smoothMesh:TextMesh
+			var newSmoothMesh:TextMesh
 			if (sourceTextMesh_Smooth):
-				smoothMesh = sourceTextMesh_Smooth.duplicate()
+				newSmoothMesh = sourceTextMesh_Smooth.duplicate()
 			else:
-				smoothMesh = sourceTextMesh.duplicate()
-			smoothMesh.text = ""
-			smoothMesh.depth = depth
-			smoothMesh.text = newText
+				newSmoothMesh = sourceTextMesh.duplicate()
+			newSmoothMesh.text = ""
+			newSmoothMesh.depth = depth
+			newSmoothMesh.text = newText
 			
-			$SmoothMesh.mesh = smoothMesh
+			smoothMesh.mesh = newSmoothMesh
 			
 			baseMesh.text = newText
 			var faceCount
@@ -350,7 +353,7 @@ func breakGeometry_Planar2D(sourceMesh:Mesh):
 	# So maybe it has something to do with threading -> Set it in the main thread instead
 	# Update: Locking was maybe caused by something else, so "reverting" this
 #	self.call_deferred("switchMesh", newMesh)
-	$DisintegratedMesh.mesh = newMesh
+	disintegratedMesh.mesh = newMesh
 	
 	return faceCount
 
