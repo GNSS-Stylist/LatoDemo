@@ -7,10 +7,9 @@ extends Node3D
 @export var randomDebrisMaxAngularVelocity:Vector3 = Vector3(0.1, 0.1, 0.1)
 @export var randomDebrisMaxPos:Vector3 = Vector3(3, 3, 3)
 
-var RigidBodySolarCell = preload("res://Data/Satellite/Wreck/RigidBodySolarCell.tscn")
-#var DebrisField = preload("res://Data/Satellite/Wreck/DebrisField.tscn")
+@export var debrisVisible:bool
+@export var debrisActive:bool
 
-var mainWreckRotationMutex:Mutex = Mutex.new()
 @export var mainWreckRotation:float = 0:
 	set(newRotation):
 		# Physics running in another thread
@@ -47,13 +46,23 @@ var mainWreckRotationMutex:Mutex = Mutex.new()
 	get:
 		return 0
 
+var RigidBodySolarCell = preload("res://Data/Satellite/Wreck/RigidBodySolarCell.tscn")
+#var DebrisField = preload("res://Data/Satellite/Wreck/DebrisField.tscn")
+
+@onready var mainWreck = get_node("MainWreck")
+@onready var scopeLight = get_node("MainWreck/DishAntenna/ScopeLight")
+
+var mainWreckRotationMutex:Mutex = Mutex.new()
 var physicsProcessCalledAfterRegeneratingDebris:bool = false
 
 func _ready():
 	regeneratePredefinedDebris()
 	regenerateRandomDebris()
 	physicsProcessCalledAfterRegeneratingDebris = false
-	
+
+	mainWreck.rotation_degrees = Vector3(0, mainWreckRotation, -45)
+	oldRotation = mainWreckRotation
+
 #	myRandInit(2314234)
 	
 #	for i in range(150):
@@ -67,9 +76,9 @@ func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 
-	$MainWreck/DishAntenna/ScopeLight.visible = true
-	$MainWreck/DishAntenna/ScopeLight.light_energy = Global.lowPassFilteredSoundAmplitudeData[Global.masterReplayTime * 8000] * scopeLightEnergy
-	$MainWreck/DishAntenna/ScopeLight.light_color = scopeLightColor
+	scopeLight.visible = true
+	scopeLight.light_energy = Global.lowPassFilteredSoundAmplitudeData[Global.masterReplayTime * 8000] * scopeLightEnergy
+	scopeLight.light_color = scopeLightColor
 	
 
 var oldRotation:float = 0
@@ -79,13 +88,24 @@ func _physics_process(delta):
 	mainWreckRotationMutex.unlock()
 
 	if (newRotation != oldRotation):
-		$MainWreck.rotation_degrees = Vector3(0, newRotation, -45)
+		mainWreck.rotation_degrees = Vector3(0, newRotation, -45)
 		oldRotation = newRotation
 	
-	if (!Engine.is_editor_hint()):
+	if (!Engine.is_editor_hint() && debrisActive):
 #		print("Wreck physics_process called, enabled")
 		physicsProcessCalledAfterRegeneratingDebris = true
 	
+	var predefinedDebris:Node3D = get_node_or_null("PredefinedDebris")
+	var randomDebris:Node3D = get_node_or_null("RandomDebris")
+	if (predefinedDebris && randomDebris):
+		predefinedDebris.visible = debrisVisible
+		randomDebris.visible = debrisVisible
+		if (debrisActive):
+			predefinedDebris.process_mode = Node.PROCESS_MODE_INHERIT
+			randomDebris.process_mode = Node.PROCESS_MODE_INHERIT
+		else:
+			predefinedDebris.process_mode = Node.PROCESS_MODE_DISABLED
+			randomDebris.process_mode = Node.PROCESS_MODE_DISABLED
 
 func regeneratePredefinedDebris():
 	var predefinedDebris:Node3D = get_node_or_null("PredefinedDebris")
