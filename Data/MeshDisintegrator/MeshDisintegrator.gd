@@ -116,18 +116,21 @@ func threadCode():
 			workerThreadLastText = newText
 			workerThreadForceUpdate = false
 			var elapsedStartTime:int = Time.get_ticks_msec()
-			var baseMesh:TextMesh = sourceTextMesh.duplicate()
 			var newSmoothMesh:TextMesh
 			if (sourceTextMesh_Smooth):
-				newSmoothMesh = sourceTextMesh_Smooth.duplicate()
+				newSmoothMesh = sourceTextMesh_Smooth.duplicate(true)
 			else:
-				newSmoothMesh = sourceTextMesh.duplicate()
+				newSmoothMesh = sourceTextMesh.duplicate(true)
 			newSmoothMesh.text = ""
 			newSmoothMesh.depth = depth
 			newSmoothMesh.text = newText
 			
-			smoothMesh.mesh = newSmoothMesh
+			var switchMesh = func(newMesh:Mesh): smoothMesh.mesh = newMesh
+			# See long explanation about call_deferred from disintegratedMesh handling...
+			switchMesh.call_deferred(newSmoothMesh)
+			#smoothMesh.mesh = newSmoothMesh
 			
+			var baseMesh:TextMesh = sourceTextMesh.duplicate(true)
 			baseMesh.text = newText
 			var faceCount
 #			match (disintegrationMethod):
@@ -352,22 +355,16 @@ func breakGeometry_Planar2D(sourceMesh:Mesh):
 	# There was some weird behavior (locking) when setting the mesh here.
 	# So maybe it has something to do with threading -> Set it in the main thread instead
 	# Update: Locking was maybe caused by something else, so "reverting" this
-#	self.call_deferred("switchMesh", newMesh)
-	disintegratedMesh.mesh = newMesh
+	# Update2: Going back to "deferred", since there was strange occasional crashes
+	# (at the same time I also changed the sourceTextMesh.duplicates to duplicate 
+	# also subresources, so don't sure if that was the actual reason for crashes
+	# (based on the strange font-signal error prints it probably was, though...)).
+	
+	var switchMesh = func(newMesh:Mesh): disintegratedMesh.mesh = newMesh
+	switchMesh.call_deferred(newMesh)
+#	disintegratedMesh.mesh = newMesh
 	
 	return faceCount
-
-#	if (subMeshInstance):
-#		self.remove_child(subMeshInstance)
-#		subMeshInstance.queue_free()
-	
-#	subMeshInstance = MeshInstance3D.new()
-#	subMeshInstance.mesh = newMesh
-#	subMeshInstance.material_override = material_override
-#	self.add_child(subMeshInstance)
-
-#func switchMesh(newMesh:Mesh):
-#	self.mesh = newMesh
 
 func subSplit(vecs:Array, limit_Squared:float, randomizer:RandomNumberGenerator) -> Array:
 	var maxLengthSquared:float = 0
@@ -403,6 +400,6 @@ func subSplit(vecs:Array, limit_Squared:float, randomizer:RandomNumberGenerator)
 		ret = subSplit(newTri1, limit_Squared, randomizer) + subSplit(newTri2, limit_Squared, randomizer)
 
 	else:
-		ret = vecs.duplicate()
+		ret = vecs.duplicate(true)
 
 	return ret
