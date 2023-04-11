@@ -357,7 +357,7 @@ func breakGeometry_Planar2D(sourceMesh:Mesh):
 	# Update: Locking was maybe caused by something else, so "reverting" this
 	# Update2: Going back to "deferred", since there was strange occasional crashes
 	# (at the same time I also changed the sourceTextMesh.duplicates to duplicate 
-	# also subresources, so don't sure if that was the actual reason for crashes
+	# also subresources, so not sure if that was the actual reason for crashes
 	# (based on the strange font-signal error prints it probably was, though...)).
 	
 	var switchMesh = func(newMesh:Mesh): disintegratedMesh.mesh = newMesh
@@ -400,6 +400,6 @@ func subSplit(vecs:Array, limit_Squared:float, randomizer:RandomNumberGenerator)
 		ret = subSplit(newTri1, limit_Squared, randomizer) + subSplit(newTri2, limit_Squared, randomizer)
 
 	else:
-		ret = vecs.duplicate(true)
+		ret = vecs.duplicate()
 
 	return ret
