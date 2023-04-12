@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://Data/BlackHole/BlackHole.gdshader" id="1_7wcsu"]
 [ext_resource type="Script" path="res://Data/BlackHole/BlackHole.gd" id="1_582ig"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u3p51"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4s5ii"]
 render_priority = 0
 shader = ExtResource("1_7wcsu")
 shader_parameter/eventHorizonRadius = 0.5
@@ -29,16 +29,10 @@ shader = ExtResource("1_7wcsu")
 [node name="Visibles" type="Node3D" parent="."]
 
 [node name="DistorterMesh" type="MeshInstance3D" parent="Visibles"]
-material_override = SubResource("ShaderMaterial_u3p51")
+material_override = SubResource("ShaderMaterial_4s5ii")
 extra_cull_margin = 2.0
 mesh = SubResource("QuadMesh_ocp56")
 skeleton = NodePath("../..")
-
-[node name="BlackLight" type="OmniLight3D" parent="Visibles"]
-light_color = Color(0.501961, 1, 1, 1)
-light_energy = 0.44
-light_negative = true
-omni_attenuation = 3.24901
 
 [node name="EventHorizonSphere" type="MeshInstance3D" parent="Visibles"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
