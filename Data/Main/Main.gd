@@ -694,7 +694,7 @@ class Stash:
 	var soundImageDebugTexture
 	var deathRaySamplerA
 	var deathRaySamplerB
-	var planetData
+	var planetCrustData
 	var jellyPlanetData
 	var syncHelpScopeData
 	var deathTextData
@@ -708,13 +708,13 @@ func stashToolData():
 	var groundMesh = get_node_or_null("World/AdditiveGeometries/Ground")
 	var latoTextMesh = get_node_or_null("World/AdditiveGeometries/LatoText")
 	var soundImageDbg = get_node_or_null("DebugThings/MeshInstance3D_SoundImageDbg")
-	var planet = get_node_or_null("World/Planet")
+	var planetCrust = get_node_or_null("World/Planet/Crust")
 	var jellyPlanet = get_node_or_null("World/JellyPlanet")
 	var syncHelpScope = get_node_or_null("AnimatedCamera/SyncHelpScope")
 	var deathText = get_node_or_null("CameraFlyingSpace_Ascend/DeathText")
 
 	if (Global && barnMesh && groundMesh && latoTextMesh && 
-			soundImageDbg && planet && jellyPlanet &&
+			soundImageDbg && planetCrust && jellyPlanet &&
 			syncHelpScope && deathText):
 				
 		stashStorage.globalData = Global.stashToolData()
@@ -731,7 +731,7 @@ func stashToolData():
 		stashStorage.deathRaySamplerB = deathRaySurface.material_override.get_shader_parameter("soundDataSamplerB")
 		deathRaySurface.material_override.set_shader_parameter("soundDataSamplerB", null)
 		
-		stashStorage.planetData = planet.stashToolData()
+		stashStorage.planetCrustData = planetCrust.stashToolData()
 		stashStorage.jellyPlanetData = jellyPlanet.stashToolData()
 		stashStorage.syncHelpScopeData = syncHelpScope.stashToolData()
 		
@@ -747,13 +747,13 @@ func stashPullToolData():
 		var groundMesh = get_node_or_null("World/AdditiveGeometries/Ground")
 		var latoTextMesh = get_node_or_null("World/AdditiveGeometries/LatoText")
 		var soundImageDbg = get_node_or_null("DebugThings/MeshInstance3D_SoundImageDbg")
-		var planet = get_node_or_null("World/Planet")
+		var planetCrust = get_node_or_null("World/Planet/Crust")
 		var jellyPlanet = get_node_or_null("World/JellyPlanet")
 		var syncHelpScope = get_node_or_null("AnimatedCamera/SyncHelpScope")
 		var deathText = get_node_or_null("CameraFlyingSpace_Ascend/DeathText")
 
 		if (Global && barnMesh && groundMesh && latoTextMesh && 
-				soundImageDbg && planet && jellyPlanet &&
+				soundImageDbg && planetCrust && jellyPlanet &&
 				syncHelpScope && deathText):
 					
 			Global.stashPullToolData(stashStorage.globalData)
@@ -763,7 +763,7 @@ func stashPullToolData():
 			soundImageDbg.material_override.albedo_texture = stashStorage.soundImageDebugTexture
 			deathRaySurface.material_override.set_shader_parameter("soundDataSamplerA", stashStorage.deathRaySamplerA)
 			deathRaySurface.material_override.set_shader_parameter("soundDataSamplerB", stashStorage.deathRaySamplerB)
-			planet.stashPullToolData(stashStorage.planetData)
+			planetCrust.stashPullToolData(stashStorage.planetCrustData)
 			jellyPlanet.stashPullToolData(stashStorage.jellyPlanetData)
 			syncHelpScope.stashPullToolData(stashStorage.syncHelpScopeData)
 			deathText.stashPullToolData(stashStorage.deathTextData)
