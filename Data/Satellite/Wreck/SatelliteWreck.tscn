@@ -22,7 +22,7 @@ script = ExtResource("1_877rw")
 randomDebrisSeed = 1337
 
 [node name="MainWreck" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
 rotation_order = 1
 
 [node name="Antenna" parent="MainWreck" instance=ExtResource("2_a4tga")]
@@ -1861,7 +1861,7 @@ visible = false
 disabled = true
 
 [node name="DishAntenna" parent="MainWreck" instance=ExtResource("4_1c5cl")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.291352, 0)
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, -0.291352, 0)
 
 [node name="MainBody" type="CharacterBody3D" parent="MainWreck"]
 
