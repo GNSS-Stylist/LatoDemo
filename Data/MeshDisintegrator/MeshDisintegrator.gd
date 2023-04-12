@@ -403,3 +403,22 @@ func subSplit(vecs:Array, limit_Squared:float, randomizer:RandomNumberGenerator)
 		ret = vecs.duplicate()
 
 	return ret
+
+class StashData:
+	var smoothMesh
+	var disintegratedMesh
+
+func stashToolData():
+	print("Stash deathText")
+	var stashStorage:StashData = StashData.new()
+	stashStorage.smoothMesh = $SmoothMesh.mesh
+	stashStorage.disintegratedMesh = $DisintegratedMesh.mesh
+	
+	$SmoothMesh.mesh = null
+	$DisintegratedMesh.mesh = null
+	return stashStorage
+
+func stashPullToolData(stashStorage:StashData):
+	print("Stashpull deathText")
+	$SmoothMesh.mesh = stashStorage.smoothMesh
+	$DisintegratedMesh.mesh = stashStorage.disintegratedMesh
