@@ -6,7 +6,7 @@
 friction = 0.5
 bounce = 0.5
 
-[node name="SolarPanelDebrisFragment1" type="RigidBody3D"]
+[node name="SolarPanelDebrisFragmentZ" type="RigidBody3D"]
 mass = 2.5
 physics_material_override = SubResource("PhysicsMaterial_702vy")
 custom_integrator = true

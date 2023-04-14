@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhaquufsdt0qx"]
+
+[ext_resource type="PackedScene" uid="uid://bewkchcuygkha" path="res://Data/Satellite/Wreck/CollisionShapeAndSolarCell.tscn" id="1_peno0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_702vy"]
+friction = 0.5
+bounce = 0.5
+
+[node name="SolarPanelDebrisFragment4" type="RigidBody3D"]
+mass = 13.0
+physics_material_override = SubResource("PhysicsMaterial_702vy")
+custom_integrator = true
+can_sleep = false
+
+[node name="CollisionShapeAndSolarCell2" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 0.942805, -0.333346, 0, 0.333346, 0.942805, -0.1, 0.0171834, -0.0980569)
+
+[node name="CollisionShapeAndSolarCell7" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+
+[node name="CollisionShapeAndSolarCell8" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell9" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell10" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.1)
+
+[node name="CollisionShapeAndSolarCell11" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(0.778583, 0.627542, 0, -0.627542, 0.778583, 0, 0, 0, 1, 0.190172, -0.0316088, 0.1)
+
+[node name="CollisionShapeAndSolarCell13" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 0.611693, -0.791095, 0, 0.791095, 0.611693, 0.2, 0.0398541, -0.0822111)
+
+[node name="CollisionShapeAndSolarCell20" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 0.942805, -0.333346, 0, 0.333346, 0.942805, -0.2, 0.0171834, -0.0980569)
+
+[node name="CollisionShapeAndSolarCell21" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 0.942805, -0.333346, 0, 0.333346, 0.942805, -0.3, 0.0171834, -0.0980569)
+
+[node name="CollisionShapeAndSolarCell22" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
+
+[node name="CollisionShapeAndSolarCell5" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 0.611693, -0.791095, 0, 0.791095, 0.611693, 0.1, 0.0398541, -0.0822111)
+
+[node name="CollisionShapeAndSolarCell4" parent="." instance=ExtResource("1_peno0")]
+
+[node name="CollisionShapeAndSolarCell6" parent="." instance=ExtResource("1_peno0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)

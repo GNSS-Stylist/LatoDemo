@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxh6yn5sjacjd"]
+
+[ext_resource type="ArrayMesh" uid="uid://w41rqwh1qtsb" path="res://Data/Satellite/SputnikRing.obj" id="1_1i33a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pio64"]
+friction = 0.5
+bounce = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cff6v"]
+diffuse_mode = 1
+metallic = 1.0
+roughness = 0.7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6aqtb"]
+height = 0.008
+radius = 0.284
+
+[node name="RigidBodySputnikRing" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_pio64")
+custom_integrator = true
+can_sleep = false
+
+[node name="RingMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_cff6v")
+mesh = ExtResource("1_1i33a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_6aqtb")

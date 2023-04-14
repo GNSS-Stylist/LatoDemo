@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://v5tjenb1umv3"]
+[gd_scene load_steps=8 format=3 uid="uid://v5tjenb1umv3"]
 
 [ext_resource type="PackedScene" uid="uid://dywslr3oa3712" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_1.tscn" id="2_1sl3f"]
 [ext_resource type="PackedScene" uid="uid://3gcjgvoducnk" path="res://Data/Satellite/Wreck/RigidBodySolarCell.tscn" id="2_m41hs"]
 [ext_resource type="PackedScene" uid="uid://tdnr26hgcp4q" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_2.tscn" id="3_tq2l4"]
 [ext_resource type="PackedScene" uid="uid://dqnskyejw5b4k" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_3.tscn" id="4_a4fuh"]
 [ext_resource type="PackedScene" uid="uid://3civv8lds8nl" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_Z.tscn" id="5_0mxui"]
+[ext_resource type="PackedScene" uid="uid://dhaquufsdt0qx" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_4.tscn" id="6_sbi00"]
+[ext_resource type="PackedScene" uid="uid://cxh6yn5sjacjd" path="res://Data/Satellite/RigidBodySputnikRing.tscn" id="7_kgbrc"]
 
 [node name="DebrisField" type="Node3D"]
 
@@ -35,3 +37,12 @@ angular_velocity = Vector3(0.0872665, -0.0174533, 0.0349066)
 transform = Transform3D(-0.024531, -0.975172, -0.220085, 0.999684, -0.0251476, 0, -0.00553459, -0.220015, 0.975481, 0, 3.51767, 0)
 continuous_cd = true
 linear_velocity = Vector3(0, -0.2, 0)
+
+[node name="SolarPanelDebrisFragment5" parent="." instance=ExtResource("6_sbi00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340964, 0.403921, 0.90622)
+angular_velocity = Vector3(-0.174533, 0.0349066, -0.00544543)
+
+[node name="RigidBodySputnikRing" parent="." instance=ExtResource("7_kgbrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37469, -1.21112, -1.39707)
+linear_velocity = Vector3(-0.01, -0.02, 0)
+angular_velocity = Vector3(0.244346, 0.20944, 0.10472)
