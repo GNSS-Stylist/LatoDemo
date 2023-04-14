@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7nc7et6vohhv"]
+[gd_scene load_steps=8 format=3 uid="uid://7nc7et6vohhv"]
 
 [ext_resource type="Script" path="res://Data/Satellite/Wreck/SatelliteWreck.gd" id="1_877rw"]
 [ext_resource type="ArrayMesh" uid="uid://b6mo15mxv3jm7" path="res://Data/Satellite/Wreck/SputnikMangledBody.obj" id="1_j8xmq"]
@@ -10,15 +10,14 @@
 metallic = 1.0
 roughness = 0.25
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6yvqa"]
-points = PackedVector3Array(-0.488486, -1.16558, 0.209653, 0.158206, 1.19551, -0.247167, 0.158583, 1.19852, -0.362606, 1.14631, -0.481696, 0.0195999, 0.0437057, 0.27974, 1.24056, -0.865956, 0.16398, -0.927564, 0.422875, -0.442437, -1.1183, -1.16831, 0.125878, 0.398283, 1.06806, 0.695259, -0.0559942, -0.183379, -0.705994, 1.04058, -0.108128, -1.16544, -0.512152, 0.913591, -0.214614, 0.851655, -0.670286, 0.95095, -0.0552221, 0.458715, 1.03169, 0.548078, 0.646658, -1.04352, -0.0930935, -0.0320007, 0.882875, -0.850601, 0.988325, 0.314512, -0.698308, -0.709451, -0.589932, -0.846035, -0.637182, 0.466018, 0.964736, -1.05295, -0.516804, 0.473239, -1.21455, 0.24134, -0.170795, 0.871104, -0.702547, -0.619729, -0.299682, 0.088809, -1.20193, 0.719109, 0.387439, 0.958419, -0.0318506, 1.06748, 0.547198, 1.2248, 0.126768, 0.28595, -0.60119, 0.657192, -0.890498, -0.561317, 0.0500548, 1.11574, 0.00570005, -1.19685, 0.284084, -0.748381, -0.930303, -0.281843, 0.343002, -0.550009, 1.03174, 0.535198, 1.07142, -0.434052)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_s8ttl"]
-radius = 1.25
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t6jev"]
+points = PackedVector3Array(-0.411939, -1.20482, 0.134295, 0.159033, 1.19562, -0.246339, 0.15939, 1.19848, -0.361676, 1.18631, -0.329026, 0.0582089, -0.183759, 0.241654, 1.23879, -0.828373, 0.126927, -0.966638, 0.497841, -0.478144, -1.07587, -1.20589, 0.240343, 0.171742, 1.03061, 0.73376, 0.0958707, 0.723262, -0.326403, 0.963401, -0.520892, -0.740479, 0.887096, 0.423567, -1.16213, -0.0930296, -0.521592, -0.930339, -0.696329, 0.83575, 0.502777, -0.73328, 0.00659996, 1.07097, 0.549127, -0.334475, 0.771358, -0.927157, 0.649156, 0.428755, 1.0032, -1.13303, -0.366357, 0.400178, -0.596044, 0.991954, -0.318304, -0.819216, 0.312959, 0.883749, 0.00659996, -0.740059, 0.999622, -0.337801, 0.0517067, -1.20477, 0.912048, -0.552801, -0.696307, -1.13496, 0.203369, -0.474186, 1.10779, -0.214398, 0.58957, 0.572202, 1.06884, 0.397368, 0.120452, -1.1626, -0.472662, 1.19069, 0.356894, -0.208717, -0.826224, -0.933292, 0.095968, 0.908106, -0.813353, 0.0577156, -0.145163, -0.707971, -1.04275, 0.572125, 1.03089, -0.469633)
 
 [node name="SatelliteWreck" type="Node3D"]
 transform = Transform3D(1.00027, 0, 0, 0, 1, 0, 0, 0, 1.00027, 0, 0, 0)
 script = ExtResource("1_877rw")
+debrisVisible = true
+debrisActive = true
 randomDebrisSeed = 1337
 
 [node name="MainWreck" type="Node3D" parent="."]
@@ -42,7 +41,7 @@ transform = Transform3D(0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 0, 0, 1, 
 
 [node name="CharacterBody3D_Rod" parent="MainWreck/Antenna3" index="1"]
 process_mode = 4
-transform = Transform3D(0.829038, -0.559193, 0, 0.559193, 0.829038, 1.49012e-08, 0, -7.45058e-09, 1, -8.45728, 10.8348, -1.78814e-07)
+transform = Transform3D(0.829038, -0.559193, 5.32907e-15, 0.559193, 0.829038, 0, 7.10543e-15, 1.42109e-14, 1, -8.45728, 10.8348, 3.12639e-13)
 
 [node name="Antenna4" parent="MainWreck" instance=ExtResource("2_a4tga")]
 transform = Transform3D(-0.0249636, 0.0965616, 0.00725768, -0.0968169, -0.0250296, -7.81592e-09, 0.00181656, -0.00702666, 0.0997363, 0.268159, -0.11, 0)
@@ -1871,15 +1870,9 @@ material_override = SubResource("StandardMaterial3D_syp3f")
 mesh = ExtResource("1_j8xmq")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="MainWreck/MainBody"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_6yvqa")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainWreck/MainBody"]
 transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0, 0)
-visible = false
-shape = SubResource("SphereShape3D_s8ttl")
-disabled = true
+shape = SubResource("ConvexPolygonShape3D_t6jev")
 
 [editable path="MainWreck/Antenna3"]
 [editable path="MainWreck/SolarPanelWreck"]

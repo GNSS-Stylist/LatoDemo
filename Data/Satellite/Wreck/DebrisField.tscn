@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://v5tjenb1umv3"]
+[gd_scene load_steps=6 format=3 uid="uid://v5tjenb1umv3"]
 
 [ext_resource type="PackedScene" uid="uid://dywslr3oa3712" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_1.tscn" id="2_1sl3f"]
 [ext_resource type="PackedScene" uid="uid://3gcjgvoducnk" path="res://Data/Satellite/Wreck/RigidBodySolarCell.tscn" id="2_m41hs"]
 [ext_resource type="PackedScene" uid="uid://tdnr26hgcp4q" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_2.tscn" id="3_tq2l4"]
 [ext_resource type="PackedScene" uid="uid://dqnskyejw5b4k" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_3.tscn" id="4_a4fuh"]
+[ext_resource type="PackedScene" uid="uid://3civv8lds8nl" path="res://Data/Satellite/Wreck/SolarPanelDebrisFragments/SolarPanelDebrisFragment_Z.tscn" id="5_0mxui"]
 
 [node name="DebrisField" type="Node3D"]
 
@@ -13,8 +14,8 @@ linear_velocity = Vector3(0, -0.05, 0)
 angular_velocity = Vector3(0.174533, 0.261799, 0.122173)
 
 [node name="SolarPanelDebrisFragment1" parent="." instance=ExtResource("2_1sl3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23102, 0)
-linear_velocity = Vector3(0, -0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.866059, -0.984831, 0.24671)
+linear_velocity = Vector3(-0.1, -0.1, 0.03)
 angular_velocity = Vector3(0.0349066, -0.0698132, -0.0523599)
 
 [node name="SolarPanelDebrisFragment2" parent="." instance=ExtResource("3_tq2l4")]
@@ -24,3 +25,13 @@ angular_velocity = Vector3(0.0349066, 0.174533, -0.0698132)
 
 [node name="SolarPanelDebrisFragment3" parent="." instance=ExtResource("4_a4fuh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.452501, -0.973508)
+
+[node name="RigidBodySolarCell2" parent="." instance=ExtResource("2_m41hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.859498, -0.534476, 0.233473)
+linear_velocity = Vector3(-0.1, -0.2, 0.03)
+angular_velocity = Vector3(0.0872665, -0.0174533, 0.0349066)
+
+[node name="SolarPanelDebrisFragment4" parent="." instance=ExtResource("5_0mxui")]
+transform = Transform3D(-0.024531, -0.975172, -0.220085, 0.999684, -0.0251476, 0, -0.00553459, -0.220015, 0.975481, 0, 3.51767, 0)
+continuous_cd = true
+linear_velocity = Vector3(0, -0.2, 0)

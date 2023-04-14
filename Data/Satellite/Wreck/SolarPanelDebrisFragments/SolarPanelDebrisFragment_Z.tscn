@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://3civv8lds8nl"]
+
+[ext_resource type="PackedScene" uid="uid://bewkchcuygkha" path="res://Data/Satellite/Wreck/CollisionShapeAndSolarCell.tscn" id="1_n1gie"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_702vy"]
+friction = 0.5
+bounce = 0.5
+
+[node name="SolarPanelDebrisFragment1" type="RigidBody3D"]
+mass = 2.5
+physics_material_override = SubResource("PhysicsMaterial_702vy")
+custom_integrator = true
+can_sleep = false
+
+[node name="CollisionShapeAndSolarCell" parent="." instance=ExtResource("1_n1gie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+
+[node name="CollisionShapeAndSolarCell2" parent="." instance=ExtResource("1_n1gie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+
+[node name="CollisionShapeAndSolarCell3" parent="." instance=ExtResource("1_n1gie")]
+transform = Transform3D(1, 0, 0, 0, -0.495656, -0.868519, 0, 0.868519, -0.495656, 7.45058e-09, 0.0463081, -0.0771978)
+
+[node name="CollisionShapeAndSolarCell4" parent="." instance=ExtResource("1_n1gie")]
+transform = Transform3D(1, 0, 0, 0, -0.565572, -0.824699, 0, 0.824699, -0.565572, 7.45058e-09, -0.0442651, 0.073522)
