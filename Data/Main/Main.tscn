@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=161 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -51,6 +51,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b1xywoq4h8m4o" path="res://Data/BlackHole/Eegg/ToiletSeat_All_Flattened_Revision_2020.obj" id="50_tuaqt"]
 [ext_resource type="Script" path="res://Data/Main/CameraFlyingSpace_Descent.gd" id="51_25liu"]
 [ext_resource type="Script" path="res://Data/Main/DeathRayParent.gd" id="51_osqmg"]
+[ext_resource type="Texture2D" uid="uid://df7bhy78wo5bo" path="res://Data/Main/PlanetTexture_10x_Lat56_25_Lon280.png" id="51_vf3bi"]
 [ext_resource type="PackedScene" uid="uid://lxn4q58iarx6" path="res://Data/Oscilloscope/DeathRay.tscn" id="52_2li0a"]
 [ext_resource type="PackedScene" uid="uid://fly1a14m8ibv" path="res://Data/Satellite/antenna.tscn" id="53_08tcy"]
 [ext_resource type="FontFile" uid="uid://dcefjwagtd6c7" path="res://Data/Font/FetteNationalFraktur.ttf" id="53_ox4j2"]
@@ -13579,7 +13580,7 @@ shader_parameter/edgeWidth = 0.031
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xeqj1"]
 render_priority = 0
 shader = ExtResource("6_3p6jd")
-shader_parameter/replayTime = 56.0
+shader_parameter/replayTime = 0.0
 shader_parameter/faceTimeOverride = 0.0
 shader_parameter/flyTime = 13000.0
 shader_parameter/outOfSightShift_Y = 15.0
@@ -13620,7 +13621,7 @@ shader_parameter/edgeNormalSmoothEndDistance = 12.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3qkxn"]
 render_priority = 1
 shader = ExtResource("8_c4580")
-shader_parameter/replayTime = 9.7585e+07
+shader_parameter/replayTime = 0.0
 shader_parameter/outOfSightShift_Y = 10.0
 shader_parameter/disappearanceDelay = 20000.0
 shader_parameter/initialWobbleTime = 12500.0
@@ -13650,7 +13651,7 @@ shader_parameter/edgeWidth = 0.02
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yw2wi"]
 render_priority = 0
 shader = ExtResource("6_3p6jd")
-shader_parameter/replayTime = 56.0
+shader_parameter/replayTime = 0.0
 shader_parameter/faceTimeOverride = 0.0
 shader_parameter/flyTime = 6000.0
 shader_parameter/outOfSightShift_Y = 15.0
@@ -13691,7 +13692,7 @@ shader_parameter/edgeNormalSmoothEndDistance = 2e+09
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vu0ld"]
 render_priority = 1
 shader = ExtResource("8_c4580")
-shader_parameter/replayTime = 9.97585e+08
+shader_parameter/replayTime = 0.0
 shader_parameter/outOfSightShift_Y = 10.0
 shader_parameter/disappearanceDelay = 5500.0
 shader_parameter/initialWobbleTime = 4500.0
@@ -13727,7 +13728,7 @@ size = Vector3(3, 2.9, 9)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nev8e"]
 render_priority = 0
 shader = ExtResource("6_3p6jd")
-shader_parameter/replayTime = -20.0
+shader_parameter/replayTime = -76.0
 shader_parameter/faceTimeOverride = 0.0
 shader_parameter/flyTime = 13000.0
 shader_parameter/outOfSightShift_Y = 15.0
@@ -13769,7 +13770,7 @@ shader_parameter/albedo_texture = ExtResource("48_bqcmm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ayb7h"]
 render_priority = 1
 shader = ExtResource("8_c4580")
-shader_parameter/replayTime = 1e+09
+shader_parameter/replayTime = -76.0
 shader_parameter/outOfSightShift_Y = 10.0
 shader_parameter/disappearanceDelay = 5500.0
 shader_parameter/initialWobbleTime = 4500.0
@@ -13868,6 +13869,7 @@ shader_parameter/sphereOfAvoidanceCenterPoint = Vector3(0, 0, -1)
 shader_parameter/baseLight = Color(0, 0, 0, 1)
 shader_parameter/baseColor = Color(1.13, 1.13, 1.13, 1)
 shader_parameter/texture_albedo = ExtResource("30_nl8ir")
+shader_parameter/zoomed_texture_albedo = ExtResource("51_vf3bi")
 
 [sub_resource type="Curve3D" id="Curve3D_wa7bu"]
 bake_interval = 0.1

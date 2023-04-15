@@ -206,7 +206,7 @@ func breakGeometry():
 			uvs.push_back(Vector2(
 					atan2(-texVertex.z, texVertex.x) / (2 * PI) + 0.5,
 #						(vertices[vertices.size() - 3 + i].y + 1) / 2
-					-(asin(texVertex.y) + (PI / 2)) / PI
+					1-(asin(texVertex.y) + (PI / 2)) / PI
 			))
 		else:
 			# TODO: This makes poles textured wrong
@@ -251,17 +251,14 @@ func breakGeometry():
 	
 	
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
-# This is (was) just to make it possible to adjust texture orientation by an eye (and hand)
-#var accumulatedTime:float = 0
-#
+#@export var forceBreakGeometry:bool = false
+
 #func _process(delta):
-#	accumulatedTime += delta
-#
-#	if (accumulatedTime > 1):
+# This is (was) just to make it possible to adjust texture orientation by an eye (and hand)
+#	if (forceBreakGeometry):
 #		breakGeometry()
-#		accumulatedTime = 0
+#		forceBreakGeometry = false
 
 class StashData:
 	var mesh
