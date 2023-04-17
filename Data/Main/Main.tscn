@@ -44,6 +44,7 @@
 [ext_resource type="Shader" path="res://Data/Main/JellyPlanet.gdshader" id="37_4tvio"]
 [ext_resource type="ArrayMesh" uid="uid://d3xjjumk5c3ai" path="res://Data/Main/JellyPlanet.obj" id="39_fthyn"]
 [ext_resource type="Script" path="res://Data/Main/CameraOrientator.gd" id="43_1mg0k"]
+[ext_resource type="Shader" path="res://Data/Main/PlanetCore.gdshader" id="45_xnmw6"]
 [ext_resource type="Texture2D" uid="uid://d4jgy4lh8oqho" path="res://Data/Pics/BarnTexture_LevelFix.png" id="48_bqcmm"]
 [ext_resource type="ArrayMesh" uid="uid://dmmxlx4fi101h" path="res://Data/BlackHole/Eegg/HareScan2_Poisson_7_SurfacePrecLapSmooth_5_Simpl_5k_Faces.obj" id="48_edaun"]
 [ext_resource type="ArrayMesh" uid="uid://kep0jr0b1vh" path="res://Data/BlackHole/Eegg/ToiletSeat_Hogmanay_2020_Simplified_9999Faces.obj" id="49_axv4r"]
@@ -1149,6 +1150,18 @@ tracks/44/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("World/PlanetCore:material_override:shader_parameter/bloodRange")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_7lvqo"]
@@ -6686,7 +6699,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [4]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -7612,6 +7625,18 @@ tracks/89/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("World/PlanetCore:visible")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ks6w7"]
 resource_name = "GreatTexts"
@@ -8267,7 +8292,7 @@ tracks/54/imported = false
 tracks/54/enabled = true
 tracks/54/path = NodePath("World/Planet:visible")
 tracks/54/interp = 1
-tracks/54/loop_wrap = true
+tracks/54/loop_wrap = false
 tracks/54/keys = {
 "times": PackedFloat32Array(318, 319.02, 345),
 "transitions": PackedFloat32Array(1, 1, 1),
@@ -8279,7 +8304,7 @@ tracks/55/imported = false
 tracks/55/enabled = true
 tracks/55/path = NodePath("World/Planet:process_mode")
 tracks/55/interp = 1
-tracks/55/loop_wrap = true
+tracks/55/loop_wrap = false
 tracks/55/keys = {
 "times": PackedFloat32Array(318, 319.02, 345),
 "transitions": PackedFloat32Array(1, 1, 1),
@@ -8817,6 +8842,18 @@ tracks/43/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("World/Planet/Crust:visible")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ss0a7"]
@@ -11405,6 +11442,138 @@ tracks/216/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/217/type = "value"
+tracks/217/imported = false
+tracks/217/enabled = true
+tracks/217/path = NodePath("World/PlanetCore:material_override:shader_parameter/bloodRange")
+tracks/217/interp = 1
+tracks/217/loop_wrap = true
+tracks/217/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.236]
+}
+tracks/218/type = "value"
+tracks/218/imported = false
+tracks/218/enabled = true
+tracks/218/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/replayTime")
+tracks/218/interp = 1
+tracks/218/loop_wrap = true
+tracks/218/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/219/type = "value"
+tracks/219/imported = false
+tracks/219/enabled = true
+tracks/219/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/replayTime")
+tracks/219/interp = 1
+tracks/219/loop_wrap = true
+tracks/219/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/220/type = "value"
+tracks/220/imported = false
+tracks/220/enabled = true
+tracks/220/path = NodePath("World/AdditiveGeometries/LatoText:meshMaterial:shader_parameter/replayTime")
+tracks/220/interp = 1
+tracks/220/loop_wrap = true
+tracks/220/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/221/type = "value"
+tracks/221/imported = false
+tracks/221/enabled = true
+tracks/221/path = NodePath("World/AdditiveGeometries/LatoText:wireframeMaterial:shader_parameter/replayTime")
+tracks/221/interp = 1
+tracks/221/loop_wrap = true
+tracks/221/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/222/type = "value"
+tracks/222/imported = false
+tracks/222/enabled = true
+tracks/222/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/replayTime")
+tracks/222/interp = 1
+tracks/222/loop_wrap = true
+tracks/222/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/223/type = "value"
+tracks/223/imported = false
+tracks/223/enabled = true
+tracks/223/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:wireframeMaterial:shader_parameter/replayTime")
+tracks/223/interp = 1
+tracks/223/loop_wrap = true
+tracks/223/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/224/type = "value"
+tracks/224/imported = false
+tracks/224/enabled = true
+tracks/224/path = NodePath("GlobalInit:lidarPointMaterial:shader_parameter/replayTime")
+tracks/224/interp = 1
+tracks/224/loop_wrap = true
+tracks/224/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/225/type = "value"
+tracks/225/imported = false
+tracks/225/enabled = true
+tracks/225/path = NodePath("GlobalInit:lidarLineMaterial:shader_parameter/replayTime")
+tracks/225/interp = 1
+tracks/225/loop_wrap = true
+tracks/225/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/226/type = "value"
+tracks/226/imported = false
+tracks/226/enabled = true
+tracks/226/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/soundPos")
+tracks/226/interp = 1
+tracks/226/loop_wrap = true
+tracks/226/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/227/type = "value"
+tracks/227/imported = false
+tracks/227/enabled = true
+tracks/227/path = NodePath("AnimatedCamera/SyncHelpScope:material_override:shader_parameter/soundPos")
+tracks/227/interp = 1
+tracks/227/loop_wrap = true
+tracks/227/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -11773,7 +11942,7 @@ tracks/29/keys = {
 }
 tracks/30/type = "value"
 tracks/30/imported = false
-tracks/30/enabled = true
+tracks/30/enabled = false
 tracks/30/path = NodePath(".:dbgAnimJump")
 tracks/30/interp = 0
 tracks/30/loop_wrap = false
@@ -12697,6 +12866,30 @@ tracks/28/keys = {
 "handle_modes": PackedInt32Array(0, 3, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 10, 0, 3.63525, -3.84821, -1.29214, 3.84821, 1.29214, 9.60755, -24.0429, -0.0573082, 0.25, 0),
 "times": PackedFloat32Array(370, 387.84, 423.04)
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("World/PlanetCore:material_override:shader_parameter/bloodRange")
+tracks/29/interp = 1
+tracks/29/loop_wrap = false
+tracks/29/keys = {
+"times": PackedFloat32Array(350, 356.14, 488.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1, 0.25]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("World/PlanetCore:material_override:shader_parameter/time")
+tracks/30/interp = 1
+tracks/30/loop_wrap = false
+tracks/30/keys = {
+"times": PackedFloat32Array(350, 550),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 200.0]
 }
 
 [sub_resource type="Animation" id="Animation_6xika"]
@@ -13728,7 +13921,7 @@ size = Vector3(3, 2.9, 9)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nev8e"]
 render_priority = 0
 shader = ExtResource("6_3p6jd")
-shader_parameter/replayTime = -76.0
+shader_parameter/replayTime = 0.0
 shader_parameter/faceTimeOverride = 0.0
 shader_parameter/flyTime = 13000.0
 shader_parameter/outOfSightShift_Y = 15.0
@@ -13770,7 +13963,7 @@ shader_parameter/albedo_texture = ExtResource("48_bqcmm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ayb7h"]
 render_priority = 1
 shader = ExtResource("8_c4580")
-shader_parameter/replayTime = -76.0
+shader_parameter/replayTime = 0.0
 shader_parameter/outOfSightShift_Y = 10.0
 shader_parameter/disappearanceDelay = 5500.0
 shader_parameter/initialWobbleTime = 4500.0
@@ -13813,15 +14006,18 @@ points = PackedVector3Array(0.343492, -0.278143, 0.169292, -0.112702, 0.604859, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tdw0n"]
 points = PackedVector3Array(0.0235814, -0.720585, -0.378733, -0.0113852, -0.27402, 0.275161, -0.0394115, -0.271603, 0.285856, 0.0618771, 0.0796778, -0.257818, 0.342739, -0.615407, -0.222998, -0.199897, -0.335262, 0.0178113, 0.0752, 0.0262137, 0.156107, 0.141983, -0.74822, -0.124301, -0.117277, -0.00162254, 0.134976, -0.161809, -0.422362, 0.20441, 0.188353, -0.0073191, -0.246253, -0.0259899, -0.42328, -0.372241, -0.0716327, -0.72153, -0.244446, 0.275549, -0.708227, -0.084183, 0.325599, -0.419374, -0.152447, 0.0989996, -0.37199, 0.211211, 0.137797, -0.410661, -0.346769, -0.0618432, -0.42218, 0.265851, -0.0850118, 0.0128268, -0.0575072, 0.304233, -0.729831, -0.248316, -0.164846, -0.335132, 0.258244, 0.195443, 0.0128268, -0.191025, -0.0622973, -0.434934, -0.331218, 0.151058, 0.00767162, -0.285618, 0.324537, -0.410127, -0.231862, -0.0182288, -0.74822, -0.204397, -0.0401218, -0.00244887, 0.198429, -0.202415, -0.360254, 0.131838, 0.229757, -0.760455, -0.250737, 0.0622384, -0.688757, -0.385665, 0.316073, -0.492481, -0.117256, 0.0119804, -0.385359, 0.269754)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1owkc"]
-albedo_color = Color(0.0196078, 0, 0.0196078, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijqi0"]
+render_priority = 0
+shader = ExtResource("45_xnmw6")
+shader_parameter/baseAlbedo = Color(0.12549, 0.12549, 0.12549, 1)
+shader_parameter/bloodAlbedo = Color(1, 0.13, 0.13, 1)
+shader_parameter/bloodPower = 2.0
+shader_parameter/bloodRange = 0.236
+shader_parameter/time = 48.94
 
 [sub_resource type="SphereMesh" id="SphereMesh_awikv"]
 radius = 6.19042e+06
 height = 1.23808e+07
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_vsqpl"]
-size = Vector2(500000, 500000)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrj7d"]
 render_priority = 0
@@ -14608,7 +14804,7 @@ shape = SubResource("ConvexPolygonShape3D_6xyp5")
 
 [node name="CameraRig" type="Node3D" parent="World"]
 process_mode = 4
-transform = Transform3D(-0.177804, -0.134123, -0.974883, 0.00405957, 0.99056, -0.13702, 0.984058, -0.0283203, -0.175581, -10.3326, 0.975387, -3.2074)
+transform = Transform3D(0.984949, -0.0187166, 0.171827, 0.00600451, 0.997225, 0.0742054, -0.172739, -0.0720568, 0.982328, 3.26616, 2.05204, 16.6159)
 script = ExtResource("15_he12w")
 loFilename = "res://Data/GNSS_Stylus_Scripts/BarnCam.LOScript"
 replayTimeShift = 1.08e+06
@@ -14852,15 +15048,10 @@ mesh = ExtResource("50_tuaqt")
 shape = SubResource("ConvexPolygonShape3D_tdw0n")
 
 [node name="PlanetCore" type="MeshInstance3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.48042e+06, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -6.48042e+06, 0)
 visible = false
-material_override = SubResource("StandardMaterial3D_1owkc")
+material_override = SubResource("ShaderMaterial_ijqi0")
 mesh = SubResource("SphereMesh_awikv")
-
-[node name="PlanetCorePlate" type="MeshInstance3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -58319.5, 0)
-visible = false
-mesh = SubResource("PlaneMesh_vsqpl")
 
 [node name="LOScriptReplayer_MainBlackHole" type="Node3D" parent="World"]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 4.512, 10, 10.35)
