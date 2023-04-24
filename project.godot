@@ -245,7 +245,15 @@ play_backward_non_locked={
 
 driver/threads/thread_model=2
 anti_aliasing/screen_space_roughness_limiter/enabled=false
+scaling_3d/mode=1
 scaling_3d/scale=2.0
 environment/defaults/default_environment="res://default_env.tres"
 environment/glow/use_high_quality=true
 anti_aliasing/quality/msaa=3
+
+[shader_globals]
+
+endScrollerYPos={
+"type": "float",
+"value": 0.0
+}

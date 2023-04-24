@@ -65,7 +65,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lubd1"]
 render_priority = 0
 shader = ExtResource("3_cbwwq")
-shader_parameter/replayTime = -2.0
+shader_parameter/replayTime = 0.0
 shader_parameter/replayTimeRemainder = 0.0
 shader_parameter/outOfSightShift_Y = 10.0
 shader_parameter/fadeoutStartPointSize = 5.0
@@ -94,7 +94,7 @@ shader_parameter/timeMultiplier = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8l45c"]
 render_priority = 0
 shader = ExtResource("4_3rk1o")
-shader_parameter/replayTime = -2.0
+shader_parameter/replayTime = 0.0
 shader_parameter/replayTimeRemainder = 0.0
 shader_parameter/originShift = 0.035
 shader_parameter/outOfSightShift_Y = 8.0
@@ -141,7 +141,7 @@ shader = ExtResource("5_my3mi")
 shader_parameter/lineWidthLow = 0.025
 shader_parameter/lineWidthHigh = 0.075
 shader_parameter/scopeHeight = 2.0
-shader_parameter/soundPos = 0
+shader_parameter/soundPos = 0.0
 shader_parameter/soundOffset = -32000.0
 shader_parameter/soundAmplification = 0.9
 shader_parameter/soundLength = 32000.0
@@ -13543,7 +13543,7 @@ shader = ExtResource("5_my3mi")
 shader_parameter/lineWidthLow = 0.1
 shader_parameter/lineWidthHigh = 0.1
 shader_parameter/scopeHeight = 0.1
-shader_parameter/soundPos = -5000.0
+shader_parameter/soundPos = 0.0
 shader_parameter/soundOffset = 0.0
 shader_parameter/soundAmplification = -0.9
 shader_parameter/soundLength = 10000.0
@@ -14752,7 +14752,7 @@ dataFileName = "res://Data/Sound/ekg.raw"
 postSilenceLength = 32000
 
 [node name="World" type="Node3D" parent="."]
-transform = Transform3D(0.0001, 0, 0, 0, 0.0001, 0, 0, 0, 0.0001, -0.0009468, -0.0001315, 7.39e-05)
+transform = Transform3D(0.000100287, 0, 0, 0, 0.000100287, 0, 0, 0, 0.000100287, -0.000949516, -0.000131877, 7.4112e-05)
 script = ExtResource("30_00yxw")
 originShift = Vector3(-9.468, -1.315, 0.739)
 inverseScalingOverride = 10000.0
@@ -15107,7 +15107,7 @@ visible = false
 visible = false
 
 [node name="DeathRayParent" type="Node3D" parent="World"]
-transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
+transform = Transform3D(9971.39, 0, 0, 0, 9971.39, 0, 0, 0, 9971.39, 0, 0, 0)
 visible = false
 script = ExtResource("51_osqmg")
 
@@ -15118,7 +15118,7 @@ transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107,
 material_override = SubResource("ShaderMaterial_vrj7d")
 
 [node name="StaticBunchOfGNSSSignals" parent="World" instance=ExtResource("19_r0yum")]
-transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
+transform = Transform3D(9971.39, 0, 0, 0, 9971.39, 0, 0, 0, 9971.39, 0, 0, 0)
 
 [node name="Planet" type="Node3D" parent="World"]
 process_mode = 4
@@ -15333,7 +15333,7 @@ horizontal_alignment = 1
 metadata/_edit_use_custom_anchors = false
 
 [node name="CameraFlyingSpace_Descent" type="Node3D" parent="."]
-transform = Transform3D(-4.37123e-08, -0.707115, 0.707115, 0, 0.707115, 0.707115, -1.00002, 3.0909e-08, -3.0909e-08, -0.00012207, 0, -2.61386e-06)
+transform = Transform3D(-4.37123e-08, -0.707115, 0.707115, 0, 0.707115, 0.707115, -1.00002, 3.0909e-08, -3.0909e-08, -0.00012207, 0, -2.62135e-06)
 script = ExtResource("51_25liu")
 anchorNodePath = NodePath("../World/LidarRig/GNSSAntenna")
 

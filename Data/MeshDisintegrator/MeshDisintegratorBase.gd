@@ -114,7 +114,7 @@ func threadCode():
 			var faceCount
 #			match (disintegrationMethod):
 #				DisintegrationMethod.PLANAR_2D:
-			faceCount = breakGeometry_Planar2D(baseMesh)
+			faceCount = breakGeometry(baseMesh)
 #				DisintegrationMethod.PLANAR_CUT:
 #					faceCount = breakGeometry_PlanarCut(baseMesh)
 					
@@ -136,7 +136,7 @@ func threadCode():
 	print("InstanceMeshDisintegrator: Worker thread exited")
 
 
-func breakGeometry_Planar2D(sourceMesh:Mesh):
+func breakGeometry(sourceMesh:Mesh):
 	var randomizer:RandomNumberGenerator = RandomNumberGenerator.new()
 	randomizer.seed = randomSeed
 
