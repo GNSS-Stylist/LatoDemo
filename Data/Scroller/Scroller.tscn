@@ -8,6 +8,7 @@ depth = 0.0
 
 [sub_resource type="TextMesh" id="TextMesh_pysxh"]
 font_size = 32
+curve_step = 1.0
 depth = 0.0
 
 [node name="Scroller" type="Node3D"]
@@ -15,7 +16,8 @@ script = ExtResource("1_ni0wg")
 scrollTextFilename = "res://Data/Scroller/ScrollText.txt"
 createAheadMargin = 1.0
 destroyAfterMargin = 1.0
-scrollPos = 1.833
+scrollPos = 0.527
 styleNames = Array[String](["NORMAL", "H1"])
 styleBaseTextMeshes = Array[TextMesh]([SubResource("TextMesh_pquem"), SubResource("TextMesh_pysxh")])
 styleLineHeights = Array[float]([0.2, 0.5])
+styleDepths = Array[float]([0.0, 0.2])

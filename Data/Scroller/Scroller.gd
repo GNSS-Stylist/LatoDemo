@@ -10,6 +10,7 @@ extends Node3D
 @export var styleNames:Array[String]
 @export var styleBaseTextMeshes:Array[TextMesh]
 @export var styleLineHeights:Array[float]
+@export var styleDepths:Array[float]
 
 @export var dbgForceRegen:bool:
 	set(force):
@@ -116,6 +117,13 @@ func addScrollLine(line:SourceTextLine, yCoord:float):
 			poolItem.scrollerTextLineItem.sourceTextMesh = styleBaseTextMeshes[line.style]
 			poolItem.scrollerTextLineItem.textOverride = line.string
 			poolItem.scrollerTextLineItem.transform.origin.x = line.posX
+			poolItem.scrollerTextLineItem.depth = styleDepths[line.style]
+
+			if (styleDepths[line.style] == 0):
+				poolItem.scrollerTextLineItem.disintegrationMethod = MeshDisintegratorBase.DisintegrationMethod.PLANAR_2D
+			else:
+				poolItem.scrollerTextLineItem.disintegrationMethod = MeshDisintegratorBase.DisintegrationMethod.PLANAR_CUT
+
 			poolItem.scrollerTextLineItem.disintegratedMesh.set_instance_shader_parameter("basePosY", -yCoord)
 			
 			poolItem.scrollerTextLineItem.visible = true
@@ -127,7 +135,8 @@ func addScrollLine(line:SourceTextLine, yCoord:float):
 
 func _ready():
 	if ((styleNames.size() != styleBaseTextMeshes.size()) ||
-			(styleNames.size() != styleLineHeights.size())):
+			(styleNames.size() != styleLineHeights.size()) ||
+			(styleNames.size() != styleDepths.size())):
 		print("Style definitions are broken in the scroller! Unable to load scrolltext...")
 		return
 	
