@@ -51,8 +51,8 @@ var workerThreadSemaphore:Semaphore = Semaphore.new()
 var workerThreadForceUpdate:bool = false
 var workerThreadLastText:String = ""
 
-@onready var disintegratedMesh = get_node("DisintegratedMesh")
-@onready var smoothMesh = get_node("SmoothMesh")
+@onready var disintegratedMesh:MeshInstance3D = get_node("DisintegratedMesh")
+@onready var smoothMesh:MeshInstance3D = get_node("SmoothMesh")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

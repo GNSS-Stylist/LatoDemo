@@ -6,11 +6,13 @@ extends Node3D
 @export var height:float = 1
 
 enum DisintegrationMethod { PLANAR_2D, PLANAR_CUT }
+enum ShownMesh { SOLID, DISINTEGRATED }
 
 @export var maxEdgeLength:float = 1
 @export var randomSeed:int = 0
 @export var disintegrationMethod:DisintegrationMethod = DisintegrationMethod.PLANAR_2D
 @export var depth:float = 0
+
 @export var forceUpdate:bool = false:
 	set(_strobe):
 		workerThreadMutex.lock()
@@ -20,14 +22,61 @@ enum DisintegrationMethod { PLANAR_2D, PLANAR_CUT }
 	get:
 		return false
 
+@export var basePosY:float = 0:
+	set(newPos):
+		basePosY = newPos
+		if (disintegratedMesh && solidMesh):
+			disintegratedMesh.set_instance_shader_parameter("basePosY", newPos)
+			solidMesh.set_instance_shader_parameter("basePosY", newPos)
+	get:
+		return basePosY
+
+@export var shownMesh:ShownMesh = ShownMesh.DISINTEGRATED:
+	set(newShownMesh):
+		shownMesh = newShownMesh
+		if (disintegratedMesh && solidMesh):
+			disintegratedMesh.visible = (newShownMesh == ShownMesh.DISINTEGRATED)
+			solidMesh.visible = (newShownMesh == ShownMesh.SOLID)
+	get:
+		return shownMesh
+
+@export_range(0, 8) var textureIndex:int = 0:
+	set(newTextureIndex):
+		textureIndex = newTextureIndex
+		if (disintegratedMesh && solidMesh):
+			disintegratedMesh.set_instance_shader_parameter("textureIndex", newTextureIndex)
+			solidMesh.set_instance_shader_parameter("textureIndex", newTextureIndex)
+	get:
+		return textureIndex
+
+@export var preXShift:float = 0:
+	set(newXShift):
+		preXShift = newXShift
+		if (disintegratedMesh && solidMesh):
+			disintegratedMesh.set_instance_shader_parameter("preXShift", newXShift)
+			solidMesh.set_instance_shader_parameter("preXShift", newXShift)
+	get:
+		return preXShift
+
 var workerThread:Thread = Thread.new()
 var workerThreadMutex:Mutex = Mutex.new()
 var workerThreadExitRequest:bool = false
 var workerThreadSemaphore:Semaphore = Semaphore.new()
 var workerThreadForceUpdate:bool = false
 
-@onready var disintegratedMesh = get_node("DisintegratedMesh")
-@onready var staticMesh = get_node("StaticMesh")
+@onready var disintegratedMesh:MeshInstance3D = get_node("DisintegratedMesh")
+@onready var solidMesh:MeshInstance3D = get_node("SolidMesh")
+
+var localStashStorage:StashData = StashData.new()
+var animResetStashDone:bool = false
+@export var trigStashToolData:bool = false:
+	set(param):
+		print("trigStashToolData setter called (satellite): ", param)
+		if (!animResetStashDone && param):
+			localStashStorage = stashToolData()
+			animResetStashDone = true
+	get:
+		return false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,7 +86,20 @@ func _ready():
 	workerThreadForceUpdate = true;
 	workerThreadSemaphore.post()
 	workerThreadMutex.unlock()
+	disintegratedMesh.set_instance_shader_parameter("basePosY", basePosY)
+	solidMesh.set_instance_shader_parameter("basePosY", basePosY)
+	disintegratedMesh.visible = (shownMesh == ShownMesh.DISINTEGRATED)
+	solidMesh.visible = (shownMesh == ShownMesh.SOLID)
+	disintegratedMesh.set_instance_shader_parameter("textureIndex", textureIndex)
+	solidMesh.set_instance_shader_parameter("textureIndex", textureIndex)
+	disintegratedMesh.set_instance_shader_parameter("preXShift", preXShift)
+	solidMesh.set_instance_shader_parameter("preXShift", preXShift)
 
+func _process(_delta):
+	if (animResetStashDone):
+		stashPullToolData(localStashStorage)
+		animResetStashDone = false
+		
 func _exit_tree():
 	if (workerThread.is_alive()):
 		workerThreadMutex.lock()
@@ -75,7 +137,7 @@ func threadCode():
 		# (at the same time I also changed the sourceTextMesh.duplicates to duplicate 
 		# also subresources, so not sure if that was the actual reason for crashes
 		# (based on the strange font-signal error prints it probably was, though...)).
-		var switchStaticMesh = func(newMesh:Mesh): staticMesh.mesh = newMesh
+		var switchStaticMesh = func(newMesh:Mesh): solidMesh.mesh = newMesh
 		switchStaticMesh.call_deferred(thickenedStaticMesh)
 		
 		newMesh = createPreDisintegratedMesh()
@@ -530,20 +592,20 @@ func subSplit(vecs:Array, limit_Squared:float, randomizer:RandomNumberGenerator)
 	return ret
 
 class StashData:
-	var staticMesh
+	var solidMesh
 	var disintegratedMesh
 
 func stashToolData():
 	print("Stash ScrollerPicPlate")
 	var stashStorage:StashData = StashData.new()
-	stashStorage.staticMesh = staticMesh.mesh
+	stashStorage.solidMesh = solidMesh.mesh
 	stashStorage.disintegratedMesh = disintegratedMesh.mesh
 	
-	staticMesh.mesh = null
+	solidMesh.mesh = null
 	disintegratedMesh.mesh = null
 	return stashStorage
 
 func stashPullToolData(stashStorage:StashData):
 	print("Stashpull ScrollerPicPlate")
-	staticMesh.mesh = stashStorage.staticMesh
+	solidMesh.mesh = stashStorage.solidMesh
 	disintegratedMesh.mesh = stashStorage.disintegratedMesh

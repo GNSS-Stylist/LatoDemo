@@ -1,13 +1,17 @@
 // NOTE: Shader automatically converted from Godot Engine 4.0.alpha's StandardMaterial3D.
 
 shader_type spatial;
+
+instance uniform float basePosY = 0.0;
+instance uniform int textureIndex = 0;
+instance uniform float preXShift = 0.0;
+
 //render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_lambert,specular_disabled;
 render_mode blend_mix,depth_draw_opaque,diffuse_lambert,specular_disabled,cull_disabled;
 uniform vec4 albedo : source_color;
-uniform sampler2D albedo_texture : repeat_disable, source_color, filter_linear_mipmap;
+uniform sampler2D albedoTextures[8] : source_color;	// : repeat_disable, source_color, filter_linear_mipmap;
 
 uniform float randomSeed = 0.0;
-uniform float basePosY = 0.0;
 uniform float displacementXCenterPoint = 0.0;
 
 uniform float maxEndAngle = 6;
@@ -31,7 +35,8 @@ uniform float disintegrationMaxY_Appear = -0.5;
 uniform float disintegrationMinY_Disappear = 0.5;
 uniform float disintegrationMaxY_Disappear = 1.5;
 
-uniform float scrollPosY = 0.0;
+//uniform float endScrollerYPos = 0.0;
+global uniform float endScrollerYPos;
 
 //instance uniform vec3 displacementMultiplier = vec3(1.0, 1.0, 1.0);
 //instance uniform float centerXDragMultiplier = 0.0;
@@ -106,21 +111,24 @@ void vertex() {
 //	UV=UV*uv1_scale.xy+uv1_offset.xy;
 
 	float shapeId = CUSTOM0.a;
+	
+	VERTEX.x += preXShift;
 
-//	float shiftY = scrollPosY + basePosY;
+//	float shiftY = endScrollerYPos + basePosY;
 	
 //	VERTEX.y += shiftY;
 
 	vec3 faceCenterPoint = CUSTOM0.xyz;
+	faceCenterPoint.x += preXShift;
 	
 	// "Randomize" the maximum rotations
-	float maxAngleX = random(shapeId + faceCenterPoint.y) * maxEndAngle * 2.0 - maxEndAngle;
-	float maxAngleY = random(shapeId + faceCenterPoint.z) * maxEndAngle * 2.0 - maxEndAngle;
-	float maxAngleZ = random(shapeId + faceCenterPoint.x) * maxEndAngle * 2.0 - maxEndAngle;
+	float maxAngleX = random(shapeId + CUSTOM0.y) * maxEndAngle * 2.0 - maxEndAngle;
+	float maxAngleY = random(shapeId + CUSTOM0.z) * maxEndAngle * 2.0 - maxEndAngle;
+	float maxAngleZ = random(shapeId + CUSTOM0.x) * maxEndAngle * 2.0 - maxEndAngle;
 	
 	vec3 relVertPos = VERTEX - faceCenterPoint;
 
-	faceCenterPoint.y += (scrollPosY + basePosY);
+	faceCenterPoint.y += (endScrollerYPos + basePosY);
 
 	float disintegrationFraction_Appear = 1.0 - smoothstep(disintegrationMinY_Appear, disintegrationMaxY_Appear, faceCenterPoint.y);
 	float disintegrationFraction_Disappear = smoothstep(disintegrationMinY_Disappear, disintegrationMaxY_Disappear, faceCenterPoint.y);
@@ -167,7 +175,7 @@ void fragment() {
 		ALBEDO = albedo.rgb;
 	}
 	else {
-		ALBEDO = texture(albedo_texture, UV).rgb;
+		ALBEDO = texture(albedoTextures[textureIndex], UV).rgb;
 	}
 /*	ALBEDO = albedo.rgb * albedo_tex.rgb;
 	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);

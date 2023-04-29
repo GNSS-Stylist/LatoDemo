@@ -4,7 +4,9 @@ extends Node3D
 @export var scrollTextFilename:String
 @export var createAheadMargin:float = 2
 @export var destroyAfterMargin:float = 2
-@export var scrollPos:float = -1
+@export var scrollPos:float = -1000
+@export var smoothMeshLowLimit:float = -1
+@export var smoothMeshHighLimit:float = 1
 
 # Cannot @export custom types. Therefore these are "split":
 @export var styleNames:Array[String]
@@ -70,7 +72,20 @@ func _process(delta):
 			else:
 				highestYCoord = max(poolItem.yCoord, highestYCoord)
 				lowestYCoord = min(poolItem.yCoord, lowestYCoord)
-	
+				
+				# Switch to smooth mesh if it's not in "disintegrating state"
+				var aabbY1:float = poolItem.scrollerTextLineItem.smoothMesh.get_aabb().position.y
+				var aabbY2:float = poolItem.scrollerTextLineItem.smoothMesh.get_aabb().end.y
+				
+				#print(poolItem.scrollerTextLineItem.smoothMesh.get_aabb())
+				
+				if ((scrollPos + poolItem.scrollerTextLineItem.basePosY + aabbY1 > smoothMeshLowLimit) &&
+						(scrollPos + poolItem.scrollerTextLineItem.basePosY + aabbY2 < smoothMeshHighLimit)):
+					poolItem.scrollerTextLineItem.shownMesh = poolItem.scrollerTextLineItem.ShownMesh.SMOOTH
+					#print("Smooth operator")
+				else:
+					poolItem.scrollerTextLineItem.shownMesh = poolItem.scrollerTextLineItem.ShownMesh.DISINTEGRATED
+
 	# "Recreate" new lines ("disappearing", not doing anything if not rewinding)
 	var keyIndex:int = sourceTextLineKeys.bsearch(lowestYCoord) - 1
 #	print("keyindex ", keyIndex)
@@ -124,7 +139,7 @@ func addScrollLine(line:SourceTextLine, yCoord:float):
 			else:
 				poolItem.scrollerTextLineItem.disintegrationMethod = MeshDisintegratorBase.DisintegrationMethod.PLANAR_CUT
 
-			poolItem.scrollerTextLineItem.disintegratedMesh.set_instance_shader_parameter("basePosY", -yCoord)
+			poolItem.scrollerTextLineItem.basePosY = -yCoord
 			
 			poolItem.scrollerTextLineItem.visible = true
 			poolItem.scrollerTextLineItem.process_mode = Node.PROCESS_MODE_INHERIT
@@ -191,7 +206,7 @@ func loadFile(fileName):
 				styleIndex = 0
 		
 		elif (lineUpperCase.begins_with("!POSX:\t")):
-			var subStrings:Array[String] = lineUpperCase.split("\t")
+			var subStrings:PackedStringArray = lineUpperCase.split("\t")
 			posX = subStrings[1].to_float()
 		
 		else:

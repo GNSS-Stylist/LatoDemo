@@ -11,7 +11,6 @@ depth = 0.0
 render_priority = 0
 shader = ExtResource("2_b4eyd")
 shader_parameter/albedo = Color(1, 0, 0, 1)
-shader_parameter/scrollPosY = -0.101
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nfcy5"]
 render_priority = 0
@@ -26,26 +25,27 @@ shader_parameter/displacementMinDeviation_Disappear = Vector3(-0.5, 0.2, -0.2)
 shader_parameter/displacementMaxDeviation_Disappear = Vector3(0.5, 1, 1)
 shader_parameter/displacementXMultiplier_Appear = 0.5
 shader_parameter/displacementXMultiplier_Disappear = 0.0
-shader_parameter/disintegrationMinY_Appear = -1.112
-shader_parameter/disintegrationMaxY_Appear = -0.559
-shader_parameter/disintegrationMinY_Disappear = 0.005
-shader_parameter/disintegrationMaxY_Disappear = 1.208
+shader_parameter/disintegrationMinY_Appear = -2.0
+shader_parameter/disintegrationMaxY_Appear = -1.0
+shader_parameter/disintegrationMinY_Disappear = 0.0
+shader_parameter/disintegrationMaxY_Disappear = 1.0
 
 [node name="ScrollerTextLine" type="Node3D"]
 script = ExtResource("1_71k4q")
+basePosY = -0.527
 sourceTextMesh = SubResource("TextMesh_5jy0s")
 maxEdgeLength = 0.01
-disintegrationMethod = 1
 depth = 0.01
-textOverride = "Text override"
 
 [node name="SmoothMesh" type="MeshInstance3D" parent="."]
 visible = false
 material_override = SubResource("ShaderMaterial_tarbi")
-instance_shader_parameters/basePosY = -0.149
+ignore_occlusion_culling = true
+instance_shader_parameters/basePosY = -0.527
 
 [node name="DisintegratedMesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_nfcy5")
-instance_shader_parameters/basePosY = 0.0
+ignore_occlusion_culling = true
+instance_shader_parameters/basePosY = -0.527
 instance_shader_parameters/displacementXCenterPoint = 0.0
 instance_shader_parameters/randomSeed = 0.0

@@ -6,6 +6,14 @@ That was an empty line
 Header
 !Style:	normal
 Normal
+!Style:	PicDesc
+!Posx:	0.4
+This is picture description text
+And yet another line of it
+(Those lines and this should be indented)
+!Style:	normal
+!Posx:	0
+And this should be normal text again
 Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 sed do eiusmod tempor
