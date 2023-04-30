@@ -163,7 +163,9 @@ func _ready():
 	animationCameraAnchorSpaceNames.push_back("Ascender")
 
 	# 8:
-	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/Path_SatWreck/PathFollow_SatWreck/LocalOrigin_SatWreckPath)
+	animationCameraAnchorSpaces.push_back($CameraFlyingSpace_Angled)
+	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/Flybyer/FlybyerCamera)
+	animationCameraAnchorSpaceNames.push_back("Satellite flybyer")
 
 
 	$DebugThings/Panel_CurrentCameraTransform/OptionButton_PosReference.clear()
