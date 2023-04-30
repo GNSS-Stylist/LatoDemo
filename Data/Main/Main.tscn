@@ -1166,6 +1166,30 @@ tracks/45/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_7lvqo"]
 resource_name = "Backup"
@@ -5044,6 +5068,30 @@ tracks/45/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
 resource_name = "Descent"
@@ -5834,6 +5882,30 @@ tracks/31/path = NodePath("World/Planet:process_mode")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -7640,6 +7712,30 @@ tracks/90/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/91/type = "value"
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/91/interp = 1
+tracks/91/loop_wrap = true
+tracks/91/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/92/type = "value"
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_ks6w7"]
 resource_name = "GreatTexts"
@@ -8857,6 +8953,66 @@ tracks/44/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:eventHorizonRadius")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:gravity")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [300.0]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:radius")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [150.0]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_ss0a7"]
@@ -11577,6 +11733,42 @@ tracks/227/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/228/type = "value"
+tracks/228/imported = false
+tracks/228/enabled = true
+tracks/228/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:scrollPos")
+tracks/228/interp = 1
+tracks/228/loop_wrap = true
+tracks/228/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/229/type = "value"
+tracks/229/imported = false
+tracks/229/enabled = true
+tracks/229/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/229/interp = 1
+tracks/229/loop_wrap = true
+tracks/229/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/230/type = "value"
+tracks/230/imported = false
+tracks/230/enabled = true
+tracks/230/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/230/interp = 1
+tracks/230/loop_wrap = true
+tracks/230/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -12523,6 +12715,30 @@ tracks/41/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
 resource_name = "WreckFlyBy"
@@ -13437,6 +13653,66 @@ tracks/44/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:eventHorizonRadius")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:gravity")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [300.0]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:radius")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [150.0]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visibility_parent")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [NodePath("")]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
@@ -15138,7 +15414,9 @@ transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107,
 material_override = SubResource("ShaderMaterial_vrj7d")
 
 [node name="StaticBunchOfGNSSSignals" parent="World" instance=ExtResource("19_r0yum")]
-transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
+process_mode = 4
+transform = Transform3D(9971.39, 0, 0, 0, 9971.39, 0, 0, 0, 9971.39, 0, 0, 0)
+visible = false
 
 [node name="Planet" type="Node3D" parent="World"]
 process_mode = 4
@@ -15528,18 +15806,19 @@ transparent_bg = true
 size = Vector2i(1920, 1080)
 script = ExtResource("63_s8l2w")
 
-[node name="Transform" type="Node3D" parent="SubViewport_Scroller"]
+[node name="ScrollerMainNode" type="Node3D" parent="SubViewport_Scroller"]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 100, 0)
 visible = false
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport_Scroller/Transform"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 fov = 42.0
 near = 1.0
 far = 20.0
 
-[node name="Scroller" parent="SubViewport_Scroller/Transform" instance=ExtResource("62_u3t3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-scrollPos = 1.123
+[node name="Scroller" parent="SubViewport_Scroller/ScrollerMainNode" instance=ExtResource("62_u3t3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+scrollPos = 0.0
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
