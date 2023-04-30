@@ -163,7 +163,7 @@ func _ready():
 	animationCameraAnchorSpaceNames.push_back("Ascender")
 
 	# 8:
-	animationCameraAnchorSpaces.push_back($CameraFlyingSpace_Angled)
+	animationCameraAnchorSpaces.push_back($CameraFlyingSpace_Satellite_Angled)
 	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/Flybyer/FlybyerCamera)
 	animationCameraAnchorSpaceNames.push_back("Satellite flybyer")
 
