@@ -8,7 +8,7 @@ curve_step = 1.0
 depth = 0.0
 
 [sub_resource type="TextMesh" id="TextMesh_pysxh"]
-font_size = 32
+font_size = 40
 curve_step = 1.0
 depth = 0.0
 
@@ -21,12 +21,12 @@ depth = 0.0
 script = ExtResource("1_ni0wg")
 scrollTextFilename = "res://Data/Scroller/ScrollText.txt"
 destroyAfterMargin = 1.0
-scrollPos = 1.14
+scrollPos = 0.0
 smoothMeshHighLimit = 0.0
 styleNames = Array[String](["NORMAL", "H1", "PICDESC"])
 styleBaseTextMeshes = Array[TextMesh]([SubResource("TextMesh_pquem"), SubResource("TextMesh_pysxh"), SubResource("TextMesh_68lme")])
-styleLineHeights = Array[float]([0.2, 0.5, 0.2])
-styleDepths = Array[float]([0.0, 0.2, 0.0])
+styleLineHeights = Array[float]([0.2, 0.35, 0.2])
+styleDepths = Array[float]([0.0, 0.1, 0.0])
 
 [node name="ScrollerPicPlate" parent="." instance=ExtResource("2_1pucx")]
 height = 0.563

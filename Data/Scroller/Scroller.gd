@@ -14,6 +14,19 @@ extends Node3D
 @export var styleLineHeights:Array[float]
 @export var styleDepths:Array[float]
 
+var picPlateTexturesChanged:bool = false
+@export var picPlateTextures:Array[Texture2D]:
+	set(newArray):
+		# Material is shared with ScrollerPicPlates so need to set this only once
+		picPlateTextures = newArray
+
+		# So setting these here doesn't work -> use a flag instead
+#		$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+#		$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+		picPlateTexturesChanged = true
+	get:
+		return picPlateTextures
+
 @export var dbgForceRegen:bool:
 	set(force):
 		if (force):
@@ -53,10 +66,16 @@ var sourceTextLines = {}	# Key = yCoord, Value = SourceTextLine
 var sourceTextLineKeys = []	# YCoords
 
 func _process(delta):
+	if (picPlateTexturesChanged):
+		$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+		$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+		picPlateTexturesChanged = false
+
 	var highestYCoord:float = scrollPos - destroyAfterMargin
 	var lowestYCoord:float = scrollPos + createAheadMargin
 	
 	# Hide and mark reusable obsolete lines
+#	for poolItem in scrollerTextLinePool:
 	for i in range(scrollerTextLinePoolSize):
 		var poolItem:ScrollerTextLinePoolItem = scrollerTextLinePool[i]
 		
@@ -64,7 +83,7 @@ func _process(delta):
 			if (((poolItem.yCoord < (scrollPos - destroyAfterMargin)) ||
 					(poolItem.yCoord > (scrollPos + createAheadMargin)))):
 				
-				print("delete: ", poolItem.textLine.string)		
+				print("delete: ", i, ":", poolItem.textLine.string)		
 				
 				poolItem.active = false
 				poolItem.scrollerTextLineItem.visible = false
@@ -86,9 +105,12 @@ func _process(delta):
 				else:
 					poolItem.scrollerTextLineItem.shownMesh = poolItem.scrollerTextLineItem.ShownMesh.DISINTEGRATED
 
+	if (highestYCoord < lowestYCoord):
+		highestYCoord = lowestYCoord
+
 	# "Recreate" new lines ("disappearing", not doing anything if not rewinding)
 	var keyIndex:int = sourceTextLineKeys.bsearch(lowestYCoord) - 1
-#	print("keyindex ", keyIndex)
+#	print("Disappearing, keyindex ", keyIndex)
 	while (keyIndex >= 0):
 		var yCoord = sourceTextLineKeys[keyIndex]
 #		print("ycoord ", yCoord)
@@ -101,6 +123,7 @@ func _process(delta):
 
 	# "Recreate" new lines ("forthcoming")
 	keyIndex = sourceTextLineKeys.bsearch(highestYCoord, false)
+#	print("Appearing, keyindex ", keyIndex)
 	while (keyIndex < sourceTextLineKeys.size()):
 		var yCoord = sourceTextLineKeys[keyIndex]
 		if ((yCoord < (scrollPos - destroyAfterMargin)) ||
@@ -149,6 +172,9 @@ func addScrollLine(line:SourceTextLine, yCoord:float):
 
 
 func _ready():
+	$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+	$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+
 	if ((styleNames.size() != styleBaseTextMeshes.size()) ||
 			(styleNames.size() != styleLineHeights.size()) ||
 			(styleNames.size() != styleDepths.size())):
