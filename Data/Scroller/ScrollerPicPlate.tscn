@@ -1,16 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccjgv0ecp7bvw"]
+[gd_scene load_steps=9 format=3 uid="uid://ccjgv0ecp7bvw"]
 
 [ext_resource type="Script" path="res://Data/Scroller/ScrollerPicPlate.gd" id="1_g0owk"]
-[ext_resource type="Texture2D" uid="uid://cf3nnt6vp1lju" path="res://icon.png" id="2_b6edy"]
 [ext_resource type="Shader" path="res://Data/Scroller/ScrollerSolidPicPlate.gdshader" id="2_u7n43"]
 [ext_resource type="Shader" path="res://Data/Scroller/ScrollerPicPlate.gdshader" id="3_32ao4"]
-[ext_resource type="Texture2D" uid="uid://47evn87lqexp" path="res://Data/Main/PlanetTexture.png" id="4_0b8d1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u32pg"]
 render_priority = 0
 shader = ExtResource("2_u7n43")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/albedoTextures = Array[Texture2D]([ExtResource("2_b6edy"), ExtResource("4_0b8d1")])
+shader_parameter/frameWidth = Vector2(0.018, 0.032)
+shader_parameter/albedoTextures = Array[Texture2D]([])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x7y62"]
 render_priority = 0
@@ -31,7 +30,8 @@ shader_parameter/disintegrationMinY_Appear = -1.5
 shader_parameter/disintegrationMaxY_Appear = -0.5
 shader_parameter/disintegrationMinY_Disappear = 0.5
 shader_parameter/disintegrationMaxY_Disappear = 1.5
-shader_parameter/albedoTextures = Array[Texture2D]([ExtResource("2_b6edy"), ExtResource("4_0b8d1")])
+shader_parameter/frameWidth = Vector2(0.018, 0.032)
+shader_parameter/albedoTextures = Array[Texture2D]([])
 
 [sub_resource type="Animation" id="Animation_ga7re"]
 resource_name = "Dummy"

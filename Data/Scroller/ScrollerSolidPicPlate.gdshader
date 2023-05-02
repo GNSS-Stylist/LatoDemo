@@ -10,6 +10,7 @@ instance uniform float preXShift = 0.0;
 render_mode blend_mix,depth_draw_opaque,diffuse_lambert,specular_disabled,cull_disabled;
 uniform vec4 albedo : source_color;
 uniform sampler2D albedoTextures[8] : source_color;	// : repeat_disable, source_color, filter_linear_mipmap;
+uniform vec2 frameWidth = vec2(0.0);
 
 //uniform float endScrollerYPos = 0.0;
 global uniform float endScrollerYPos;
@@ -22,11 +23,17 @@ void vertex() {
 void fragment() {
 //	vec2 base_uv = UV;
 //	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	if (UV.x < 0.0) {
+
+	vec2 scaledUV = (UV - frameWidth) / (1.0 - (frameWidth * 2.0));
+
+	if ((scaledUV.x < 0.0) ||
+			(scaledUV.x > 1.0) ||
+			(scaledUV.y < 0.0) ||
+			(scaledUV.y > 1.0))
+	{
 		ALBEDO = albedo.rgb;
-	}
-	else {
-		ALBEDO = texture(albedoTextures[textureIndex], UV).rgb;
+	} else {
+		ALBEDO = texture(albedoTextures[textureIndex], scaledUV).rgb;
 	}
 /*	ALBEDO = albedo.rgb * albedo_tex.rgb;
 	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
