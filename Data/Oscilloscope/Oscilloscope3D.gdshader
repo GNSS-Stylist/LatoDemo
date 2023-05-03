@@ -11,6 +11,7 @@ uniform float scopeHeight = 1;
 // I just coulnd't find a way to modify value of global uniform.
 // So now they need to be set separately for every instance.
 //global uniform int soundPos = 0;
+// Note: Works now with godot 4.0.2, so maybe this could be moved to globals now
 uniform float soundPos = 0.0;
 uniform float soundOffset = 0;			// Offset to soundPos
 uniform float soundAmplification = 0.9;	// Should be <= 1 - lineWidthHigh / 2.0 to avoid clipping
@@ -33,6 +34,7 @@ uniform float endNarrowing_Start = 0.99;
 uniform float endNarrowing_End = 1.0;
 
 uniform bool skipBillboarding = false;
+uniform int antiAlias = 8;
 
 void vertex() {
 	if (!skipBillboarding) {
@@ -72,51 +74,72 @@ float getSampleValue(int sampleIndex) {
 }
 
 void fragment() {
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, 0.5);
+	// There's huge unused area around the "payload" to make AA work better
+	// Discard fragments there right away.
+	if (abs(UV.y - 0.5) > soundAmplification + lineWidthHigh)
+	{
+		discard;
+	}
 	
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, (SCREEN_UV.x + SCREEN_UV.y) / 2.0);
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, sin(SCREEN_UV.x * 6.28 * 10.0) * 0.5 + 0.5);
-//	COLOR = vec4(clamp(UV.x, 0.0, 1.0), clamp(UV.y, 0.0, 1.0), clamp(sin(TIME) * 0.5 + 0.5, 0.0, 1.0), clamp(sin(UV.x * 6.28 * 10.0) * 0.5 + 0.5, 0.0, 1.0));
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, 1.0);
-//	COLOR = vec4(sin(TIME*2.0), sin(TIME*3.2), sin(TIME) * 0.5 + 0.5, 1.0);
-//	vec2 myUV = UV * TEXTURE_PIXEL_SIZE;
-//	COLOR = vec4(myUV.x, myUV.y, sin(TIME) * 0.5 + 0.5, 1.0);
-
-//	uint pix = texture(soundDataSampler, UV);
-//	vec4 floatPix = vec4(float(pix.r) / 65536.0 + 0.5, float(pix.g) / (65536.0 * 65536.0) + 0.5, float(pix.b) / 256.0 + 0.5, 1.0);
-//	vec4 floatPix = vec4(float(pix.r >> 24) / 256.0 + 0.5, float(pix.g >> 16) / 65536.0 + 0.5, float(pix.b >> 24) / 256.0 + 0.5, 1.0);
-
-//	COLOR = vec4(sin(TIME*2.0), sin(TIME*3.2), sin(TIME) * 0.5 + 0.5, 1.0);
-//	COLOR = texture(soundDataSampler, UV);
-//	COLOR.a = 1.0;
-
 	ALBEDO = baseAlbedo.rgb;
 	
 	float sampleIndex =  soundPos + soundOffset + UV.x * soundLength;	// + int(TIME * 8000.0);
-		
+	
 	if ((sampleIndex < soundPreCut) || (sampleIndex > soundPostCut)) {
-//	if (true) {
-//		ALPHA = 0.1;
 		discard;
 	}
 	else {
 		float prevSampleVal = getSampleValue(int(sampleIndex));
 		float nextSampleVal = getSampleValue(int(sampleIndex) + 1);
 
-		float sampleVal = 0.5 + soundAmplification * 
+		float sampleVal = 0.5 + soundAmplification * //sampleScaling *
 				(startNarrowing_Level + (1.0 - startNarrowing_Level) * smoothstep(startNarrowing_Start, startNarrowing_End, UV.x * 1000.0)) *
 				(endNarrowing_Level + (1.0 - endNarrowing_Level) * (1.0 - smoothstep(endNarrowing_Start, endNarrowing_End, UV.x * 100.0))) *
 				(mix(prevSampleVal, nextSampleVal, fract(sampleIndex)) - 0.5);
+
+		float diff = UV.y - sampleVal;
+//		float diff = UV.y - 0.5;
+
+		// Do simplified antialiasing only on "one axis"
+		float derivYWidth = sqrt(dFdx(UV.y) * dFdx(UV.y) + dFdy(UV.y) * dFdy(UV.y)) * 0.5;
 		
-		ALPHA = baseAlbedo.a * (1.0 - smoothstep(lineWidthLow, lineWidthHigh, abs(sampleVal - UV.y) * 2.0));
+		if ((diff + derivYWidth < -lineWidthHigh) ||
+				(diff - derivYWidth > lineWidthHigh))
+		{
+			// Nothing to antialias (whole range is "out of range")
+			discard;
+		}
+		else if ((diff + derivYWidth < lineWidthLow) &&
+				(diff - derivYWidth > -lineWidthLow))
+		{
+			// Nothing to antialias (whole range is inside the solid area)
+			ALPHA = 1.0;
+		}
+		else if ((diff + derivYWidth > lineWidthHigh) &&
+				(diff - derivYWidth < -lineWidthHigh))
+		{
+			// Full line is inside the range
+			ALPHA = (lineWidthLow + lineWidthHigh) * 0.5 / (derivYWidth * 2.0);
+		}
+		else
+		{
+			// Just use "empirical" limit to use "basic AA" instead of a point sample
+			
+			if (derivYWidth > 0.05)
+			{
+				// AA
+				float sum = 0.0;
+				for (int i = 0; i < antiAlias; i++)
+				{
+					sum += baseAlbedo.a * (1.0 - smoothstep(lineWidthLow, lineWidthHigh, abs((diff - derivYWidth) + (derivYWidth * 2.0 * float(i) / float(antiAlias)))));
+				}
+				
+				ALPHA = sum / float(antiAlias);
+			}
+			else
+			{
+				ALPHA = baseAlbedo.a * (1.0 - smoothstep(lineWidthLow, lineWidthHigh, abs(diff)));
+			}
+		}
 	}
 }
-
-
-
-
-
-
-
-
-
