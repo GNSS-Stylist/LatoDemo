@@ -45,6 +45,8 @@ uniform float endNarrowing_End = 1.0;
 
 uniform bool skipBillboarding = false;
 
+uniform int antiAlias = 8;
+
 void vertex() {
 	if (!skipBillboarding) {
 		vec3 startOrigin = (MODEL_MATRIX * vec4(startOrigin_Object, 1.0)).xyz;
@@ -98,39 +100,22 @@ float getSampleValueB(int sampleIndex) {
 }
 
 void fragment() {
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, 0.5);
-	
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, (SCREEN_UV.x + SCREEN_UV.y) / 2.0);
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, sin(SCREEN_UV.x * 6.28 * 10.0) * 0.5 + 0.5);
-//	COLOR = vec4(clamp(UV.x, 0.0, 1.0), clamp(UV.y, 0.0, 1.0), clamp(sin(TIME) * 0.5 + 0.5, 0.0, 1.0), clamp(sin(UV.x * 6.28 * 10.0) * 0.5 + 0.5, 0.0, 1.0));
-//	COLOR = vec4(SCREEN_UV.x, SCREEN_UV.y, sin(TIME) * 0.5 + 0.5, 1.0);
-//	COLOR = vec4(sin(TIME*2.0), sin(TIME*3.2), sin(TIME) * 0.5 + 0.5, 1.0);
-//	vec2 myUV = UV * TEXTURE_PIXEL_SIZE;
-//	COLOR = vec4(myUV.x, myUV.y, sin(TIME) * 0.5 + 0.5, 1.0);
-
-//	uint pix = texture(soundDataSampler, UV);
-//	vec4 floatPix = vec4(float(pix.r) / 65536.0 + 0.5, float(pix.g) / (65536.0 * 65536.0) + 0.5, float(pix.b) / 256.0 + 0.5, 1.0);
-//	vec4 floatPix = vec4(float(pix.r >> 24) / 256.0 + 0.5, float(pix.g >> 16) / 65536.0 + 0.5, float(pix.b >> 24) / 256.0 + 0.5, 1.0);
-
-//	COLOR = vec4(sin(TIME*2.0), sin(TIME*3.2), sin(TIME) * 0.5 + 0.5, 1.0);
-//	COLOR = texture(soundDataSampler, UV);
-//	COLOR.a = 1.0;
+	// There's unused area around the "payload" to make AA work better
+	// Discard fragments there right away.
+	if (abs(UV.y - 0.5) * 2.0 > soundAmplificationA + abs(soundAmplificationB) + lineFadeOutHigh)
+	{
+		discard;
+	}
 
 	int sampleIndexA = int(soundPosA + UV.x * soundLengthA) + soundOffsetA;	// + int(TIME * 8000.0);
 	int sampleIndexB = int(soundPosB + UV.x * soundLengthB) + soundOffsetB;	// + int(TIME * 8000.0);
 		
-//	if ((sampleIndex < soundPreCutA) || (sampleIndex > soundPostCutA)) {
-//	if (true) {
-//		ALPHA = 0.1;
-//		discard;
-//	}
-//	else {
 	float prevSampleValA = getSampleValueA(sampleIndexA);
 	float nextSampleValA = getSampleValueA(sampleIndexA + 1);
 	
 	float prevSampleValB = getSampleValueB(sampleIndexB);
 	float nextSampleValB = getSampleValueB(sampleIndexB + 1);
-
+	
 	float totalWidth =
 			(startNarrowing_Level + (1.0 - startNarrowing_Level) * smoothstep(startNarrowing_Start, startNarrowing_End, UV.x * 1000.0)) *
 			(endNarrowing_Level + (1.0 - endNarrowing_Level) * (1.0 - smoothstep(endNarrowing_Start, endNarrowing_End, UV.x * 100.0)));
@@ -141,25 +126,28 @@ void fragment() {
 	float sampleValB = 0.5 + soundAmplificationB * totalWidth *
 			(mix(prevSampleValB, nextSampleValB, fract(soundPosB + UV.x * soundLengthB)) - 0.5);
 
-//	sampleVal = 0.5;
-	
-	float dist = abs(sampleValA + sampleValB - 0.5 - UV.y) * 2.0;
-	
-//	ALBEDO = innerAlbedo.rgb;
-	ALBEDO = innerAlbedo.rgb + (outerAlbedo.rgb - innerAlbedo.rgb) * smoothstep(totalWidth * innerLineWidthLow, totalWidth * innerLineWidthHigh, dist);
-	ALPHA = innerAlbedo.a * (1.0 - smoothstep(totalWidth * lineFadeOutLow, totalWidth * lineFadeOutHigh, dist));
+	// This "Slope"-thing is just a really dirty hack to try to prevent
+	// disconnected points on sharp changes on EKG
+//	float slopeA = abs((nextSampleValA - prevSampleValA) * dFdx(UV.x) * soundAmplificationA);
+	float slopeB = abs((nextSampleValB - prevSampleValB) * dFdx(UV.x) * soundAmplificationB);
+	float totalSlope = max(1.0, (slopeB) * 200000000.0);
 
-//	ALBEDO = innerAlbedo.rgb + (outerAlbedo.rgb - innerAlbedo.rgb) * smoothstep(innerLineWidthLow, innerLineWidthHigh, dist);
-//	ALPHA = innerAlbedo.a * (1.0 - smoothstep(lineFadeOutLow, lineFadeOutHigh, dist));
+	// Do simplified antialiasing only on "one axis"
+	float derivYWidth = sqrt(dFdx(UV.y) * dFdx(UV.y) + dFdy(UV.y) * dFdy(UV.y)) * 0.5;
 
-//	}
+	// There is only one DeathRay so maybe not worth optimizing AA too much(?)
+	vec3 albedoSum = vec3(0.0);
+	float alphaSum = 0.0;
+	for (int i = 0; i < antiAlias; i++)
+	{
+		float dist = abs(sampleValA + sampleValB - 0.5 - ((UV.y - derivYWidth) + (float(i) / float(antiAlias)) * derivYWidth * 2.0)) * 2.0;
+		dist /= totalSlope;
+		
+	//	ALBEDO = innerAlbedo.rgb;
+		albedoSum += innerAlbedo.rgb + (outerAlbedo.rgb - innerAlbedo.rgb) * smoothstep(totalWidth * innerLineWidthLow, totalWidth * innerLineWidthHigh, dist);
+		alphaSum += innerAlbedo.a * (1.0 - smoothstep(totalWidth * lineFadeOutLow, totalWidth * lineFadeOutHigh, dist));
+	}
+	
+	ALBEDO = (1.0 / float(antiAlias)) * albedoSum;
+	ALPHA = alphaSum / float(antiAlias);
 }
-
-
-
-
-
-
-
-
-
