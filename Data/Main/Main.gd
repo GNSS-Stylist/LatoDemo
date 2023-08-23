@@ -283,7 +283,7 @@ func _process(delta):
 
 				pointsetFirstTime = pointSetLastTime + 1
 		
-		get_viewport().msaa_3d = Viewport.MSAA_8X
+#		get_viewport().msaa_3d = Viewport.MSAA_8X
 
 		if (!Engine.is_editor_hint()):
 			animChangeReq = "SatMorph"

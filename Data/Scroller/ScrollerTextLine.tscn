@@ -39,13 +39,13 @@ depth = 0.01
 
 [node name="SmoothMesh" type="MeshInstance3D" parent="."]
 visible = false
+layers = 524288
 material_override = SubResource("ShaderMaterial_tarbi")
 ignore_occlusion_culling = true
-instance_shader_parameters/basePosY = -0.527
+gi_mode = 0
 
 [node name="DisintegratedMesh" type="MeshInstance3D" parent="."]
+layers = 524288
 material_override = SubResource("ShaderMaterial_nfcy5")
 ignore_occlusion_culling = true
-instance_shader_parameters/basePosY = -0.527
-instance_shader_parameters/displacementXCenterPoint = 0.0
-instance_shader_parameters/randomSeed = 0.0
+gi_mode = 0
