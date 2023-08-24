@@ -3,7 +3,7 @@
 shader_type spatial;
 //render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_lambert,specular_disabled;
 render_mode blend_mix,depth_draw_opaque,diffuse_lambert,specular_disabled;
-instance uniform vec4 albedo : source_color;
+instance uniform vec4 albedo : source_color = vec4(1.0);
 
 instance uniform vec3 faceScalingCenterPoint = vec3(0.0, 0.0, 0.0);
 //uniform float displacementFraction = 0.0;

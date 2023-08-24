@@ -44,6 +44,16 @@ enum DisintegrationMethod { PLANAR_2D, PLANAR_CUT }
 	get:
 		return textOverride
 		
+@export var albedo:Color:
+	set(newAlbedo):
+		albedo = newAlbedo
+		if (disintegratedMesh):
+			disintegratedMesh.set_instance_shader_parameter("albedo", newAlbedo)
+		if (smoothMesh):
+			smoothMesh.set_instance_shader_parameter("albedo", newAlbedo)
+	get:
+		return albedo
+		
 var workerThread:Thread = Thread.new()
 var workerThreadMutex:Mutex = Mutex.new()
 var workerThreadExitRequest:bool = false
@@ -67,6 +77,14 @@ func _ready():
 		workerThreadForceUpdate = true;
 		workerThreadSemaphore.post()
 	workerThreadMutex.unlock()
+
+	# Setter can be called before meshes are initialized.
+	# Therefore setting instance shader parameters also here.
+	# (Otherwise they will not get initialized if the value isn't changed)
+	if (disintegratedMesh):
+		disintegratedMesh.set_instance_shader_parameter("albedo", albedo)
+	if (smoothMesh):
+		smoothMesh.set_instance_shader_parameter("albedo", albedo)
 
 func _exit_tree():
 	if (workerThread.is_alive()):

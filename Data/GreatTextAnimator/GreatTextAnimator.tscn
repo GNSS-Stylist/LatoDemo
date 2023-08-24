@@ -67,6 +67,7 @@ script = ExtResource("1_jtu6c")
 
 [node name="MeshDisintegrator" parent="." instance=ExtResource("1_1mrne")]
 randomSeed = 0
+albedo = Color(0.917647, 0.917647, 0.917647, 1)
 
 [node name="GreatAnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 0.0
