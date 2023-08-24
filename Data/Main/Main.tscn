@@ -1169,7 +1169,7 @@ tracks/45/keys = {
 }
 tracks/46/type = "value"
 tracks/46/imported = false
-tracks/46/enabled = true
+tracks/46/enabled = false
 tracks/46/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
@@ -1214,6 +1214,18 @@ tracks/49/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.5]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ay6ay"]
@@ -3410,7 +3422,7 @@ tracks/45/keys = {
 }
 tracks/46/type = "value"
 tracks/46/imported = false
-tracks/46/enabled = true
+tracks/46/enabled = false
 tracks/46/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
@@ -3431,6 +3443,18 @@ tracks/47/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
@@ -4229,7 +4253,7 @@ tracks/31/keys = {
 }
 tracks/32/type = "value"
 tracks/32/imported = false
-tracks/32/enabled = true
+tracks/32/enabled = false
 tracks/32/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
@@ -4250,6 +4274,18 @@ tracks/33/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_62hyn"]
@@ -6054,7 +6090,7 @@ tracks/90/keys = {
 }
 tracks/91/type = "value"
 tracks/91/imported = false
-tracks/91/enabled = true
+tracks/91/enabled = false
 tracks/91/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
 tracks/91/interp = 1
 tracks/91/loop_wrap = true
@@ -6111,6 +6147,18 @@ tracks/95/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [4096.0]
+}
+tracks/96/type = "value"
+tracks/96/imported = false
+tracks/96/enabled = true
+tracks/96/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/96/interp = 1
+tracks/96/loop_wrap = true
+tracks/96/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_dqvmp"]
@@ -8319,7 +8367,7 @@ tracks/47/keys = {
 }
 tracks/48/type = "value"
 tracks/48/imported = false
-tracks/48/enabled = true
+tracks/48/enabled = false
 tracks/48/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
 tracks/48/interp = 1
 tracks/48/loop_wrap = true
@@ -12271,7 +12319,7 @@ tracks/41/keys = {
 }
 tracks/42/type = "value"
 tracks/42/imported = false
-tracks/42/enabled = true
+tracks/42/enabled = false
 tracks/42/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
@@ -12292,6 +12340,18 @@ tracks/43/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
@@ -13246,7 +13306,7 @@ tracks/58/keys = {
 }
 tracks/59/type = "value"
 tracks/59/imported = false
-tracks/59/enabled = true
+tracks/59/enabled = false
 tracks/59/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
 tracks/59/interp = 1
 tracks/59/loop_wrap = true
@@ -13885,7 +13945,7 @@ shader_parameter/baseAlbedo = Color(0.12549, 0.12549, 0.12549, 1)
 shader_parameter/bloodAlbedo = Color(1, 0.13, 0.13, 1)
 shader_parameter/bloodPower = 2.0
 shader_parameter/bloodRange = 0.236
-shader_parameter/time = 41.4659
+shader_parameter/time = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_awikv"]
 radius = 6.19042e+06
@@ -14124,6 +14184,7 @@ mesh = SubResource("PlaneMesh_kbxch")
 [node name="MainTunePlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1000000
 stream = ExtResource("19_qdtb0")
+volume_db = -80.0
 script = ExtResource("18_fyjuc")
 
 [node name="DebugThings" type="Node3D" parent="."]
@@ -15401,8 +15462,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 picPlateTextures = Array[Texture2D]([SubResource("ViewportTexture_pho4e")])
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
