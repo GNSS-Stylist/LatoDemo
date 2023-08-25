@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://sf20dcm1i3nd"]
+
+[ext_resource type="PackedScene" uid="uid://duxc3ig52ynwj" path="res://Data/Models/sony_a6100_camera_game_props/scene.gltf" id="1_et30y"]
+[ext_resource type="ArrayMesh" uid="uid://byiu8c0kb1p43" path="res://Data/Models/sony_a6100_camera_game_props/SonyCam.mesh" id="2_hk4wq"]
+
+[node name="scene" instance=ExtResource("1_et30y")]
+
+[node name="Object_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/Sony_001_0" index="0"]
+mesh = ExtResource("2_hk4wq")
