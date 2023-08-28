@@ -6,4 +6,5 @@
 [node name="scene" instance=ExtResource("1_et30y")]
 
 [node name="Object_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/Sony_001_0" index="0"]
+layers = 2
 mesh = ExtResource("2_hk4wq")

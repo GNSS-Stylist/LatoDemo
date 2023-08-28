@@ -2858,7 +2858,7 @@ tracks/135/imported = false
 tracks/135/enabled = true
 tracks/135/path = NodePath("World/Planet:process_mode")
 tracks/135/interp = 1
-tracks/135/loop_wrap = true
+tracks/135/loop_wrap = false
 tracks/135/keys = {
 "times": PackedFloat32Array(201),
 "transitions": PackedFloat32Array(1),
@@ -2867,12 +2867,24 @@ tracks/135/keys = {
 }
 tracks/136/type = "value"
 tracks/136/imported = false
-tracks/136/enabled = true
+tracks/136/enabled = false
 tracks/136/path = NodePath("AnimatedCamera/OmniLight3D:visible")
 tracks/136/interp = 1
 tracks/136/loop_wrap = false
 tracks/136/keys = {
 "times": PackedFloat32Array(0, 137.85, 145.142),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/137/type = "value"
+tracks/137/imported = false
+tracks/137/enabled = true
+tracks/137/path = NodePath("World/CameraRig/SonyCameraBackLight:visible")
+tracks/137/interp = 1
+tracks/137/loop_wrap = false
+tracks/137/keys = {
+"times": PackedFloat32Array(0, 137.7, 145),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -11396,6 +11408,18 @@ tracks/244/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/245/type = "value"
+tracks/245/imported = false
+tracks/245/enabled = true
+tracks/245/path = NodePath("World/CameraRig/SonyCameraBackLight:visible")
+tracks/245/interp = 1
+tracks/245/loop_wrap = true
+tracks/245/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -14781,16 +14805,19 @@ quatInterpolationMethod = 5
 
 [node name="CrossBar" type="MeshInstance3D" parent="World/CameraRig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+layers = 3
 mesh = SubResource("BoxMesh_m0wra")
 
 [node name="UpBar_Right" type="MeshInstance3D" parent="World/CameraRig"]
 transform = Transform3D(0.357732, 0, -0.933824, -0.933824, 0, -0.357732, 0, 1, 0, 0.4, 0.85, 0.037)
 rotation_order = 1
+layers = 3
 mesh = SubResource("BoxMesh_6ywfq")
 
 [node name="UpBar_Left" type="MeshInstance3D" parent="World/CameraRig"]
 transform = Transform3D(0.357569, 0, 0.933887, 0.933887, 0, -0.357569, 0, 1, 0, -0.4, 0.85, 0.037)
 rotation_order = 1
+layers = 3
 mesh = SubResource("BoxMesh_6ywfq")
 
 [node name="GNSSAntenna" parent="World/CameraRig" instance=ExtResource("20_akcw6")]
@@ -14870,8 +14897,17 @@ skeleton = NodePath("../..")
 [node name="LookAtPoint" type="Node3D" parent="World/CameraRig/CameraObject"]
 transform = Transform3D(1, 0, 0, 0, 1, -4.65661e-10, 0, -4.19095e-09, 1, -7.15256e-07, 0.0484531, -1.71661e-05)
 
-[node name="SonyCam" parent="World/CameraRig/CameraObject" instance=ExtResource("35_g4ay1")]
+[node name="SonyCamera" parent="World/CameraRig/CameraObject" instance=ExtResource("35_g4ay1")]
 transform = Transform3D(1.49012e-08, 4.19095e-09, 0.096, -8.58563e-09, 0.096, -2.79397e-09, -0.096, -9.92441e-09, 2.79397e-08, 0.0639999, 0.0603359, 0.00200272)
+
+[node name="SonyCameraBackLight" type="DirectionalLight3D" parent="World/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.766045, 0.642788, 0, -0.642788, 0.766045, 0, 0.2, 0.2)
+visible = false
+layers = 2
+light_bake_mode = 1
+light_cull_mask = 4293918722
+directional_shadow_max_distance = 0.0
+sky_mode = 1
 
 [node name="WorldDebugThings" type="Node3D" parent="World"]
 visible = false
@@ -15196,6 +15232,7 @@ distance = 4.0
 visible = false
 
 [node name="FlybyerCamera" type="Node3D" parent="CameraFlyingSpace_Satellite_Angled/Flybyer"]
+transform = Transform3D(0.559193, 0, -0.829038, 0, 1, 0, 0.829038, 0, 0.559193, 0, 0, 0)
 script = ExtResource("43_1mg0k")
 eulerAnglesFraction = 1.0
 

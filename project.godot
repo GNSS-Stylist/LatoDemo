@@ -236,6 +236,12 @@ play_backward_non_locked={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="Main"
+3d_render/layer_2="RigCamera"
+3d_render/layer_20="EndScroller"
+
 [physics]
 
 3d/run_on_separate_thread=true
