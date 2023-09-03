@@ -11444,6 +11444,174 @@ tracks/246/keys = {
 "update": 0,
 "values": [Vector3(0.0197387, 0.0687315, -0.13426)]
 }
+tracks/247/type = "value"
+tracks/247/imported = false
+tracks/247/enabled = true
+tracks/247/path = NodePath(".:position")
+tracks/247/interp = 1
+tracks/247/loop_wrap = true
+tracks/247/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1414, -1414, 0)]
+}
+tracks/248/type = "value"
+tracks/248/imported = false
+tracks/248/enabled = true
+tracks/248/path = NodePath("World:scalingOverride")
+tracks/248/interp = 1
+tracks/248/loop_wrap = true
+tracks/248/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/249/type = "value"
+tracks/249/imported = false
+tracks/249/enabled = true
+tracks/249/path = NodePath("World/AdditiveGeometries:visible")
+tracks/249/interp = 1
+tracks/249/loop_wrap = true
+tracks/249/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/250/type = "value"
+tracks/250/imported = false
+tracks/250/enabled = true
+tracks/250/path = NodePath("GlobalLights:process_mode")
+tracks/250/interp = 1
+tracks/250/loop_wrap = true
+tracks/250/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/251/type = "value"
+tracks/251/imported = false
+tracks/251/enabled = true
+tracks/251/path = NodePath("World/StaticBunchOfGNSSSignals:visible")
+tracks/251/interp = 1
+tracks/251/loop_wrap = true
+tracks/251/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/252/type = "value"
+tracks/252/imported = false
+tracks/252/enabled = true
+tracks/252/path = NodePath("World/StaticBunchOfGNSSSignals:process_mode")
+tracks/252/interp = 1
+tracks/252/loop_wrap = true
+tracks/252/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/253/type = "value"
+tracks/253/imported = false
+tracks/253/enabled = true
+tracks/253/path = NodePath("World/PlanetCore:material_override:shader_parameter/time")
+tracks/253/interp = 1
+tracks/253/loop_wrap = true
+tracks/253/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/254/type = "value"
+tracks/254/imported = false
+tracks/254/enabled = true
+tracks/254/path = NodePath("World/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerLineWidthLow")
+tracks/254/interp = 1
+tracks/254/loop_wrap = true
+tracks/254/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/255/type = "value"
+tracks/255/imported = false
+tracks/255/enabled = true
+tracks/255/path = NodePath("World/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerLineWidthHigh")
+tracks/255/interp = 1
+tracks/255/loop_wrap = true
+tracks/255/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.027]
+}
+tracks/256/type = "value"
+tracks/256/imported = false
+tracks/256/enabled = true
+tracks/256/path = NodePath("World/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/lineFadeOutLow")
+tracks/256/interp = 1
+tracks/256/loop_wrap = true
+tracks/256/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+tracks/257/type = "value"
+tracks/257/imported = false
+tracks/257/enabled = true
+tracks/257/path = NodePath("World/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/lineFadeOutHigh")
+tracks/257/interp = 1
+tracks/257/loop_wrap = true
+tracks/257/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/258/type = "value"
+tracks/258/imported = false
+tracks/258/enabled = true
+tracks/258/path = NodePath("World/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerAlbedo")
+tracks/258/interp = 1
+tracks/258/loop_wrap = true
+tracks/258/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.145098, 0, 1)]
+}
+tracks/259/type = "value"
+tracks/259/imported = false
+tracks/259/enabled = true
+tracks/259/path = NodePath("World/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/scopeHeight")
+tracks/259/interp = 1
+tracks/259/loop_wrap = true
+tracks/259/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/260/type = "value"
+tracks/260/imported = false
+tracks/260/enabled = true
+tracks/260/path = NodePath("SatelliteWreck:regenDebrisIfNeeded")
+tracks/260/interp = 1
+tracks/260/loop_wrap = true
+tracks/260/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -15157,8 +15325,7 @@ transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107,
 material_override = SubResource("ShaderMaterial_vrj7d")
 
 [node name="StaticBunchOfGNSSSignals" parent="World" instance=ExtResource("19_r0yum")]
-process_mode = 4
-transform = Transform3D(9992.84, 0, 0, 0, 9992.84, 0, 0, 0, 9992.84, 0, 0, 0)
+transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
 visible = false
 
 [node name="Planet" type="Node3D" parent="World"]
@@ -15560,8 +15727,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 picPlateTextures = Array[Texture2D]([SubResource("ViewportTexture_pho4e")])
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
