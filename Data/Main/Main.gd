@@ -175,6 +175,10 @@ func _ready():
 		$DebugThings/Panel_CurrentCameraTransform/OptionButton_PosReference.add_item(outString, i)
 	
 	$AnimatedCamera.current = true;
+
+	# Add "recursive" screen texture to scroller pic plate
+	# (This doesn't work on editor)
+	$SubViewport_Scroller/ScrollerMainNode/Scroller.picPlateScreenCloneTexture = get_viewport().get_texture()
 	
 #	$MeshInstance_DbgShit.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[0]
 #	$MeshInstance_DbgShit2.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[1]

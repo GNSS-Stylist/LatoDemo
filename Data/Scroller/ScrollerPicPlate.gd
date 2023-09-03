@@ -40,7 +40,7 @@ enum ShownMesh { SOLID, DISINTEGRATED }
 	get:
 		return shownMesh
 
-@export_range(0, 8) var textureIndex:int = 0:
+@export_range(-1, 8) var textureIndex:int = 0:
 	set(newTextureIndex):
 		textureIndex = newTextureIndex
 		if (disintegratedMesh && solidMesh):

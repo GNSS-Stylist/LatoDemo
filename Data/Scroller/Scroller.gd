@@ -27,6 +27,16 @@ var picPlateTexturesChanged:bool = false
 	get:
 		return picPlateTextures
 
+var picPlateScreenCloneTextureChanged:bool = false
+@export var picPlateScreenCloneTexture:Texture2D:
+	set(newTexture):
+		picPlateScreenCloneTexture = newTexture
+	
+		# So setting this here doesn't work -> use a flag instead
+		picPlateScreenCloneTextureChanged = true
+	get:
+		return picPlateScreenCloneTexture
+
 @export var dbgForceRegen:bool:
 	set(force):
 		if (force):
@@ -70,6 +80,11 @@ func _process(delta):
 		$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
 		$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
 		picPlateTexturesChanged = false
+		
+	if (picPlateScreenCloneTextureChanged):
+		$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("screenCloneAlbedoTexture", picPlateScreenCloneTexture)
+		$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("screenCloneAlbedoTexture", picPlateScreenCloneTexture)
+		picPlateScreenCloneTextureChanged = false
 
 	var highestYCoord:float = scrollPos - destroyAfterMargin
 	var lowestYCoord:float = scrollPos + createAheadMargin
