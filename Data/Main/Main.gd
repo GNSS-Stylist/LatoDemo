@@ -176,10 +176,6 @@ func _ready():
 	
 	$AnimatedCamera.current = true;
 
-	# Add "recursive" screen texture to scroller pic plate
-	# (This doesn't work on editor)
-	$SubViewport_Scroller/ScrollerMainNode/Scroller.picPlateScreenCloneTexture = get_viewport().get_texture()
-	
 #	$MeshInstance_DbgShit.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[0]
 #	$MeshInstance_DbgShit2.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[1]
 
@@ -786,3 +782,15 @@ func dbgAnimGoMarker():
 
 func resetFuncTest():
 	print("resetFuncTest called")
+	
+func setScrollerPicPlateScreenCloneTexture():
+	# Add "recursive" screen texture to scroller pic plate
+	# (This doesn't work on editor)
+	$SubViewport_Scroller/ScrollerMainNode/Scroller.picPlateScreenCloneTexture = get_viewport().get_texture()
+
+func clearScrollerPicPlateScreenCloneTexture():
+	# Clear "recursive" screen texture to scroller pic plate
+	# (Added because I have no idea if the texture is updated all the 
+	# time in memory with all mipmaps and stuff)
+
+	$SubViewport_Scroller/ScrollerMainNode/Scroller.picPlateScreenCloneTexture = null
