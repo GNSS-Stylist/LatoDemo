@@ -8632,7 +8632,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [5]
+"values": [0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -8644,7 +8644,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1]
+"values": [0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -8656,7 +8656,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0]
+"values": [0.0]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -10630,7 +10630,7 @@ tracks/178/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/179/type = "value"
 tracks/179/imported = false
@@ -10702,7 +10702,7 @@ tracks/184/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/185/type = "value"
 tracks/185/imported = false
@@ -10786,7 +10786,7 @@ tracks/191/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/192/type = "value"
 tracks/192/imported = false
@@ -10870,7 +10870,7 @@ tracks/198/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/199/type = "value"
 tracks/199/imported = false
@@ -10999,7 +10999,7 @@ tracks/209/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/210/type = "value"
 tracks/210/imported = false
@@ -11239,7 +11239,7 @@ tracks/229/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/230/type = "value"
 tracks/230/imported = false
@@ -14318,9 +14318,6 @@ depth = 0.0
 process_priority = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1414, -1414, 0)
 script = ExtResource("1_ysgl0")
-animationCameraAnchorIndexA = 5
-animationCameraAnchorIndexB = 1
-animationCameraFraction = 1.0
 lidarPreCutTime = 2415065
 
 [node name="GlobalInit" type="Node" parent="."]
@@ -14353,14 +14350,14 @@ libraries = {
 }
 
 [node name="AnimatedCamera" type="Camera3D" parent="."]
-transform = Transform3D(0.890901, 0.378585, 0.250935, 0.389479, -0.921011, 0.00675156, 0.23367, 0.0917188, -0.96798, 1396.3, 1426.71, -10.095)
+transform = Transform3D(0.322804, -0.0260546, -0.946107, 0.000279151, 0.999624, -0.0274331, 0.946466, 0.00859141, 0.322689, -3.55005, 0.265015, 1.335)
 rotation_edit_mode = 1
 current = true
 fov = 42.0
 far = 100.0
 
 [node name="BunchOfGNSSSignals" parent="AnimatedCamera" instance=ExtResource("19_r0yum")]
-transform = Transform3D(0.890901, 0.389479, 0.23367, 0.378585, -0.921011, 0.0917188, 0.250935, 0.00675157, -0.96798, 0, 0, 0)
+transform = Transform3D(0.322804, 0.000279151, 0.946466, -0.0260546, 0.999624, 0.00859141, -0.946107, -0.0274331, 0.322689, 0, 0, 0)
 visible = false
 
 [node name="GNSSAntenna" parent="AnimatedCamera" instance=ExtResource("20_akcw6")]
@@ -14891,7 +14888,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="SoundHalo" parent="Satellite" index="11"]
-transform = Transform3D(-0.152597, -0.162554, -0.974828, 0.319207, 0.925406, -0.204281, -0.935318, 0.342345, 0.0893258, 9.74828, 2.04281, -0.893258)
+transform = Transform3D(-0.352865, -0.846784, -0.39805, -0.00467774, -0.423813, 0.905738, 0.935663, -0.321465, -0.145588, 3.9805, -9.05738, 1.45588)
 editorCameraPath = NodePath("../../AnimatedCamera")
 
 [node name="DebugIndicator" type="MeshInstance3D" parent="Satellite"]
@@ -14987,7 +14984,6 @@ transform = Transform3D(1, 0, -5.55112e-17, 0, 1, 0, 5.55112e-17, 0, 1, 0, 3.014
 shape = SubResource("ConvexPolygonShape3D_6xyp5")
 
 [node name="CameraRig" type="Node3D" parent="World"]
-process_mode = 4
 transform = Transform3D(-0.177804, -0.134123, -0.974883, 0.00405957, 0.99056, -0.13702, 0.984058, -0.0283203, -0.175581, -10.3326, 0.975387, -3.2074)
 script = ExtResource("15_he12w")
 loFilename = "res://Data/GNSS_Stylus_Scripts/BarnCam.LOScript"
@@ -15329,7 +15325,6 @@ transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
 visible = false
 
 [node name="Planet" type="Node3D" parent="World"]
-process_mode = 4
 
 [node name="Crust" type="MeshInstance3D" parent="World/Planet"]
 transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 7000, -3402.98, 0)
@@ -15428,7 +15423,6 @@ distance = 4.0
 visible = false
 
 [node name="FlybyerCamera" type="Node3D" parent="CameraFlyingSpace_Satellite_Angled/Flybyer"]
-transform = Transform3D(0.559193, 0, -0.829038, 0, 1, 0, 0.829038, 0, 0.559193, 0, 0, 0)
 script = ExtResource("43_1mg0k")
 eulerAnglesFraction = 1.0
 
@@ -15621,7 +15615,6 @@ visible = false
 mesh = SubResource("TextMesh_u082j")
 
 [node name="SatelliteWreck" parent="." instance=ExtResource("61_adtc1")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.22, 1414.22, 0)
 visible = false
 randomDebrisMaxPos = Vector3(3, 1, 3)
@@ -15649,7 +15642,6 @@ script = ExtResource("43_1mg0k")
 eulerAnglesFraction = 1.0
 
 [node name="GreatTexts" type="Node3D" parent="CameraFlyingSpace_Ascend"]
-process_mode = 4
 transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, -3.00133e-11, -6.10948e-06, 1999.03)
 visible = false
 
@@ -15700,7 +15692,6 @@ textOverride = "death"
 albedo = Color(0.92549, 0.14902, 0.2, 1)
 
 [node name="StaticSolarPanels" parent="." instance=ExtResource("58_6wvlh")]
-process_mode = 4
 transform = Transform3D(-0.707107, 0.707107, 8.74228e-08, 0.707107, 0.707107, 0, -6.18172e-08, 6.18172e-08, -1, 1414.74, 1414.74, 0)
 visible = false
 solarPanelFraction = 0.0
@@ -15713,7 +15704,6 @@ size = Vector2i(1920, 1080)
 script = ExtResource("63_s8l2w")
 
 [node name="ScrollerMainNode" type="Node3D" parent="SubViewport_Scroller"]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 100, 0)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport_Scroller/ScrollerMainNode"]
@@ -15727,8 +15717,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 picPlateTextures = Array[Texture2D]([SubResource("ViewportTexture_pho4e")])
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
