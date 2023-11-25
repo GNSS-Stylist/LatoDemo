@@ -6412,6 +6412,23 @@ tracks/17/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath(".")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(391.86, 397.24),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"setScrollerPicPlateScreenCloneTexture"
+}, {
+"args": [],
+"method": &"clearScrollerPicPlateScreenCloneTexture"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_odyq8"]
 resource_name = "EndScroller_INIT"
