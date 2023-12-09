@@ -787,6 +787,7 @@ func setScrollerPicPlateScreenCloneTexture():
 	# Add "recursive" screen texture to scroller pic plate
 	# (This doesn't work on editor)
 	$SubViewport_Scroller/ScrollerMainNode/Scroller.picPlateScreenCloneTexture = get_viewport().get_texture()
+#	print("picPlateScreenCloneTexture set")
 
 func clearScrollerPicPlateScreenCloneTexture():
 	# Clear "recursive" screen texture to scroller pic plate
@@ -794,3 +795,4 @@ func clearScrollerPicPlateScreenCloneTexture():
 	# time in memory with all mipmaps and stuff)
 
 	$SubViewport_Scroller/ScrollerMainNode/Scroller.picPlateScreenCloneTexture = null
+#	print("picPlateScreenCloneTexture cleared")
