@@ -41,11 +41,13 @@ depth = 0.01
 visible = false
 layers = 524288
 material_override = SubResource("ShaderMaterial_tarbi")
+cast_shadow = 0
 ignore_occlusion_culling = true
 gi_mode = 0
 
 [node name="DisintegratedMesh" type="MeshInstance3D" parent="."]
 layers = 524288
 material_override = SubResource("ShaderMaterial_nfcy5")
+cast_shadow = 0
 ignore_occlusion_culling = true
 gi_mode = 0

@@ -70,6 +70,7 @@ depth = 0.5
 visible = false
 layers = 524288
 material_override = SubResource("ShaderMaterial_u32pg")
+cast_shadow = 0
 instance_shader_parameters/basePosY = 0.0
 instance_shader_parameters/preXShift = 0.0
 instance_shader_parameters/textureIndex = 0
@@ -77,6 +78,7 @@ instance_shader_parameters/textureIndex = 0
 [node name="DisintegratedMesh" type="MeshInstance3D" parent="."]
 layers = 524288
 material_override = SubResource("ShaderMaterial_x7y62")
+cast_shadow = 0
 instance_shader_parameters/basePosY = 0.0
 instance_shader_parameters/preXShift = 0.0
 instance_shader_parameters/textureIndex = 0
