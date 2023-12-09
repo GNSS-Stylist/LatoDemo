@@ -6419,7 +6419,7 @@ tracks/18/path = NodePath(".")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(391.86, 397.24),
+"times": PackedFloat32Array(384.9, 407.36),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -11628,6 +11628,42 @@ tracks/260/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/261/type = "value"
+tracks/261/imported = false
+tracks/261/enabled = true
+tracks/261/path = NodePath("CameraFlyingSpace_Satellite_Angled/Flybyer/FlybyerCamera:position")
+tracks/261/interp = 1
+tracks/261/loop_wrap = true
+tracks/261/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/262/type = "value"
+tracks/262/imported = false
+tracks/262/enabled = true
+tracks/262/path = NodePath("AnimatedCamera:position")
+tracks/262/interp = 1
+tracks/262/loop_wrap = true
+tracks/262/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/263/type = "value"
+tracks/263/imported = false
+tracks/263/enabled = true
+tracks/263/path = NodePath("CameraFlyingSpace_Satellite_Angled/Flybyer/FlybyerCamera:rotation")
+tracks/263/interp = 1
+tracks/263/loop_wrap = true
+tracks/263/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_qtsft"]
