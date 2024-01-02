@@ -262,3 +262,19 @@ endScrollerYPos={
 "type": "float",
 "value": 0.0
 }
+endScrollerDisintegrationMinY_Appear={
+"type": "float",
+"value": -1.5
+}
+endScrollerDisintegrationMaxY_Appear={
+"type": "float",
+"value": -0.5
+}
+endScrollerDisintegrationMinY_Disappear={
+"type": "float",
+"value": 0.5
+}
+endScrollerDisintegrationMaxY_Disappear={
+"type": "float",
+"value": 1.5
+}

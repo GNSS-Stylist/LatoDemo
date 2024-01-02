@@ -15773,7 +15773,7 @@ far = 20.0
 
 [node name="Scroller" parent="SubViewport_Scroller/ScrollerMainNode" instance=ExtResource("62_u3t3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-scrollPos = 0.0
+smoothMeshHighLimit = 0.5
 picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("71_i6gor"), ExtResource("72_yn12k"), ExtResource("73_hsdux")])
 
 [node name="ScrollerPicPlate2" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="1"]

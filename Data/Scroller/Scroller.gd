@@ -54,6 +54,11 @@ var picPlateScreenCloneTextureChanged:bool = false
 	get:
 		return false
 
+@export var disintegrationMinY_Appear:float = -1.5
+@export var disintegrationMaxY_Appear:float = -1
+@export var disintegrationMinY_Disappear:float = 0.5
+@export var disintegrationMaxY_Disappear:float = 1
+
 var ScrollerTextLine = preload("res://Data/Scroller/ScrollerTextLine.tscn")
 
 const scrollerTextLinePoolSize:int = 20
@@ -148,10 +153,12 @@ func _process(delta):
 			addScrollLine(sourceTextLines[sourceTextLineKeys[keyIndex]], sourceTextLineKeys[keyIndex])
 		keyIndex += 1
 	
-	# Update scroll y position (global uniform)
-	# Not working...:
-	#ProjectSettings.set_setting("shader_globals/endScrollerYPos", scrollPos)
+	# Update scroll y position and appearing/disappearing limits (global uniforms)
 	RenderingServer.global_shader_parameter_set("endScrollerYPos", scrollPos)
+	RenderingServer.global_shader_parameter_set("endScrollerDisintegrationMinY_Appear", disintegrationMinY_Appear)
+	RenderingServer.global_shader_parameter_set("endScrollerDisintegrationMaxY_Appear", disintegrationMaxY_Appear)
+	RenderingServer.global_shader_parameter_set("endScrollerDisintegrationMinY_Disappear", disintegrationMinY_Disappear)
+	RenderingServer.global_shader_parameter_set("endScrollerDisintegrationMaxY_Disappear", disintegrationMaxY_Disappear)
 #	print ("endScrollerYPos: ", ProjectSettings.get_setting("shader_globals/endScrollerYPos"))
 
 

@@ -30,11 +30,11 @@ uniform vec3 displacementMaxDeviation_Disappear = vec3(1.0, 1.0, 1.0);
 uniform float displacementXMultiplier_Appear = 0.5;
 uniform float displacementXMultiplier_Disappear = 0.5;
 
-uniform float disintegrationMinY_Appear = -1.5;
-uniform float disintegrationMaxY_Appear = -0.5;
+global uniform float endScrollerDisintegrationMinY_Appear;
+global uniform float endScrollerDisintegrationMaxY_Appear;
 
-uniform float disintegrationMinY_Disappear = 0.5;
-uniform float disintegrationMaxY_Disappear = 1.5;
+global uniform float endScrollerDisintegrationMinY_Disappear;
+global uniform float endScrollerDisintegrationMaxY_Disappear;
 
 //uniform float endScrollerYPos = 0.0;
 global uniform float endScrollerYPos;
@@ -132,8 +132,8 @@ void vertex() {
 
 	faceCenterPoint.y += (endScrollerYPos + basePosY);
 
-	float disintegrationFraction_Appear = 1.0 - smoothstep(disintegrationMinY_Appear, disintegrationMaxY_Appear, faceCenterPoint.y);
-	float disintegrationFraction_Disappear = smoothstep(disintegrationMinY_Disappear, disintegrationMaxY_Disappear, faceCenterPoint.y);
+	float disintegrationFraction_Appear = 1.0 - smoothstep(endScrollerDisintegrationMinY_Appear, endScrollerDisintegrationMaxY_Appear, faceCenterPoint.y);
+	float disintegrationFraction_Disappear = smoothstep(endScrollerDisintegrationMinY_Disappear, endScrollerDisintegrationMaxY_Disappear, faceCenterPoint.y);
 	
 	float maxFraction = max(disintegrationFraction_Appear, disintegrationFraction_Disappear);
 	
