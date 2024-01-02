@@ -278,3 +278,35 @@ endScrollerDisintegrationMaxY_Disappear={
 "type": "float",
 "value": 1.5
 }
+endScrollerAutoFragmentScalingStartFraction={
+"type": "float",
+"value": 0.0
+}
+endScrollerAutoFragmentScalingEndFraction={
+"type": "float",
+"value": 1.0
+}
+endScrollerDisplacementMinDeviation_Appear={
+"type": "vec3",
+"value": Vector3(-0.5, -0.5, -0.5)
+}
+endScrollerDisplacementMaxDeviation_Appear={
+"type": "vec3",
+"value": Vector3(1, -1, 1)
+}
+endScrollerDisplacementMinDeviation_Disappear={
+"type": "vec3",
+"value": Vector3(-0.5, 0.5, -0.5)
+}
+endScrollerDisplacementMaxDeviation_Disappear={
+"type": "vec3",
+"value": Vector3(1, 1, 1)
+}
+endScrollerDisplacementXMultiplier_Appear={
+"type": "float",
+"value": 0.5
+}
+endScrollerDisplacementXMultiplier_Disappear={
+"type": "float",
+"value": 0.5
+}

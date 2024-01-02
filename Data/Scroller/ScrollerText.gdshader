@@ -12,17 +12,17 @@ uniform vec4 albedo : source_color;
 uniform float maxEndAngle = 6;
 
 //instance uniform float fragmentScaling = 1.0;
-uniform float autoFragmentScalingStartFraction = 0.0;
-uniform float autoFragmentScalingEndFraction = 1.0;
+global uniform float endScrollerAutoFragmentScalingStartFraction;
+global uniform float endScrollerAutoFragmentScalingEndFraction;
 
-uniform vec3 displacementMinDeviation_Appear = vec3(-1.0, -1.0, 0.1);
-uniform vec3 displacementMaxDeviation_Appear = vec3(-0.5, -0.5, 1.0);
+global uniform vec3 endScrollerDisplacementMinDeviation_Appear;
+global uniform vec3 endScrollerDisplacementMaxDeviation_Appear;
 
-uniform vec3 displacementMinDeviation_Disappear = vec3(0.5, 0.5, 0.1);
-uniform vec3 displacementMaxDeviation_Disappear = vec3(1.0, 1.0, 1.0);
+global uniform vec3 endScrollerDisplacementMinDeviation_Disappear;
+global uniform vec3 endScrollerDisplacementMaxDeviation_Disappear;
 
-uniform float displacementXMultiplier_Appear = 0.5;
-uniform float displacementXMultiplier_Disappear = 0.5;
+uniform float endScrollerDisplacementXMultiplier_Appear = 0.5;
+uniform float endScrollerDisplacementXMultiplier_Disappear = 0.5;
 
 global uniform float endScrollerDisintegrationMinY_Appear;
 global uniform float endScrollerDisintegrationMaxY_Appear;
@@ -130,19 +130,19 @@ void vertex() {
 	linearPart *= rotation3dY(maxAngleY * maxFraction);
 	linearPart *= rotation3dZ(maxAngleZ * maxFraction);
 	
-	float fragmentScaling = 1.0 - smoothstep(autoFragmentScalingStartFraction, autoFragmentScalingEndFraction, maxFraction);
+	float fragmentScaling = 1.0 - smoothstep(endScrollerAutoFragmentScalingStartFraction, endScrollerAutoFragmentScalingEndFraction, maxFraction);
 	
 	vec3 rotatedAndScaledRelVertPos = fragmentScaling * 
 		linearPart * relVertPos;
 
-	vec3 displacementDeviation = disintegrationFraction_Appear * displacementMinDeviation_Appear + disintegrationFraction_Appear * vec3(
-			(displacementMaxDeviation_Appear.x - displacementMinDeviation_Appear.x) * random(shapeId),
-			(displacementMaxDeviation_Appear.y - displacementMinDeviation_Appear.y) * random(shapeId * 2.0),
-			(displacementMaxDeviation_Appear.z - displacementMinDeviation_Appear.z) * random(shapeId * 3.0)) +
-			disintegrationFraction_Disappear * displacementMinDeviation_Disappear + disintegrationFraction_Disappear * vec3(
-			(displacementMaxDeviation_Disappear.x - displacementMinDeviation_Disappear.x) * random(shapeId),
-			(displacementMaxDeviation_Disappear.y - displacementMinDeviation_Disappear.y) * random(shapeId * 2.0),
-			(displacementMaxDeviation_Disappear.z - displacementMinDeviation_Disappear.z) * random(shapeId * 3.0));
+	vec3 displacementDeviation = disintegrationFraction_Appear * endScrollerDisplacementMinDeviation_Appear + disintegrationFraction_Appear * vec3(
+			(endScrollerDisplacementMaxDeviation_Appear.x - endScrollerDisplacementMinDeviation_Appear.x) * random(shapeId),
+			(endScrollerDisplacementMaxDeviation_Appear.y - endScrollerDisplacementMinDeviation_Appear.y) * random(shapeId * 2.0),
+			(endScrollerDisplacementMaxDeviation_Appear.z - endScrollerDisplacementMinDeviation_Appear.z) * random(shapeId * 3.0)) +
+			disintegrationFraction_Disappear * endScrollerDisplacementMinDeviation_Disappear + disintegrationFraction_Disappear * vec3(
+			(endScrollerDisplacementMaxDeviation_Disappear.x - endScrollerDisplacementMinDeviation_Disappear.x) * random(shapeId),
+			(endScrollerDisplacementMaxDeviation_Disappear.y - endScrollerDisplacementMinDeviation_Disappear.y) * random(shapeId * 2.0),
+			(endScrollerDisplacementMaxDeviation_Disappear.z - endScrollerDisplacementMinDeviation_Disappear.z) * random(shapeId * 3.0));
 	
 //	displacementDeviation = vec3(0.0);
 	
@@ -154,8 +154,8 @@ void vertex() {
 //			(1.0 + disintegrationFraction) + 
 			displacementDeviation;
 
-	VERTEX.x += (faceCenterPoint.x - displacementXCenterPoint) * displacementXMultiplier_Appear * disintegrationFraction_Appear +
-			(faceCenterPoint.x - displacementXCenterPoint) * displacementXMultiplier_Disappear * disintegrationFraction_Disappear;
+	VERTEX.x += (faceCenterPoint.x - displacementXCenterPoint) * endScrollerDisplacementXMultiplier_Appear * disintegrationFraction_Appear +
+			(faceCenterPoint.x - displacementXCenterPoint) * endScrollerDisplacementXMultiplier_Disappear * disintegrationFraction_Disappear;
 	
 }
 
