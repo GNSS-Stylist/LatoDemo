@@ -92,7 +92,7 @@ void fragment() {
 		float prevSampleVal = getSampleValue(int(sampleIndex));
 		float nextSampleVal = getSampleValue(int(sampleIndex) + 1);
 
-		float sampleVal = 0.5 + soundAmplification * //sampleScaling *
+		float sampleVal = 0.5 - soundAmplification * //sampleScaling *
 				(startNarrowing_Level + (1.0 - startNarrowing_Level) * smoothstep(startNarrowing_Start, startNarrowing_End, UV.x * 1000.0)) *
 				(endNarrowing_Level + (1.0 - endNarrowing_Level) * (1.0 - smoothstep(endNarrowing_Start, endNarrowing_End, UV.x * 100.0))) *
 				(mix(prevSampleVal, nextSampleVal, fract(sampleIndex)) - 0.5);
