@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=176 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -65,6 +65,14 @@
 [ext_resource type="PackedScene" uid="uid://7nc7et6vohhv" path="res://Data/Satellite/Wreck/SatelliteWreck.tscn" id="61_adtc1"]
 [ext_resource type="PackedScene" uid="uid://cvwyyg2hmgyd" path="res://Data/Scroller/Scroller.tscn" id="62_u3t3y"]
 [ext_resource type="Script" path="res://Data/Main/SubViewport_Scroller.gd" id="63_s8l2w"]
+[ext_resource type="Texture2D" uid="uid://d0qtdg7udoys6" path="res://Data/Pics/ScrollerPlateTextures/Sputnik.jpg" id="66_tobyw"]
+[ext_resource type="Texture2D" uid="uid://bhlfrlhs0fkf6" path="res://Data/Pics/ScrollerPlateTextures/SatelliteMorph.jpg" id="67_2tgs4"]
+[ext_resource type="Texture2D" uid="uid://bmnkgtk61xigj" path="res://Data/Pics/ScrollerPlateTextures/Probing.jpg" id="68_ickyo"]
+[ext_resource type="Texture2D" uid="uid://bu01xqqnapnlx" path="res://Data/Pics/ScrollerPlateTextures/Descent.jpg" id="69_pd8r6"]
+[ext_resource type="Texture2D" uid="uid://b6sh7o0ccdhpg" path="res://Data/Pics/ScrollerPlateTextures/Construction.jpg" id="70_ccrn3"]
+[ext_resource type="Texture2D" uid="uid://3k57qtcw8sud" path="res://Data/Pics/ScrollerPlateTextures/Destruction.jpg" id="71_i6gor"]
+[ext_resource type="Texture2D" uid="uid://ebuh8474pdvo" path="res://Data/Pics/ScrollerPlateTextures/TrackedCamera.jpg" id="72_yn12k"]
+[ext_resource type="Texture2D" uid="uid://blyy5kte0bd1" path="res://Data/Pics/ScrollerPlateTextures/GreatLeaders.jpg" id="73_hsdux"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lubd1"]
 render_priority = 0
@@ -14365,8 +14373,6 @@ pixel_size = 0.05
 curve_step = 0.1
 depth = 0.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pho4e"]
-
 [node name="Main" type="Node3D"]
 process_priority = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1414, -1414, 0)
@@ -15767,11 +15773,21 @@ far = 20.0
 
 [node name="Scroller" parent="SubViewport_Scroller/ScrollerMainNode" instance=ExtResource("62_u3t3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-picPlateTextures = Array[Texture2D]([SubResource("ViewportTexture_pho4e")])
+scrollPos = 0.0
+picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("71_i6gor"), ExtResource("72_yn12k"), ExtResource("73_hsdux")])
+
+[node name="ScrollerPicPlate2" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="1"]
+textureIndex = 1
+
+[node name="ScrollerPicPlate3" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="2"]
+textureIndex = 2
+
+[node name="ScrollerPicPlate4" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="3"]
+textureIndex = 3
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
@@ -15780,3 +15796,4 @@ picPlateTextures = Array[Texture2D]([SubResource("ViewportTexture_pho4e")])
 [editable path="World/LidarRig"]
 [editable path="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay"]
 [editable path="World/DeathRayParent/DeathRay"]
+[editable path="SubViewport_Scroller/ScrollerMainNode/Scroller"]

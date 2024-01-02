@@ -28,8 +28,29 @@ styleBaseTextMeshes = Array[TextMesh]([SubResource("TextMesh_pquem"), SubResourc
 styleLineHeights = Array[float]([0.2, 0.35, 0.2])
 styleDepths = Array[float]([0.0, 0.1, 0.0])
 
-[node name="ScrollerPicPlate" parent="." instance=ExtResource("2_1pucx")]
+[node name="ScrollerPicPlate1" parent="." instance=ExtResource("2_1pucx")]
 height = 0.563
 depth = 0.1
 basePosY = -1.42
+preXShift = -0.815
+
+[node name="ScrollerPicPlate2" parent="." instance=ExtResource("2_1pucx")]
+height = 0.563
+randomSeed = 42
+depth = 0.1
+basePosY = -2.1
+preXShift = -0.815
+
+[node name="ScrollerPicPlate3" parent="." instance=ExtResource("2_1pucx")]
+height = 0.563
+randomSeed = 1337
+depth = 0.1
+basePosY = -2.715
+preXShift = -0.815
+
+[node name="ScrollerPicPlate4" parent="." instance=ExtResource("2_1pucx")]
+height = 0.563
+randomSeed = 1234
+depth = 0.1
+basePosY = -3.61
 preXShift = -0.815

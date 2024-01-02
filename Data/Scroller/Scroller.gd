@@ -77,13 +77,13 @@ var sourceTextLineKeys = []	# YCoords
 
 func _process(delta):
 	if (picPlateTexturesChanged):
-		$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
-		$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+		$ScrollerPicPlate1.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+		$ScrollerPicPlate1.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
 		picPlateTexturesChanged = false
 		
 	if (picPlateScreenCloneTextureChanged):
-		$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("screenCloneAlbedoTexture", picPlateScreenCloneTexture)
-		$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("screenCloneAlbedoTexture", picPlateScreenCloneTexture)
+		$ScrollerPicPlate1.disintegratedMesh.material_override.set_shader_parameter("screenCloneAlbedoTexture", picPlateScreenCloneTexture)
+		$ScrollerPicPlate1.solidMesh.material_override.set_shader_parameter("screenCloneAlbedoTexture", picPlateScreenCloneTexture)
 		picPlateScreenCloneTextureChanged = false
 
 	var highestYCoord:float = scrollPos - destroyAfterMargin
@@ -187,8 +187,8 @@ func addScrollLine(line:SourceTextLine, yCoord:float):
 
 
 func _ready():
-	$ScrollerPicPlate.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
-	$ScrollerPicPlate.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+	$ScrollerPicPlate1.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
+	$ScrollerPicPlate1.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
 
 	if ((styleNames.size() != styleBaseTextMeshes.size()) ||
 			(styleNames.size() != styleLineHeights.size()) ||
