@@ -61,7 +61,7 @@ var picPlateScreenCloneTextureChanged:bool = false
 
 var ScrollerTextLine = preload("res://Data/Scroller/ScrollerTextLine.tscn")
 
-const scrollerTextLinePoolSize:int = 20
+const scrollerTextLinePoolSize:int = 30
 var scrollerTextLinePool:Array[ScrollerTextLinePoolItem]
 
 class SourceTextLine:

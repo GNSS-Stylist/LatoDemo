@@ -6209,7 +6209,7 @@ tracks/96/keys = {
 [sub_resource type="Animation" id="Animation_dqvmp"]
 resource_name = "EndScroller"
 length = 600.0
-step = 0.02
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -6357,8 +6357,8 @@ tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(385.22, 416.8)
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(385.22, 486.72)
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -6367,7 +6367,7 @@ tracks/13/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:ev
 tracks/13/interp = 1
 tracks/13/loop_wrap = false
 tracks/13/keys = {
-"times": PackedFloat32Array(458.2, 468.66),
+"times": PackedFloat32Array(490, 500),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -6379,7 +6379,7 @@ tracks/14/path = NodePath("World/Planet/BlackHole_Eater2:eventHorizonRadius")
 tracks/14/interp = 1
 tracks/14/loop_wrap = false
 tracks/14/keys = {
-"times": PackedFloat32Array(458.2, 468.66),
+"times": PackedFloat32Array(490, 500),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -6391,7 +6391,7 @@ tracks/15/path = NodePath("World/Planet/BlackHole_Eater3:eventHorizonRadius")
 tracks/15/interp = 1
 tracks/15/loop_wrap = false
 tracks/15/keys = {
-"times": PackedFloat32Array(458.2, 468.66),
+"times": PackedFloat32Array(490, 500),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -6403,7 +6403,7 @@ tracks/16/path = NodePath("WorldEnvironment:environment:adjustment_brightness")
 tracks/16/interp = 1
 tracks/16/loop_wrap = false
 tracks/16/keys = {
-"times": PackedFloat32Array(462.58, 468.42),
+"times": PackedFloat32Array(494, 500),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.01]
@@ -6436,6 +6436,102 @@ tracks/18/keys = {
 "args": [],
 "method": &"clearScrollerPicPlateScreenCloneTexture"
 }]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:basePosY")
+tracks/19/interp = 0
+tracks/19/loop_wrap = false
+tracks/19/keys = {
+"times": PackedFloat32Array(390, 420, 460),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-1.9, -6.72, -12.5]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:basePosY")
+tracks/20/interp = 0
+tracks/20/loop_wrap = false
+tracks/20/keys = {
+"times": PackedFloat32Array(390, 430),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-3.5, -7.7]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:basePosY")
+tracks/21/interp = 0
+tracks/21/loop_wrap = false
+tracks/21/keys = {
+"times": PackedFloat32Array(390, 438),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-4.5, -8.9]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:textureIndex")
+tracks/22/interp = 0
+tracks/22/loop_wrap = false
+tracks/22/keys = {
+"times": PackedFloat32Array(390, 420, 460),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 4, -1]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:textureIndex")
+tracks/23/interp = 0
+tracks/23/loop_wrap = false
+tracks/23/keys = {
+"times": PackedFloat32Array(390, 430),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 5]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:textureIndex")
+tracks/24/interp = 0
+tracks/24/loop_wrap = false
+tracks/24/keys = {
+"times": PackedFloat32Array(390, 438),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 6]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:textureIndex")
+tracks/25/interp = 0
+tracks/25/loop_wrap = false
+tracks/25/keys = {
+"times": PackedFloat32Array(390, 444),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 7]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:basePosY")
+tracks/26/interp = 0
+tracks/26/loop_wrap = false
+tracks/26/keys = {
+"times": PackedFloat32Array(390, 444),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-5.5, -10.1]
 }
 
 [sub_resource type="Animation" id="Animation_odyq8"]
@@ -11673,6 +11769,102 @@ tracks/263/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/264/type = "value"
+tracks/264/imported = false
+tracks/264/enabled = true
+tracks/264/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:basePosY")
+tracks/264/interp = 1
+tracks/264/loop_wrap = true
+tracks/264/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.9]
+}
+tracks/265/type = "value"
+tracks/265/imported = false
+tracks/265/enabled = true
+tracks/265/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:basePosY")
+tracks/265/interp = 1
+tracks/265/loop_wrap = true
+tracks/265/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.3]
+}
+tracks/266/type = "value"
+tracks/266/imported = false
+tracks/266/enabled = true
+tracks/266/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:basePosY")
+tracks/266/interp = 1
+tracks/266/loop_wrap = true
+tracks/266/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-4.5]
+}
+tracks/267/type = "value"
+tracks/267/imported = false
+tracks/267/enabled = true
+tracks/267/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:textureIndex")
+tracks/267/interp = 1
+tracks/267/loop_wrap = true
+tracks/267/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/268/type = "value"
+tracks/268/imported = false
+tracks/268/enabled = true
+tracks/268/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:textureIndex")
+tracks/268/interp = 1
+tracks/268/loop_wrap = true
+tracks/268/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/269/type = "value"
+tracks/269/imported = false
+tracks/269/enabled = true
+tracks/269/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:textureIndex")
+tracks/269/interp = 1
+tracks/269/loop_wrap = true
+tracks/269/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/270/type = "value"
+tracks/270/imported = false
+tracks/270/enabled = true
+tracks/270/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:textureIndex")
+tracks/270/interp = 1
+tracks/270/loop_wrap = true
+tracks/270/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/271/type = "value"
+tracks/271/imported = false
+tracks/271/enabled = true
+tracks/271/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:basePosY")
+tracks/271/interp = 1
+tracks/271/loop_wrap = true
+tracks/271/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.5]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -15774,15 +15966,21 @@ far = 20.0
 [node name="Scroller" parent="SubViewport_Scroller/ScrollerMainNode" instance=ExtResource("62_u3t3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 smoothMeshHighLimit = 0.5
-picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("71_i6gor"), ExtResource("72_yn12k"), ExtResource("73_hsdux")])
+picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("72_yn12k"), ExtResource("71_i6gor"), ExtResource("73_hsdux")])
+
+[node name="ScrollerPicPlate1" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="0"]
+basePosY = -1.9
 
 [node name="ScrollerPicPlate2" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="1"]
+basePosY = -3.3
 textureIndex = 1
 
 [node name="ScrollerPicPlate3" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="2"]
+basePosY = -4.5
 textureIndex = 2
 
 [node name="ScrollerPicPlate4" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="3"]
+basePosY = -5.5
 textureIndex = 3
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]

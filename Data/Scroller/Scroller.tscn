@@ -4,53 +4,55 @@
 [ext_resource type="PackedScene" uid="uid://ccjgv0ecp7bvw" path="res://Data/Scroller/ScrollerPicPlate.tscn" id="2_1pucx"]
 
 [sub_resource type="TextMesh" id="TextMesh_pquem"]
-curve_step = 1.0
+vertical_alignment = 0
+curve_step = 2.0
 depth = 0.0
 
 [sub_resource type="TextMesh" id="TextMesh_pysxh"]
 font_size = 40
+vertical_alignment = 0
 curve_step = 1.0
 depth = 0.0
 
 [sub_resource type="TextMesh" id="TextMesh_68lme"]
 horizontal_alignment = 0
-curve_step = 1.0
+vertical_alignment = 0
+curve_step = 2.0
 depth = 0.0
 
 [node name="Scroller" type="Node3D"]
 script = ExtResource("1_ni0wg")
 scrollTextFilename = "res://Data/Scroller/ScrollText.txt"
-destroyAfterMargin = 1.0
 scrollPos = 0.0
 smoothMeshHighLimit = 0.0
 styleNames = Array[String](["NORMAL", "H1", "PICDESC"])
 styleBaseTextMeshes = Array[TextMesh]([SubResource("TextMesh_pquem"), SubResource("TextMesh_pysxh"), SubResource("TextMesh_68lme")])
-styleLineHeights = Array[float]([0.2, 0.35, 0.2])
+styleLineHeights = Array[float]([0.2, 0.45, 0.2])
 styleDepths = Array[float]([0.0, 0.1, 0.0])
 
 [node name="ScrollerPicPlate1" parent="." instance=ExtResource("2_1pucx")]
 height = 0.563
 depth = 0.1
 basePosY = -1.42
-preXShift = -0.815
+preXShift = -1.8
 
 [node name="ScrollerPicPlate2" parent="." instance=ExtResource("2_1pucx")]
 height = 0.563
 randomSeed = 42
 depth = 0.1
 basePosY = -2.1
-preXShift = -0.815
+preXShift = -1.8
 
 [node name="ScrollerPicPlate3" parent="." instance=ExtResource("2_1pucx")]
 height = 0.563
 randomSeed = 1337
 depth = 0.1
 basePosY = -2.715
-preXShift = -0.815
+preXShift = -1.8
 
 [node name="ScrollerPicPlate4" parent="." instance=ExtResource("2_1pucx")]
 height = 0.563
 randomSeed = 1234
 depth = 0.1
 basePosY = -3.61
-preXShift = -0.815
+preXShift = -1.8
