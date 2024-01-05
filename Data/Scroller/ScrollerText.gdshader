@@ -21,8 +21,8 @@ global uniform vec3 endScrollerDisplacementMaxDeviation_Appear;
 global uniform vec3 endScrollerDisplacementMinDeviation_Disappear;
 global uniform vec3 endScrollerDisplacementMaxDeviation_Disappear;
 
-uniform float endScrollerDisplacementXMultiplier_Appear = 0.5;
-uniform float endScrollerDisplacementXMultiplier_Disappear = 0.5;
+global uniform float endScrollerDisplacementXMultiplier_Appear;
+global uniform float endScrollerDisplacementXMultiplier_Disappear;
 
 global uniform float endScrollerDisintegrationMinY_Appear;
 global uniform float endScrollerDisintegrationMaxY_Appear;

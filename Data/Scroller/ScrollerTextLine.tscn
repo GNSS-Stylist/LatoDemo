@@ -17,18 +17,6 @@ render_priority = 0
 shader = ExtResource("2_ayc54")
 shader_parameter/albedo = Color(1, 1, 0, 1)
 shader_parameter/maxEndAngle = 6.0
-shader_parameter/autoFragmentScalingStartFraction = 0.1
-shader_parameter/autoFragmentScalingEndFraction = 0.6
-shader_parameter/displacementMinDeviation_Appear = Vector3(-0.5, -1, -0.2)
-shader_parameter/displacementMaxDeviation_Appear = Vector3(0.5, -0.2, 1)
-shader_parameter/displacementMinDeviation_Disappear = Vector3(-0.5, 0.2, -0.2)
-shader_parameter/displacementMaxDeviation_Disappear = Vector3(0.5, 1, 1)
-shader_parameter/displacementXMultiplier_Appear = 0.5
-shader_parameter/displacementXMultiplier_Disappear = 0.0
-shader_parameter/disintegrationMinY_Appear = -2.0
-shader_parameter/disintegrationMaxY_Appear = -1.0
-shader_parameter/disintegrationMinY_Disappear = 0.0
-shader_parameter/disintegrationMaxY_Disappear = 1.0
 
 [node name="ScrollerTextLine" type="Node3D"]
 script = ExtResource("1_71k4q")
