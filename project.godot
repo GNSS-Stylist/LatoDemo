@@ -240,6 +240,7 @@ play_backward_non_locked={
 
 3d_render/layer_1="Main"
 3d_render/layer_2="RigCamera"
+3d_render/layer_19="Elite"
 3d_render/layer_20="EndScroller"
 
 [physics]
@@ -251,7 +252,6 @@ play_backward_non_locked={
 
 anti_aliasing/screen_space_roughness_limiter/enabled=false
 scaling_3d/mode=1
-scaling_3d/scale=2.0
 environment/defaults/default_environment="res://default_env.tres"
 environment/glow/use_high_quality=true
 anti_aliasing/quality/msaa=3
@@ -309,4 +309,12 @@ endScrollerDisplacementXMultiplier_Appear={
 endScrollerDisplacementXMultiplier_Disappear={
 "type": "float",
 "value": 0.5
+}
+eliteOverlayResolution={
+"type": "vec2",
+"value": Vector2(320, 180)
+}
+masterReplayTime={
+"type": "float",
+"value": 0.0
 }
