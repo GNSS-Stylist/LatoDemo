@@ -13,9 +13,6 @@ cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.352941, 0.552941, 1, 0.505882)
 
-[sub_resource type="Animation" id="Animation_hmsp3"]
-resource_name = "dummy"
-
 [sub_resource type="Animation" id="Animation_uumys"]
 length = 0.001
 tracks/0/type = "value"
@@ -31,6 +28,9 @@ tracks/0/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_hmsp3"]
+resource_name = "dummy"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ivfyn"]
 _data = {
 "RESET": SubResource("Animation_uumys"),
@@ -41,7 +41,6 @@ _data = {
 script = ExtResource("1_wxyk1")
 
 [node name="Surface" type="MeshInstance3D" parent="."]
-layers = 524288
 mesh = SubResource("PlaneMesh_25nk4")
 
 [node name="DbgSurface" type="MeshInstance3D" parent="."]

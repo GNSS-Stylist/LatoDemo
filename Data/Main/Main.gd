@@ -388,6 +388,8 @@ func _process(delta):
 				tunePlayer.my_seek(tunePlayer.getFilteredPlaybackPosition() - dbgAnimJump)
 			dbgAnimJump = 0
 
+	RenderingServer.global_shader_parameter_set("masterReplayTime", Global.masterReplayTime)
+
 	if (!Engine.is_editor_hint()):
 		updateCameraCopyPasteFields()
 
