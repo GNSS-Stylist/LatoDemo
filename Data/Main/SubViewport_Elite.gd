@@ -20,37 +20,4 @@ func _process(delta):
 		RenderingServer.global_shader_parameter_set("eliteOverlayResolution", Vector2(newRes))
 		self.size = newRes
 		oldSize = currSize
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		# Calculate new lower resolution based on the y-res
-		# (number of high-res pixels per low-res pixel)
-		# Try to keep pixel per pixel-value always integer,
-		# Otherwise scaling looks very ugly.
-		# Handling x&y separately leads to scaling errors when window/display
-		# is stretched enough in some direction.
-		
-#		return
-		
-#		var pixelsPerPixel:int = int(currSize.x / max(floor(currSize.x / 256), 1)
-		
-		
-		
-		
-		
-#		var newRes:Vector2i = Vector2i(int(currSize.x / floor(currSize.x / 320)),
-#				int(currSize.y / floor(currSize.y / 180)))
-				
-#		var newPixSize:Vector2 = Vector2(currSize.x / newRes.x, currSize.y / newRes.y)
-		
-		# Need square pixels to keep objects at their right shapes
-		
-#		print("New elite viewport size: ", currSize, ", res: ", newRes, ", pixel size: ", newPixSize)
-	#	self.size = newRes
-	#	oldSize = currSize
+
