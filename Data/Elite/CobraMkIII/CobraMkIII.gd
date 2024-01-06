@@ -35,71 +35,62 @@ const vertexArray = [
 	Vector3(0.3, 0.13, 0.51),		# 21
 
 	# Rear left engine:
-	Vector3(-0.3, -0.05, 0.51),	# 22
-	Vector3(-0.07, -0.06, 0.51),		# 23
+	Vector3(-0.3, -0.05, 0.51),		# 22
+	Vector3(-0.07, -0.06, 0.51),	# 23
 	Vector3(-0.07, 0.14, 0.51),		# 24
 	Vector3(-0.3, 0.13, 0.51),		# 25
-	
-
 ]
 
-class eliteTriangle:
-	var vertices:Vector3i	# Vertices of the face as indices
+class eliteFace:
+	var vertices = []		# Vertices of the face as indices
 	var color1:int			# First color to paint the face
 	var color2:int			# Second color to paint the face
-	func _init(vertices_p:Vector3i, color1_p:int, color2_p:int):
+	func _init(vertices_p:Array, color1_p:int, color2_p:int):
 		self.vertices = vertices_p
 		self.color1 = color1_p
 		self.color2 = color2_p
 
 var faceArray = [
 	# Top right:
-	eliteTriangle.new(Vector3i(0, 1, 3), 2, 2),
-	eliteTriangle.new(Vector3i(1, 2, 3), 1, 1),
-	eliteTriangle.new(Vector3i(0, 3, 8), 3, 3),
-	eliteTriangle.new(Vector3i(8, 3, 9), 1, 2),
+	eliteFace.new([0, 1, 3], 2, 2),
+	eliteFace.new([1, 2, 3], 1, 1),
+	eliteFace.new([0, 3, 8], 3, 3),
+	eliteFace.new([8, 3, 9], 1, 2),
 	
 	# Top left:
-	eliteTriangle.new(Vector3i(4, 7, 5), 2, 2),
-	eliteTriangle.new(Vector3i(5, 7, 6), 1, 1),
-	eliteTriangle.new(Vector3i(4, 8, 7), 3, 3),
-	eliteTriangle.new(Vector3i(8, 9, 7), 1, 2),
+	eliteFace.new([4, 7, 5], 2, 2),
+	eliteFace.new([5, 7, 6], 1, 1),
+	eliteFace.new([4, 8, 7], 3, 3),
+	eliteFace.new([8, 9, 7], 1, 2),
 
 	# Top front:
-	eliteTriangle.new(Vector3i(0, 8, 4), 15, 3),
+	eliteFace.new([0, 8, 4], 15, 3),
 	
 	# Bottom center:
-	eliteTriangle.new(Vector3i(4, 11, 0), 1, 0),
-	eliteTriangle.new(Vector3i(0, 11, 10), 1, 0),
+	eliteFace.new([4, 11, 10, 0], 1, 0),
 	
 	# Bottom left:
-	eliteTriangle.new(Vector3i(4, 5, 11), 2, 0),
-	eliteTriangle.new(Vector3i(5, 6, 11), 3, 0),
+	eliteFace.new([4, 5, 11], 2, 0),
+	eliteFace.new([5, 6, 11], 3, 0),
 
 	# Bottom right:
-	eliteTriangle.new(Vector3i(0, 10, 1), 2, 0),
-	eliteTriangle.new(Vector3i(1, 10, 2), 3, 0),
+	eliteFace.new([0, 10, 1], 2, 0),
+	eliteFace.new([1, 10, 2], 3, 0),
 	
 	# Back:
-	eliteTriangle.new(Vector3i(9, 3, 2), 14, 0),
-	eliteTriangle.new(Vector3i(9, 2, 10), 14, 0),
-	eliteTriangle.new(Vector3i(9, 10, 11), 14, 0),
-	eliteTriangle.new(Vector3i(9, 11, 6), 14, 0),
-	eliteTriangle.new(Vector3i(9, 6, 7), 14, 0),
+	eliteFace.new([9, 3, 2, 10, 11, 6, 7], 14, 0),
 	
 	# Rear left triangle:
-	eliteTriangle.new(Vector3i(12, 13, 14), 3, 3),
+	eliteFace.new([12, 13, 14], 3, 3),
 	
 	# Rear right triangle:
-	eliteTriangle.new(Vector3i(15, 16, 17), 3, 3),
+	eliteFace.new([15, 16, 17], 3, 3),
 	
 	# Right engine:
-	eliteTriangle.new(Vector3i(18, 19, 20), 16, 16),
-	eliteTriangle.new(Vector3i(18, 20, 21), 16, 16),
+	eliteFace.new([18, 19, 20, 21], 16, 16),
 
 	# Left engine:
-	eliteTriangle.new(Vector3i(22, 24, 23), 16, 16),
-	eliteTriangle.new(Vector3i(22, 25, 24), 16, 16),
+	eliteFace.new([25, 24, 23, 22], 16, 16),
 
 ]
 
@@ -123,13 +114,16 @@ func generateMesh():
 	var uvs = PackedVector2Array()
 	
 	for i in range(faceArray.size()):
-		vertices.push_back(vertexArray[faceArray[i].vertices.x])
-		vertices.push_back(vertexArray[faceArray[i].vertices.y])
-		vertices.push_back(vertexArray[faceArray[i].vertices.z])
 		var uv = Vector2(faceArray[i].color1, faceArray[i].color2)
-		uvs.push_back(uv)
-		uvs.push_back(uv)
-		uvs.push_back(uv)
+
+		for ii in range(1, faceArray[i].vertices.size() - 1):
+			# Create face as "triangle fan"
+			vertices.push_back(vertexArray[faceArray[i].vertices[0]])
+			vertices.push_back(vertexArray[faceArray[i].vertices[ii]])
+			vertices.push_back(vertexArray[faceArray[i].vertices[ii + 1]])
+			uvs.push_back(uv)
+			uvs.push_back(uv)
+			uvs.push_back(uv)
 
 	var arrayMeshArrays = []
 	arrayMeshArrays.resize(ArrayMesh.ARRAY_MAX)
