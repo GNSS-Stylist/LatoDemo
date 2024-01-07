@@ -1,6 +1,8 @@
 @tool
 extends Node3D
 
+#@onready var EliteShipMesh = preload("res://Data/Elite/EliteShipMesh.gd")
+
 const vertexArray = [
 	Vector3(+0.25, +0.0, -0.5),	# 0: Nose right
 	Vector3(+0.95, +0.0, +0.3),	# 1: Outer 1 right
@@ -40,17 +42,6 @@ const vertexArray = [
 	Vector3(-0.07, 0.14, 0.51),		# 24
 	Vector3(-0.3, 0.13, 0.51),		# 25
 ]
-
-class EliteFace:
-	var vertices = []		# Vertices of the face as indices
-	var color1:int			# First color to paint the face
-	var color2:int			# Second color to paint the face
-	var centerPoint:Vector3
-	func _init(vertices_p:Array, color1_p:int, color2_p:int, centerPoint_p:Vector3):
-		self.vertices = vertices_p
-		self.color1 = color1_p
-		self.color2 = color2_p
-		self.centerPoint = centerPoint_p
 
 var faceArray = [
 	# Top right:
@@ -99,62 +90,4 @@ var faceArray = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	generateMesh()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if (dbg_regenMesh):
-#		generateMesh()
-#		dbg_regenMesh = false
-#		print("mesh regenerated")
-
-func generateMesh():
-	var mesh:ArrayMesh = ArrayMesh.new()
-
-	var vertices = PackedVector3Array()
-	var normals = PackedVector3Array()
-	var uvs = PackedVector2Array()
-	var centerPoints = PackedFloat32Array()
-	
-	for faceIndex in range(faceArray.size()):
-		var uv = Vector2(faceArray[faceIndex].color1, faceArray[faceIndex].color2)
-		var centerPoint:Vector3 = Vector3.ZERO
-		
-		if (faceArray[faceIndex].centerPoint == Vector3.ZERO):
-			# If centerpoint is zero, calculate is as an average of the vertices
-			for i in range(faceArray[faceIndex].vertices.size()):
-				centerPoint += vertexArray[faceArray[faceIndex].vertices[i]]
-			centerPoint /= faceArray[faceIndex].vertices.size()
-		else:
-			centerPoint = faceArray[faceIndex].centerPoint
-		
-		var normal = (vertexArray[faceArray[faceIndex].vertices[2]] - 
-				vertexArray[faceArray[faceIndex].vertices[0]]).cross(
-					vertexArray[faceArray[faceIndex].vertices[1]] -
-					vertexArray[faceArray[faceIndex].vertices[0]]).normalized()
-
-		for i in range(1, faceArray[faceIndex].vertices.size() - 1):
-			# Create face as "triangle fan"
-			vertices.push_back(vertexArray[faceArray[faceIndex].vertices[0]])
-			vertices.push_back(vertexArray[faceArray[faceIndex].vertices[i]])
-			vertices.push_back(vertexArray[faceArray[faceIndex].vertices[i + 1]])
-			for iii in range(3):
-				normals.push_back(normal)
-				uvs.push_back(uv)
-				centerPoints.push_back(centerPoint.x)
-				centerPoints.push_back(centerPoint.y)
-				centerPoints.push_back(centerPoint.z)
-				centerPoints.push_back(faceIndex)
-
-	var arrayMeshArrays = []
-	arrayMeshArrays.resize(ArrayMesh.ARRAY_MAX)
-	arrayMeshArrays[ArrayMesh.ARRAY_VERTEX] = vertices
-	arrayMeshArrays[ArrayMesh.ARRAY_NORMAL] = normals
-	arrayMeshArrays[ArrayMesh.ARRAY_TEX_UV] = uvs
-	arrayMeshArrays[ArrayMesh.ARRAY_CUSTOM0] = centerPoints
-
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrayMeshArrays, [], {}, 
-			(Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT))
-	
-	$MainBody.mesh = mesh
-	
+	$MainBody.mesh = EliteShipMesh.createMesh(vertexArray, faceArray)
