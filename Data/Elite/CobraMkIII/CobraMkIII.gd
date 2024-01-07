@@ -41,57 +41,58 @@ const vertexArray = [
 	Vector3(-0.3, 0.13, 0.51),		# 25
 ]
 
-class eliteFace:
+class EliteFace:
 	var vertices = []		# Vertices of the face as indices
 	var color1:int			# First color to paint the face
 	var color2:int			# Second color to paint the face
-	func _init(vertices_p:Array, color1_p:int, color2_p:int):
+	var centerPoint:Vector3
+	func _init(vertices_p:Array, color1_p:int, color2_p:int, centerPoint_p:Vector3):
 		self.vertices = vertices_p
 		self.color1 = color1_p
 		self.color2 = color2_p
+		self.centerPoint = centerPoint_p
 
 var faceArray = [
 	# Top right:
-	eliteFace.new([0, 1, 3], 2, 2),
-	eliteFace.new([1, 2, 3], 1, 1),
-	eliteFace.new([0, 3, 8], 3, 3),
-	eliteFace.new([8, 3, 9], 1, 2),
+	EliteFace.new([0, 1, 3], 2, 2, Vector3.ZERO),
+	EliteFace.new([1, 2, 3], 1, 1, Vector3.ZERO),
+	EliteFace.new([0, 3, 8], 3, 3, Vector3.ZERO),
+	EliteFace.new([8, 3, 9], 1, 2, Vector3.ZERO),
 	
 	# Top left:
-	eliteFace.new([4, 7, 5], 2, 2),
-	eliteFace.new([5, 7, 6], 1, 1),
-	eliteFace.new([4, 8, 7], 3, 3),
-	eliteFace.new([8, 9, 7], 1, 2),
+	EliteFace.new([4, 7, 5], 2, 2, Vector3.ZERO),
+	EliteFace.new([5, 7, 6], 1, 1, Vector3.ZERO),
+	EliteFace.new([4, 8, 7], 3, 3, Vector3.ZERO),
+	EliteFace.new([8, 9, 7], 1, 2, Vector3.ZERO),
 
 	# Top front:
-	eliteFace.new([0, 8, 4], 15, 3),
+	EliteFace.new([0, 8, 4], 15, 3, Vector3.ZERO),
 	
 	# Bottom center:
-	eliteFace.new([4, 11, 10, 0], 1, 0),
+	EliteFace.new([4, 11, 10, 0], 1, 0, Vector3.ZERO),
 	
 	# Bottom left:
-	eliteFace.new([4, 5, 11], 2, 0),
-	eliteFace.new([5, 6, 11], 3, 0),
+	EliteFace.new([4, 5, 11], 2, 0, Vector3.ZERO),
+	EliteFace.new([5, 6, 11], 3, 0, Vector3.ZERO),
 
 	# Bottom right:
-	eliteFace.new([0, 10, 1], 2, 0),
-	eliteFace.new([1, 10, 2], 3, 0),
+	EliteFace.new([0, 10, 1], 2, 0, Vector3.ZERO),
+	EliteFace.new([1, 10, 2], 3, 0, Vector3.ZERO),
 	
 	# Back:
-	eliteFace.new([9, 3, 2, 10, 11, 6, 7], 14, 0),
+	EliteFace.new([9, 3, 2, 10, 11, 6, 7], 14, 0, Vector3(0, 0.03, 0.5)),
 	
 	# Rear left triangle:
-	eliteFace.new([12, 13, 14], 3, 3),
+	EliteFace.new([12, 13, 14], 3, 3, Vector3(0, 0.03, 0.5)),
 	
 	# Rear right triangle:
-	eliteFace.new([15, 16, 17], 3, 3),
+	EliteFace.new([15, 16, 17], 3, 3, Vector3(0, 0.03, 0.5)),
 	
 	# Right engine:
-	eliteFace.new([18, 19, 20, 21], 16, 16),
+	EliteFace.new([18, 19, 20, 21], 16, 16, Vector3(0, 0.03, 0.5)),
 
 	# Left engine:
-	eliteFace.new([25, 24, 23, 22], 16, 16),
-
+	EliteFace.new([25, 24, 23, 22], 16, 16, Vector3(0, 0.03, 0.5)),
 ]
 
 #@export var dbg_regenMesh:bool = false
@@ -111,26 +112,49 @@ func generateMesh():
 	var mesh:ArrayMesh = ArrayMesh.new()
 
 	var vertices = PackedVector3Array()
+	var normals = PackedVector3Array()
 	var uvs = PackedVector2Array()
+	var centerPoints = PackedFloat32Array()
 	
-	for i in range(faceArray.size()):
-		var uv = Vector2(faceArray[i].color1, faceArray[i].color2)
+	for faceIndex in range(faceArray.size()):
+		var uv = Vector2(faceArray[faceIndex].color1, faceArray[faceIndex].color2)
+		var centerPoint:Vector3 = Vector3.ZERO
+		
+		if (faceArray[faceIndex].centerPoint == Vector3.ZERO):
+			# If centerpoint is zero, calculate is as an average of the vertices
+			for i in range(faceArray[faceIndex].vertices.size()):
+				centerPoint += vertexArray[faceArray[faceIndex].vertices[i]]
+			centerPoint /= faceArray[faceIndex].vertices.size()
+		else:
+			centerPoint = faceArray[faceIndex].centerPoint
+		
+		var normal = (vertexArray[faceArray[faceIndex].vertices[2]] - 
+				vertexArray[faceArray[faceIndex].vertices[0]]).cross(
+					vertexArray[faceArray[faceIndex].vertices[1]] -
+					vertexArray[faceArray[faceIndex].vertices[0]]).normalized()
 
-		for ii in range(1, faceArray[i].vertices.size() - 1):
+		for i in range(1, faceArray[faceIndex].vertices.size() - 1):
 			# Create face as "triangle fan"
-			vertices.push_back(vertexArray[faceArray[i].vertices[0]])
-			vertices.push_back(vertexArray[faceArray[i].vertices[ii]])
-			vertices.push_back(vertexArray[faceArray[i].vertices[ii + 1]])
-			uvs.push_back(uv)
-			uvs.push_back(uv)
-			uvs.push_back(uv)
+			vertices.push_back(vertexArray[faceArray[faceIndex].vertices[0]])
+			vertices.push_back(vertexArray[faceArray[faceIndex].vertices[i]])
+			vertices.push_back(vertexArray[faceArray[faceIndex].vertices[i + 1]])
+			for iii in range(3):
+				normals.push_back(normal)
+				uvs.push_back(uv)
+				centerPoints.push_back(centerPoint.x)
+				centerPoints.push_back(centerPoint.y)
+				centerPoints.push_back(centerPoint.z)
+				centerPoints.push_back(faceIndex)
 
 	var arrayMeshArrays = []
 	arrayMeshArrays.resize(ArrayMesh.ARRAY_MAX)
 	arrayMeshArrays[ArrayMesh.ARRAY_VERTEX] = vertices
+	arrayMeshArrays[ArrayMesh.ARRAY_NORMAL] = normals
 	arrayMeshArrays[ArrayMesh.ARRAY_TEX_UV] = uvs
+	arrayMeshArrays[ArrayMesh.ARRAY_CUSTOM0] = centerPoints
 
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrayMeshArrays)
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrayMeshArrays, [], {}, 
+			(Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT))
 	
 	$MainBody.mesh = mesh
 	
