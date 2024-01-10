@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://1pel5s3sdw3c"]
+
+[ext_resource type="Script" path="res://Data/Elite/Thargoid/Thargoid.gd" id="1_2eq1f"]
+[ext_resource type="Shader" path="res://Data/Elite/EliteTriangle.gdshader" id="2_ckyot"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrxd1"]
+render_priority = 0
+shader = ExtResource("2_ckyot")
+shader_parameter/pointColors = PackedColorArray(0, 0, 0, 1, 0.0862745, 0, 0.815686, 1, 0.262745, 0.384314, 0.811765, 1, 0.533333, 0.662745, 0.941176, 1, 0.266667, 0.4, 0, 1, 0.4, 0.666667, 0, 1, 0.533333, 0.933333, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933333, 0.4, 0, 1, 0.933333, 0.933333, 0, 1, 0.933333, 0, 0.933333, 1, 0.933333, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 0.258824, 0.258824, 0.258824, 1, 0.933333, 0.933333, 0.933333, 1)
+
+[sub_resource type="Animation" id="Animation_8g3ek"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:trigStashToolData")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8egbk"]
+resource_name = "dummy"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_huu5b"]
+_data = {
+"RESET": SubResource("Animation_8g3ek"),
+"dummy": SubResource("Animation_8egbk")
+}
+
+[node name="Thargoid" type="Node3D"]
+script = ExtResource("1_2eq1f")
+
+[node name="MainBody" type="MeshInstance3D" parent="."]
+layers = 262144
+material_override = SubResource("ShaderMaterial_nrxd1")
+instance_shader_parameters/autoFragmentScalingStartFraction = 0.5
+instance_shader_parameters/disintegrationFraction = 0.0
+instance_shader_parameters/displacementMaxDeviation = Vector3(1, 1, 1)
+instance_shader_parameters/displacementMinDeviation = Vector3(-1, -1, -1)
+instance_shader_parameters/randomSeed = 1.335
+
+[node name="DebrisField" type="MeshInstance3D" parent="."]
+layers = 262144
+material_override = SubResource("ShaderMaterial_nrxd1")
+instance_shader_parameters/disintegrationFraction = 0.0
+
+[node name="AnimationPlayer_ToolDataStasher" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_huu5b")
+}
