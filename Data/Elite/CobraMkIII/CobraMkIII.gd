@@ -1,8 +1,6 @@
 @tool
 extends Node3D
 
-#@onready var EliteShipMesh = preload("res://Data/Elite/EliteShipMesh.gd")
-
 const vertexArray = [
 	Vector3(+0.25, +0.0, -0.5),	# 0: Nose right
 	Vector3(+0.95, +0.0, +0.3),	# 1: Outer 1 right
@@ -86,8 +84,41 @@ var faceArray = [
 	EliteFace.new([25, 24, 23, 22], 16, 16, Vector3(0, 0.03, 0.5)),
 ]
 
-#@export var dbg_regenMesh:bool = false
+var animResetStashDone:bool = false
 
-# Called when the node enters the scene tree for the first time.
+@export var trigStashToolData:bool = false:
+	set(param):
+		print("trigStashToolData setter called (CobraMkIII): ", param)
+		if (!animResetStashDone && param):
+			stashToolData()
+			animResetStashDone = true
+	get:
+		return false
+
 func _ready():
 	$MainBody.mesh = EliteShipMesh.createMesh(vertexArray, faceArray)
+
+func _process(delta):
+	if (animResetStashDone):
+		stashPullToolData()
+		animResetStashDone = false
+
+class StashData:
+	var mainBodyMesh
+
+var stashStorage:StashData = StashData.new()
+
+func stashToolData():
+	var mainBody:MeshInstance3D = get_node_or_null("MainBody")
+
+	if (mainBody):
+		print("Stashing tool data (CobraMkIII)")
+		stashStorage.mainBodyMesh = mainBody.mesh
+		mainBody.mesh = null
+
+func stashPullToolData():
+	var mainBody:MeshInstance3D = get_node_or_null("MainBody")
+
+	if (mainBody):
+		print("Stash pulling tool data (CobraMkIII)")
+		mainBody.mesh = stashStorage.mainBodyMesh
