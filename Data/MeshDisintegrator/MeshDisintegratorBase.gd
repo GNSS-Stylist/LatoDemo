@@ -340,7 +340,7 @@ func breakGeometry(sourceMesh:Mesh):
 #	print("Text faces: ", faceCount)
 #	print(centerPoints.size())
 
-	var newMesh = ArrayMesh.new()
+	var newMesh:ArrayMesh = ArrayMesh.new()
 
 #	newMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, sourceMeshArrays)
 
@@ -348,6 +348,12 @@ func breakGeometry(sourceMesh:Mesh):
 	@warning_ignore("int_as_enum_without_match")
 	newMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, destMeshArrays, [], {}, 
 			(Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT))
+
+	# This is a workaround for bug
+	# https://github.com/godotengine/godot/issues/86369
+	# (Can't set custom aabb in inspector)
+	# causing "death"-text to disappear momentarily when turning camera to the planet
+	newMesh.custom_aabb = AABB(Vector3(0,0,0), Vector3(100, 100, 100))
 
 	# There was some weird behavior (locking) when setting the mesh here.
 	# So maybe it has something to do with threading -> Set it in the main thread instead
