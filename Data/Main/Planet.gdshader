@@ -29,18 +29,22 @@ uniform vec3 blackHoleOriginalLocations[4];
 uniform vec3 blackHoleCurrentLocations[4];
 uniform float flySpeed = 1.0;			// Distance units per fraction
 uniform float detachmentSpeed = 1.0;	// Distance units per fraction
-uniform float maxEndAngle = 6;
+uniform float maxEndAngle = 6.0;
 uniform float shrinkMaxDistance = 0.1;
 
 uniform float destructionFraction = 0.0;	// May need to be over 1 to get a total destruction
 
-uniform float sphereOfAvoidanceRadius = 1;
+uniform float sphereOfAvoidanceRadius = 1.0;
 uniform vec3 sphereOfAvoidanceCenterPoint = vec3(0.0, 0.0, 0.0);
 
 uniform sampler2D customDataSampler;
 
-uniform vec4 baseLight : source_color = vec4(1.0);
-uniform vec4 baseColor : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float constructionMaxDistance = 10.0;
+uniform float constructionMinDistance = 2.0;
+uniform float constructionFlyDistance = 1.0;
+uniform float constructionMaxStartAngle = 6.0;
+
+uniform vec3 planetCenterPoint = vec3(0.0, 0.0, -1.0);
 
 mat3 rotation3dX(float angle) {
 	float s = sin(angle);
@@ -112,67 +116,105 @@ ivec2 getTexelCoord(int faceIndex) {
 void vertex() {
 //	UV=UV*uv1_scale.xy+uv1_offset.xy;
 
-	int faceId = VERTEX_ID / 3;
-
-	vec3 faceCenterPoint = texelFetch(customDataSampler, getTexelCoord(faceId), 0).xyz;
-	
-	// Find the nearest black hole (original location)
-	
-	float nearestDistanceSquared = 1.0e9;
-	int nearestBlackHoleIndex = 0;
-	
-	for (int i = 0; i < numOfBlackHoles; i++)
+	if (destructionFraction > 0.0)
 	{
-		float dist = distanceSquared(faceCenterPoint, blackHoleOriginalLocations[i]);
-		if (dist < nearestDistanceSquared)
+		int faceId = VERTEX_ID / 3;
+		vec3 faceCenterPoint = texelFetch(customDataSampler, getTexelCoord(faceId), 0).xyz;
+		
+		// Find the nearest black hole (original location)
+		
+		float nearestDistanceSquared = 1.0e9;
+		int nearestBlackHoleIndex = 0;
+		
+		for (int i = 0; i < numOfBlackHoles; i++)
 		{
-			nearestDistanceSquared = dist;
-			nearestBlackHoleIndex = i;
+			float dist = distanceSquared(faceCenterPoint, blackHoleOriginalLocations[i]);
+			if (dist < nearestDistanceSquared)
+			{
+				nearestDistanceSquared = dist;
+				nearestBlackHoleIndex = i;
+			}
+		}
+		
+		float distanceToNearestBlackHoleOriginalLocation = sqrt(nearestDistanceSquared);
+		
+		vec3 nearestBlackHoleCurrentLocation = blackHoleCurrentLocations[nearestBlackHoleIndex];
+		float distanceToNearestBlackHoleCurrentLocation = distance(nearestBlackHoleCurrentLocation, faceCenterPoint);
+		
+		// pow(destructionFraction, 2) to ge more precision on low values
+		float detachmentRadius = destructionFraction * destructionFraction * detachmentSpeed;
+		
+		if (distanceToNearestBlackHoleOriginalLocation < detachmentRadius)
+		{
+			float flyTemp = flySpeed * (detachmentRadius - distanceToNearestBlackHoleOriginalLocation);
+			
+			float flyFractionSmoothsteppedScalar = clamp(smoothstep(0, distanceToNearestBlackHoleCurrentLocation * 2.0, flyTemp) ,0.0, 1.0);
+			
+			// "Randomize" the maximum rotations
+			float maxAngleX = random(faceCenterPoint.x) * maxEndAngle - maxEndAngle / 2.0;
+			float maxAngleY = random(faceCenterPoint.y) * maxEndAngle - maxEndAngle / 2.0;
+			float maxAngleZ = random(faceCenterPoint.z) * maxEndAngle - maxEndAngle / 2.0;
+			
+			mat3 linearPart = rotation3dX(maxAngleX * flyFractionSmoothsteppedScalar);
+			linearPart *= rotation3dY(maxAngleY * flyFractionSmoothsteppedScalar);
+			linearPart *= rotation3dZ(maxAngleZ * flyFractionSmoothsteppedScalar);
+			
+			vec3 translation = mix(faceCenterPoint, nearestBlackHoleCurrentLocation, flyFractionSmoothsteppedScalar);
+
+			// "Hollow planet" looked stupid so add a "core" to it and avoid hitting it
+			
+			if (distance(translation, sphereOfAvoidanceCenterPoint) < sphereOfAvoidanceRadius)
+			{
+				translation = sphereOfAvoidanceCenterPoint + (sphereOfAvoidanceRadius * normalize(translation - sphereOfAvoidanceCenterPoint));
+			}
+
+			vec3 relVertPos = VERTEX - faceCenterPoint;
+			
+			float scaling = clamp((smoothstep(-shrinkMaxDistance, shrinkMaxDistance, distance(translation, nearestBlackHoleCurrentLocation)) - 0.5) * 2.0, 0.0, 1.0);
+			
+			vec3 rotatedAndScaledRelVertPos = scaling * linearPart * relVertPos;
+
+			NORMAL = linearPart * NORMAL;
+			VERTEX = rotatedAndScaledRelVertPos + translation;
 		}
 	}
-	
-	float distanceToNearestBlackHoleOriginalLocation = sqrt(nearestDistanceSquared);
-	
-	vec3 nearestBlackHoleCurrentLocation = blackHoleCurrentLocations[nearestBlackHoleIndex];
-	float distanceToNearestBlackHoleCurrentLocation = distance(nearestBlackHoleCurrentLocation, faceCenterPoint);
-	
-	// pow(destructionFraction, 2) to ge more precision on low values
-	float detachmentRadius = destructionFraction * destructionFraction * detachmentSpeed;
-	
-	if (distanceToNearestBlackHoleOriginalLocation < detachmentRadius)
+	else if (constructionMinDistance < 2.0)
 	{
-		float flyTemp = flySpeed * (detachmentRadius - distanceToNearestBlackHoleOriginalLocation);
-		
-		float flyFractionSmoothsteppedScalar = clamp(smoothstep(0, distanceToNearestBlackHoleCurrentLocation * 2.0, flyTemp) ,0.0, 1.0);
-		
-//		VERTEX += (nearestBlackHoleCurrentLocation - faceCenterPoint) * flyFractionSmoothsteppedScalar;
+		int faceId = VERTEX_ID / 3;
+		vec3 faceCenterPoint = texelFetch(customDataSampler, getTexelCoord(faceId), 0).xyz;
 
-		// "Randomize" the maximum rotations
-		float maxAngleX = random(faceCenterPoint.x) * maxEndAngle - maxEndAngle / 2.0;
-		float maxAngleY = random(faceCenterPoint.y) * maxEndAngle - maxEndAngle / 2.0;
-		float maxAngleZ = random(faceCenterPoint.z) * maxEndAngle - maxEndAngle / 2.0;
+		float dist = length(faceCenterPoint);
 		
-		mat3 linearPart = rotation3dX(maxAngleX * flyFractionSmoothsteppedScalar);
-		linearPart *= rotation3dY(maxAngleY * flyFractionSmoothsteppedScalar);
-		linearPart *= rotation3dZ(maxAngleZ * flyFractionSmoothsteppedScalar);
-		
-		vec3 translation = mix(faceCenterPoint, nearestBlackHoleCurrentLocation, flyFractionSmoothsteppedScalar);
-
-		// "Hollow planet" looked stupid so add a "core" to it and avoid hitting it
-		
-		if (distance(translation, sphereOfAvoidanceCenterPoint) < sphereOfAvoidanceRadius)
+		if (dist > constructionMaxDistance)
 		{
-			translation = sphereOfAvoidanceCenterPoint + (sphereOfAvoidanceRadius * normalize(translation - sphereOfAvoidanceCenterPoint));
+			// Face of this vertex is not visible yet, so set all vertices
+			// to zero coords to make the face invisible
+			VERTEX = vec3(0.0);
 		}
+		else if (dist > constructionMinDistance)
+		{
+			// Face is flying and rotating to it's final place
+			
+			float flyFraction = clamp(smoothstep(constructionMinDistance, constructionMaxDistance + (constructionMaxDistance - constructionMinDistance), dist) * 2.0, 0.0, 1.0);
 
-		vec3 relVertPos = VERTEX - faceCenterPoint;
-		
-		float scaling = clamp((smoothstep(-shrinkMaxDistance, shrinkMaxDistance, distance(translation, nearestBlackHoleCurrentLocation)) - 0.5) * 2.0, 0.0, 1.0);
-		
-		vec3 rotatedAndScaledRelVertPos = scaling * linearPart * relVertPos;
+			// "Randomize" the maximum rotations
+			float maxAngleX = random(faceCenterPoint.x) * constructionMaxStartAngle;
+			float maxAngleY = random(faceCenterPoint.y) * constructionMaxStartAngle;
+			float maxAngleZ = random(faceCenterPoint.z) * constructionMaxStartAngle;
 
-		NORMAL = linearPart * NORMAL;
-		VERTEX = rotatedAndScaledRelVertPos + translation;
+			mat3 linearPart = rotation3dX(maxAngleX * flyFraction);
+			linearPart *= rotation3dY(maxAngleY * flyFraction);
+			linearPart *= rotation3dZ(maxAngleZ * flyFraction);
+			
+			vec3 translation = flyFraction * constructionFlyDistance * normalize(faceCenterPoint - planetCenterPoint);
+
+			vec3 relVertPos = VERTEX - faceCenterPoint;
+			
+			vec3 rotatedAndScaledRelVertPos = (1.0 - flyFraction) * (linearPart * relVertPos);
+			
+			NORMAL = linearPart * NORMAL;
+			VERTEX = rotatedAndScaledRelVertPos + translation + faceCenterPoint;
+		}
 	}
 	
 	// Otherwise keep face where it belongs
@@ -195,10 +237,10 @@ void fragment() {
 
 	if (zoom_uv.x > 0.0 && zoom_uv.x < 1.0 && zoom_uv.y > 0.0 && zoom_uv.y < 1.0) {
 		vec4 albedo_tex = texture(zoomed_texture_albedo,zoom_uv);
-		ALBEDO = baseColor.rgb * albedo_tex.rgb;
+		ALBEDO = albedo_tex.rgb;
 	}
 	else {
 		vec4 albedo_tex = texture(texture_albedo,base_uv);
-		ALBEDO = baseColor.rgb * albedo_tex.rgb;
+		ALBEDO = albedo_tex.rgb;
 	}
 }
