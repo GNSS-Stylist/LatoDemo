@@ -19,10 +19,7 @@ uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 */
 
-/*uniform vec4 baseColor : source_color = vec4(1.0);
-uniform vec4 baseLight : source_color = vec4(0.0);
-uniform float lightFraction = 1.0;
-*/
+uniform vec4 baseColor : source_color = vec4(1.0);
 
 uniform int numOfBlackHoles = 4;
 uniform vec3 blackHoleOriginalLocations[4];
@@ -43,8 +40,7 @@ uniform float constructionMaxDistance = 10.0;
 uniform float constructionMinDistance = 2.0;
 uniform float constructionFlyDistance = 1.0;
 uniform float constructionMaxStartAngle = 6.0;
-
-uniform vec3 planetCenterPoint = vec3(0.0, 0.0, -1.0);
+uniform vec3 constructionFlyTowardsPoint = vec3(0.0, 0.0, -1.0);
 
 mat3 rotation3dX(float angle) {
 	float s = sin(angle);
@@ -185,17 +181,20 @@ void vertex() {
 
 		float dist = length(faceCenterPoint);
 		
-		if (dist > constructionMaxDistance)
+		float minDistScaled = constructionMinDistance * constructionMinDistance * constructionMinDistance;
+		float maxDistScaled = constructionMaxDistance * constructionMaxDistance * constructionMaxDistance;
+		
+		if (dist > maxDistScaled)
 		{
 			// Face of this vertex is not visible yet, so set all vertices
 			// to zero coords to make the face invisible
 			VERTEX = vec3(0.0);
 		}
-		else if (dist > constructionMinDistance)
+		else if (dist > minDistScaled)
 		{
 			// Face is flying and rotating to it's final place
 			
-			float flyFraction = clamp(smoothstep(constructionMinDistance, constructionMaxDistance + (constructionMaxDistance - constructionMinDistance), dist) * 2.0, 0.0, 1.0);
+			float flyFraction = clamp(smoothstep(minDistScaled, maxDistScaled + (maxDistScaled - minDistScaled), dist) * 2.0, 0.0, 1.0);
 
 			// "Randomize" the maximum rotations
 			float maxAngleX = random(faceCenterPoint.x) * constructionMaxStartAngle;
@@ -206,7 +205,7 @@ void vertex() {
 			linearPart *= rotation3dY(maxAngleY * flyFraction);
 			linearPart *= rotation3dZ(maxAngleZ * flyFraction);
 			
-			vec3 translation = flyFraction * constructionFlyDistance * normalize(faceCenterPoint - planetCenterPoint);
+			vec3 translation = flyFraction * constructionFlyDistance * normalize(faceCenterPoint - constructionFlyTowardsPoint);
 
 			vec3 relVertPos = VERTEX - faceCenterPoint;
 			
@@ -237,10 +236,10 @@ void fragment() {
 
 	if (zoom_uv.x > 0.0 && zoom_uv.x < 1.0 && zoom_uv.y > 0.0 && zoom_uv.y < 1.0) {
 		vec4 albedo_tex = texture(zoomed_texture_albedo,zoom_uv);
-		ALBEDO = albedo_tex.rgb;
+		ALBEDO = baseColor.rgb * albedo_tex.rgb;
 	}
 	else {
 		vec4 albedo_tex = texture(texture_albedo,base_uv);
-		ALBEDO = albedo_tex.rgb;
+		ALBEDO = baseColor.rgb * albedo_tex.rgb;
 	}
 }

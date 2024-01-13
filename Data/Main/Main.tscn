@@ -14590,6 +14590,7 @@ shader_parameter/antiAlias = 8
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mwlb5"]
 render_priority = 0
 shader = ExtResource("30_m12gp")
+shader_parameter/baseColor = Color(1.13, 1.13, 1.13, 1)
 shader_parameter/numOfBlackHoles = 4
 shader_parameter/blackHoleOriginalLocations = PackedVector3Array(0, 0.001, 0, 0.389, -0.577, -0.419, -0.696, -0.522, -0.509, 0.523, 0.444, -1.318)
 shader_parameter/blackHoleCurrentLocations = PackedVector3Array(0, 0.001, 0, 0.389, -0.577, -0.407, -0.696, -0.522, -0.509, 0.523, 0.444, -1.318)
