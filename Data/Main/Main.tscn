@@ -14605,7 +14605,7 @@ shader_parameter/constructionMaxDistance = 10.0
 shader_parameter/constructionMinDistance = 2.0
 shader_parameter/constructionFlyDistance = 1.0
 shader_parameter/constructionMaxStartAngle = 6.0
-shader_parameter/constructionFlyTowardsPoint = Vector3(0, 0, -1)
+shader_parameter/constructionFlyTowardsPoint = Vector3(0, 0, 0)
 shader_parameter/texture_albedo = ExtResource("30_nl8ir")
 shader_parameter/zoomed_texture_albedo = ExtResource("51_vf3bi")
 
@@ -15707,7 +15707,7 @@ visible = false
 [node name="Planet" type="Node3D" parent="World"]
 
 [node name="Crust" type="MeshInstance3D" parent="World/Planet"]
-transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 7000, -3402.98, 0)
+transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 20, -3402.98, -0.765)
 visible = false
 layers = 2
 material_override = SubResource("ShaderMaterial_mwlb5")
