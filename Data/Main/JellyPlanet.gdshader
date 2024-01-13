@@ -57,6 +57,7 @@ float calcWobble(float wobbleFraction, float time, float seed)
 //varying flat float fragmentInitialAlpha;
 //varying flat vec4 fragmentEmission;
 varying vec3 fragmentDistanceFromEdge;
+varying float distanceFromCenter;
 
 void vertex()
 {
@@ -85,6 +86,8 @@ void vertex()
 	{
 		fragmentDistanceFromEdge = vec3(0.0, 0.0, 1.0);
 	}
+	
+	distanceFromCenter = clamp(length(VERTEX) * 20000.0 , 0.0, 1.0);
 
 }
 
@@ -117,7 +120,7 @@ void fragment() {
 	vec4 edgeAlbedo;
 	
 //	if (FRONT_FACING) {
-		edgeAlbedo = edgeAlbedo_Front;
+		edgeAlbedo = mix(edgeAlbedo_Front, centerAlbedo_Front, 1.0 - distanceFromCenter);
 //	}
 //	else {
 //		edgeAlbedo = edgeAlbedo_Back;

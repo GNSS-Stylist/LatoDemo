@@ -52,7 +52,7 @@ func _ready():
 	
 	# "Subdivided triangles"
 #	if false:
-	for i in range(17):
+	for i in range(28):
 		var newV1 = (v1 + v2) / 2
 		var newV2 = (v2 + v3) / 2
 		var newV3 = (v3 + v1) / 2
