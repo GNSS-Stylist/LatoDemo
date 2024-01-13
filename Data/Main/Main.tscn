@@ -3504,6 +3504,30 @@ tracks/48/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("World/JellyPlanet:position")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.6, -106.5, -1.8)]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("World/JellyPlanet:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.48042e+06, 6.48042e+06, 6.48042e+06)]
+}
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
 resource_name = "Descent"
@@ -4334,6 +4358,30 @@ tracks/34/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("World/JellyPlanet:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.6, -106.5, -1.8)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("World/JellyPlanet:scale")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.48042e+06, 6.48042e+06, 6.48042e+06)]
 }
 
 [sub_resource type="Animation" id="Animation_62hyn"]
@@ -11868,6 +11916,30 @@ tracks/271/keys = {
 "update": 0,
 "values": [-5.5]
 }
+tracks/272/type = "value"
+tracks/272/imported = false
+tracks/272/enabled = true
+tracks/272/path = NodePath("World/JellyPlanet:position")
+tracks/272/interp = 1
+tracks/272/loop_wrap = true
+tracks/272/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.6, -106.5, -1.8)]
+}
+tracks/273/type = "value"
+tracks/273/imported = false
+tracks/273/enabled = true
+tracks/273/path = NodePath("World/JellyPlanet:scale")
+tracks/273/interp = 1
+tracks/273/loop_wrap = true
+tracks/273/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.48042e+06, 6.48042e+06, 6.48042e+06)]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -12849,6 +12921,30 @@ tracks/44/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("World/JellyPlanet:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.6, -106.5, -1.8)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("World/JellyPlanet:scale")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.48042e+06, 6.48042e+06, 6.48042e+06)]
 }
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
@@ -14504,8 +14600,11 @@ shader_parameter/shrinkMaxDistance = 0.002
 shader_parameter/destructionFraction = 0.0
 shader_parameter/sphereOfAvoidanceRadius = 0.9
 shader_parameter/sphereOfAvoidanceCenterPoint = Vector3(0, 0, -1)
-shader_parameter/baseLight = Color(0, 0, 0, 1)
-shader_parameter/baseColor = Color(1.13, 1.13, 1.13, 1)
+shader_parameter/constructionMaxDistance = 10.0
+shader_parameter/constructionMinDistance = 2.0
+shader_parameter/constructionFlyDistance = 1.0
+shader_parameter/constructionMaxStartAngle = 6.0
+shader_parameter/constructionFlyTowardsPoint = Vector3(0, 0, -1)
 shader_parameter/texture_albedo = ExtResource("30_nl8ir")
 shader_parameter/zoomed_texture_albedo = ExtResource("51_vf3bi")
 
@@ -15120,7 +15219,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -15142,7 +15241,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -15408,7 +15507,7 @@ mesh = SubResource("BoxMesh_psnnd")
 skeleton = NodePath("../..")
 
 [node name="JellyPlanet" type="MeshInstance3D" parent="World"]
-transform = Transform3D(0, -6.48042e+06, 0, 0, 0, 6.48042e+06, -6.48042e+06, 0, 0, 14.521, -106.5, -1.238)
+transform = Transform3D(-0.283268, 6.48042e+06, 0.283268, 0, -0.283268, 6.48042e+06, 6.48042e+06, 0.283268, 1.2382e-08, 1.6, -106.5, -1.8)
 visible = false
 material_override = SubResource("ShaderMaterial_bpk7y")
 cast_shadow = 0
@@ -16030,13 +16129,14 @@ fov = 42.0
 
 [node name="CobraMkIII" parent="SubViewport_Elite/Node3D" instance=ExtResource("74_otxia")]
 transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 0, 0, 0)
+visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SubViewport_Elite/Node3D/CobraMkIII"]
 remote_path = NodePath("../../../../DebugThings/DebugCobraMkIII")
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
