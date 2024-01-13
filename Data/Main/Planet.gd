@@ -100,7 +100,7 @@ func breakGeometry():
 	var orig:Vector3 = Vector3(0, 0, -1)
 
 	# "Subdivided triangles"
-	for i in range(14):
+	for i in range(23):
 		var newV1 = (v1 + v2) / 2
 		var newV2 = (v2 + v3) / 2
 		var newV3 = (v3 + v1) / 2
