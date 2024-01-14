@@ -675,10 +675,6 @@ func _on_button_demo_pressed():
 #		OS.window_fullscreen = true
 	demoStarted = true
 
-func checkForPrematureExit():
-	if ($Panel_Start/OptionButton_Ending.get_selected_id() == 2):
-		OS.kill(OS.get_process_id())	# Immediate exit
-
 func killMe():
 	OS.kill(OS.get_process_id())	# Immediate exit
 	
