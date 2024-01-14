@@ -1239,6 +1239,1731 @@ tracks/50/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("World/Planet/BlackHole_Eater2:visible")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("World/Planet/BlackHole_Eater3:visible")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pp4xi"]
+resource_name = "AscensionToSpaceStation"
+length = 600.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animationCameraAnchorIndexA")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 82, 139, 141.5, 145.142, 177.598),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [5, 5, 5, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animationCameraAnchorIndexB")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 81.5, 161, 166, 169.87, 170.87, 177.598, 244, 245, 297.887),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 6, 6, 2, 2, 3, 2, 2, 3, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animationCameraFraction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 52, 55.5, 81.5, 82.5, 83.5, 143.069, 145.142, 176.137, 177.598, 179.598, 243, 244, 245, 257.387, 258.387, 300, 300.5, 301, 320),
+"transitions": PackedFloat32Array(1, 1, 1, 2, 0.5, 1, 1, 1, 1, 0.5, 1, 2, 0.5, 1, 1, 1, 2, 0.5, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-6.189, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 1.21543, 0.0222326, -5.04863, -1.0759, -0.912941, 0.722243, 0.612852, -2.5, -2.0759, 0.111938, 2.42325, -0.130669, -8.799, -1.40829, 2.33529, 1.229, -2.03799, -12.494, -1.44305, -0.622471, 1.10898, 0.478368, -1.974, -0.621531, -1.71375, 0.536682, 1.47979, -0.881, -0.717663, 0.797578, 0.633118, -0.703618, -17.373, -1.6724, 6.00264, 3.94177, -14.148, -22.766, -2.62775, -7.89651, 1.58005, 4.74811, 3.313, -2.30429, -8.91465, 2.4642, 9.53329, 25.943, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 260, 264, 270, 274, 277, 279, 283, 291, 296, 301)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.29119, -0.301008, 3.9241, 0.358894, 1.884, -3.0759, -0.214474, 1.76644, 0.123169, 1.35, -1.5759, 0.186067, 0.806528, -0.0952271, 0.936, -1.81504, 0.165004, 0.907471, -0.0824977, 0.768, -1.81384, 0.164738, 0.897188, -0.0814851, 0.458, -0.828033, 0.00522539, 0.947453, -0.005979, 1.575, -1.99609, 0.183181, 0.924748, -0.084864, 1.045, -1.99609, 0.183181, 0.924748, -0.084864, 2.233, -1.99609, 0.183181, 0.924748, -0.084864, 34.104, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 264, 270, 274, 277, 279, 283, 291, 296, 301)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(17.445, -0.603882, 0.860134, 0.101302, -0.144288, 17.2616, -2.59147, -0.410365, 2.4241, 0.383862, 18.6453, -1.43832, -0.0628948, 1.44458, 0.0631683, 16.197, -2.66152, 0.304449, 2.45984, -0.281379, 18.9518, -1.18314, 0.927641, 1.46115, -1.14561, 12.409, -1.93499, 2.11385, 1.16721, -1.2751, 10.148, -1.26895, 0.674357, 0.519051, -0.275838, 10.135, -0.825714, -0.0136221, 1.12738, 0.0185987, 10.342, -1.65164, 0.168811, 0.793256, -0.081077, -8.845, -2.09578, 2.74639, 1.11172, -1.45685, -9.253, -2.10664, 0.177992, 0.99823, -0.0843413, -0.29, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 259.5, 264, 270.5, 274, 277, 279, 283, 291, 296, 301)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GlobalInit:scopeAutoSoundPosAdjustFractionByCurrentCamera")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 55.9395, 56.7511, 75.5, 253.5, 255.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 0.0, 0.0, 1.0]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:yaw")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-369.922, -0.25, 0, 0.25, 0, -9.922, -0.25, 0, 0.25, 0, -9.922, -2.04786, 0.00511363, 0.659546, -0.00164693, -10.214, -0.456133, 0.136804, 0.313446, -0.0940094, -13.517, -0.463112, 3.4191, 1.5574, -11.4981, -54.875, -2.99215, -0.0648952, 3.66528, 0.0794945, 17.0832, -0.238281, -7.49142, 0.293028, 9.21262, 102.627, -1.62435, -0.417413, 2.36346, 0.607344, 275.041, -0.901793, -56.6893, 0.365875, 23, 315.041, -0.524196, -13.5482, 0.696442, 18, 412.32, -2.19026, -43.1601, 2.77689, 54.72, 499.12, -3.69843, -50.8044, 1.2102, 16.6242, 619.3, -3.50768, -42.4258, 1.40936, 17.0464, 628, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 249, 256.5, 258.5, 260, 264, 270, 274, 277, 278, 283, 291, 296, 301)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:pitch")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-2.906, -0.843964, 0.0688859, 0.249946, -0.020401, -4.256, -1.84538, -3.50322, 1.19806, 2.27436, 32.079, -1.28428, 1.83694, 1.06522, -1.5236, -11.269, -1.18655, 11.5906, 0.189549, -1.85156, -23.37, -1.75608, 4.72313, 1.75946, -4.73223, -17.669, -1.76294, -1.90933, 1.65833, 1.79603, -15.715, -1.95129, -2.06882, 2.19998, 2.33249, -13.474, -1.95129, -2.06882, 2.19998, 2.33249, -0.876, -2.35297, 0.7259, 1.94879, -0.601209, -7.023, -2.25563, -1.85108, 3.41217, 2.8002, -7.85597, -2.29699, 1.99758, 2.06348, -1.79451, -17.8379, -1.40889, 5.05338, 1.56348, -5.60783, -49.949, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 258.5, 260, 264, 270, 274, 277, 279, 283, 291.5, 296, 301)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:roll")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.345, -0.25, 0, 0.25, 0, 0.345, -0.24881, 0.00815233, 1.14053, -0.0373698, 0, -0.870819, 0.144102, 0.2241, -0.0370836, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 258.5, 301)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:quatOverride")
+tracks/10/interp = 2
+tracks/10/loop_wrap = false
+tracks/10/keys = {
+"times": PackedFloat32Array(102.5, 105.5, 109, 111, 113, 119, 190, 192, 195, 197.5, 200, 202, 204, 301),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0.011, -0.582, 0.008, 0.813), Quaternion(-0.517, 0.129, 0.295, 0.793), Quaternion(-0.12, 0.81, -0.107, 0.564), Quaternion(0.207, 0.7, -0.246, 0.637), Quaternion(-0.143, 0.473, 0.087, 0.865), Quaternion(-0.227, 0.285, 0.07, 0.929), Quaternion(0.107, 0.511, -0.064, 0.851), Quaternion(0.35, 0.395, -0.165, 0.833), Quaternion(0.35, -0.238, 0.096, 0.901), Quaternion(-0.06, -0.517, 0.07, 0.851), Quaternion(0.46, -0.13, -0.392, 0.786), Quaternion(0.136, 0.251, -0.094, 0.954), Quaternion(0.016, 0.108, -0.002, 0.994), Quaternion(-0.293, 0.652, 0.304, 0.63)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:eulerAnglesFraction")
+tracks/11/interp = 1
+tracks/11/loop_wrap = false
+tracks/11/keys = {
+"times": PackedFloat32Array(102.5, 105.5, 113, 119, 190, 192, 202, 204, 255),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("GlobalInit:replayTimeOverride_WireFrames")
+tracks/12/interp = 1
+tracks/12/loop_wrap = false
+tracks/12/keys = {
+"times": PackedFloat32Array(114.5, 129, 256.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 14000.0, 1e+09]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = false
+tracks/13/path = NodePath("GlobalInit:replayTimeOverride_AdditiveGeometries")
+tracks/13/interp = 1
+tracks/13/loop_wrap = false
+tracks/13/keys = {
+"times": PackedFloat32Array(114.5, 129),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 14000.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = false
+tracks/14/path = NodePath("GlobalInit:overrideReplayTime_WireFrames")
+tracks/14/interp = 0
+tracks/14/loop_wrap = false
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 106, 129, 256.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [true, true, false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = false
+tracks/15/path = NodePath("GlobalInit:overrideReplayTime_AdditiveGeometries")
+tracks/15/interp = 0
+tracks/15/loop_wrap = false
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 106, 129),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, true, false]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath(".")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(177.498, 240, 331.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"captureViewport"
+}, {
+"args": [],
+"method": &"captureViewport"
+}, {
+"args": [],
+"method": &"killMe"
+}]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("WorldEnvironment:environment:fog_density")
+tracks/17/interp = 1
+tracks/17/loop_wrap = false
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 200.579, 201.579, 296.8, 297.909),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.003, 0.003, 0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = false
+tracks/18/path = NodePath("World/AdditiveGeometries/LatoText:overrideReplayTime_WireFrame_Local")
+tracks/18/interp = 1
+tracks/18/loop_wrap = false
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 254.576),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = false
+tracks/19/path = NodePath("World/AdditiveGeometries/LatoText:localReplayTimeOverride_WireFrame")
+tracks/19/interp = 1
+tracks/19/loop_wrap = false
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 254.576),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1e+09]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = false
+tracks/20/path = NodePath("World/AdditiveGeometries/LatoText:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
+tracks/20/interp = 1
+tracks/20/loop_wrap = false
+tracks/20/keys = {
+"times": PackedFloat32Array(253.576, 254.576),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6000.0, 0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = false
+tracks/21/path = NodePath("World/AdditiveGeometries/LatoText:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
+tracks/21/interp = 1
+tracks/21/loop_wrap = false
+tracks/21/keys = {
+"times": PackedFloat32Array(253.576, 254.576),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [8000.0, 0.0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("World/LidarRig:visible")
+tracks/22/interp = 0
+tracks/22/loop_wrap = false
+tracks/22/keys = {
+"times": PackedFloat32Array(201.579),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("World/AdditiveGeometries/LatoText:visible")
+tracks/23/interp = 0
+tracks/23/loop_wrap = false
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 219.576),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("WorldEnvironment:environment:fog_enabled")
+tracks/24/interp = 0
+tracks/24/loop_wrap = false
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 200.579, 300.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("WorldEnvironment:environment:fog_sky_affect")
+tracks/25/interp = 1
+tracks/25/loop_wrap = false
+tracks/25/keys = {
+"times": PackedFloat32Array(298.5, 300.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath(".:animationPosition")
+tracks/26/interp = 1
+tracks/26/loop_wrap = false
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 590),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 590.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("CameraFlyingSpace_Satellite_Angled/Path_Satellite/PathFollow_Satellite/LocalOrigin:quatOverride")
+tracks/27/interp = 2
+tracks/27/loop_wrap = false
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 6, 8.12215, 10.155, 12.2905, 14.3479, 20.1293, 32, 36.5, 40, 43.382, 46.4295, 49.049, 51.7516, 56, 59.0083, 62.5, 63.5, 70.5, 76, 79, 85, 86.5, 89, 296.5, 301.5, 306.5, 316.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0.613, -0.182, 0.764, -0.086), Quaternion(-0.672, -0.301, -0.492, 0.464), Quaternion(-0.398023, -0.216846, -0.583401, 0.673943), Quaternion(0.161556, -0.140861, -0.379097, 0.900191), Quaternion(0.329063, -0.0870168, -0.458088, 0.821158), Quaternion(0.329063, -0.0870168, -0.458088, 0.821158), Quaternion(0.329063, -0.0870168, -0.458088, 0.821158), Quaternion(0.428, -0.103, 0.011, 0.898), Quaternion(0.677483, -0.209763, -0.0769846, 0.700777), Quaternion(0.053, -0.312, -0.294, 0.902), Quaternion(-0.0144737, -0.268602, -0.507849, 0.818372), Quaternion(-0.0879268, -0.17884, -0.333301, 0.921518), Quaternion(-0.08, -0.062, -0.331, 0.938), Quaternion(-0.08, -0.062, -0.331, 0.938), Quaternion(0.319743, 0.930721, 0.0571061, -0.168113), Quaternion(0.321578, 0.936217, -0.0466263, 0.133832), Quaternion(-0.31, -0.829, -0.163, 0.437), Quaternion(0.361, 0.918, 0.066, -0.148), Quaternion(0.153, -0.046, 0.428, 0.89), Quaternion(0.111, 0.049, 0.552, 0.825), Quaternion(0.024, -0.026, -0.85, 0.525), Quaternion(0, 0, 0, 1), Quaternion(-0.375, -0.079, -0.19, 0.904), Quaternion(-0.375, -0.079, -0.19, 0.904), Quaternion(0.339, 0.086, 0.04, 0.936), Quaternion(-0.043, 0.012, 0.013, 0.999), Quaternion(0.007, 0.004, 0.013, 1), Quaternion(-0.081, 0.009, 0.011, 0.997)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = false
+tracks/28/path = NodePath(".:dbgAnimJump")
+tracks/28/interp = 0
+tracks/28/loop_wrap = false
+tracks/28/keys = {
+"times": PackedFloat32Array(45.3586, 160.892),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10.0, 10.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("CameraFlyingSpace_Ascend/Ascender:distance")
+tracks/29/interp = 1
+tracks/29/loop_wrap = false
+tracks/29/keys = {
+"times": PackedFloat32Array(300),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("CameraFlyingSpace_Ascend/Ascender:height")
+tracks/30/interp = 1
+tracks/30/loop_wrap = false
+tracks/30/keys = {
+"times": PackedFloat32Array(300, 301),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [40.0, 50.0]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("CameraFlyingSpace_Ascend/Ascender:angle")
+tracks/31/interp = 1
+tracks/31/loop_wrap = false
+tracks/31/keys = {
+"times": PackedFloat32Array(300.001, 301),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [90.0, 45.0]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath(".:position")
+tracks/32/interp = 0
+tracks/32/loop_wrap = false
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 256),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("CameraFlyingSpace_Ascend:process_mode")
+tracks/33/interp = 1
+tracks/33/loop_wrap = false
+tracks/33/keys = {
+"times": PackedFloat32Array(300),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("CameraFlyingSpace_Ascend:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = false
+tracks/34/keys = {
+"times": PackedFloat32Array(300),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/35/type = "bezier"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxDistance")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.48, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(256)
+}
+tracks/36/type = "bezier"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMinDistance")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.48, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(256)
+}
+
+[sub_resource type="Animation" id="Animation_xjc42"]
+resource_name = "AscensionToSpaceStation_INIT"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animDbgPrint")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["AscensionToSpaceStation_INIT"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("World:scalingOverride")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World:inverseScalingOverride")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Satellite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Satellite:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/Planet/Crust:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World/Planet/Crust:process_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("World/JellyPlanet:process_mode")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("World/CameraRig:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("World/CameraRig:process_mode")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("World/AdditiveGeometries:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("World/AdditiveGeometries:process_mode")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("World/PlanetCore:process_mode")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("World/LOScriptReplayer_MainBlackHole:process_mode")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("World/LidarLineSets:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("World/LidarLineSets:process_mode")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("World/LidarPointSets:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("World/LidarPointSets:process_mode")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("GlobalLights:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("GlobalLights:process_mode")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("SatelliteWreck:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("SatelliteWreck:process_mode")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CameraFlyingSpace_Ascend:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CameraFlyingSpace_Ascend:process_mode")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("AnimatedCamera/DirectionalLight:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = false
+tracks/25/path = NodePath("AnimatedCamera/DirectionalLight:light_energy")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = false
+tracks/26/path = NodePath("AnimatedCamera/DirectionalLight:light_color")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath(".:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("GlobalInit:scopeAutoSoundPosAdjustFractionByCurrentCamera")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("GlobalInit:blockableGNSSSignalRaycast")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/soundOffset")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/scopeHeight")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/soundLength")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [300000.0]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/baseAlbedo")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("World/StaticBunchOfGNSSSignals:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("World/StaticBunchOfGNSSSignals:process_mode")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts:visible")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts:process_mode")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("AnimatedCamera:fov")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [42.0]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("AnimatedCamera:near")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("AnimatedCamera:far")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2500.0]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("WorldEnvironment:environment:adjustment_brightness")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("WorldEnvironment:environment:adjustment_contrast")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialAlphaFadeInTime")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/disappearanceDelay")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5500.0]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleTime")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4500.0]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleAmplitude_Min")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleAmplitude_Max")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleFrequency_Min")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.002]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleFrequency_Max")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.005]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/alphaFadeOutStartTime")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/alphaFadeOutEndTime")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5500.0]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/wobbleTimeOffset")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10000.0]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flyTime")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flatFaceMinDelayTime")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7000.0]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flatFaceMaxDelayTime")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10000.0]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Vertex")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Fragment")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/60/type = "value"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/faceTimeOverride")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("World/AdditiveGeometries/Ground:overrideReplayTime_AdditiveGeometry_Local")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/62/type = "value"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("World/AdditiveGeometries/Ground:localReplayTimeOverride_AdditiveGeometry")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+08]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("World/AdditiveGeometries/Ground:overrideReplayTime_WireFrame_Local")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("World/AdditiveGeometries/Ground:localReplayTimeOverride_WireFrame")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+08]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flyTime")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flatFaceMinDelayTime")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7000.0]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flatFaceMaxDelayTime")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10000.0]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Vertex")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Fragment")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/71/type = "value"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/textureFadeInStartTime")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/73/type = "value"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/textureFadeInEndTime")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/74/type = "value"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightInitialValue")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/75/type = "value"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightFinalValue")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/76/type = "value"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightInitialValueTime")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10000.0]
+}
+tracks/77/type = "value"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightFinalValueTime")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/78/type = "value"
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/faceTimeOverride")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/79/type = "value"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundAmplificationA")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/80/type = "value"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundAmplificationB")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/81/type = "value"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerLineWidthLow")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/82/type = "value"
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerLineWidthHigh")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.027]
+}
+tracks/83/type = "value"
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/lineFadeOutLow")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+tracks/84/type = "value"
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/lineFadeOutHigh")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/85/type = "value"
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerAlbedo")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.145098, 0, 1)]
+}
+tracks/86/type = "value"
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/path = NodePath("World/Planet:visible")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/87/type = "value"
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/path = NodePath("World/Planet:process_mode")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/88/type = "value"
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/path = NodePath("World/PlanetCore:visible")
+tracks/88/interp = 1
+tracks/88/loop_wrap = true
+tracks/88/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/89/type = "value"
+tracks/89/imported = false
+tracks/89/enabled = false
+tracks/89/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/91/type = "value"
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/path = NodePath("World/Planet/BlackHole_Eater2:eventHorizonRadius")
+tracks/91/interp = 1
+tracks/91/loop_wrap = true
+tracks/91/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/92/type = "value"
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/path = NodePath("World/Planet/BlackHole_Eater3:eventHorizonRadius")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/93/type = "value"
+tracks/93/imported = false
+tracks/93/enabled = true
+tracks/93/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundLengthA")
+tracks/93/interp = 1
+tracks/93/loop_wrap = true
+tracks/93/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4096.0]
+}
+tracks/94/type = "value"
+tracks/94/imported = false
+tracks/94/enabled = true
+tracks/94/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/94/interp = 1
+tracks/94/loop_wrap = true
+tracks/94/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/95/type = "value"
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/path = NodePath("World/Planet/Crust:material_override:shader_parameter/destructionFraction")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/96/type = "value"
+tracks/96/imported = false
+tracks/96/enabled = true
+tracks/96/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxStartAngle")
+tracks/96/interp = 1
+tracks/96/loop_wrap = true
+tracks/96/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [60.0]
+}
+tracks/97/type = "value"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("World/LOScriptReplayer_MainBlackHole:visible")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/98/type = "value"
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/path = NodePath("World/Planet/BlackHole_Eater2:visible")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/99/type = "value"
+tracks/99/imported = false
+tracks/99/enabled = true
+tracks/99/path = NodePath("World/Planet/BlackHole_Eater3:visible")
+tracks/99/interp = 1
+tracks/99/loop_wrap = true
+tracks/99/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/100/type = "value"
+tracks/100/imported = false
+tracks/100/enabled = true
+tracks/100/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:visible")
+tracks/100/interp = 1
+tracks/100/loop_wrap = true
+tracks/100/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/101/type = "value"
+tracks/101/imported = false
+tracks/101/enabled = true
+tracks/101/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:process_mode")
+tracks/101/interp = 1
+tracks/101/loop_wrap = true
+tracks/101/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/102/type = "value"
+tracks/102/imported = false
+tracks/102/enabled = true
+tracks/102/path = NodePath("GlobalInit:replayTime_Lidar")
+tracks/102/interp = 1
+tracks/102/loop_wrap = true
+tracks/102/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [200000.0]
+}
+tracks/103/type = "value"
+tracks/103/imported = false
+tracks/103/enabled = true
+tracks/103/path = NodePath("World/LidarRig:loOverrideFraction")
+tracks/103/interp = 1
+tracks/103/loop_wrap = true
+tracks/103/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ay6ay"]
 resource_name = "Construction"
@@ -4628,17 +6353,14 @@ tracks/19/path = NodePath(".")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(177.498, 240, 256.387, 331.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(177.498, 240, 331.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"captureViewport"
 }, {
 "args": [],
 "method": &"captureViewport"
-}, {
-"args": [],
-"method": &"checkForPrematureExit"
 }, {
 "args": [],
 "method": &"killMe"
@@ -6223,43 +7945,43 @@ tracks/92/keys = {
 tracks/93/type = "value"
 tracks/93/imported = false
 tracks/93/enabled = true
-tracks/93/path = NodePath("World/Planet/BlackHole_Eater2:eventHorizonRadius")
+tracks/93/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundLengthA")
 tracks/93/interp = 1
 tracks/93/loop_wrap = true
 tracks/93/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.5]
+"values": [4096.0]
 }
 tracks/94/type = "value"
 tracks/94/imported = false
 tracks/94/enabled = true
-tracks/94/path = NodePath("World/Planet/BlackHole_Eater3:eventHorizonRadius")
+tracks/94/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/94/interp = 1
 tracks/94/loop_wrap = true
 tracks/94/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
+"update": 1,
+"values": [false]
 }
 tracks/95/type = "value"
 tracks/95/imported = false
 tracks/95/enabled = true
-tracks/95/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundLengthA")
+tracks/95/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:process_mode")
 tracks/95/interp = 1
 tracks/95/loop_wrap = true
 tracks/95/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4096.0]
+"update": 1,
+"values": [0]
 }
 tracks/96/type = "value"
 tracks/96/imported = false
 tracks/96/enabled = true
-tracks/96/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/96/path = NodePath("World/Planet/BlackHole_Eater2:visible")
 tracks/96/interp = 1
 tracks/96/loop_wrap = true
 tracks/96/keys = {
@@ -6267,6 +7989,42 @@ tracks/96/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/97/type = "value"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("World/Planet/BlackHole_Eater3:visible")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/98/type = "value"
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/path = NodePath("World/Planet/BlackHole_Eater3:process_mode")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/99/type = "value"
+tracks/99/imported = false
+tracks/99/enabled = true
+tracks/99/path = NodePath("World/Planet/BlackHole_Eater2:process_mode")
+tracks/99/interp = 1
+tracks/99/loop_wrap = true
+tracks/99/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_dqvmp"]
@@ -12010,6 +13768,18 @@ tracks/278/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/279/type = "value"
+tracks/279/imported = false
+tracks/279/enabled = true
+tracks/279/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:process_mode")
+tracks/279/interp = 1
+tracks/279/loop_wrap = true
+tracks/279/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -14016,1889 +15786,6 @@ tracks/62/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_pp4xi"]
-resource_name = "AscensionToSpaceStation"
-length = 600.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animationCameraAnchorIndexA")
-tracks/0/interp = 0
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 82, 139, 141.5, 145.142, 177.598),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [5, 5, 5, 2, 3, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:animationCameraAnchorIndexB")
-tracks/1/interp = 0
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 81.5, 161, 166, 169.87, 170.87, 177.598, 244, 245, 297.887),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [1, 6, 6, 2, 2, 3, 2, 2, 3, 7]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:animationCameraFraction")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 52, 55.5, 81.5, 82.5, 83.5, 143.069, 145.142, 176.137, 177.598, 179.598, 243, 244, 245, 257.387, 258.387, 300, 300.5, 301, 320),
-"transitions": PackedFloat32Array(1, 1, 1, 2, 0.5, 1, 1, 1, 1, 0.5, 1, 2, 0.5, 1, 1, 1, 2, 0.5, 1, 1),
-"update": 0,
-"values": [1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0]
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-6.189, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 1.21543, 0.0222326, -5.04863, -1.0759, -0.912941, 0.722243, 0.612852, -2.5, -2.0759, 0.111938, 2.42325, -0.130669, -8.799, -1.40829, 2.33529, 1.229, -2.03799, -12.494, -1.44305, -0.622471, 1.10898, 0.478368, -1.974, -0.621531, -1.71375, 0.536682, 1.47979, -0.881, -0.717663, 0.797578, 0.633118, -0.703618, -17.373, -1.6724, 6.00264, 3.94177, -14.148, -22.766, -2.62775, -7.89651, 1.58005, 4.74811, 3.313, -2.30429, -8.91465, 2.4642, 9.53329, 25.943, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 260, 264, 270, 274, 277, 279, 283, 291, 296, 301)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.29119, -0.301008, 3.9241, 0.358894, 1.884, -3.0759, -0.214474, 1.76644, 0.123169, 1.35, -1.5759, 0.186067, 0.806528, -0.0952271, 0.936, -1.81504, 0.165004, 0.907471, -0.0824977, 0.768, -1.81384, 0.164738, 0.897188, -0.0814851, 0.458, -0.828033, 0.00522539, 0.947453, -0.005979, 1.575, -1.99609, 0.183181, 0.924748, -0.084864, 1.045, -1.99609, 0.183181, 0.924748, -0.084864, 2.233, -1.99609, 0.183181, 0.924748, -0.084864, 34.104, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 264, 270, 274, 277, 279, 283, 291, 296, 301)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:position:z")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(17.445, -0.603882, 0.860134, 0.101302, -0.144288, 17.2616, -2.59147, -0.410365, 2.4241, 0.383862, 18.6453, -1.43832, -0.0628948, 1.44458, 0.0631683, 16.197, -2.66152, 0.304449, 2.45984, -0.281379, 18.9518, -1.18314, 0.927641, 1.46115, -1.14561, 12.409, -1.93499, 2.11385, 1.16721, -1.2751, 10.148, -1.26895, 0.674357, 0.519051, -0.275838, 10.135, -0.825714, -0.0136221, 1.12738, 0.0185987, 10.342, -1.65164, 0.168811, 0.793256, -0.081077, -8.845, -2.09578, 2.74639, 1.11172, -1.45685, -9.253, -2.10664, 0.177992, 0.99823, -0.0843413, -0.29, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 259.5, 264, 270.5, 274, 277, 279, 283, 291, 296, 301)
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("GlobalInit:scopeAutoSoundPosAdjustFractionByCurrentCamera")
-tracks/6/interp = 1
-tracks/6/loop_wrap = false
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 55.9395, 56.7511, 75.5, 253.5, 255.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 1.0, 0.0, 0.0, 1.0]
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:yaw")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-369.922, -0.25, 0, 0.25, 0, -9.922, -0.25, 0, 0.25, 0, -9.922, -2.04786, 0.00511363, 0.659546, -0.00164693, -10.214, -0.456133, 0.136804, 0.313446, -0.0940094, -13.517, -0.463112, 3.4191, 1.5574, -11.4981, -54.875, -2.99215, -0.0648952, 3.66528, 0.0794945, 17.0832, -0.238281, -7.49142, 0.293028, 9.21262, 102.627, -1.62435, -0.417413, 2.36346, 0.607344, 275.041, -0.901793, -56.6893, 0.365875, 23, 315.041, -0.524196, -13.5482, 0.696442, 18, 412.32, -2.19026, -43.1601, 2.77689, 54.72, 499.12, -3.69843, -50.8044, 1.2102, 16.6242, 619.3, -3.50768, -42.4258, 1.40936, 17.0464, 628, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 249, 256.5, 258.5, 260, 264, 270, 274, 277, 278, 283, 291, 296, 301)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:pitch")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-2.906, -0.843964, 0.0688859, 0.249946, -0.020401, -4.256, -1.84538, -3.50322, 1.19806, 2.27436, 32.079, -1.28428, 1.83694, 1.06522, -1.5236, -11.269, -1.18655, 11.5906, 0.189549, -1.85156, -23.37, -1.75608, 4.72313, 1.75946, -4.73223, -17.669, -1.76294, -1.90933, 1.65833, 1.79603, -15.715, -1.95129, -2.06882, 2.19998, 2.33249, -13.474, -1.95129, -2.06882, 2.19998, 2.33249, -0.876, -2.35297, 0.7259, 1.94879, -0.601209, -7.023, -2.25563, -1.85108, 3.41217, 2.8002, -7.85597, -2.29699, 1.99758, 2.06348, -1.79451, -17.8379, -1.40889, 5.05338, 1.56348, -5.60783, -49.949, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 258.5, 260, 264, 270, 274, 277, 279, 283, 291.5, 296, 301)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:roll")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0.345, -0.25, 0, 0.25, 0, 0.345, -0.24881, 0.00815233, 1.14053, -0.0373698, 0, -0.870819, 0.144102, 0.2241, -0.0370836, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 258.5, 301)
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:quatOverride")
-tracks/10/interp = 2
-tracks/10/loop_wrap = false
-tracks/10/keys = {
-"times": PackedFloat32Array(102.5, 105.5, 109, 111, 113, 119, 190, 192, 195, 197.5, 200, 202, 204, 301),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Quaternion(0.011, -0.582, 0.008, 0.813), Quaternion(-0.517, 0.129, 0.295, 0.793), Quaternion(-0.12, 0.81, -0.107, 0.564), Quaternion(0.207, 0.7, -0.246, 0.637), Quaternion(-0.143, 0.473, 0.087, 0.865), Quaternion(-0.227, 0.285, 0.07, 0.929), Quaternion(0.107, 0.511, -0.064, 0.851), Quaternion(0.35, 0.395, -0.165, 0.833), Quaternion(0.35, -0.238, 0.096, 0.901), Quaternion(-0.06, -0.517, 0.07, 0.851), Quaternion(0.46, -0.13, -0.392, 0.786), Quaternion(0.136, 0.251, -0.094, 0.954), Quaternion(0.016, 0.108, -0.002, 0.994), Quaternion(-0.293, 0.652, 0.304, 0.63)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:eulerAnglesFraction")
-tracks/11/interp = 1
-tracks/11/loop_wrap = false
-tracks/11/keys = {
-"times": PackedFloat32Array(102.5, 105.5, 113, 119, 190, 192, 202, 204, 255),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0]
-}
-tracks/12/type = "bezier"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("GlobalInit:replayTime_Lidar")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"handle_modes": PackedInt32Array(0, 0, 3, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(62.7258, -0.528839, -0.970562, 0.259132, 0.284172, 68, -4.78888, -1.04967, 3.2508, 0.612267, 68.6768, -0.382095, -0.0766678, 0.382095, 0.0766678, 68.8973, -0.512039, -0.133766, 0.381851, 0.0844803, 69.6154, -0.441711, -0.454247, 0.233979, 0.240619, 70.295, -0.24176, -0.340141, 0.12556, 0.176655, 70.8544, -0.0436349, -0.138752, 0.385223, 1.22495, 120.56, -0.327843, -18.9868, 0.713493, 41.3214, 207.796, -0.501911, -33.5014, 3.34398, 223.203, 14000, -7.93552, -11856.1, 5.62671, -0.0888672, 14000, -7, 0, 7.5, 7500, 33000, -6.51358, -6546.09, 7.33481, 1794.38, 35000, -0.437103, -436.158, 13.466, 10851.1, 52851.2, -8.1349, -6078.98, 10.3535, 10490.7, 82868.3, -10.9082, -13631.7, 7.21748, 7329.33, 75038.6, -6.8057, -6775.13, 8.96481, 8924.54, 80038.6, -0.25, 0, 0.25, 0, 89000, -0.25, 0, 0.25, 0, 117647, -0.25, 0, 0.25, 0, 99500, -1.1324, 71.116, 8.9679, -563.195, 56, -30.5321, 95336.8, 0.260382, -813.044),
-"times": PackedFloat32Array(83.4784, 96.9, 100.437, 101.384, 103.059, 103.614, 103.915, 104.997, 106.439, 117, 129, 142.5, 155.5, 178.025, 204.834, 219.319, 224.319, 227.319, 257.319, 260.319, 301)
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("GlobalInit:replayTimeOverride_WireFrames")
-tracks/13/interp = 1
-tracks/13/loop_wrap = false
-tracks/13/keys = {
-"times": PackedFloat32Array(114.5, 129, 256.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 14000.0, 1e+09]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("GlobalInit:replayTimeOverride_AdditiveGeometries")
-tracks/14/interp = 1
-tracks/14/loop_wrap = false
-tracks/14/keys = {
-"times": PackedFloat32Array(114.5, 129),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 14000.0]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("GlobalInit:overrideReplayTime_WireFrames")
-tracks/15/interp = 0
-tracks/15/loop_wrap = false
-tracks/15/keys = {
-"times": PackedFloat32Array(0, 106, 129, 256.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [true, true, false, true]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("GlobalInit:overrideReplayTime_AdditiveGeometries")
-tracks/16/interp = 0
-tracks/16/loop_wrap = false
-tracks/16/keys = {
-"times": PackedFloat32Array(0, 106, 129),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [true, true, false]
-}
-tracks/17/type = "method"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath(".")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(177.498, 240, 256.387, 331.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"captureViewport"
-}, {
-"args": [],
-"method": &"captureViewport"
-}, {
-"args": [],
-"method": &"checkForPrematureExit"
-}, {
-"args": [],
-"method": &"killMe"
-}]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("WorldEnvironment:environment:fog_density")
-tracks/18/interp = 1
-tracks/18/loop_wrap = false
-tracks/18/keys = {
-"times": PackedFloat32Array(0, 200.579, 201.579, 296.8, 297.909),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.003, 0.003, 0.0]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("GlobalLights:visible")
-tracks/19/interp = 0
-tracks/19/loop_wrap = false
-tracks/19/keys = {
-"times": PackedFloat32Array(0, 192.079, 201.079),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [true, false, true]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("World/LidarRig:locationOverride")
-tracks/20/interp = 1
-tracks/20/loop_wrap = false
-tracks/20/keys = {
-"times": PackedFloat32Array(0, 254.5, 256.5, 258.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [null, Vector3(4.512, 0.95, 10.35), Vector3(4.512, 10, 10.35), Vector3(4.512, 10, 10.35)]
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("World/LidarRig:loOverrideFraction")
-tracks/21/interp = 1
-tracks/21/loop_wrap = false
-tracks/21/keys = {
-"times": PackedFloat32Array(256.5, 257.5),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [0, 1.0]
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("World/LidarRig:orientationOverride")
-tracks/22/interp = 1
-tracks/22/loop_wrap = false
-tracks/22/keys = {
-"times": PackedFloat32Array(255.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Quaternion(0, 0, -0.707, -0.707)]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("World/LOScriptReplayer_MainBlackHole:visible")
-tracks/23/interp = 1
-tracks/23/loop_wrap = false
-tracks/23/keys = {
-"times": PackedFloat32Array(257.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("World/LOScriptReplayer_MainBlackHole:locationOverride")
-tracks/24/interp = 1
-tracks/24/loop_wrap = false
-tracks/24/keys = {
-"times": PackedFloat32Array(257.5, 298),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(4.512, 10, 10.35), Vector3(0.134, -0.611, 2.831)]
-}
-tracks/25/type = "value"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("World/LOScriptReplayer_MainBlackHole:loOverrideFraction")
-tracks/25/interp = 1
-tracks/25/loop_wrap = false
-tracks/25/keys = {
-"times": PackedFloat32Array(257.5, 260.5, 298, 299.5),
-"transitions": PackedFloat32Array(1, 0.5, 1, 1),
-"update": 0,
-"values": [1.0, 0, 0, 1.0]
-}
-tracks/26/type = "value"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("World/AdditiveGeometries/LatoText:overrideReplayTime_WireFrame_Local")
-tracks/26/interp = 1
-tracks/26/loop_wrap = false
-tracks/26/keys = {
-"times": PackedFloat32Array(0, 254.576),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, true]
-}
-tracks/27/type = "value"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath("World/AdditiveGeometries/LatoText:localReplayTimeOverride_WireFrame")
-tracks/27/interp = 1
-tracks/27/loop_wrap = false
-tracks/27/keys = {
-"times": PackedFloat32Array(0, 254.576),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 1e+09]
-}
-tracks/28/type = "value"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("World/LOScriptReplayer_MainBlackHole:orientationOverride")
-tracks/28/interp = 1
-tracks/28/loop_wrap = false
-tracks/28/keys = {
-"times": PackedFloat32Array(257.5, 290.21),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Quaternion(0, 0, -0.707, -0.707), Quaternion(0, 0, 0, 1)]
-}
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:eventHorizonRadius")
-tracks/29/interp = 1
-tracks/29/loop_wrap = false
-tracks/29/keys = {
-"times": PackedFloat32Array(256.5, 286.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.5, 0.5]
-}
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:gravity")
-tracks/30/interp = 1
-tracks/30/loop_wrap = false
-tracks/30/keys = {
-"times": PackedFloat32Array(256.5, 286.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [100.0, 300.0]
-}
-tracks/31/type = "value"
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:radius")
-tracks/31/interp = 1
-tracks/31/loop_wrap = false
-tracks/31/keys = {
-"times": PackedFloat32Array(271.5, 286.5, 296.5, 301, 316.5),
-"transitions": PackedFloat32Array(2, 1, 1, 1, 1),
-"update": 0,
-"values": [0.5, 2.0, 3.0, 20.0, 150.0]
-}
-tracks/32/type = "value"
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/path = NodePath("World/AdditiveGeometries/LatoText:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
-tracks/32/interp = 1
-tracks/32/loop_wrap = false
-tracks/32/keys = {
-"times": PackedFloat32Array(253.576, 254.576),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [6000.0, 0.0]
-}
-tracks/33/type = "value"
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/path = NodePath("World/AdditiveGeometries/LatoText:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
-tracks/33/interp = 1
-tracks/33/loop_wrap = false
-tracks/33/keys = {
-"times": PackedFloat32Array(253.576, 254.576),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [8000.0, 0.0]
-}
-tracks/34/type = "value"
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/path = NodePath("World/PlanetCore:visible")
-tracks/34/interp = 0
-tracks/34/loop_wrap = false
-tracks/34/keys = {
-"times": PackedFloat32Array(0, 216),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [false, true]
-}
-tracks/35/type = "value"
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/path = NodePath("World/LidarRig:visible")
-tracks/35/interp = 0
-tracks/35/loop_wrap = false
-tracks/35/keys = {
-"times": PackedFloat32Array(201.579, 257.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [true, false]
-}
-tracks/36/type = "value"
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas:rotation")
-tracks/36/interp = 1
-tracks/36/loop_wrap = false
-tracks/36/keys = {
-"times": PackedFloat32Array(256.5, 315.5),
-"transitions": PackedFloat32Array(1.62451, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 872.665, 0)]
-}
-tracks/37/type = "value"
-tracks/37/imported = false
-tracks/37/enabled = true
-tracks/37/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/SputnikAntennas:scale")
-tracks/37/interp = 1
-tracks/37/loop_wrap = false
-tracks/37/keys = {
-"times": PackedFloat32Array(286.5, 296.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
-}
-tracks/38/type = "value"
-tracks/38/imported = false
-tracks/38/enabled = true
-tracks/38/path = NodePath("World/AdditiveGeometries/LatoText:visible")
-tracks/38/interp = 0
-tracks/38/loop_wrap = false
-tracks/38/keys = {
-"times": PackedFloat32Array(0, 219.576),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [false, true]
-}
-tracks/39/type = "value"
-tracks/39/imported = false
-tracks/39/enabled = true
-tracks/39/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:visible")
-tracks/39/interp = 0
-tracks/39/loop_wrap = false
-tracks/39/keys = {
-"times": PackedFloat32Array(0, 251.5, 328.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [false, true, true]
-}
-tracks/40/type = "value"
-tracks/40/imported = false
-tracks/40/enabled = true
-tracks/40/path = NodePath("WorldEnvironment:environment:fog_enabled")
-tracks/40/interp = 0
-tracks/40/loop_wrap = false
-tracks/40/keys = {
-"times": PackedFloat32Array(0, 200.579, 300.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [false, true, false]
-}
-tracks/41/type = "value"
-tracks/41/imported = false
-tracks/41/enabled = true
-tracks/41/path = NodePath("WorldEnvironment:environment:fog_sky_affect")
-tracks/41/interp = 1
-tracks/41/loop_wrap = false
-tracks/41/keys = {
-"times": PackedFloat32Array(298.5, 300.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-tracks/42/type = "value"
-tracks/42/imported = false
-tracks/42/enabled = true
-tracks/42/path = NodePath(".:animationPosition")
-tracks/42/interp = 1
-tracks/42/loop_wrap = false
-tracks/42/keys = {
-"times": PackedFloat32Array(0, 590),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 590.0]
-}
-tracks/43/type = "value"
-tracks/43/imported = false
-tracks/43/enabled = true
-tracks/43/path = NodePath("CameraFlyingSpace_Satellite_Angled/Path_Satellite/PathFollow_Satellite/LocalOrigin:quatOverride")
-tracks/43/interp = 2
-tracks/43/loop_wrap = false
-tracks/43/keys = {
-"times": PackedFloat32Array(0, 6, 8.12215, 10.155, 12.2905, 14.3479, 20.1293, 32, 36.5, 40, 43.382, 46.4295, 49.049, 51.7516, 56, 59.0083, 62.5, 63.5, 70.5, 76, 79, 85, 86.5, 89, 296.5, 301.5, 306.5, 316.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Quaternion(0.613, -0.182, 0.764, -0.086), Quaternion(-0.672, -0.301, -0.492, 0.464), Quaternion(-0.398023, -0.216846, -0.583401, 0.673943), Quaternion(0.161556, -0.140861, -0.379097, 0.900191), Quaternion(0.329063, -0.0870168, -0.458088, 0.821158), Quaternion(0.329063, -0.0870168, -0.458088, 0.821158), Quaternion(0.329063, -0.0870168, -0.458088, 0.821158), Quaternion(0.428, -0.103, 0.011, 0.898), Quaternion(0.677483, -0.209763, -0.0769846, 0.700777), Quaternion(0.053, -0.312, -0.294, 0.902), Quaternion(-0.0144737, -0.268602, -0.507849, 0.818372), Quaternion(-0.0879268, -0.17884, -0.333301, 0.921518), Quaternion(-0.08, -0.062, -0.331, 0.938), Quaternion(-0.08, -0.062, -0.331, 0.938), Quaternion(0.319743, 0.930721, 0.0571061, -0.168113), Quaternion(0.321578, 0.936217, -0.0466263, 0.133832), Quaternion(-0.31, -0.829, -0.163, 0.437), Quaternion(0.361, 0.918, 0.066, -0.148), Quaternion(0.153, -0.046, 0.428, 0.89), Quaternion(0.111, 0.049, 0.552, 0.825), Quaternion(0.024, -0.026, -0.85, 0.525), Quaternion(0, 0, 0, 1), Quaternion(-0.375, -0.079, -0.19, 0.904), Quaternion(-0.375, -0.079, -0.19, 0.904), Quaternion(0.339, 0.086, 0.04, 0.936), Quaternion(-0.043, 0.012, 0.013, 0.999), Quaternion(0.007, 0.004, 0.013, 1), Quaternion(-0.081, 0.009, 0.011, 0.997)]
-}
-tracks/44/type = "value"
-tracks/44/imported = false
-tracks/44/enabled = false
-tracks/44/path = NodePath(".:dbgAnimJump")
-tracks/44/interp = 0
-tracks/44/loop_wrap = false
-tracks/44/keys = {
-"times": PackedFloat32Array(45.3586, 160.892),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [10.0, 10.0]
-}
-tracks/45/type = "value"
-tracks/45/imported = false
-tracks/45/enabled = true
-tracks/45/path = NodePath("CameraFlyingSpace_Ascend/Ascender:distance")
-tracks/45/interp = 1
-tracks/45/loop_wrap = false
-tracks/45/keys = {
-"times": PackedFloat32Array(300),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/46/type = "value"
-tracks/46/imported = false
-tracks/46/enabled = true
-tracks/46/path = NodePath("CameraFlyingSpace_Ascend/Ascender:height")
-tracks/46/interp = 1
-tracks/46/loop_wrap = false
-tracks/46/keys = {
-"times": PackedFloat32Array(300, 301),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [40.0, 50.0]
-}
-tracks/47/type = "value"
-tracks/47/imported = false
-tracks/47/enabled = true
-tracks/47/path = NodePath("CameraFlyingSpace_Ascend/Ascender:angle")
-tracks/47/interp = 1
-tracks/47/loop_wrap = false
-tracks/47/keys = {
-"times": PackedFloat32Array(300.001, 301),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [90.0, 45.0]
-}
-tracks/48/type = "value"
-tracks/48/imported = false
-tracks/48/enabled = true
-tracks/48/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/scopeHeight")
-tracks/48/interp = 1
-tracks/48/loop_wrap = false
-tracks/48/keys = {
-"times": PackedFloat32Array(259.5, 278.5),
-"transitions": PackedFloat32Array(1.93187, 1),
-"update": 0,
-"values": [0.0, 10.0]
-}
-tracks/49/type = "value"
-tracks/49/imported = false
-tracks/49/enabled = true
-tracks/49/path = NodePath(".:position")
-tracks/49/interp = 0
-tracks/49/loop_wrap = false
-tracks/49/keys = {
-"times": PackedFloat32Array(0, 256),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/50/type = "value"
-tracks/50/imported = false
-tracks/50/enabled = true
-tracks/50/path = NodePath("CameraFlyingSpace_Ascend:process_mode")
-tracks/50/interp = 1
-tracks/50/loop_wrap = false
-tracks/50/keys = {
-"times": PackedFloat32Array(300),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/51/type = "value"
-tracks/51/imported = false
-tracks/51/enabled = true
-tracks/51/path = NodePath("CameraFlyingSpace_Ascend:visible")
-tracks/51/interp = 1
-tracks/51/loop_wrap = false
-tracks/51/keys = {
-"times": PackedFloat32Array(300),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/52/type = "value"
-tracks/52/imported = false
-tracks/52/enabled = true
-tracks/52/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/BlackLight:light_energy")
-tracks/52/interp = 1
-tracks/52/loop_wrap = false
-tracks/52/keys = {
-"times": PackedFloat32Array(268, 281.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 10.0]
-}
-tracks/53/type = "value"
-tracks/53/imported = false
-tracks/53/enabled = true
-tracks/53/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/BlackLight:omni_range")
-tracks/53/interp = 1
-tracks/53/loop_wrap = false
-tracks/53/keys = {
-"times": PackedFloat32Array(268, 281.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [5.0, 50.0]
-}
-tracks/54/type = "bezier"
-tracks/54/imported = false
-tracks/54/enabled = true
-tracks/54/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxDistance")
-tracks/54/interp = 1
-tracks/54/loop_wrap = true
-tracks/54/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.48, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256)
-}
-tracks/55/type = "bezier"
-tracks/55/imported = false
-tracks/55/enabled = true
-tracks/55/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMinDistance")
-tracks/55/interp = 1
-tracks/55/loop_wrap = true
-tracks/55/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.48, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256)
-}
-
-[sub_resource type="Animation" id="Animation_xjc42"]
-resource_name = "AscensionToSpaceStation_INIT"
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animDbgPrint")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["AscensionToSpaceStation_INIT"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("World:scalingOverride")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("World:inverseScalingOverride")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Satellite:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Satellite:process_mode")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("World/Planet/Crust:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("World/Planet/Crust:process_mode")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("World/JellyPlanet:process_mode")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("World/CameraRig:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("World/CameraRig:process_mode")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("World/AdditiveGeometries:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("World/AdditiveGeometries:process_mode")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("World/PlanetCore:process_mode")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("World/LOScriptReplayer_MainBlackHole:process_mode")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("World/LidarLineSets:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("World/LidarLineSets:process_mode")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("World/LidarPointSets:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("World/LidarPointSets:process_mode")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("GlobalLights:visible")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("GlobalLights:process_mode")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("SatelliteWreck:visible")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("SatelliteWreck:process_mode")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("CameraFlyingSpace_Ascend:visible")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("CameraFlyingSpace_Ascend:process_mode")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("AnimatedCamera/DirectionalLight:visible")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/25/type = "value"
-tracks/25/imported = false
-tracks/25/enabled = false
-tracks/25/path = NodePath("AnimatedCamera/DirectionalLight:light_energy")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-tracks/26/type = "value"
-tracks/26/imported = false
-tracks/26/enabled = false
-tracks/26/path = NodePath("AnimatedCamera/DirectionalLight:light_color")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/27/type = "value"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath(".:position")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/28/type = "value"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("GlobalInit:scopeAutoSoundPosAdjustFractionByCurrentCamera")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("GlobalInit:blockableGNSSSignalRaycast")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/soundOffset")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/31/type = "value"
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/scopeHeight")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/32/type = "value"
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/soundLength")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [300000.0]
-}
-tracks/33/type = "value"
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/baseAlbedo")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/34/type = "value"
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/path = NodePath("World/StaticBunchOfGNSSSignals:visible")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/35/type = "value"
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/path = NodePath("World/StaticBunchOfGNSSSignals:process_mode")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/36/type = "value"
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts:visible")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/37/type = "value"
-tracks/37/imported = false
-tracks/37/enabled = true
-tracks/37/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts:process_mode")
-tracks/37/interp = 1
-tracks/37/loop_wrap = true
-tracks/37/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/38/type = "value"
-tracks/38/imported = false
-tracks/38/enabled = true
-tracks/38/path = NodePath("AnimatedCamera:fov")
-tracks/38/interp = 1
-tracks/38/loop_wrap = true
-tracks/38/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [42.0]
-}
-tracks/39/type = "value"
-tracks/39/imported = false
-tracks/39/enabled = true
-tracks/39/path = NodePath("AnimatedCamera:near")
-tracks/39/interp = 1
-tracks/39/loop_wrap = true
-tracks/39/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.05]
-}
-tracks/40/type = "value"
-tracks/40/imported = false
-tracks/40/enabled = true
-tracks/40/path = NodePath("AnimatedCamera:far")
-tracks/40/interp = 1
-tracks/40/loop_wrap = true
-tracks/40/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2500.0]
-}
-tracks/41/type = "value"
-tracks/41/imported = false
-tracks/41/enabled = true
-tracks/41/path = NodePath("WorldEnvironment:environment:adjustment_brightness")
-tracks/41/interp = 1
-tracks/41/loop_wrap = true
-tracks/41/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/42/type = "value"
-tracks/42/imported = false
-tracks/42/enabled = true
-tracks/42/path = NodePath("WorldEnvironment:environment:adjustment_contrast")
-tracks/42/interp = 1
-tracks/42/loop_wrap = true
-tracks/42/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/43/type = "value"
-tracks/43/imported = false
-tracks/43/enabled = true
-tracks/43/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialAlphaFadeInTime")
-tracks/43/interp = 1
-tracks/43/loop_wrap = true
-tracks/43/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5000.0]
-}
-tracks/44/type = "value"
-tracks/44/imported = false
-tracks/44/enabled = true
-tracks/44/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/disappearanceDelay")
-tracks/44/interp = 1
-tracks/44/loop_wrap = true
-tracks/44/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5500.0]
-}
-tracks/45/type = "value"
-tracks/45/imported = false
-tracks/45/enabled = true
-tracks/45/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleTime")
-tracks/45/interp = 1
-tracks/45/loop_wrap = true
-tracks/45/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4500.0]
-}
-tracks/46/type = "value"
-tracks/46/imported = false
-tracks/46/enabled = true
-tracks/46/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleAmplitude_Min")
-tracks/46/interp = 1
-tracks/46/loop_wrap = true
-tracks/46/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.01]
-}
-tracks/47/type = "value"
-tracks/47/imported = false
-tracks/47/enabled = true
-tracks/47/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleAmplitude_Max")
-tracks/47/interp = 1
-tracks/47/loop_wrap = true
-tracks/47/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.05]
-}
-tracks/48/type = "value"
-tracks/48/imported = false
-tracks/48/enabled = true
-tracks/48/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleFrequency_Min")
-tracks/48/interp = 1
-tracks/48/loop_wrap = true
-tracks/48/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.002]
-}
-tracks/49/type = "value"
-tracks/49/imported = false
-tracks/49/enabled = true
-tracks/49/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleFrequency_Max")
-tracks/49/interp = 1
-tracks/49/loop_wrap = true
-tracks/49/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.005]
-}
-tracks/50/type = "value"
-tracks/50/imported = false
-tracks/50/enabled = true
-tracks/50/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/alphaFadeOutStartTime")
-tracks/50/interp = 1
-tracks/50/loop_wrap = true
-tracks/50/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5000.0]
-}
-tracks/51/type = "value"
-tracks/51/imported = false
-tracks/51/enabled = true
-tracks/51/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/alphaFadeOutEndTime")
-tracks/51/interp = 1
-tracks/51/loop_wrap = true
-tracks/51/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5500.0]
-}
-tracks/52/type = "value"
-tracks/52/imported = false
-tracks/52/enabled = true
-tracks/52/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/wobbleTimeOffset")
-tracks/52/interp = 1
-tracks/52/loop_wrap = true
-tracks/52/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [10000.0]
-}
-tracks/53/type = "value"
-tracks/53/imported = false
-tracks/53/enabled = true
-tracks/53/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flyTime")
-tracks/53/interp = 1
-tracks/53/loop_wrap = true
-tracks/53/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5000.0]
-}
-tracks/54/type = "value"
-tracks/54/imported = false
-tracks/54/enabled = true
-tracks/54/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flatFaceMinDelayTime")
-tracks/54/interp = 1
-tracks/54/loop_wrap = true
-tracks/54/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [7000.0]
-}
-tracks/55/type = "value"
-tracks/55/imported = false
-tracks/55/enabled = true
-tracks/55/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flatFaceMaxDelayTime")
-tracks/55/interp = 1
-tracks/55/loop_wrap = true
-tracks/55/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [10000.0]
-}
-tracks/56/type = "value"
-tracks/56/imported = false
-tracks/56/enabled = true
-tracks/56/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Vertex")
-tracks/56/interp = 1
-tracks/56/loop_wrap = true
-tracks/56/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [20000.0]
-}
-tracks/57/type = "value"
-tracks/57/imported = false
-tracks/57/enabled = true
-tracks/57/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Fragment")
-tracks/57/interp = 1
-tracks/57/loop_wrap = true
-tracks/57/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [20000.0]
-}
-tracks/58/type = "value"
-tracks/58/imported = false
-tracks/58/enabled = true
-tracks/58/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
-tracks/58/interp = 1
-tracks/58/loop_wrap = true
-tracks/58/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/59/type = "value"
-tracks/59/imported = false
-tracks/59/enabled = true
-tracks/59/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
-tracks/59/interp = 1
-tracks/59/loop_wrap = true
-tracks/59/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/60/type = "value"
-tracks/60/imported = false
-tracks/60/enabled = true
-tracks/60/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/faceTimeOverride")
-tracks/60/interp = 1
-tracks/60/loop_wrap = true
-tracks/60/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/61/type = "value"
-tracks/61/imported = false
-tracks/61/enabled = true
-tracks/61/path = NodePath("World/AdditiveGeometries/Ground:overrideReplayTime_AdditiveGeometry_Local")
-tracks/61/interp = 1
-tracks/61/loop_wrap = true
-tracks/61/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/62/type = "value"
-tracks/62/imported = false
-tracks/62/enabled = true
-tracks/62/path = NodePath("World/AdditiveGeometries/Ground:localReplayTimeOverride_AdditiveGeometry")
-tracks/62/interp = 1
-tracks/62/loop_wrap = true
-tracks/62/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1e+08]
-}
-tracks/63/type = "value"
-tracks/63/imported = false
-tracks/63/enabled = true
-tracks/63/path = NodePath("World/AdditiveGeometries/Ground:overrideReplayTime_WireFrame_Local")
-tracks/63/interp = 1
-tracks/63/loop_wrap = true
-tracks/63/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/64/type = "value"
-tracks/64/imported = false
-tracks/64/enabled = true
-tracks/64/path = NodePath("World/AdditiveGeometries/Ground:localReplayTimeOverride_WireFrame")
-tracks/64/interp = 1
-tracks/64/loop_wrap = true
-tracks/64/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1e+08]
-}
-tracks/65/type = "value"
-tracks/65/imported = false
-tracks/65/enabled = true
-tracks/65/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flyTime")
-tracks/65/interp = 1
-tracks/65/loop_wrap = true
-tracks/65/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5000.0]
-}
-tracks/66/type = "value"
-tracks/66/imported = false
-tracks/66/enabled = true
-tracks/66/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flatFaceMinDelayTime")
-tracks/66/interp = 1
-tracks/66/loop_wrap = true
-tracks/66/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [7000.0]
-}
-tracks/67/type = "value"
-tracks/67/imported = false
-tracks/67/enabled = true
-tracks/67/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flatFaceMaxDelayTime")
-tracks/67/interp = 1
-tracks/67/loop_wrap = true
-tracks/67/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [10000.0]
-}
-tracks/68/type = "value"
-tracks/68/imported = false
-tracks/68/enabled = true
-tracks/68/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Vertex")
-tracks/68/interp = 1
-tracks/68/loop_wrap = true
-tracks/68/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [20000.0]
-}
-tracks/69/type = "value"
-tracks/69/imported = false
-tracks/69/enabled = true
-tracks/69/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Fragment")
-tracks/69/interp = 1
-tracks/69/loop_wrap = true
-tracks/69/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [20000.0]
-}
-tracks/70/type = "value"
-tracks/70/imported = false
-tracks/70/enabled = true
-tracks/70/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
-tracks/70/interp = 1
-tracks/70/loop_wrap = true
-tracks/70/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/71/type = "value"
-tracks/71/imported = false
-tracks/71/enabled = true
-tracks/71/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
-tracks/71/interp = 1
-tracks/71/loop_wrap = true
-tracks/71/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/72/type = "value"
-tracks/72/imported = false
-tracks/72/enabled = true
-tracks/72/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/textureFadeInStartTime")
-tracks/72/interp = 1
-tracks/72/loop_wrap = true
-tracks/72/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/73/type = "value"
-tracks/73/imported = false
-tracks/73/enabled = true
-tracks/73/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/textureFadeInEndTime")
-tracks/73/interp = 1
-tracks/73/loop_wrap = true
-tracks/73/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/74/type = "value"
-tracks/74/imported = false
-tracks/74/enabled = true
-tracks/74/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightInitialValue")
-tracks/74/interp = 1
-tracks/74/loop_wrap = true
-tracks/74/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/75/type = "value"
-tracks/75/imported = false
-tracks/75/enabled = true
-tracks/75/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightFinalValue")
-tracks/75/interp = 1
-tracks/75/loop_wrap = true
-tracks/75/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/76/type = "value"
-tracks/76/imported = false
-tracks/76/enabled = true
-tracks/76/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightInitialValueTime")
-tracks/76/interp = 1
-tracks/76/loop_wrap = true
-tracks/76/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-10000.0]
-}
-tracks/77/type = "value"
-tracks/77/imported = false
-tracks/77/enabled = true
-tracks/77/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightFinalValueTime")
-tracks/77/interp = 1
-tracks/77/loop_wrap = true
-tracks/77/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/78/type = "value"
-tracks/78/imported = false
-tracks/78/enabled = true
-tracks/78/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/faceTimeOverride")
-tracks/78/interp = 1
-tracks/78/loop_wrap = true
-tracks/78/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/79/type = "value"
-tracks/79/imported = false
-tracks/79/enabled = true
-tracks/79/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundAmplificationA")
-tracks/79/interp = 1
-tracks/79/loop_wrap = true
-tracks/79/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-tracks/80/type = "value"
-tracks/80/imported = false
-tracks/80/enabled = true
-tracks/80/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundAmplificationB")
-tracks/80/interp = 1
-tracks/80/loop_wrap = true
-tracks/80/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/81/type = "value"
-tracks/81/imported = false
-tracks/81/enabled = true
-tracks/81/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerLineWidthLow")
-tracks/81/interp = 1
-tracks/81/loop_wrap = true
-tracks/81/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/82/type = "value"
-tracks/82/imported = false
-tracks/82/enabled = true
-tracks/82/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerLineWidthHigh")
-tracks/82/interp = 1
-tracks/82/loop_wrap = true
-tracks/82/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.027]
-}
-tracks/83/type = "value"
-tracks/83/imported = false
-tracks/83/enabled = true
-tracks/83/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/lineFadeOutLow")
-tracks/83/interp = 1
-tracks/83/loop_wrap = true
-tracks/83/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.1]
-}
-tracks/84/type = "value"
-tracks/84/imported = false
-tracks/84/enabled = true
-tracks/84/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/lineFadeOutHigh")
-tracks/84/interp = 1
-tracks/84/loop_wrap = true
-tracks/84/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-tracks/85/type = "value"
-tracks/85/imported = false
-tracks/85/enabled = true
-tracks/85/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/innerAlbedo")
-tracks/85/interp = 1
-tracks/85/loop_wrap = true
-tracks/85/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0.145098, 0, 1)]
-}
-tracks/86/type = "value"
-tracks/86/imported = false
-tracks/86/enabled = true
-tracks/86/path = NodePath("World/Planet:visible")
-tracks/86/interp = 1
-tracks/86/loop_wrap = true
-tracks/86/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/87/type = "value"
-tracks/87/imported = false
-tracks/87/enabled = true
-tracks/87/path = NodePath("World/Planet:process_mode")
-tracks/87/interp = 1
-tracks/87/loop_wrap = true
-tracks/87/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/88/type = "value"
-tracks/88/imported = false
-tracks/88/enabled = true
-tracks/88/path = NodePath("World/PlanetCore:visible")
-tracks/88/interp = 1
-tracks/88/loop_wrap = true
-tracks/88/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/89/type = "value"
-tracks/89/imported = false
-tracks/89/enabled = false
-tracks/89/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
-tracks/89/interp = 1
-tracks/89/loop_wrap = true
-tracks/89/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/90/type = "value"
-tracks/90/imported = false
-tracks/90/enabled = true
-tracks/90/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
-tracks/90/interp = 1
-tracks/90/loop_wrap = true
-tracks/90/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/91/type = "value"
-tracks/91/imported = false
-tracks/91/enabled = true
-tracks/91/path = NodePath("World/Planet/BlackHole_Eater2:eventHorizonRadius")
-tracks/91/interp = 1
-tracks/91/loop_wrap = true
-tracks/91/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-tracks/92/type = "value"
-tracks/92/imported = false
-tracks/92/enabled = true
-tracks/92/path = NodePath("World/Planet/BlackHole_Eater3:eventHorizonRadius")
-tracks/92/interp = 1
-tracks/92/loop_wrap = true
-tracks/92/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-tracks/93/type = "value"
-tracks/93/imported = false
-tracks/93/enabled = true
-tracks/93/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay/Surface:material_override:shader_parameter/soundLengthA")
-tracks/93/interp = 1
-tracks/93/loop_wrap = true
-tracks/93/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4096.0]
-}
-tracks/94/type = "value"
-tracks/94/imported = false
-tracks/94/enabled = true
-tracks/94/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
-tracks/94/interp = 1
-tracks/94/loop_wrap = true
-tracks/94/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/95/type = "value"
-tracks/95/imported = false
-tracks/95/enabled = true
-tracks/95/path = NodePath("World/Planet/Crust:material_override:shader_parameter/destructionFraction")
-tracks/95/interp = 1
-tracks/95/loop_wrap = true
-tracks/95/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/96/type = "value"
-tracks/96/imported = false
-tracks/96/enabled = true
-tracks/96/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxStartAngle")
-tracks/96/interp = 1
-tracks/96/loop_wrap = true
-tracks/96/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [60.0]
-}
-tracks/97/type = "value"
-tracks/97/imported = false
-tracks/97/enabled = true
-tracks/97/path = NodePath("World/LOScriptReplayer_MainBlackHole:visible")
-tracks/97/interp = 1
-tracks/97/loop_wrap = true
-tracks/97/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/98/type = "value"
-tracks/98/imported = false
-tracks/98/enabled = true
-tracks/98/path = NodePath("World/Planet/BlackHole_Eater2:visible")
-tracks/98/interp = 1
-tracks/98/loop_wrap = true
-tracks/98/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/99/type = "value"
-tracks/99/imported = false
-tracks/99/enabled = true
-tracks/99/path = NodePath("World/Planet/BlackHole_Eater3:visible")
-tracks/99/interp = 1
-tracks/99/loop_wrap = true
-tracks/99/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
 _data = {
 "AscensionToGreatness": SubResource("Animation_kpvta"),
@@ -17599,6 +17486,7 @@ locationOverride = Vector3(4.512, 10, 10.35)
 orientationOverride = Quaternion(0, 0, -0.707, -0.707)
 
 [node name="MainBlackHole" parent="World/LOScriptReplayer_MainBlackHole" instance=ExtResource("30_eennp")]
+process_mode = 4
 transform = Transform3D(-0.822451, -0.0452552, -0.567034, -0.138799, 0.982666, 0.122893, 0.551643, 0.179778, -0.814475, -0.134, 0.611, -2.831)
 visible = false
 gravity = 100.0
@@ -17618,7 +17506,7 @@ transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4
 transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
-transform = Transform3D(1387.99, -8224.5, 5516.43, -9826.66, -452.552, 1797.77, -1228.94, -5670.34, -8144.76, 0, 0, 0)
+transform = Transform3D(0.138799, -0.82245, 0.551643, -0.982666, -0.0452552, 0.179777, -0.122894, -0.567033, -0.814476, 0, 0, 0)
 script = ExtResource("51_osqmg")
 
 [node name="DeathRay" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent" instance=ExtResource("52_2li0a")]
@@ -18092,8 +17980,8 @@ visible = false
 remote_path = NodePath("../../../../DebugThings/DebugCobraMkIII")
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
