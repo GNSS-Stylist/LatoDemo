@@ -2912,6 +2912,18 @@ tracks/138/keys = {
 "update": 1,
 "values": [Vector3(0.02, 0.07, -0.134), Vector3(0.0197387, 0.0687315, -0.13426)]
 }
+tracks/139/type = "value"
+tracks/139/imported = false
+tracks/139/enabled = true
+tracks/139/path = NodePath("GlobalInit:blockableGNSSSignalMaterial:shader_parameter/baseAlbedo")
+tracks/139/interp = 1
+tracks/139/loop_wrap = false
+tracks/139/keys = {
+"times": PackedFloat32Array(245, 248.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.5, 2, 0.5, 1), Color(0.501961, 2, 0.501961, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wa2h8"]
 resource_name = "Construction_INIT"
@@ -14801,7 +14813,6 @@ update_scale = false
 [node name="MainTunePlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1000000
 stream = ExtResource("19_qdtb0")
-volume_db = -80.0
 script = ExtResource("18_fyjuc")
 
 [node name="DebugThings" type="Node3D" parent="."]
