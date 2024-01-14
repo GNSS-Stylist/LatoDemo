@@ -1312,8 +1312,8 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(17.445, -0.603882, 0.860134, 0.101302, -0.144288, 17.2616, -2.59147, -0.410365, 2.4241, 0.383862, 17.262, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 264.3)
+"points": PackedFloat32Array(17.445, -5, 0, 0.101302, -0.144288, 17.445, -0.25, 0, 20, 0, 0, 0, -5.389, 0.25, 0),
+"times": PackedFloat32Array(245, 260, 280)
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1346,9 +1346,9 @@ tracks/6/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:roll")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.345, -0.25, 0, 0.25, 0, 0.345, -0.24881, 0.00815233, 1.14053, -0.0373698),
-"times": PackedFloat32Array(245, 256.5)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.345, -0.25, 0, 0.25, 0, 0.345, -0.24881, 0.00815233, 1.14053, -0.0373698, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 270)
 }
 tracks/7/type = "bezier"
 tracks/7/imported = false
@@ -1357,9 +1357,9 @@ tracks/7/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:pitch")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0, 2),
-"points": PackedFloat32Array(-2.906, -0.843964, 0.0688859, 0.249946, -0.020401, -4.256, -7.01877, -0.744, 3.08124, -0.744, -85, -5.51874, 21, 2.92569, -11.1329),
-"times": PackedFloat32Array(245, 256.5, 264.3)
+"handle_modes": PackedInt32Array(0, 0, 2, 0),
+"points": PackedFloat32Array(-2.906, -0.843964, 0.0688859, 0.249946, -0.020401, -4.256, -7.01877, -0.744, 4, 0, -85, -4.20956, 17, 2.86636, -11.5756, -54.72, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 264.3, 270)
 }
 tracks/8/type = "bezier"
 tracks/8/imported = false
@@ -1368,9 +1368,9 @@ tracks/8/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:yaw")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-369.922, -0.25, 0, 0.25, 0, -9.922, -0.25, 0, 0.25, 0, -9.922, -2.04786, 0.00511363, 0.659546, -0.00164693),
-"times": PackedFloat32Array(245, 249, 256.5)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-369.922, -0.25, 0, 0.25, 0, -9.922, -0.25, 0, 0.25, 0, -9.922, -2.04786, 0.00511363, 10, -0.002, -90, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(245, 249, 256.5, 270)
 }
 tracks/9/type = "bezier"
 tracks/9/imported = false
@@ -1380,8 +1380,8 @@ tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.83316, -0.614729, 8.08124, 1.296, 200, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 264.3)
+"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.88214, 0, 20, 0, 1414.21, -5.31384, -155.442, 0.25, 0),
+"times": PackedFloat32Array(245, 256.5, 279.9)
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
@@ -1391,8 +1391,8 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-6.189, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 1.21543, 0.0222326, -6.278, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(245, 256.5, 264.3)
+"points": PackedFloat32Array(-6.208, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 20.7776, 75.3221, 1414.21, -3.42242, -186.2, 0.25, 0),
+"times": PackedFloat32Array(245, 260.1, 280)
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -1481,7 +1481,7 @@ tracks/17/path = NodePath("WorldEnvironment:environment:fog_density")
 tracks/17/interp = 1
 tracks/17/loop_wrap = false
 tracks/17/keys = {
-"times": PackedFloat32Array(0, 200.579, 201.579, 263.2, 264.3),
+"times": PackedFloat32Array(0, 200.579, 201.579, 258.9, 261.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.003, 0.003, 0.0]
@@ -1553,10 +1553,10 @@ tracks/23/path = NodePath("World/AdditiveGeometries/LatoText:visible")
 tracks/23/interp = 0
 tracks/23/loop_wrap = false
 tracks/23/keys = {
-"times": PackedFloat32Array(0, 219.576),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [false, true]
+"times": PackedFloat32Array(256),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
@@ -1565,7 +1565,7 @@ tracks/24/path = NodePath("WorldEnvironment:environment:fog_enabled")
 tracks/24/interp = 0
 tracks/24/loop_wrap = false
 tracks/24/keys = {
-"times": PackedFloat32Array(0, 200.579, 300.5),
+"times": PackedFloat32Array(0, 200.579, 261.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [false, true, false]
@@ -1577,7 +1577,7 @@ tracks/25/path = NodePath("WorldEnvironment:environment:fog_sky_affect")
 tracks/25/interp = 1
 tracks/25/loop_wrap = false
 tracks/25/keys = {
-"times": PackedFloat32Array(298.5, 300.5),
+"times": PackedFloat32Array(259.4, 261.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
@@ -1625,9 +1625,9 @@ tracks/29/path = NodePath("CameraFlyingSpace_GlobalOrigin/LocalOriginB:lookAtFra
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256.7)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(256.7, 260.8, 270, 282.8)
 }
 tracks/30/type = "value"
 tracks/30/imported = false
@@ -1708,9 +1708,9 @@ tracks/36/path = NodePath("World/Planet/Crust:material_override:shader_parameter
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256)
+"handle_modes": PackedInt32Array(0, 0, 2, 0),
+"points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0, 13, 0, 0, 5.73294, 6063.27, 40000, -2.36703, -29145.8, 14.9697, 184325, 1e+07, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(256, 260.7, 270, 283)
 }
 tracks/37/type = "bezier"
 tracks/37/imported = false
@@ -1719,9 +1719,112 @@ tracks/37/path = NodePath("World/Planet/Crust:material_override:shader_parameter
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256)
+"handle_modes": PackedInt32Array(0, 0, 0, 2, 2, 0),
+"points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0, 13, 0, 100000, 1, 0, 13, -0.25, 0, 5, 0, 2492.56, -1.56657, -2482.54, 3.13293, 4964.73, 31149.7, -0.5569, -8521.78, 8.63297, 132103, 2e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(256, 260.7, 262.5, 270.1, 274, 283)
+}
+tracks/38/type = "bezier"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("World:inverseScalingOverride")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -5, 0, 3.786, 0, 56.3527, -0.744427, -22.1332, 12.0862, 359.344, 10000, -3.81384, 26.7197, 5, 0),
+"times": PackedFloat32Array(260, 267.4, 283.4)
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("World/JellyPlanet:visible")
+tracks/39/interp = 0
+tracks/39/loop_wrap = false
+tracks/39/keys = {
+"times": PackedFloat32Array(258.5, 260.7, 283),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/40/type = "bezier"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("World/JellyPlanet:position:y")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-110, 0, 0, 11.4776, -2.09543, -438.491, -5.82242, -3.10963, 6.27756, -244.797, -240210, -8.122, 0, 0.25, 0),
+"times": PackedFloat32Array(260, 271.2, 280)
+}
+tracks/41/type = "bezier"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("World/JellyPlanet:scale:x")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(6.48042e+06, -0.25, 0, 0.25, 0, 6e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(265, 280)
+}
+tracks/42/type = "bezier"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("World/JellyPlanet:scale:y")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(6.48042e+06, -0.25, 0, 0.25, 0, 6e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(265, 280)
+}
+tracks/43/type = "bezier"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("World/JellyPlanet:scale:z")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(6.48042e+06, -0.25, 0, 0.25, 0, 6e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(265, 280)
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("World/AdditiveGeometries/Barn:visible")
+tracks/44/interp = 0
+tracks/44/loop_wrap = false
+tracks/44/keys = {
+"times": PackedFloat32Array(256),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:visible")
+tracks/45/interp = 0
+tracks/45/loop_wrap = false
+tracks/45/keys = {
+"times": PackedFloat32Array(256),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("World/AdditiveGeometries:visible")
+tracks/46/interp = 0
+tracks/46/loop_wrap = false
+tracks/46/keys = {
+"times": PackedFloat32Array(256, 267),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_xjc42"]
@@ -5276,6 +5379,30 @@ tracks/50/keys = {
 "update": 0,
 "values": [Vector3(6.48042e+06, 6.48042e+06, 6.48042e+06)]
 }
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxDistance")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+07]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMinDistance")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+07]
+}
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
 resource_name = "Descent"
@@ -8036,6 +8163,30 @@ tracks/99/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/100/type = "value"
+tracks/100/imported = false
+tracks/100/enabled = true
+tracks/100/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxDistance")
+tracks/100/interp = 1
+tracks/100/loop_wrap = true
+tracks/100/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+07]
+}
+tracks/101/type = "value"
+tracks/101/imported = false
+tracks/101/enabled = true
+tracks/101/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMinDistance")
+tracks/101/interp = 1
+tracks/101/loop_wrap = true
+tracks/101/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+07]
 }
 
 [sub_resource type="Animation" id="Animation_dqvmp"]
@@ -13752,7 +13903,7 @@ tracks/276/interp = 1
 tracks/276/loop_wrap = true
 tracks/276/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1e+07, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/277/type = "bezier"
@@ -13763,7 +13914,7 @@ tracks/277/interp = 1
 tracks/277/loop_wrap = true
 tracks/277/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1e+07, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/278/type = "value"
@@ -13801,6 +13952,74 @@ tracks/280/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
+}
+tracks/281/type = "bezier"
+tracks/281/imported = false
+tracks/281/enabled = true
+tracks/281/path = NodePath("World/JellyPlanet:position:y")
+tracks/281/interp = 1
+tracks/281/loop_wrap = true
+tracks/281/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-110, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/282/type = "bezier"
+tracks/282/imported = false
+tracks/282/enabled = true
+tracks/282/path = NodePath("World/JellyPlanet:scale:x")
+tracks/282/interp = 1
+tracks/282/loop_wrap = true
+tracks/282/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.48042e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/283/type = "bezier"
+tracks/283/imported = false
+tracks/283/enabled = true
+tracks/283/path = NodePath("World/JellyPlanet:scale:y")
+tracks/283/interp = 1
+tracks/283/loop_wrap = true
+tracks/283/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.48042e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/284/type = "bezier"
+tracks/284/imported = false
+tracks/284/enabled = true
+tracks/284/path = NodePath("World/JellyPlanet:scale:z")
+tracks/284/interp = 1
+tracks/284/loop_wrap = true
+tracks/284/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.48042e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/285/type = "value"
+tracks/285/imported = false
+tracks/285/enabled = true
+tracks/285/path = NodePath("World/AdditiveGeometries/Barn:visible")
+tracks/285/interp = 1
+tracks/285/loop_wrap = true
+tracks/285/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/286/type = "value"
+tracks/286/imported = false
+tracks/286/enabled = true
+tracks/286/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:visible")
+tracks/286/interp = 1
+tracks/286/loop_wrap = true
+tracks/286/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_qtsft"]
@@ -16465,8 +16684,8 @@ shader_parameter/shrinkMaxDistance = 0.002
 shader_parameter/destructionFraction = 0.0
 shader_parameter/sphereOfAvoidanceRadius = 0.9
 shader_parameter/sphereOfAvoidanceCenterPoint = Vector3(0, 0, -1)
-shader_parameter/constructionMaxDistance = 10.0
-shader_parameter/constructionMinDistance = 2.0
+shader_parameter/constructionMaxDistance = 1e+07
+shader_parameter/constructionMinDistance = 1e+07
 shader_parameter/constructionFlyDistance = 1.0
 shader_parameter/constructionMaxStartAngle = 60.0
 shader_parameter/constructionFlyTowardsPoint = Vector3(0, 0, 0)
@@ -16670,7 +16889,8 @@ script = ExtResource("18_fyjuc")
 [node name="DebugThings" type="Node3D" parent="."]
 
 [node name="DebugCobraMkIII" parent="DebugThings" instance=ExtResource("74_otxia")]
-transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 1414, 1414, 0)
+transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 0, 0, 0)
+visible = false
 
 [node name="GroundZero" type="MeshInstance3D" parent="DebugThings"]
 visible = false
@@ -17083,7 +17303,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -17105,7 +17325,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -17371,7 +17591,7 @@ mesh = SubResource("BoxMesh_psnnd")
 skeleton = NodePath("../..")
 
 [node name="JellyPlanet" type="MeshInstance3D" parent="World"]
-transform = Transform3D(-0.283268, 6.48042e+06, 0.283268, 0, -0.283268, 6.48042e+06, 6.48042e+06, 0.283268, 1.2382e-08, 2.955, -106.5, -0.765)
+transform = Transform3D(-0.283268, 6.48042e+06, 0.283268, 0, -0.283268, 6.48042e+06, 6.48042e+06, 0.283268, 1.2382e-08, 2.955, -110, -0.765)
 visible = false
 material_override = SubResource("ShaderMaterial_bpk7y")
 cast_shadow = 0
@@ -17528,7 +17748,7 @@ transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4
 transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
-transform = Transform3D(0.409996, -0.0132443, -0.911991, -0.0769019, 0.995832, -0.0490336, 0.908839, 0.0902382, 0.40727, 0, 0, 0)
+transform = Transform3D(5.22896, -30.984, 20.7819, -37.0198, -1.70489, 6.77271, -4.62975, -21.3617, -30.6836, 0, 0, 0)
 script = ExtResource("51_osqmg")
 
 [node name="DeathRay" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent" instance=ExtResource("52_2li0a")]
