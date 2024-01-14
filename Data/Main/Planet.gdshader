@@ -174,27 +174,28 @@ void vertex() {
 			VERTEX = rotatedAndScaledRelVertPos + translation;
 		}
 	}
-	else if (constructionMinDistance < 2.0)
+	else if (constructionMinDistance < 10.0e6)
 	{
 		int faceId = VERTEX_ID / 3;
 		vec3 faceCenterPoint = texelFetch(customDataSampler, getTexelCoord(faceId), 0).xyz;
 
-		float dist = length(faceCenterPoint);
+		// Huge multiplier to make it possible to use the inspector (with 0.001 resolution)
+		float dist = length(faceCenterPoint) * 1.0e6;
 		
-		float minDistScaled = constructionMinDistance * constructionMinDistance * constructionMinDistance;
-		float maxDistScaled = constructionMaxDistance * constructionMaxDistance * constructionMaxDistance;
+//		float minDistScaled = pow(constructionMinDistance, 10);
+//		float maxDistScaled = pow(constructionMaxDistance, 10);
 		
-		if (dist > maxDistScaled)
+		if (dist > constructionMaxDistance)
 		{
 			// Face of this vertex is not visible yet, so set all vertices
 			// to zero coords to make the face invisible
 			VERTEX = vec3(0.0);
 		}
-		else if (dist > minDistScaled)
+		else if (dist > constructionMinDistance)
 		{
 			// Face is flying and rotating to it's final place
 			
-			float flyFraction = clamp(smoothstep(minDistScaled, maxDistScaled + (maxDistScaled - minDistScaled), dist) * 2.0, 0.0, 1.0);
+			float flyFraction = clamp(smoothstep(constructionMinDistance, constructionMaxDistance + (constructionMaxDistance - constructionMinDistance), dist) * 2.0, 0.0, 1.0);
 
 			// "Randomize" the maximum rotations
 			float maxAngleX = random(faceCenterPoint.x) * constructionMaxStartAngle;
