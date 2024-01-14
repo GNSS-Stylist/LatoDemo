@@ -113,13 +113,13 @@ void fragment() {
 				(diff - derivYWidth > -lineWidthLow))
 		{
 			// Nothing to antialias (whole range is inside the solid area)
-			ALPHA = 1.0;
+			ALPHA = baseAlbedo.a;
 		}
 		else if ((diff + derivYWidth > lineWidthHigh) &&
 				(diff - derivYWidth < -lineWidthHigh))
 		{
 			// Full line is inside the range
-			ALPHA = (lineWidthLow + lineWidthHigh) * 0.5 / (derivYWidth * 2.0);
+			ALPHA = baseAlbedo.a * ((lineWidthLow + lineWidthHigh) * 0.5 / (derivYWidth * 2.0));
 		}
 		else
 		{
@@ -131,10 +131,10 @@ void fragment() {
 				float sum = 0.0;
 				for (int i = 0; i < antiAlias; i++)
 				{
-					sum += baseAlbedo.a * (1.0 - smoothstep(lineWidthLow, lineWidthHigh, abs((diff - derivYWidth) + (derivYWidth * 2.0 * float(i) / float(antiAlias)))));
+					sum += 1.0 - smoothstep(lineWidthLow, lineWidthHigh, abs((diff - derivYWidth) + (derivYWidth * 2.0 * float(i) / float(antiAlias))));
 				}
 				
-				ALPHA = sum / float(antiAlias);
+				ALPHA = baseAlbedo.a * (sum / float(antiAlias));
 			}
 			else
 			{
