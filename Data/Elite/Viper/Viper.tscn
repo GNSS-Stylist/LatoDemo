@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://35y452o6hg11"]
+
+[ext_resource type="Script" path="res://Data/Elite/Viper/Viper.gd" id="1_h5fih"]
+[ext_resource type="Shader" path="res://Data/Elite/EliteTriangle.gdshader" id="2_d5yau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwu0a"]
+render_priority = 0
+shader = ExtResource("2_d5yau")
+shader_parameter/pointColors = PackedColorArray(0, 0, 0, 1, 0.0862745, 0, 0.815686, 1, 0.262745, 0.384314, 0.811765, 1, 0.533333, 0.662745, 0.941176, 1, 0.266667, 0.4, 0, 1, 0.4, 0.666667, 0, 1, 0.533333, 0.933333, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933333, 0.4, 0, 1, 0.933333, 0.933333, 0, 1, 0.933333, 0, 0.933333, 1, 0.729412, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 0.258824, 0.258824, 0.258824, 1, 0.933333, 0.933333, 0.933333, 1)
+
+[sub_resource type="Animation" id="Animation_56p2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:trigStashToolData")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_i05xd"]
+resource_name = "dummy"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tl05y"]
+_data = {
+"RESET": SubResource("Animation_56p2m"),
+"dummy": SubResource("Animation_i05xd")
+}
+
+[node name="Viper" type="Node3D"]
+script = ExtResource("1_h5fih")
+
+[node name="MainBody_Blue" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("ShaderMaterial_uwu0a")
+
+[node name="MainBody_Red" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_uwu0a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tl05y")
+}
