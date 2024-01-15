@@ -1,0 +1,4 @@
+*.tscn text=auto
+*.gd text=auto
+*.gdshader text=auto
+*.godot text=auto
