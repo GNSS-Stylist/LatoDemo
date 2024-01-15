@@ -1,4 +1,4 @@
-*.tscn text=auto
-*.gd text=auto
-*.gdshader text=auto
-*.godot text=auto
+*.tscn text eol=lf
+*.gd text eol=lf
+*.gdshader text eol=lf
+*.godot text eol=lf
