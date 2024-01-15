@@ -37,9 +37,11 @@ script = ExtResource("1_h5fih")
 
 [node name="MainBody_Blue" type="MeshInstance3D" parent="."]
 visible = false
+layers = 262144
 material_override = SubResource("ShaderMaterial_uwu0a")
 
 [node name="MainBody_Red" type="MeshInstance3D" parent="."]
+layers = 262144
 material_override = SubResource("ShaderMaterial_uwu0a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
