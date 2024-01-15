@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=187 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -16823,6 +16823,13 @@ pixel_size = 0.05
 curve_step = 0.1
 depth = 0.0
 
+[sub_resource type="Environment" id="Environment_ybty3"]
+ambient_light_source = 1
+reflected_light_source = 1
+
+[sub_resource type="World3D" id="World3D_vexbx"]
+environment = SubResource("Environment_ybty3")
+
 [sub_resource type="World3D" id="World3D_1d12g"]
 
 [node name="Main" type="Node3D"]
@@ -18223,7 +18230,10 @@ visible = false
 solarPanelFraction = 0.0
 
 [node name="SubViewport_Scroller" type="SubViewport" parent="."]
+own_world_3d = true
+world_3d = SubResource("World3D_vexbx")
 transparent_bg = true
+handle_input_locally = false
 canvas_cull_mask = 4294443008
 size = Vector2i(1920, 1080)
 script = ExtResource("63_s8l2w")
@@ -18256,6 +18266,8 @@ textureIndex = 2
 [node name="ScrollerPicPlate4" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="3"]
 basePosY = -5.5
 textureIndex = 3
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SubViewport_Elite" type="SubViewport" parent="."]
 world_3d = SubResource("World3D_1d12g")
