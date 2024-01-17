@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=188 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -76,6 +76,7 @@
 [ext_resource type="Texture2D" uid="uid://blyy5kte0bd1" path="res://Data/Pics/ScrollerPlateTextures/GreatLeaders.jpg" id="73_hsdux"]
 [ext_resource type="PackedScene" uid="uid://c73x1jwdou6hf" path="res://Data/Elite/CobraMkIII/CobraMkIII.tscn" id="74_otxia"]
 [ext_resource type="Script" path="res://Data/Main/SubViewport_Elite.gd" id="75_lxvg1"]
+[ext_resource type="PackedScene" uid="uid://v3gul7u5uduf" path="res://Data/Models/space_station_v_2001_a_space_odyssey_glTF/SpaceStation.tscn" id="77_0wxmw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lubd1"]
 render_priority = 0
@@ -1263,6 +1264,30 @@ tracks/52/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("World:fakeDistanceOverride")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("SpaceStation:visible")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pp4xi"]
 resource_name = "AscensionToSpaceStation"
@@ -1380,7 +1405,7 @@ tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.88214, 0, 20, 0, 1414.21, -5.31384, -155.442, 0.25, 0),
+"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.88214, 0, 20, 0, 1414.21, -8, 0, 0.25, 0),
 "times": PackedFloat32Array(245, 256.5, 279.9)
 }
 tracks/10/type = "bezier"
@@ -1391,7 +1416,7 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-6.208, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 20.7776, 75.3221, 1414.21, -3.42242, -186.2, 0.25, 0),
+"points": PackedFloat32Array(-6.208, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 20.7776, 75.3221, 1414.21, -8, 0, 0.25, 0),
 "times": PackedFloat32Array(245, 260.1, 280)
 }
 tracks/11/type = "value"
@@ -1626,7 +1651,7 @@ tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 1, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -5, 0, 0.25, 0),
 "times": PackedFloat32Array(256.7, 260.8, 270, 282.8)
 }
 tracks/30/type = "value"
@@ -1731,7 +1756,7 @@ tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(1, -5, 0, 3.786, 0, 56.3527, -0.744427, -22.1332, 12.0862, 359.344, 10000, -3.81384, 26.7197, 5, 0),
+"points": PackedFloat32Array(1, -5, 0, 3.786, 0, 56.3527, -0.744427, -22.1332, 12.0862, 359.344, 10000, -8, 0, 5, 0),
 "times": PackedFloat32Array(260, 267.4, 283.4)
 }
 tracks/39/type = "value"
@@ -3109,6 +3134,30 @@ tracks/106/path = NodePath("GlobalInit:overrideReplayTime_AdditiveGeometries")
 tracks/106/interp = 1
 tracks/106/loop_wrap = true
 tracks/106/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/107/type = "value"
+tracks/107/imported = false
+tracks/107/enabled = true
+tracks/107/path = NodePath("World:fakeDistanceOverride")
+tracks/107/interp = 1
+tracks/107/loop_wrap = true
+tracks/107/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/108/type = "value"
+tracks/108/imported = false
+tracks/108/enabled = true
+tracks/108/path = NodePath("SpaceStation:visible")
+tracks/108/interp = 1
+tracks/108/loop_wrap = true
+tracks/108/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -5463,6 +5512,30 @@ tracks/54/keys = {
 "update": 0,
 "values": [Color(1, 0.713726, 0.560784, 0.298039)]
 }
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("World:fakeDistanceOverride")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("SpaceStation:visible")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
 resource_name = "Descent"
@@ -6317,6 +6390,30 @@ tracks/36/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(6.48042e+06, 6.48042e+06, 6.48042e+06)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("World:fakeDistanceOverride")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("SpaceStation:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_62hyn"]
@@ -8248,6 +8345,30 @@ tracks/101/keys = {
 "update": 0,
 "values": [1e+07]
 }
+tracks/102/type = "value"
+tracks/102/imported = false
+tracks/102/enabled = true
+tracks/102/path = NodePath("World:fakeDistanceOverride")
+tracks/102/interp = 1
+tracks/102/loop_wrap = true
+tracks/102/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/103/type = "value"
+tracks/103/imported = false
+tracks/103/enabled = true
+tracks/103/path = NodePath("SpaceStation:visible")
+tracks/103/interp = 1
+tracks/103/loop_wrap = true
+tracks/103/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_dqvmp"]
 resource_name = "EndScroller"
@@ -9355,6 +9476,30 @@ tracks/64/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/64/interp = 1
 tracks/64/loop_wrap = true
 tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("World:fakeDistanceOverride")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("SpaceStation:visible")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -10657,6 +10802,30 @@ tracks/55/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/55/interp = 1
 tracks/55/loop_wrap = true
 tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("World:fakeDistanceOverride")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("SpaceStation:visible")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -14081,6 +14250,30 @@ tracks/286/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/287/type = "value"
+tracks/287/imported = false
+tracks/287/enabled = true
+tracks/287/path = NodePath("World:fakeDistanceOverride")
+tracks/287/interp = 1
+tracks/287/loop_wrap = true
+tracks/287/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/288/type = "value"
+tracks/288/imported = false
+tracks/288/enabled = true
+tracks/288/path = NodePath("SpaceStation:visible")
+tracks/288/interp = 1
+tracks/288/loop_wrap = true
+tracks/288/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -15087,6 +15280,30 @@ tracks/46/keys = {
 "update": 0,
 "values": [Vector3(6.48042e+06, 6.48042e+06, 6.48042e+06)]
 }
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("World:fakeDistanceOverride")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("SpaceStation:visible")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
 resource_name = "WreckFlyBy"
@@ -16086,6 +16303,30 @@ tracks/62/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("World:fakeDistanceOverride")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("SpaceStation:visible")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
 _data = {
@@ -16956,7 +17197,7 @@ script = ExtResource("18_fyjuc")
 [node name="DebugThings" type="Node3D" parent="."]
 
 [node name="DebugCobraMkIII" parent="DebugThings" instance=ExtResource("74_otxia")]
-transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 0, 0, 0)
+transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 1414, 1414, 0)
 visible = false
 
 [node name="GroundZero" type="MeshInstance3D" parent="DebugThings"]
@@ -17370,7 +17611,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -17392,7 +17633,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -17815,7 +18056,7 @@ transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4
 transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
-transform = Transform3D(5.22896, -30.984, 20.7819, -37.0198, -1.70489, 6.77271, -4.62975, -21.3617, -30.6836, 0, 0, 0)
+transform = Transform3D(1387.99, -8224.5, 5516.43, -9826.66, -452.552, 1797.77, -1228.94, -5670.34, -8144.76, 0, 0, 0)
 script = ExtResource("51_osqmg")
 
 [node name="DeathRay" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent" instance=ExtResource("52_2li0a")]
@@ -18292,6 +18533,10 @@ visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SubViewport_Elite/Node3D/CobraMkIII"]
 remote_path = NodePath("../../../../DebugThings/DebugCobraMkIII")
+
+[node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+visible = false
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
