@@ -167,6 +167,11 @@ func _ready():
 	animationCameraAnchorNodes.push_back($CameraFlyingSpace_Satellite_Angled/Flybyer/FlybyerCamera)
 	animationCameraAnchorSpaceNames.push_back("Satellite flybyer")
 
+	# 9:
+	animationCameraAnchorSpaces.push_back($FlyingSpace_Station_Angled_NotRotating)
+	animationCameraAnchorNodes.push_back($FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator)
+	animationCameraAnchorSpaceNames.push_back("Station non-rotating")
+
 
 	$DebugThings/Panel_CurrentCameraTransform/OptionButton_PosReference.clear()
 
