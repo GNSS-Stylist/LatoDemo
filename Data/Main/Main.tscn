@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=191 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -1267,19 +1267,19 @@ tracks/52/keys = {
 tracks/53/type = "value"
 tracks/53/imported = false
 tracks/53/enabled = true
-tracks/53/path = NodePath("World:fakeDistanceOverride")
+tracks/53/path = NodePath("SpaceStation:visible")
 tracks/53/interp = 1
 tracks/53/loop_wrap = true
 tracks/53/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/54/type = "value"
 tracks/54/imported = false
 tracks/54/enabled = true
-tracks/54/path = NodePath("SpaceStation:visible")
+tracks/54/path = NodePath("World:followRelativePosition")
 tracks/54/interp = 1
 tracks/54/loop_wrap = true
 tracks/54/keys = {
@@ -1312,10 +1312,10 @@ tracks/1/path = NodePath(".:animationCameraAnchorIndexB")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 81.5, 161, 166, 169.87, 170.87, 177.598, 244, 245, 297.887),
+"times": PackedFloat32Array(0, 81.5, 161, 166, 169.87, 170.87, 177.598, 244, 245, 280),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [1, 6, 6, 2, 2, 3, 2, 2, 3, 7]
+"values": [1, 6, 6, 2, 2, 3, 2, 2, 3, 9]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1324,7 +1324,7 @@ tracks/2/path = NodePath(".:animationCameraFraction")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 52, 55.5, 81.5, 82.5, 83.5, 143.069, 145.142, 176.137, 177.598, 179.598, 243, 244, 245, 257.387, 258.387, 300, 300.5, 301, 320),
+"times": PackedFloat32Array(0, 52, 55.5, 81.5, 82.5, 83.5, 143.069, 145.142, 176.137, 177.598, 179.598, 243, 244, 245, 257.387, 258.387, 281, 282, 283, 320),
 "transitions": PackedFloat32Array(1, 1, 1, 2, 0.5, 1, 1, 1, 1, 0.5, 1, 2, 0.5, 1, 1, 1, 2, 0.5, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0]
@@ -1337,7 +1337,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(17.445, -5, 0, 0.101302, -0.144288, 17.445, -0.25, 0, 20, 0, 0, 0, -5.389, 0.25, 0),
+"points": PackedFloat32Array(17.445, -5, 0, 0.101302, -0.144288, 17.445, -0.25, 0, 20, 0, -0.166, 0, -5.389, 0.25, 0),
 "times": PackedFloat32Array(245, 260, 280)
 }
 tracks/4/type = "value"
@@ -1405,7 +1405,7 @@ tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.88214, 0, 20, 0, 1414.21, -8, 0, 0.25, 0),
+"points": PackedFloat32Array(0.781, -0.783203, 0.0146577, 0.249026, -0.00466054, 0.704, -3.88214, 0, 20, 0, 1405.51, -8, 0, 0.25, 0),
 "times": PackedFloat32Array(245, 256.5, 279.9)
 }
 tracks/10/type = "bezier"
@@ -1416,7 +1416,7 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-6.208, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 20.7776, 75.3221, 1414.21, -8, 0, 0.25, 0),
+"points": PackedFloat32Array(-6.208, -0.504272, 0.103492, 0.0815347, -0.0167333, -6.208, -0.964447, -0.0176415, 20.7776, 75.3221, 1373.58, -8, 0, 0.25, 0),
 "times": PackedFloat32Array(245, 260.1, 280)
 }
 tracks/11/type = "value"
@@ -1757,7 +1757,7 @@ tracks/38/loop_wrap = true
 tracks/38/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
 "points": PackedFloat32Array(1, -5, 0, 3.786, 0, 56.3527, -0.744427, -22.1332, 12.0862, 359.344, 10000, -8, 0, 5, 0),
-"times": PackedFloat32Array(260, 267.4, 283.4)
+"times": PackedFloat32Array(260, 267.4, 283)
 }
 tracks/39/type = "value"
 tracks/39/imported = false
@@ -1889,7 +1889,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [10000.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -2974,22 +2974,34 @@ tracks/92/keys = {
 tracks/93/type = "value"
 tracks/93/imported = false
 tracks/93/enabled = true
-tracks/93/path = NodePath("World:fakeDistanceOverride")
+tracks/93/path = NodePath("SpaceStation:visible")
 tracks/93/interp = 1
 tracks/93/loop_wrap = true
 tracks/93/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/94/type = "value"
 tracks/94/imported = false
 tracks/94/enabled = true
-tracks/94/path = NodePath("SpaceStation:visible")
+tracks/94/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
 tracks/94/interp = 1
 tracks/94/loop_wrap = true
 tracks/94/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/95/type = "value"
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/path = NodePath("World:followRelativePosition")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -5347,19 +5359,19 @@ tracks/54/keys = {
 tracks/55/type = "value"
 tracks/55/imported = false
 tracks/55/enabled = true
-tracks/55/path = NodePath("World:fakeDistanceOverride")
+tracks/55/path = NodePath("SpaceStation:visible")
 tracks/55/interp = 1
 tracks/55/loop_wrap = true
 tracks/55/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("SpaceStation:visible")
+tracks/56/path = NodePath("World:followRelativePosition")
 tracks/56/interp = 1
 tracks/56/loop_wrap = true
 tracks/56/keys = {
@@ -6226,19 +6238,19 @@ tracks/36/keys = {
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("World:fakeDistanceOverride")
+tracks/37/path = NodePath("SpaceStation:visible")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("SpaceStation:visible")
+tracks/38/path = NodePath("World:followRelativePosition")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
@@ -8180,19 +8192,19 @@ tracks/101/keys = {
 tracks/102/type = "value"
 tracks/102/imported = false
 tracks/102/enabled = true
-tracks/102/path = NodePath("World:fakeDistanceOverride")
+tracks/102/path = NodePath("SpaceStation:visible")
 tracks/102/interp = 1
 tracks/102/loop_wrap = true
 tracks/102/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/103/type = "value"
 tracks/103/imported = false
 tracks/103/enabled = true
-tracks/103/path = NodePath("SpaceStation:visible")
+tracks/103/path = NodePath("World:followRelativePosition")
 tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = {
@@ -9316,19 +9328,19 @@ tracks/64/keys = {
 tracks/65/type = "value"
 tracks/65/imported = false
 tracks/65/enabled = true
-tracks/65/path = NodePath("World:fakeDistanceOverride")
+tracks/65/path = NodePath("SpaceStation:visible")
 tracks/65/interp = 1
 tracks/65/loop_wrap = true
 tracks/65/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/66/type = "value"
 tracks/66/imported = false
 tracks/66/enabled = true
-tracks/66/path = NodePath("SpaceStation:visible")
+tracks/66/path = NodePath("World:followRelativePosition")
 tracks/66/interp = 1
 tracks/66/loop_wrap = true
 tracks/66/keys = {
@@ -10642,19 +10654,19 @@ tracks/55/keys = {
 tracks/56/type = "value"
 tracks/56/imported = false
 tracks/56/enabled = true
-tracks/56/path = NodePath("World:fakeDistanceOverride")
+tracks/56/path = NodePath("SpaceStation:visible")
 tracks/56/interp = 1
 tracks/56/loop_wrap = true
 tracks/56/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/57/type = "value"
 tracks/57/imported = false
 tracks/57/enabled = true
-tracks/57/path = NodePath("SpaceStation:visible")
+tracks/57/path = NodePath("World:followRelativePosition")
 tracks/57/interp = 1
 tracks/57/loop_wrap = true
 tracks/57/keys = {
@@ -14085,26 +14097,50 @@ tracks/286/keys = {
 tracks/287/type = "value"
 tracks/287/imported = false
 tracks/287/enabled = true
-tracks/287/path = NodePath("World:fakeDistanceOverride")
+tracks/287/path = NodePath("SpaceStation:visible")
 tracks/287/interp = 1
 tracks/287/loop_wrap = true
 tracks/287/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/288/type = "value"
 tracks/288/imported = false
 tracks/288/enabled = true
-tracks/288/path = NodePath("SpaceStation:visible")
+tracks/288/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
 tracks/288/interp = 1
 tracks/288/loop_wrap = true
 tracks/288/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/289/type = "value"
+tracks/289/imported = false
+tracks/289/enabled = true
+tracks/289/path = NodePath("World:followRelativePosition")
+tracks/289/interp = 1
+tracks/289/loop_wrap = true
+tracks/289/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/290/type = "value"
+tracks/290/imported = false
+tracks/290/enabled = true
+tracks/290/path = NodePath("World:relativeFollowTranslation")
+tracks/290/interp = 1
+tracks/290/loop_wrap = true
+tracks/290/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1373.58, -1405.51, 0.166)]
 }
 
 [sub_resource type="Animation" id="Animation_qtsft"]
@@ -14474,7 +14510,7 @@ tracks/29/keys = {
 }
 tracks/30/type = "value"
 tracks/30/imported = false
-tracks/30/enabled = false
+tracks/30/enabled = true
 tracks/30/path = NodePath(".:dbgAnimJump")
 tracks/30/interp = 0
 tracks/30/loop_wrap = false
@@ -14482,7 +14518,7 @@ tracks/30/keys = {
 "times": PackedFloat32Array(0, 45.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-318.0, 10.0]
+"values": [-280.0, 10.0]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
@@ -15115,19 +15151,19 @@ tracks/46/keys = {
 tracks/47/type = "value"
 tracks/47/imported = false
 tracks/47/enabled = true
-tracks/47/path = NodePath("World:fakeDistanceOverride")
+tracks/47/path = NodePath("SpaceStation:visible")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/48/type = "value"
 tracks/48/imported = false
 tracks/48/enabled = true
-tracks/48/path = NodePath("SpaceStation:visible")
+tracks/48/path = NodePath("World:followRelativePosition")
 tracks/48/interp = 1
 tracks/48/loop_wrap = true
 tracks/48/keys = {
@@ -15135,6 +15171,1227 @@ tracks/48/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_old0x"]
+resource_name = "SpaceStationFlyby"
+length = 600.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(283, 287.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animationPosition")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 600),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 600.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animationCameraFraction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(282),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:animationCameraAnchorIndexA")
+tracks/3/interp = 0
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(280),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:animationCameraAnchorIndexB")
+tracks/4/interp = 0
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(280),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_g87eg"]
+resource_name = "SpaceStationFlyby_INIT"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animDbgPrint")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["AscensionToSpaceStation_INIT"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("World:scalingOverride")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World:inverseScalingOverride")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10000.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Satellite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Satellite:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/Planet/Crust:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World/Planet/Crust:process_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("World/JellyPlanet:process_mode")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("World/CameraRig:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("World/CameraRig:process_mode")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("World/AdditiveGeometries:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("World/AdditiveGeometries:process_mode")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("World/PlanetCore:process_mode")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("World/LOScriptReplayer_MainBlackHole:process_mode")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("World/LidarLineSets:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("World/LidarLineSets:process_mode")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("World/LidarPointSets:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("World/LidarPointSets:process_mode")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("GlobalLights:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("GlobalLights:process_mode")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("SatelliteWreck:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("SatelliteWreck:process_mode")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CameraFlyingSpace_Ascend:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CameraFlyingSpace_Ascend:process_mode")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("AnimatedCamera/DirectionalLight:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = false
+tracks/25/path = NodePath("AnimatedCamera/DirectionalLight:light_energy")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = false
+tracks/26/path = NodePath("AnimatedCamera/DirectionalLight:light_color")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath(".:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("GlobalInit:scopeAutoSoundPosAdjustFractionByCurrentCamera")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("GlobalInit:blockableGNSSSignalRaycast")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("World/StaticBunchOfGNSSSignals:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("World/StaticBunchOfGNSSSignals:process_mode")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("CameraFlyingSpace_Ascend/GreatTexts:process_mode")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("AnimatedCamera:fov")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [42.0]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("AnimatedCamera:near")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("AnimatedCamera:far")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2500.0]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("WorldEnvironment:environment:adjustment_brightness")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("WorldEnvironment:environment:adjustment_contrast")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialAlphaFadeInTime")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/disappearanceDelay")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5500.0]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleTime")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4500.0]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleAmplitude_Min")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleAmplitude_Max")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleFrequency_Min")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.002]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/initialWobbleFrequency_Max")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.005]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/alphaFadeOutStartTime")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/alphaFadeOutEndTime")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5500.0]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("World/AdditiveGeometries/Ground:wireframeMaterial:shader_parameter/wobbleTimeOffset")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10000.0]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flyTime")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flatFaceMinDelayTime")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7000.0]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/flatFaceMaxDelayTime")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10000.0]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Vertex")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Fragment")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("World/AdditiveGeometries/Ground:meshMaterial:shader_parameter/faceTimeOverride")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("World/AdditiveGeometries/Ground:overrideReplayTime_AdditiveGeometry_Local")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("World/AdditiveGeometries/Ground:localReplayTimeOverride_AdditiveGeometry")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+08]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("World/AdditiveGeometries/Ground:overrideReplayTime_WireFrame_Local")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/60/type = "value"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("World/AdditiveGeometries/Ground:localReplayTimeOverride_WireFrame")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1e+08]
+}
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flyTime")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5000.0]
+}
+tracks/62/type = "value"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flatFaceMinDelayTime")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7000.0]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/flatFaceMaxDelayTime")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10000.0]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Vertex")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/leaveMeAloneDelayTime_Fragment")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20000.0]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/edgeColorFadeOutStartTime")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/edgeColorFadeOutEndTime")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/textureFadeInStartTime")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/textureFadeInEndTime")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightInitialValue")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/71/type = "value"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightFinalValue")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightInitialValueTime")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10000.0]
+}
+tracks/73/type = "value"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/baseLightFinalValueTime")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/74/type = "value"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("World/AdditiveGeometries/Barn/BarnMesh:meshMaterial:shader_parameter/faceTimeOverride")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/75/type = "value"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("World/Planet:visible")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/76/type = "value"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("World/Planet:process_mode")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/77/type = "value"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("World/PlanetCore:visible")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/78/type = "value"
+tracks/78/imported = false
+tracks/78/enabled = false
+tracks/78/path = NodePath("SubViewport_Scroller/ScrollerMainNode:visible")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/79/type = "value"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/80/type = "value"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/81/type = "value"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("World/Planet/Crust:material_override:shader_parameter/destructionFraction")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/82/type = "value"
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxStartAngle")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [60.0]
+}
+tracks/83/type = "value"
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/path = NodePath("World/LOScriptReplayer_MainBlackHole:visible")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/84/type = "value"
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/path = NodePath("World/Planet/BlackHole_Eater2:visible")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/85/type = "value"
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/path = NodePath("World/Planet/BlackHole_Eater3:visible")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/86/type = "value"
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:visible")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/87/type = "value"
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:process_mode")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/88/type = "value"
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/path = NodePath("GlobalInit:replayTime_Lidar")
+tracks/88/interp = 1
+tracks/88/loop_wrap = true
+tracks/88/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [200000.0]
+}
+tracks/89/type = "value"
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/path = NodePath("World/LidarRig:loOverrideFraction")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("World/JellyPlanet:material_override:shader_parameter/edgeAlbedo_Front")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2, 2, 1, 1)]
+}
+tracks/91/type = "value"
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/path = NodePath("World/JellyPlanet:material_override:shader_parameter/centerAlbedo_Front")
+tracks/91/interp = 1
+tracks/91/loop_wrap = true
+tracks/91/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.713726, 0.560784, 0.298039)]
+}
+tracks/92/type = "value"
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/path = NodePath("GlobalInit:overrideReplayTime_AdditiveGeometries")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/93/type = "value"
+tracks/93/imported = false
+tracks/93/enabled = true
+tracks/93/path = NodePath("SpaceStation:visible")
+tracks/93/interp = 1
+tracks/93/loop_wrap = true
+tracks/93/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/94/type = "value"
+tracks/94/imported = false
+tracks/94/enabled = true
+tracks/94/path = NodePath("World:followRelativePosition")
+tracks/94/interp = 1
+tracks/94/loop_wrap = true
+tracks/94/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/95/type = "value"
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/path = NodePath("World:relativeFollowTranslation")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1373.58, -1405.51, 0.166)]
 }
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
@@ -16138,19 +17395,19 @@ tracks/62/keys = {
 tracks/63/type = "value"
 tracks/63/imported = false
 tracks/63/enabled = true
-tracks/63/path = NodePath("World:fakeDistanceOverride")
+tracks/63/path = NodePath("SpaceStation:visible")
 tracks/63/interp = 1
 tracks/63/loop_wrap = true
 tracks/63/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/64/type = "value"
 tracks/64/imported = false
 tracks/64/enabled = true
-tracks/64/path = NodePath("SpaceStation:visible")
+tracks/64/path = NodePath("World:followRelativePosition")
 tracks/64/interp = 1
 tracks/64/loop_wrap = true
 tracks/64/keys = {
@@ -16179,6 +17436,8 @@ _data = {
 "RESET": SubResource("Animation_ss0a7"),
 "SatMorph": SubResource("Animation_qtsft"),
 "SatMorph_INIT": SubResource("Animation_yrg1s"),
+"SpaceStationFlyby": SubResource("Animation_old0x"),
+"SpaceStationFlyby_INIT": SubResource("Animation_g87eg"),
 "WreckFlyBy": SubResource("Animation_y6bt2"),
 "WreckFlyBy_INIT": SubResource("Animation_6xika")
 }
@@ -16209,10 +17468,10 @@ tracks/0/path = NodePath(".:animChangeReq")
 tracks/0/interp = 0
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 55, 82, 256),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 55, 82, 256, 283),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": ["SatMorph", "Descent", "Construction", "AscensionToSpaceStation"]
+"values": ["SatMorph", "Descent", "Construction", "AscensionToSpaceStation", "SpaceStationFlyby"]
 }
 
 [sub_resource type="Animation" id="Animation_leesi"]
@@ -16905,6 +18164,14 @@ environment = SubResource("Environment_ybty3")
 
 [sub_resource type="World3D" id="World3D_1d12g"]
 
+[sub_resource type="Curve3D" id="Curve3D_ruvyn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -26.8, 21.9, -23, 0, 0, 0, 0, 0, 0, 16.5914, 32.45, 67.9331),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+up_vector_enabled = false
+
 [node name="Main" type="Node3D"]
 process_priority = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1414, -1414, 0)
@@ -17073,7 +18340,6 @@ transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, -0.0205084, -11.0195)
 visible = false
 
 [node name="Panel_CurrentCameraTransform" type="Panel" parent="DebugThings"]
-visible = false
 offset_right = 450.0
 offset_bottom = 154.0
 
@@ -17185,7 +18451,7 @@ offset_left = 133.0
 offset_top = 6.0
 offset_right = 418.0
 offset_bottom = 37.0
-item_count = 9
+item_count = 10
 selected = 0
 popup/item_0/text = "Global origin (B) (0)"
 popup/item_0/id = 0
@@ -17205,6 +18471,8 @@ popup/item_7/text = "Ascender (7)"
 popup/item_7/id = 7
 popup/item_8/text = "Satellite flybyer (8)"
 popup/item_8/id = 8
+popup/item_9/text = "Station non-rotating (9)"
+popup/item_9/id = 9
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
 
@@ -17443,7 +18711,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -17465,7 +18733,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -17541,6 +18809,8 @@ script = ExtResource("30_00yxw")
 originShift = Vector3(-9.468, -1.315, 0.739)
 inverseScalingOverride = 10000.0
 editorCameraNodePath = NodePath("../AnimatedCamera")
+relativeFollowNode = NodePath("../AnimatedCamera")
+relativeFollowTranslation = Vector3(-1373.58, -1405.51, 0.166)
 
 [node name="LidarRig" parent="World" instance=ExtResource("15_cu3x6")]
 process_priority = -110
@@ -17888,7 +19158,7 @@ transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4
 transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
-transform = Transform3D(1387.99, -8224.5, 5516.43, -9826.66, -452.552, 1797.77, -1228.94, -5670.34, -8144.76, 0, 0, 0)
+transform = Transform3D(0.138799, -0.82245, 0.551643, -0.982666, -0.0452552, 0.179777, -0.122894, -0.567033, -0.814476, 0, 0, 0)
 script = ExtResource("51_osqmg")
 
 [node name="DeathRay" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent" instance=ExtResource("52_2li0a")]
@@ -18370,9 +19640,30 @@ remote_path = NodePath("../../../../DebugThings/DebugCobraMkIII")
 transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
+[node name="FlyingSpace_Station_Angled_NotRotating" type="Node3D" parent="."]
+transform = Transform3D(0.66262, -0.645322, 0.380124, 0, 0.507538, 0.861629, -0.748956, -0.570933, 0.336305, 1414.21, 1414.21, 0)
+
+[node name="Path_Station" type="Path3D" parent="FlyingSpace_Station_Angled_NotRotating"]
+transform = Transform3D(1, 2.98023e-08, -2.98023e-08, -2.98023e-08, 1, -2.98023e-08, 0, 0, 1, 0, 0, 0)
+curve = SubResource("Curve3D_ruvyn")
+
+[node name="PathFollow_Station" type="PathFollow3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station"]
+transform = Transform3D(1, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, -26.8, 21.9, -23)
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="PathFollow_Station_Orientator" type="Node3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station"]
+transform = Transform3D(0.74855, -0.541935, 0.382074, 0.5719, 0.819268, 0.0415989, -0.335565, 0.187369, 0.923195, 0, 0, 0)
+rotation_edit_mode = 1
+script = ExtResource("43_1mg0k")
+quatOverride = Quaternion(0.039, 0.192, 0.298, 0.934)
+
+[node name="EditorCamera" type="Camera3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator"]
+fov = 42.0
+
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 

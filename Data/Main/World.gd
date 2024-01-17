@@ -4,8 +4,13 @@ extends Node3D
 @export var originShift:Vector3
 @export var scalingOverride:float
 @export var inverseScalingOverride:float
-@export var fakeDistanceOverride:float = 0
 @export var editorCameraNodePath:NodePath
+
+# These are to fake infinite distance to the world (planet at these distances)
+# (relative translation to the followed node will be kept same)
+@export var relativeFollowNode:NodePath
+@export var relativeFollowTranslation:Vector3
+@export var followRelativePosition:bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,10 +37,7 @@ func _process(_delta):
 #	var scaling:float = 1.0 / (20000.0 - (19999.0 * (1.0 - smoothstep(500, 3500, distance))))
 	var scaling:float = 1.0 / (20000.0 - (19999.0 * (1.0 - smoothstep(100, 3900, distance))))
 	
-	if (fakeDistanceOverride != 0):
-		scaling = 1.0 / (fakeDistanceOverride / distance)
-	
-	elif (scalingOverride != 0):
+	if (scalingOverride != 0):
 		# Godot rounds floats to 0.001 precision in the editor so to be able to feed 
 		# meaningful values here, we need to scale this...
 		# So now 10k means that the planet looks correct when looked at from the distance of the satellite
@@ -51,6 +53,9 @@ func _process(_delta):
 		self.transform.origin = scaling * originShift
 	
 	lastScaling = scaling
+	
+	if (followRelativePosition):
+		self.transform.origin += get_node(relativeFollowNode).global_transform.origin + relativeFollowTranslation
 	
 #	lastReportTimer += delta
 #	if (lastReportTimer > 1):
