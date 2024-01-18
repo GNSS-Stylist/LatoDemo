@@ -14142,6 +14142,62 @@ tracks/290/keys = {
 "update": 0,
 "values": [Vector3(-1373.58, -1405.51, 0.166)]
 }
+tracks/291/type = "value"
+tracks/291/imported = false
+tracks/291/enabled = true
+tracks/291/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:quatOverride")
+tracks/291/interp = 1
+tracks/291/loop_wrap = true
+tracks/291/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0.039, 0.192, 0.298, 0.934)]
+}
+tracks/292/type = "bezier"
+tracks/292/imported = false
+tracks/292/enabled = true
+tracks/292/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:yaw")
+tracks/292/interp = 1
+tracks/292/loop_wrap = true
+tracks/292/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/293/type = "bezier"
+tracks/293/imported = false
+tracks/293/enabled = true
+tracks/293/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:pitch")
+tracks/293/interp = 1
+tracks/293/loop_wrap = true
+tracks/293/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/294/type = "bezier"
+tracks/294/imported = false
+tracks/294/enabled = true
+tracks/294/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:roll")
+tracks/294/interp = 1
+tracks/294/loop_wrap = true
+tracks/294/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/295/type = "bezier"
+tracks/295/imported = false
+tracks/295/enabled = true
+tracks/295/path = NodePath("SpaceStation:rotation:z")
+tracks/295/interp = 1
+tracks/295/loop_wrap = true
+tracks/295/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.174533, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -15176,100 +15232,155 @@ tracks/48/keys = {
 [sub_resource type="Animation" id="Animation_old0x"]
 resource_name = "SpaceStationFlyby"
 length = 600.0
-step = 0.01
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
+tracks/0/path = NodePath(".:animationPosition")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(283, 287.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 100.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:animationPosition")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 600),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 600.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:animationCameraFraction")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animationCameraFraction")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
 "times": PackedFloat32Array(282),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animationCameraAnchorIndexA")
+tracks/2/interp = 0
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(280),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:animationCameraAnchorIndexA")
+tracks/3/path = NodePath(".:animationCameraAnchorIndexB")
 tracks/3/interp = 0
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(280),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:animationCameraAnchorIndexB")
-tracks/4/interp = 0
-tracks/4/loop_wrap = false
-tracks/4/keys = {
-"times": PackedFloat32Array(280),
-"transitions": PackedFloat32Array(1),
-"update": 1,
 "values": [9]
 }
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMinDistance")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMinDistance")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(31149.7, -0.557, -8521.78, 8.633, 132103, 2e+06, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(274, 287)
 }
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxDistance")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxDistance")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(40000, -2.367, -29145.8, 14.97, 184325, 1e+07, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(270, 287)
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("World/JellyPlanet:visible")
-tracks/7/interp = 0
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World/JellyPlanet:visible")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(282, 287),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:quatOverride")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(283, 295.71),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(0.039, 0.192, 0.298, 0.934), Quaternion(0.039, 0.192, 0.298, 0.934)]
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:yaw")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-22.4827, 0, 0, 7.33333, 0, -17.668, -7.33333, 0, 0, 0),
+"times": PackedFloat32Array(283, 330)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:pitch")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-2.38413, 0, 0, 15, 0, 11.041, -30, 0, 0, 0),
+"times": PackedFloat32Array(283, 330)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:roll")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(34.9175, 0, 0, 7.33333, 0, 36.417, -7.33333, 0, 0, 0),
+"times": PackedFloat32Array(283, 330)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -10, 0, 18.1707, 539.424, 648, -30, 0, 5, 0),
+"times": PackedFloat32Array(283, 330)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpaceStation:rotation:z")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.174533, -0.25, 0, 15, 0, -32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(291, 592)
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -18200,10 +18311,10 @@ environment = SubResource("Environment_ybty3")
 
 [sub_resource type="Curve3D" id="Curve3D_ruvyn"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -26.8, 21.9, -23, 0, 0, 0, 0, 0, 0, 16.5914, 32.45, 67.9331),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(-45.7836, -8.77935, -86.8875, 45.7836, 8.77935, 86.8875, -26.8, 21.9, -23, -40.7013, -4.75111, -116.168, 40.7013, 4.75111, 116.168, 63, 36, 187.5, 85.0835, 174.718, -43.6816, -85.0835, -174.718, 43.6816, 50, -200, 474),
+"tilts": PackedFloat32Array(0, 0, 0)
 }
-point_count = 2
+point_count = 3
 up_vector_enabled = false
 
 [node name="Main" type="Node3D"]
@@ -19671,14 +19782,14 @@ visible = false
 remote_path = NodePath("../../../../DebugThings/DebugCobraMkIII")
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="FlyingSpace_Station_Angled_NotRotating" type="Node3D" parent="."]
 transform = Transform3D(0.66262, -0.645322, 0.380124, 0, 0.507538, 0.861629, -0.748956, -0.570933, 0.336305, 1414.21, 1414.21, 0)
 
 [node name="Path_Station" type="Path3D" parent="FlyingSpace_Station_Angled_NotRotating"]
-transform = Transform3D(1, 2.98023e-08, -2.98023e-08, -2.98023e-08, 1, -2.98023e-08, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 2.98023e-08, -5.96046e-08, -2.98023e-08, 1, -4.47035e-08, 0, 0, 1, 0, 0, 0)
 curve = SubResource("Curve3D_ruvyn")
 
 [node name="PathFollow_Station" type="PathFollow3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station"]
@@ -19687,10 +19798,10 @@ rotation_mode = 0
 tilt_enabled = false
 
 [node name="PathFollow_Station_Orientator" type="Node3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station"]
-transform = Transform3D(0.74855, -0.541935, 0.382074, 0.5719, 0.819268, 0.0415989, -0.335565, 0.187369, 0.923195, 0, 0, 0)
 rotation_edit_mode = 1
 script = ExtResource("43_1mg0k")
 quatOverride = Quaternion(0.039, 0.192, 0.298, 0.934)
+eulerAnglesFraction = 1.0
 
 [node name="EditorCamera" type="Camera3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator"]
 fov = 42.0
