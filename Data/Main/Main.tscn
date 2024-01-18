@@ -1735,7 +1735,7 @@ tracks/36/loop_wrap = true
 tracks/36/keys = {
 "handle_modes": PackedInt32Array(0, 0, 2, 0),
 "points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0, 13, 0, 0, 5.73294, 6063.27, 40000, -2.36703, -29145.8, 14.9697, 184325, 1e+07, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256, 260.7, 270, 283)
+"times": PackedFloat32Array(256, 260.7, 270, 287)
 }
 tracks/37/type = "bezier"
 tracks/37/imported = false
@@ -1744,9 +1744,9 @@ tracks/37/path = NodePath("World/Planet/Crust:material_override:shader_parameter
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 2, 2, 0),
+"handle_modes": PackedInt32Array(0, 0, 0, 2, 0, 0),
 "points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0, 13, 0, 100000, 1, 0, 13, -0.25, 0, 5, 0, 2492.56, -1.56657, -2482.54, 3.13293, 4964.73, 31149.7, -0.5569, -8521.78, 8.63297, 132103, 2e+06, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256, 260.7, 262.5, 270.1, 274, 283)
+"times": PackedFloat32Array(256, 260.7, 262.5, 270.1, 274, 287)
 }
 tracks/38/type = "bezier"
 tracks/38/imported = false
@@ -1766,7 +1766,7 @@ tracks/39/path = NodePath("World/JellyPlanet:visible")
 tracks/39/interp = 0
 tracks/39/loop_wrap = false
 tracks/39/keys = {
-"times": PackedFloat32Array(258.5, 260.7, 283),
+"times": PackedFloat32Array(258.5, 260.7, 287),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -14510,15 +14510,15 @@ tracks/29/keys = {
 }
 tracks/30/type = "value"
 tracks/30/imported = false
-tracks/30/enabled = true
+tracks/30/enabled = false
 tracks/30/path = NodePath(".:dbgAnimJump")
 tracks/30/interp = 0
 tracks/30/loop_wrap = false
 tracks/30/keys = {
-"times": PackedFloat32Array(0, 45.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-280.0, 10.0]
+"values": [-280.0]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
@@ -15236,6 +15236,40 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [9]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMinDistance")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(31149.7, -0.557, -8521.78, 8.633, 132103, 2e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(274, 287)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World/Planet/Crust:material_override:shader_parameter/constructionMaxDistance")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(40000, -2.367, -29145.8, 14.97, 184325, 1e+07, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(270, 287)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("World/JellyPlanet:visible")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(282, 287),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -18711,7 +18745,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -18733,7 +18767,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -19662,8 +19696,8 @@ quatOverride = Quaternion(0.039, 0.192, 0.298, 0.934)
 fov = 42.0
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
