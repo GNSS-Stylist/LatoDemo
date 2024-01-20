@@ -133,20 +133,16 @@ void vertex() {
 }
 
 void fragment() {
-//	int x = int(SCREEN_UV.x * eliteOverlayResolution.x);
-//	int y = int(SCREEN_UV.y * eliteOverlayResolution.y);
-	
+#if false
+	// Use these versions to see low-res dithering on the editor
+	float pixelsPerPixel = 5.0;
+	int x = int(FRAGCOORD.x / pixelsPerPixel);
+	int y = int(FRAGCOORD.y / pixelsPerPixel);
+#else
 	int x = int(FRAGCOORD.x);
 	int y = int(FRAGCOORD.y);
-
-//	int x = int(SCREEN_UV.x * VIEWPORT_SIZE.x);
-//	int y = int(SCREEN_UV.y * VIEWPORT_SIZE.y);
-
+#endif
 
 	// Bitwise xor may not work everywhere(?)
 	ALBEDO = paintColors[(x ^ y) & 1];
-	
-//	ALBEDO = paintColors[(x & 1)];
-	
-//	ALBEDO = mix(pointColors[int(floor(UV.x + 0.5))].rgb, pointColors[int(floor(UV.y + 0.5))].rgb, 0.0);
 }
