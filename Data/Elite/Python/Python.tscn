@@ -41,10 +41,12 @@ _data = {
 script = ExtResource("1_nlurs")
 
 [node name="MainBody_Green" type="MeshInstance3D" parent="."]
+layers = 262144
 material_override = SubResource("ShaderMaterial_4tnv0")
 
 [node name="MainBody_Red" type="MeshInstance3D" parent="."]
 visible = false
+layers = 262144
 material_override = SubResource("ShaderMaterial_oe5xg")
 
 [node name="AnimationPlayer_ToolDataStasher" type="AnimationPlayer" parent="."]
