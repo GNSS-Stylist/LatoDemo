@@ -53,16 +53,16 @@ var faceArray_Green = [
 
 
 	# Front lower left:
-	EliteFace.new([0, 2, 7], 0, 5, Vector3.ZERO),
+	EliteFace.new([0, 7, 2], 0, 5, Vector3.ZERO),
 	
 	# Front lower right:
-	EliteFace.new([0, 9, 2], 0, 6, Vector3.ZERO),
+	EliteFace.new([0, 2, 9], 0, 6, Vector3.ZERO),
 
 	# Center lower left:
-	EliteFace.new([7, 2, 4], 0, 6, Vector3.ZERO),
+	EliteFace.new([7, 4, 2], 0, 6, Vector3.ZERO),
 
 	# Center lower right:
-	EliteFace.new([2, 9, 4], 0, 5, Vector3.ZERO),
+	EliteFace.new([2, 4, 9], 0, 5, Vector3.ZERO),
 	
 	# Tail lower left:
 	EliteFace.new([4, 7, 8, 6], 0, 1, Vector3.ZERO),
@@ -96,16 +96,16 @@ var faceArray_Red = [
 
 
 	# Front lower left:
-	EliteFace.new([0, 2, 7], 12, 12, Vector3.ZERO),
+	EliteFace.new([0, 7, 2], 12, 12, Vector3.ZERO),
 	
 	# Front lower right:
-	EliteFace.new([0, 9, 2], 12, 0, Vector3.ZERO),
+	EliteFace.new([0, 2, 9], 12, 0, Vector3.ZERO),
 
 	# Center lower left:
-	EliteFace.new([7, 2, 4], 12, 0, Vector3.ZERO),
+	EliteFace.new([7, 4, 2], 12, 0, Vector3.ZERO),
 
 	# Center lower right:
-	EliteFace.new([2, 9, 4], 12, 12, Vector3.ZERO),
+	EliteFace.new([2, 4, 9], 12, 12, Vector3.ZERO),
 	
 	# Tail lower left:
 	EliteFace.new([4, 7, 8, 6], 12, 12, Vector3.ZERO),

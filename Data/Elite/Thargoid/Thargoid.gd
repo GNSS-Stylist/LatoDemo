@@ -82,7 +82,7 @@ func createMainBodyMesh():
 
 	# Top plate
 	var upperPlateVerts:Array[int]
-	for i in range(8, 24, 2):
+	for i in range(22, 6, -2):
 		upperPlateVerts.append(i)
 	mainBodyFaces.append(EliteFace.new(upperPlateVerts, 6, 6, Vector3.ZERO))
 
@@ -97,9 +97,9 @@ func createMainBodyMesh():
 		mainBodyFaces.append(EliteFace.new(
 				[
 					i + 8, 
-					i + 1 + 8, 
+					(((i + 2) % 16) + 8),
 					(((i + 3) % 16) + 8), 
-					(((i + 2) % 16) + 8)
+					i + 1 + 8
 				],
 				4 + ((i / 2) & 1), 4 + ((i / 2) & 1), Vector3.ZERO))
 
