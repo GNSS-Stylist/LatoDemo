@@ -1300,6 +1300,18 @@ tracks/55/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pp4xi"]
 resource_name = "AscensionToSpaceStation"
@@ -1859,6 +1871,18 @@ tracks/46/interp = 0
 tracks/46/loop_wrap = false
 tracks/46/keys = {
 "times": PackedFloat32Array(256, 267),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(256, 265),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -5404,6 +5428,18 @@ tracks/57/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
 resource_name = "Descent"
@@ -6290,6 +6326,18 @@ tracks/39/path = NodePath("GlobalLights/DirectionalLight_Sun:shadow_enabled")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -8261,6 +8309,18 @@ tracks/104/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/105/type = "value"
+tracks/105/imported = false
+tracks/105/enabled = true
+tracks/105/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/105/interp = 1
+tracks/105/loop_wrap = true
+tracks/105/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_dqvmp"]
 resource_name = "EndScroller"
@@ -9404,6 +9464,18 @@ tracks/67/path = NodePath("GlobalLights/DirectionalLight_Sun:shadow_enabled")
 tracks/67/interp = 1
 tracks/67/loop_wrap = true
 tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -10742,6 +10814,18 @@ tracks/58/path = NodePath("GlobalLights/DirectionalLight_Sun:shadow_enabled")
 tracks/58/interp = 1
 tracks/58/loop_wrap = true
 tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -14294,6 +14378,18 @@ tracks/297/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/298/type = "value"
+tracks/298/imported = false
+tracks/298/enabled = true
+tracks/298/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/298/interp = 1
+tracks/298/loop_wrap = true
+tracks/298/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -15331,6 +15427,18 @@ tracks/49/path = NodePath("GlobalLights/DirectionalLight_Sun:shadow_enabled")
 tracks/49/interp = 1
 tracks/49/loop_wrap = true
 tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -16670,6 +16778,18 @@ tracks/97/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/98/type = "value"
+tracks/98/imported = false
+tracks/98/enabled = true
+tracks/98/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/98/interp = 1
+tracks/98/loop_wrap = true
+tracks/98/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
 resource_name = "WreckFlyBy"
@@ -17705,6 +17825,18 @@ tracks/65/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("GlobalLights/BarnBackLight:visible")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
 _data = {
@@ -18526,7 +18658,7 @@ script = ExtResource("22_bcusc")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="AnimatedCamera"]
 light_energy = 0.5
-light_cull_mask = 4294443008
+light_cull_mask = 4294049792
 directional_shadow_mode = 0
 directional_shadow_fade_start = 0.0
 directional_shadow_max_distance = 0.0
@@ -19353,7 +19485,7 @@ shape = SubResource("BoxShape3D_nf6pj")
 
 [node name="BarnMesh" type="MeshInstance3D" parent="World/AdditiveGeometries/Barn"]
 process_priority = 1
-layers = 524288
+layers = 131072
 extra_cull_margin = 100.0
 skeleton = NodePath("../../../..")
 script = ExtResource("6_oe2m0")
@@ -19447,7 +19579,7 @@ transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4
 transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
-transform = Transform3D(1387.99, -8224.5, 5516.43, -9826.66, -452.552, 1797.77, -1228.94, -5670.34, -8144.76, 0, 0, 0)
+transform = Transform3D(0.138799, -0.82245, 0.551643, -0.982666, -0.0452552, 0.179777, -0.122894, -0.567033, -0.814476, 0, 0, 0)
 script = ExtResource("51_osqmg")
 
 [node name="DeathRay" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent" instance=ExtResource("52_2li0a")]
@@ -19617,8 +19749,9 @@ visible = false
 
 [node name="BarnBackLight" type="DirectionalLight3D" parent="GlobalLights"]
 transform = Transform3D(-0.979849, -0.0308957, 0.197335, 0.0765565, 0.854423, 0.513907, -0.184485, 0.518659, -0.83484, -6.25181, 2, -12.122)
-layers = 524288
-light_cull_mask = 4294443008
+visible = false
+layers = 131072
+light_cull_mask = 4294049792
 directional_shadow_mode = 0
 directional_shadow_max_distance = 0.0
 directional_shadow_pancake_size = 0.0
