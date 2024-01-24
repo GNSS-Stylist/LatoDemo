@@ -1,4 +1,4 @@
-[gd_scene load_steps=191 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=195 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -77,6 +77,8 @@
 [ext_resource type="PackedScene" uid="uid://c73x1jwdou6hf" path="res://Data/Elite/CobraMkIII/CobraMkIII.tscn" id="74_otxia"]
 [ext_resource type="Script" path="res://Data/Main/SubViewport_Elite.gd" id="75_lxvg1"]
 [ext_resource type="PackedScene" uid="uid://v3gul7u5uduf" path="res://Data/Models/space_station_v_2001_a_space_odyssey_glTF/SpaceStation.tscn" id="77_0wxmw"]
+[ext_resource type="Script" path="res://Data/Main/Node3DTransformInterpolator.gd" id="78_oapl2"]
+[ext_resource type="ArrayMesh" uid="uid://b0wjo0uwife7j" path="res://Data/Elite/CobraMkIII/CobraMkIII_Mesh.tres" id="78_tg6wk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lubd1"]
 render_priority = 0
@@ -18004,7 +18006,7 @@ shader_parameter/texture_albedo = SubResource("ViewportTexture_1qivo")
 orientation = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7kla3"]
-viewport_path = NodePath("SubViewport_Elite")
+viewport_path = NodePath("Elite/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k4y4h"]
 resource_local_to_scene = true
@@ -18583,8 +18585,6 @@ reflected_light_source = 1
 [sub_resource type="World3D" id="World3D_vexbx"]
 environment = SubResource("Environment_ybty3")
 
-[sub_resource type="World3D" id="World3D_1d12g"]
-
 [sub_resource type="Curve3D" id="Curve3D_ruvyn"]
 _data = {
 "points": PackedVector3Array(-45.7836, -8.77935, -86.8875, 45.7836, 8.77935, 86.8875, -26.8, 21.9, -23, -40.7013, -4.75111, -116.168, 40.7013, 4.75111, 116.168, 63, 36, 187.5, 85.0835, 174.718, -43.6816, -85.0835, -174.718, 43.6816, 50, -200, 474),
@@ -18592,6 +18592,17 @@ _data = {
 }
 point_count = 3
 up_vector_enabled = false
+
+[sub_resource type="World3D" id="World3D_1d12g"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_omyo2"]
+viewport_path = NodePath("Elite/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xy8no"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("13_kvhy7")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_omyo2")
 
 [node name="Main" type="Node3D"]
 process_priority = 100
@@ -18702,11 +18713,12 @@ mesh = SubResource("PlaneMesh_kbxch")
 
 [node name="ElitePlane" type="MeshInstance3D" parent="AnimatedCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+visible = false
 material_override = SubResource("ShaderMaterial_k4y4h")
 mesh = SubResource("PlaneMesh_hu3su")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="AnimatedCamera"]
-remote_path = NodePath("../../SubViewport_Elite/Camera3D")
+remote_path = NodePath("../../Elite/SubViewport/Camera3D")
 update_scale = false
 
 [node name="MainTunePlayer" type="AudioStreamPlayer" parent="."]
@@ -18717,7 +18729,7 @@ script = ExtResource("18_fyjuc")
 [node name="DebugThings" type="Node3D" parent="."]
 
 [node name="DebugCobraMkIII" parent="DebugThings" instance=ExtResource("74_otxia")]
-transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 1414, 1414, 0)
+transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 0, 0.00012207, 0)
 visible = false
 
 [node name="GroundZero" type="MeshInstance3D" parent="DebugThings"]
@@ -20035,33 +20047,12 @@ textureIndex = 3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
-[node name="SubViewport_Elite" type="SubViewport" parent="."]
-world_3d = SubResource("World3D_1d12g")
-transparent_bg = true
-canvas_cull_mask = 4294180864
-size = Vector2i(320, 180)
-script = ExtResource("75_lxvg1")
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport_Elite"]
-transform = Transform3D(0.322804, -0.0260546, -0.946107, 0.000279148, 0.999624, -0.0274331, 0.946466, 0.00859141, 0.322689, -1417.55, -1413.73, 1.335)
-rotation_edit_mode = 1
-top_level = true
-cull_mask = 262144
-current = true
-fov = 42.0
-
-[node name="Node3D" type="Node3D" parent="SubViewport_Elite"]
-
-[node name="CobraMkIII" parent="SubViewport_Elite/Node3D" instance=ExtResource("74_otxia")]
-transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 0, 0, 0)
-visible = false
-
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="SubViewport_Elite/Node3D/CobraMkIII"]
-remote_path = NodePath("../../../../DebugThings/DebugCobraMkIII")
-
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
 transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
+remote_path = NodePath("../../Elite/FlyingSpace_Station_Rotating")
 
 [node name="FlyingSpace_Station_Angled_NotRotating" type="Node3D" parent="."]
 transform = Transform3D(0.66262, -0.645322, 0.380124, 0, 0.507538, 0.861629, -0.748956, -0.570933, 0.336305, 1414.21, 1414.21, 0)
@@ -20083,6 +20074,65 @@ eulerAnglesFraction = 1.0
 
 [node name="EditorCamera" type="Camera3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator"]
 fov = 42.0
+
+[node name="Elite" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="Elite"]
+world_3d = SubResource("World3D_1d12g")
+transparent_bg = true
+canvas_cull_mask = 4294180864
+size = Vector2i(320, 180)
+script = ExtResource("75_lxvg1")
+
+[node name="Camera3D" type="Camera3D" parent="Elite/SubViewport"]
+transform = Transform3D(0.322804, -0.0260546, -0.946107, 0.000279148, 0.999624, -0.0274331, 0.946466, 0.00859141, 0.322689, -1417.55, -1413.73, 1.335)
+rotation_edit_mode = 1
+top_level = true
+cull_mask = 262144
+current = true
+fov = 42.0
+
+[node name="Ships" type="Node3D" parent="Elite/SubViewport"]
+
+[node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881333, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 19.2162, 43.2914, 16.8152)
+script = ExtResource("78_oapl2")
+sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/DockingBayCenter")
+destinationNodePath = NodePath("../../../FlyingSpace_Station_Rotating/TestAnchor")
+
+[node name="CobraMkIII" parent="Elite/SubViewport/Ships/CobraMkIII" instance=ExtResource("74_otxia")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Elite/SubViewport/Ships/CobraMkIII/CobraMkIII"]
+remote_path = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
+
+[node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
+
+[node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
+transform = Transform3D(5.40494, -7.50581, 3.80124, 0.881333, 4.99828, 8.61629, -8.36719, -4.32204, 3.36305, 1433.22, 1457.29, 16.8152)
+
+[node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xy8no")
+mesh = ExtResource("78_tg6wk")
+skeleton = NodePath("../..")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
+transform = Transform3D(1, -1.49012e-08, -2.98023e-08, 0, 1, 0, 0, 5.96046e-08, 1, 0, 0, 0)
+cast_shadow = 3
+mesh = ExtResource("78_tg6wk")
+
+[node name="DebugCobra" parent="Elite/ShipDrawMeshes/CobraMKIII" instance=ExtResource("74_otxia")]
+visible = false
+
+[node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+
+[node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, -1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
+
+[node name="TestAnchor" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
+transform = Transform3D(0.734687, -0.0603812, -0.675714, -0.561908, 0.503934, -0.65598, 0.380124, 0.861629, 0.336305, 0, 0, 300)
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]

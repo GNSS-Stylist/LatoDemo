@@ -1,7 +1,7 @@
 @tool
 extends SubViewport
 
-@onready var mainNode:Node3D = get_parent()
+@onready var mainNode:Node3D = get_parent().get_parent()
 
 var oldSize:Vector2i
 
