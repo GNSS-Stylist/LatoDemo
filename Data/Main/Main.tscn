@@ -1,4 +1,4 @@
-[gd_scene load_steps=200 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=201 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -14427,6 +14427,17 @@ tracks/301/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/302/type = "bezier"
+tracks/302/imported = false
+tracks/302/enabled = true
+tracks/302/path = NodePath("Elite/ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock:progress_ratio")
+tracks/302/interp = 1
+tracks/302/loop_wrap = true
+tracks/302/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -15815,6 +15826,29 @@ tracks/27/keys = {
 "args": [],
 "method": &"clearScrollerPicPlateScreenCloneTexture"
 }]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = false
+tracks/28/path = NodePath(".:dbgAnimJump")
+tracks/28/interp = 0
+tracks/28/loop_wrap = false
+tracks/28/keys = {
+"times": PackedFloat32Array(319.273),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15.0]
+}
+tracks/29/type = "bezier"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Elite/ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock:progress_ratio")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 6.26471, 0.341414, 0.759412, -14.3105, -0.211984, 11.0511, 0.163703, 1, -7.84, 0, 0, 0),
+"times": PackedFloat32Array(301, 327.126, 360)
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -18844,6 +18878,13 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve3D" id="Curve3D_4etdp"]
+_data = {
+"points": PackedVector3Array(-131.963, -286.202, 252.335, 131.963, 286.202, -252.335, -180.814, -993.197, 880.29, -87.8163, -278.269, 117.132, 87.8163, 278.269, -117.132, 141.854, -55.9053, 355.397, 43.7866, -31.9694, 57.4128, -43.7866, 31.9694, -57.4128, 242.268, 295.115, 140.054, 67.1003, 182.679, 51.768, -67.1003, -182.679, -51.768, 18.7472, 43.2937, 17.0824),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [node name="Main" type="Node3D"]
 process_priority = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1414, -1414, 0)
@@ -19385,7 +19426,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -19407,7 +19448,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -20339,11 +20380,10 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.763089, -0.463847, 0.450046, 0.205178, 0.834195, 0.51188, -0.612859, -0.298271, 0.731736, -1353.47, -1276.79, 53.5566)
+transform = Transform3D(0.886138, -0.328516, -0.326859, 2.98023e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 script = ExtResource("78_oapl2")
-sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/DockingBayCenter")
+sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
 destinationNodePath = NodePath("../../../FlyingSpace_Station_Rotating/TestAnchor")
-fraction = 0.437
 
 [node name="CobraMkIII" parent="Elite/SubViewport/Ships/CobraMkIII" instance=ExtResource("74_otxia")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -20366,7 +20406,7 @@ remote_path = NodePath("../../../../../ShipDrawMeshes/Python")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(7.63089, -4.63847, 4.50046, 2.05178, 8.34195, 5.1188, -6.12859, -2.98271, 7.31736, 60.5348, 137.214, 53.5566)
+transform = Transform3D(8.86138, -3.28516, -3.26859, 2.98023e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
@@ -20380,7 +20420,6 @@ cast_shadow = 3
 mesh = ExtResource("78_tg6wk")
 
 [node name="DebugCobra" parent="Elite/ShipDrawMeshes/CobraMKIII" instance=ExtResource("74_otxia")]
-visible = false
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
 transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
@@ -20395,7 +20434,6 @@ cast_shadow = 3
 mesh = ExtResource("81_d6cbf")
 
 [node name="DebugPython" parent="Elite/ShipDrawMeshes/Python" instance=ExtResource("79_tcqdf")]
-visible = false
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
 transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
@@ -20415,6 +20453,7 @@ cubic_interp = false
 loop = false
 
 [node name="Path_Docking" type="Path3D" parent="Elite/FlyingSpace_Station_Rotating"]
+visible = false
 curve = SubResource("Curve3D_4veen")
 
 [node name="PathFollow_Dock" type="PathFollow3D" parent="Elite/FlyingSpace_Station_Rotating/Path_Docking"]
@@ -20424,16 +20463,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 500)
 
 [node name="Path_Python_Launch" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.689735, -0.616256, 0.380124, -0.0218067, 0.50707, 0.861629, -0.723734, -0.602585, 0.336305, 0, 0, 0)
+visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958898, 0.0592058, -0.278746, 0, 0.979512, 0.209791, 0.283361, 0.200354, -0.94328, 0, 0, 50)
+transform = Transform3D(-0.958925, 0.0592206, -0.282734, 0, 0.979756, 0.212793, 0.283369, 0.200404, -0.956777, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
+[node name="Path_Cobra_Dock" type="Path3D" parent="Elite/ShipStaticPaths"]
+curve = SubResource("Curve3D_4etdp")
+
+[node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
+transform = Transform3D(0.886003, -0.328463, -0.326805, -1.48989e-08, 0.705202, -0.708776, 0.463351, 0.628075, 0.624904, -180.814, -993.197, 880.29)
+
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
