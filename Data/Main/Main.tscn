@@ -15668,6 +15668,154 @@ tracks/15/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 4, 0, 1, -4, 0, 0.25, 0),
 "times": PackedFloat32Array(290, 297)
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(294, 296),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:basePosY")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(296, 326, 366),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-1.9, -6.72, -12.5]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:textureIndex")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(296, 326, 366),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 4, -1]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:basePosY")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(296, 336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-3.5, -7.7]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:textureIndex")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(296, 336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 5]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:basePosY")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(296, 344),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-4.5, -8.9]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:textureIndex")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(296, 344),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 6]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:basePosY")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(296, 350),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-5.5, -10.1]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:textureIndex")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(296, 350),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 7]
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:scrollPos")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(291, 393)
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(287),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/27/type = "method"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath(".")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(366, 389),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"setScrollerPicPlateScreenCloneTexture"
+}, {
+"args": [],
+"method": &"clearScrollerPicPlateScreenCloneTexture"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_g87eg"]
 resource_name = "SpaceStationFlyby_INIT"
@@ -18816,6 +18964,7 @@ update_scale = false
 [node name="MainTunePlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1000000
 stream = ExtResource("19_qdtb0")
+volume_db = -80.0
 script = ExtResource("18_fyjuc")
 
 [node name="DebugThings" type="Node3D" parent="."]
@@ -20041,6 +20190,7 @@ distance = 2.0
 visible = false
 
 [node name="AscenderCamera" type="Node3D" parent="CameraFlyingSpace_Ascend/Ascender"]
+transform = Transform3D(0.23515, 0.0171152, -0.971808, 9.31323e-10, 0.999845, 0.017609, 0.971959, -0.00414077, 0.235114, 0, 0, 0)
 script = ExtResource("43_1mg0k")
 eulerAnglesFraction = 1.0
 
@@ -20230,6 +20380,7 @@ cast_shadow = 3
 mesh = ExtResource("78_tg6wk")
 
 [node name="DebugCobra" parent="Elite/ShipDrawMeshes/CobraMKIII" instance=ExtResource("74_otxia")]
+visible = false
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
 transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
@@ -20244,6 +20395,7 @@ cast_shadow = 3
 mesh = ExtResource("81_d6cbf")
 
 [node name="DebugPython" parent="Elite/ShipDrawMeshes/Python" instance=ExtResource("79_tcqdf")]
+visible = false
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
 transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
@@ -20275,7 +20427,7 @@ transform = Transform3D(0.689735, -0.616256, 0.380124, -0.0218067, 0.50707, 0.86
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.95891, 0.0591964, -0.277639, 0, 0.979356, 0.208958, 0.283364, 0.200322, -0.939535, 0, 0, 50)
+transform = Transform3D(-0.958898, 0.0592058, -0.278746, 0, 0.979512, 0.209791, 0.283361, 0.200354, -0.94328, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
