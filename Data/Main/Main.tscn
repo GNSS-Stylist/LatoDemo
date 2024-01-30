@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=200 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -79,6 +79,8 @@
 [ext_resource type="PackedScene" uid="uid://v3gul7u5uduf" path="res://Data/Models/space_station_v_2001_a_space_odyssey_glTF/SpaceStation.tscn" id="77_0wxmw"]
 [ext_resource type="Script" path="res://Data/Main/Node3DTransformInterpolator.gd" id="78_oapl2"]
 [ext_resource type="ArrayMesh" uid="uid://b0wjo0uwife7j" path="res://Data/Elite/CobraMkIII/CobraMkIII_Mesh.tres" id="78_tg6wk"]
+[ext_resource type="PackedScene" uid="uid://dty3fmt1boola" path="res://Data/Elite/Python/Python.tscn" id="79_tcqdf"]
+[ext_resource type="ArrayMesh" uid="uid://d08uixd74roc4" path="res://Data/Elite/Python/Python_Mesh.tres" id="81_d6cbf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lubd1"]
 render_priority = 0
@@ -14392,6 +14394,39 @@ tracks/298/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/299/type = "bezier"
+tracks/299/imported = false
+tracks/299/enabled = true
+tracks/299/path = NodePath("Elite/ShipStaticPaths/Path_Python_Launch/PathFollow_Python_Launch:progress")
+tracks/299/interp = 1
+tracks/299/loop_wrap = true
+tracks/299/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/300/type = "bezier"
+tracks/300/imported = false
+tracks/300/enabled = true
+tracks/300/path = NodePath("Elite/FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch:progress")
+tracks/300/interp = 1
+tracks/300/loop_wrap = true
+tracks/300/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/301/type = "bezier"
+tracks/301/imported = false
+tracks/301/enabled = true
+tracks/301/path = NodePath("Elite/SubViewport/Ships/Python:fraction")
+tracks/301/interp = 1
+tracks/301/loop_wrap = true
+tracks/301/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -15599,6 +15634,39 @@ tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0.174533, -0.25, 0, 15, 0, -32, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(291, 592)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Elite/ShipStaticPaths/Path_Python_Launch/PathFollow_Python_Launch:progress")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 6, 0, 1151.01, 0, 0, 0, 0),
+"times": PackedFloat32Array(287, 314.456)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Elite/FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch:progress")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 6, 0, 142, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(287, 299)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Elite/SubViewport/Ships/Python:fraction")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 4, 0, 1, -4, 0, 0.25, 0),
+"times": PackedFloat32Array(290, 297)
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -18604,6 +18672,30 @@ render_priority = 0
 shader = ExtResource("13_kvhy7")
 shader_parameter/texture_albedo = SubResource("ViewportTexture_omyo2")
 
+[sub_resource type="Curve3D" id="Curve3D_m6xa2"]
+bake_interval = 10.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 500),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_4veen"]
+bake_interval = 10.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 50),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_bapki"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 50, -61.81, 152.248, -168.532, 61.81, -152.248, 168.532, 106.081, -79.8393, 408.98),
+"tilts": PackedFloat32Array(0, 1.5)
+}
+point_count = 2
+
 [node name="Main" type="Node3D"]
 process_priority = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1414, -1414, 0)
@@ -19144,7 +19236,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -19166,7 +19258,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -20076,6 +20168,7 @@ eulerAnglesFraction = 1.0
 fov = 42.0
 
 [node name="Elite" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="SubViewport" type="SubViewport" parent="Elite"]
 world_3d = SubResource("World3D_1d12g")
@@ -20093,12 +20186,14 @@ current = true
 fov = 42.0
 
 [node name="Ships" type="Node3D" parent="Elite/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881333, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 19.2162, 43.2914, 16.8152)
+transform = Transform3D(0.763089, -0.463847, 0.450046, 0.205178, 0.834195, 0.51188, -0.612859, -0.298271, 0.731736, -1353.47, -1276.79, 53.5566)
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/DockingBayCenter")
 destinationNodePath = NodePath("../../../FlyingSpace_Station_Rotating/TestAnchor")
+fraction = 0.437
 
 [node name="CobraMkIII" parent="Elite/SubViewport/Ships/CobraMkIII" instance=ExtResource("74_otxia")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -20106,10 +20201,22 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Elite/SubViewport/Ships/CobraMkIII/CobraMkIII"]
 remote_path = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
+[node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
+script = ExtResource("78_oapl2")
+sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
+destinationNodePath = NodePath("../../../ShipStaticPaths/Path_Python_Launch/PathFollow_Python_Launch")
+
+[node name="Python" parent="Elite/SubViewport/Ships/Python" instance=ExtResource("79_tcqdf")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Elite/SubViewport/Ships/Python/Python"]
+remote_path = NodePath("../../../../../ShipDrawMeshes/Python")
+
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(5.40494, -7.50581, 3.80124, 0.881333, 4.99828, 8.61629, -8.36719, -4.32204, 3.36305, 1433.22, 1457.29, 16.8152)
+transform = Transform3D(7.63089, -4.63847, 4.50046, 2.05178, 8.34195, 5.1188, -6.12859, -2.98271, 7.31736, 60.5348, 137.214, 53.5566)
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
@@ -20123,16 +20230,54 @@ cast_shadow = 3
 mesh = ExtResource("78_tg6wk")
 
 [node name="DebugCobra" parent="Elite/ShipDrawMeshes/CobraMKIII" instance=ExtResource("74_otxia")]
-visible = false
+
+[node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
+
+[node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xy8no")
+mesh = ExtResource("81_d6cbf")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
+cast_shadow = 3
+mesh = ExtResource("81_d6cbf")
+
+[node name="DebugPython" parent="Elite/ShipDrawMeshes/Python" instance=ExtResource("79_tcqdf")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, -8.9407e-08, 0, 1, -1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
 
 [node name="TestAnchor" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(0.734687, -0.0603812, -0.675714, -0.561908, 0.503934, -0.65598, 0.380124, 0.861629, 0.336305, 0, 0, 300)
+
+[node name="Path_Lauch" type="Path3D" parent="Elite/FlyingSpace_Station_Rotating"]
+curve = SubResource("Curve3D_m6xa2")
+
+[node name="PathFollow_Launch" type="PathFollow3D" parent="Elite/FlyingSpace_Station_Rotating/Path_Lauch"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 50)
+cubic_interp = false
+loop = false
+
+[node name="Path_Docking" type="Path3D" parent="Elite/FlyingSpace_Station_Rotating"]
+curve = SubResource("Curve3D_4veen")
+
+[node name="PathFollow_Dock" type="PathFollow3D" parent="Elite/FlyingSpace_Station_Rotating/Path_Docking"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 500)
+
+[node name="ShipStaticPaths" type="Node3D" parent="Elite"]
+
+[node name="Path_Python_Launch" type="Path3D" parent="Elite/ShipStaticPaths"]
+transform = Transform3D(0.689735, -0.616256, 0.380124, -0.0218067, 0.50707, 0.861629, -0.723734, -0.602585, 0.336305, 0, 0, 0)
+curve = SubResource("Curve3D_bapki")
+
+[node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
+transform = Transform3D(-0.95891, 0.0591964, -0.277639, 0, 0.979356, 0.208958, 0.283364, 0.200322, -0.939535, 0, 0, 50)
+rotation_mode = 4
+loop = false
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
