@@ -17,4 +17,4 @@ func _process(delta):
 	
 	if (sourceNode && destNode && (sourceNode is Node3D) && (destNode is Node3D)):
 		self.global_position = sourceNode.global_position + (destNode.global_position - sourceNode.global_position) * fraction
-		self.global_transform.basis = Basis(Quaternion(sourceNode.global_transform.basis).slerp(Quaternion(destNode.global_transform.basis), fraction))
+		self.global_transform.basis = Basis(Quaternion(sourceNode.global_transform.basis.get_rotation_quaternion()).slerp(Quaternion(destNode.global_transform.basis.get_rotation_quaternion()), fraction))
