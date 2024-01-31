@@ -1,4 +1,4 @@
-[gd_scene load_steps=201 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=202 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -3026,7 +3026,7 @@ tracks/93/keys = {
 tracks/94/type = "value"
 tracks/94/imported = false
 tracks/94/enabled = true
-tracks/94/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
+tracks/94/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby:progress")
 tracks/94/interp = 1
 tracks/94/loop_wrap = true
 tracks/94/keys = {
@@ -14269,7 +14269,7 @@ tracks/287/keys = {
 tracks/288/type = "value"
 tracks/288/imported = false
 tracks/288/enabled = true
-tracks/288/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
+tracks/288/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby:progress")
 tracks/288/interp = 1
 tracks/288/loop_wrap = true
 tracks/288/keys = {
@@ -14305,7 +14305,7 @@ tracks/290/keys = {
 tracks/291/type = "value"
 tracks/291/imported = false
 tracks/291/enabled = true
-tracks/291/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:quatOverride")
+tracks/291/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:quatOverride")
 tracks/291/interp = 1
 tracks/291/loop_wrap = true
 tracks/291/keys = {
@@ -14317,7 +14317,7 @@ tracks/291/keys = {
 tracks/292/type = "bezier"
 tracks/292/imported = false
 tracks/292/enabled = true
-tracks/292/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:yaw")
+tracks/292/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:yaw")
 tracks/292/interp = 1
 tracks/292/loop_wrap = true
 tracks/292/keys = {
@@ -14328,7 +14328,7 @@ tracks/292/keys = {
 tracks/293/type = "bezier"
 tracks/293/imported = false
 tracks/293/enabled = true
-tracks/293/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:pitch")
+tracks/293/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:pitch")
 tracks/293/interp = 1
 tracks/293/loop_wrap = true
 tracks/293/keys = {
@@ -14339,7 +14339,7 @@ tracks/293/keys = {
 tracks/294/type = "bezier"
 tracks/294/imported = false
 tracks/294/enabled = true
-tracks/294/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:roll")
+tracks/294/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:roll")
 tracks/294/interp = 1
 tracks/294/loop_wrap = true
 tracks/294/keys = {
@@ -14434,6 +14434,83 @@ tracks/302/path = NodePath("Elite/ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cob
 tracks/302/interp = 1
 tracks/302/loop_wrap = true
 tracks/302/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/303/type = "bezier"
+tracks/303/imported = false
+tracks/303/enabled = true
+tracks/303/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:yaw")
+tracks/303/interp = 1
+tracks/303/loop_wrap = true
+tracks/303/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/304/type = "bezier"
+tracks/304/imported = false
+tracks/304/enabled = true
+tracks/304/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:pitch")
+tracks/304/interp = 1
+tracks/304/loop_wrap = true
+tracks/304/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/305/type = "bezier"
+tracks/305/imported = false
+tracks/305/enabled = true
+tracks/305/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:roll")
+tracks/305/interp = 1
+tracks/305/loop_wrap = true
+tracks/305/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/306/type = "bezier"
+tracks/306/imported = false
+tracks/306/enabled = true
+tracks/306/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:eulerAnglesFraction")
+tracks/306/interp = 1
+tracks/306/loop_wrap = true
+tracks/306/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/307/type = "bezier"
+tracks/307/imported = false
+tracks/307/enabled = true
+tracks/307/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow:progress")
+tracks/307/interp = 1
+tracks/307/loop_wrap = true
+tracks/307/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/308/type = "bezier"
+tracks/308/imported = false
+tracks/308/enabled = true
+tracks/308/path = NodePath("Elite/SubViewport/Ships/CobraMkIII:fraction")
+tracks/308/interp = 1
+tracks/308/loop_wrap = true
+tracks/308/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/309/type = "bezier"
+tracks/309/imported = false
+tracks/309/enabled = true
+tracks/309/path = NodePath("Elite/FlyingSpace_Station_Rotating/Path_Docking/PathFollow_Dock:progress")
+tracks/309/interp = 1
+tracks/309/loop_wrap = true
+tracks/309/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -15516,10 +15593,10 @@ tracks/1/path = NodePath(".:animationCameraFraction")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(282),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(282, 325, 326, 327),
+"transitions": PackedFloat32Array(1, 2, 0.5, 1),
 "update": 0,
-"values": [1.0]
+"values": [1.0, 1.0, 0.464264, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -15531,7 +15608,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(280),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [10]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -15582,7 +15659,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:quatOverride")
+tracks/7/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:quatOverride")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -15594,7 +15671,7 @@ tracks/7/keys = {
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:yaw")
+tracks/8/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:yaw")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -15605,7 +15682,7 @@ tracks/8/keys = {
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:pitch")
+tracks/9/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:pitch")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -15616,7 +15693,7 @@ tracks/9/keys = {
 tracks/10/type = "bezier"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator:roll")
+tracks/10/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator:roll")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -15627,13 +15704,13 @@ tracks/10/keys = {
 tracks/11/type = "bezier"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station:progress")
+tracks/11/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby:progress")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -10, 0, 18.1707, 539.424, 648, -30, 0, 5, 0),
-"times": PackedFloat32Array(283, 330)
+"points": PackedFloat32Array(0, -10, 0, 18.1707, 539.424, 648, -25, 0, 5, 0),
+"times": PackedFloat32Array(283, 325)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
@@ -15789,7 +15866,7 @@ tracks/24/keys = {
 }
 tracks/25/type = "bezier"
 tracks/25/imported = false
-tracks/25/enabled = true
+tracks/25/enabled = false
 tracks/25/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:scrollPos")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
@@ -15849,6 +15926,83 @@ tracks/29/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 6.26471, 0.341414, 0.759412, -14.3105, -0.211984, 11.0511, 0.163703, 1, -7.84, 0, 0, 0),
 "times": PackedFloat32Array(301, 327.126, 360)
+}
+tracks/30/type = "bezier"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:yaw")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2),
+"points": PackedFloat32Array(-17.977, -0.25, 0, 3, 0, -6, -2, 0, 1.62953, 0, -11.887, -1.62967, 0, 0.949188, 0, -8.827, -0.949188, 0, 0, 0, -2.007, -2.7394, 0, 0, 0),
+"times": PackedFloat32Array(325, 331, 335.889, 345, 353.218)
+}
+tracks/31/type = "bezier"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:pitch")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2),
+"points": PackedFloat32Array(10.908, -0.25, 0, 3, 0, 30, -2, 0, 1.62953, 0, 15.408, -1.62967, 0, 0.949188, 0, -1.193, -5, 0, 0, 0, -0.783, -2.7394, 0, 0, 0),
+"times": PackedFloat32Array(325, 331, 335.889, 345, 353.218)
+}
+tracks/32/type = "bezier"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:roll")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(36.321, -0.25, 0, 3, 0, 19.641, -2, 0, 1.62953, 0, 19.641, -1.62967, 0, 0.949188, 0, 70.8141, -1.44561, -21.6468, 1.51776, 22.7273, 81.7232, -1.46135, 8.76047, 10.2128, -61.2232, -36.5, -10.1772, 61, 0, 0),
+"times": PackedFloat32Array(325, 331, 335.889, 339.879, 344.284, 363.899)
+}
+tracks/33/type = "bezier"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator:eulerAnglesFraction")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(325)
+}
+tracks/34/type = "bezier"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow:progress")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 5, 0, 470, -10, 0, 0.25, 0),
+"times": PackedFloat32Array(325, 360)
+}
+tracks/35/type = "bezier"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Elite/SubViewport/Ships/CobraMkIII:fraction")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 3, 0, 1, -3, 0, 0.25, 0),
+"times": PackedFloat32Array(340, 349)
+}
+tracks/36/type = "bezier"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Elite/FlyingSpace_Station_Rotating/Path_Docking/PathFollow_Dock:progress")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0, 0, 0, 4.39932, 292.772, 385.245, -2.65348, -55.158, 2.41412, 50.1825, 450, -3.601, 0, 0, 0),
+"times": PackedFloat32Array(340, 349, 357)
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -18836,12 +18990,21 @@ reflected_light_source = 1
 environment = SubResource("Environment_ybty3")
 
 [sub_resource type="Curve3D" id="Curve3D_ruvyn"]
+bake_interval = 1.0
 _data = {
 "points": PackedVector3Array(-45.7836, -8.77935, -86.8875, 45.7836, 8.77935, 86.8875, -26.8, 21.9, -23, -40.7013, -4.75111, -116.168, 40.7013, 4.75111, 116.168, 63, 36, 187.5, 85.0835, 174.718, -43.6816, -85.0835, -174.718, 43.6816, 50, -200, 474),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 up_vector_enabled = false
+
+[sub_resource type="Curve3D" id="Curve3D_k6prr"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(-2.99207, -45.6617, 12.3035, 2.99207, 45.6617, -12.3035, 50, -200, 474, 19.964, -85.3492, 106.098, -19.964, 85.3492, -106.098, 53.1117, -45.424, 382.542, 0, 0, 50, 0, 0, 0, 0, 0, 120),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [sub_resource type="World3D" id="World3D_1d12g"]
 
@@ -19166,7 +19329,7 @@ offset_left = 133.0
 offset_top = 6.0
 offset_right = 418.0
 offset_bottom = 37.0
-item_count = 10
+item_count = 11
 selected = 0
 popup/item_0/text = "Global origin (B) (0)"
 popup/item_0/id = 0
@@ -19186,8 +19349,10 @@ popup/item_7/text = "Ascender (7)"
 popup/item_7/id = 7
 popup/item_8/text = "Satellite flybyer (8)"
 popup/item_8/id = 8
-popup/item_9/text = "Station non-rotating (9)"
+popup/item_9/text = "Station flybyer (9)"
 popup/item_9/id = 9
+popup/item_10/text = "Cobra follow (10)"
+popup/item_10/id = 10
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
 
@@ -19426,7 +19591,7 @@ rotationOverride = Vector3(0, 2000, 1600)
 transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
 
 [node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
+transform = Transform3D(9.92627e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
 
 [node name="Frame_Upper" parent="Satellite" index="9"]
 transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
@@ -19448,7 +19613,7 @@ maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.1
 
 [node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
+transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173652, 0, -10, 0)
 
 [node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
 visible = false
@@ -20340,22 +20505,39 @@ remote_path = NodePath("../../Elite/FlyingSpace_Station_Rotating")
 [node name="FlyingSpace_Station_Angled_NotRotating" type="Node3D" parent="."]
 transform = Transform3D(0.66262, -0.645322, 0.380124, 0, 0.507538, 0.861629, -0.748956, -0.570933, 0.336305, 1414.21, 1414.21, 0)
 
-[node name="Path_Station" type="Path3D" parent="FlyingSpace_Station_Angled_NotRotating"]
+[node name="Path_StationFlyby" type="Path3D" parent="FlyingSpace_Station_Angled_NotRotating"]
 transform = Transform3D(1, 2.98023e-08, -5.96046e-08, -2.98023e-08, 1, -4.47035e-08, 0, 0, 1, 0, 0, 0)
 curve = SubResource("Curve3D_ruvyn")
 
-[node name="PathFollow_Station" type="PathFollow3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station"]
+[node name="PathFollow_StationFlyby" type="PathFollow3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby"]
 transform = Transform3D(1, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, -26.8, 21.9, -23)
 rotation_mode = 0
 tilt_enabled = false
 
-[node name="PathFollow_Station_Orientator" type="Node3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station"]
+[node name="PathFollow_StationFlyby_Orientator" type="Node3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby"]
 rotation_edit_mode = 1
 script = ExtResource("43_1mg0k")
 quatOverride = Quaternion(0.039, 0.192, 0.298, 0.934)
 eulerAnglesFraction = 1.0
 
-[node name="EditorCamera" type="Camera3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_Station/PathFollow_Station/PathFollow_Station_Orientator"]
+[node name="EditorCamera" type="Camera3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_StationFlyby/PathFollow_StationFlyby/PathFollow_StationFlyby_Orientator"]
+fov = 42.0
+
+[node name="Path_CobraFollow" type="Path3D" parent="FlyingSpace_Station_Angled_NotRotating"]
+curve = SubResource("Curve3D_k6prr")
+
+[node name="PathFollow_CobraFollow" type="PathFollow3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow"]
+transform = Transform3D(0.999948, 0, 0, 0, 0.999999, 0, 0, 0, 1, 50, -200, 474)
+rotation_mode = 0
+loop = false
+tilt_enabled = false
+
+[node name="PathFollow_CobraFollow_Orientator" type="Node3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow"]
+transform = Transform3D(0.801404, -0.518202, 0.298695, 0.582229, 0.790229, -0.191175, -0.13697, 0.327117, 0.935005, 0, 0, 0)
+script = ExtResource("43_1mg0k")
+quatOverride = Quaternion(0.138, 0.116, 0.293, 0.939)
+
+[node name="EditorCamera" type="Camera3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator"]
 fov = 42.0
 
 [node name="Elite" type="Node3D" parent="."]
@@ -20380,10 +20562,10 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, 2.98023e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
-destinationNodePath = NodePath("../../../FlyingSpace_Station_Rotating/TestAnchor")
+destinationNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Docking/PathFollow_Dock")
 
 [node name="CobraMkIII" parent="Elite/SubViewport/Ships/CobraMkIII" instance=ExtResource("74_otxia")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -20406,7 +20588,7 @@ remote_path = NodePath("../../../../../ShipDrawMeshes/Python")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, 2.98023e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
@@ -20458,6 +20640,7 @@ curve = SubResource("Curve3D_4veen")
 
 [node name="PathFollow_Dock" type="PathFollow3D" parent="Elite/FlyingSpace_Station_Rotating/Path_Docking"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 500)
+loop = false
 
 [node name="ShipStaticPaths" type="Node3D" parent="Elite"]
 
@@ -20467,7 +20650,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958925, 0.0592206, -0.282734, 0, 0.979756, 0.212793, 0.283369, 0.200404, -0.956777, 0, 0, 50)
+transform = Transform3D(-0.958929, 0.0592268, -0.292042, 0, 0.979859, 0.219798, 0.28337, 0.200425, -0.988276, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -20475,7 +20658,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.886003, -0.328463, -0.326805, -1.48989e-08, 0.705202, -0.708776, 0.463351, 0.628075, 0.624904, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885979, -0.327643, -0.326802, -1.48985e-08, 0.703442, -0.70877, 0.463338, 0.626507, 0.624899, -180.814, -993.197, 880.29)
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
