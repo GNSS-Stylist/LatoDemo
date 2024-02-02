@@ -139,6 +139,13 @@ func _process(delta):
 		if Input.is_action_just_released("mouse_right"):
 			rmbManipulator.disabled = true
 			rmbManipulatorMeshes.visible = false
+		
+		if Input.is_action_just_released("shoot_laser"):
+			var rootNode = get_node("/root")
+			var laserScene = load("res://Data/Elite/LaserBeam/LaserBeam.tscn")
+			var beam = laserScene.instantiate()
+			rootNode.add_child(beam)
+			beam.shoot($LaserBeamOrigin.global_position, -($LaserBeamOrigin.global_transform.basis.z), 1000)
 
 func _input(event):
 	if mouse_captured and (event is InputEventMouseMotion):
