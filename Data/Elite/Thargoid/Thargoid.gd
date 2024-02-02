@@ -36,9 +36,11 @@ const engineVertexArray = [
 	Vector3(engineXDist - engineWidth / 2, engineLevelY, -engineLength / 2),
 ]
 
+const engineVertShift:int = 16
+
 var engineFaceArray = [
-	EliteFace.new([0, 1, 2, 3], 16, 16, Vector3(0, lowerLevelY, 0)),
-	EliteFace.new([4, 5, 6, 7], 16, 16, Vector3(0, lowerLevelY, 0)),
+	EliteFace.new([0 + engineVertShift, 1 + engineVertShift, 2 + engineVertShift, 3 + engineVertShift], 16, 16, Vector3(0, lowerLevelY, 0)),
+	EliteFace.new([4 + engineVertShift, 5 + engineVertShift, 6 + engineVertShift, 7 + engineVertShift], 16, 16, Vector3(0, lowerLevelY, 0)),
 ]
 
 var animResetStashDone:bool = false
@@ -71,9 +73,6 @@ func createMainBodyMesh():
 	var mainBodyVertices:Array[Vector3]
 	var mainBodyFaces:Array[EliteFace]
 
-	mainBodyVertices.append_array(engineVertexArray)
-	mainBodyFaces.append_array(engineFaceArray)
-	
 	for i in range(8):
 		var rad = float(i) * 2.0 * PI / 8
 		
@@ -82,13 +81,13 @@ func createMainBodyMesh():
 
 	# Top plate
 	var upperPlateVerts:Array[int]
-	for i in range(22, 6, -2):
+	for i in range(14, -2, -2):
 		upperPlateVerts.append(i)
 	mainBodyFaces.append(EliteFace.new(upperPlateVerts, 6, 6, Vector3.ZERO))
 
 	# Bottom plate
 	var lowerPlateVerts:Array[int]
-	for i in range(9, 24, 2):
+	for i in range(1, 16, 2):
 		lowerPlateVerts.append(i)
 	mainBodyFaces.append(EliteFace.new(lowerPlateVerts, 4, 4, Vector3(0, lowerLevelY, 0)))
 
@@ -96,12 +95,15 @@ func createMainBodyMesh():
 	for i in range(0, 16, 2):
 		mainBodyFaces.append(EliteFace.new(
 				[
-					i + 8, 
-					(((i + 2) % 16) + 8),
-					(((i + 3) % 16) + 8), 
-					i + 1 + 8
+					i, 
+					(((i + 2) % 16)),
+					(((i + 3) % 16)), 
+					i + 1
 				],
 				4 + ((i / 2) & 1), 4 + ((i / 2) & 1), Vector3.ZERO))
+
+	mainBodyVertices.append_array(engineVertexArray)
+	mainBodyFaces.append_array(engineFaceArray)
 
 	$MainBody.mesh = EliteShipMesh.createMesh(mainBodyVertices, mainBodyFaces)
 
@@ -196,3 +198,10 @@ func stashPullToolData():
 		print("Stash pulling tool data (Thargoid)")
 		mainBody.mesh = stashStorage.mainBodyMesh
 		debrisField.mesh = stashStorage.debrisMesh
+
+func _physics_process(delta):
+	# We are not really interested about collision detection here as the
+	# CharacterBody is only used to detect laser hits.
+	# Therefore just cloning transform from the "main object"
+	
+	$CharacterBody3D.global_transform = self.global_transform

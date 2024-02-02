@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dty3fmt1boola"]
+[gd_scene load_steps=9 format=3 uid="uid://dty3fmt1boola"]
 
 [ext_resource type="Script" path="res://Data/Elite/Python/Python.gd" id="1_nlurs"]
 [ext_resource type="Shader" path="res://Data/Elite/EliteTriangle.gdshader" id="2_3slkh"]
@@ -37,6 +37,9 @@ _data = {
 "dummy": SubResource("Animation_wpch4")
 }
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u7v2c"]
+points = PackedVector3Array(0.5, 0, -3.92199e-05, 0, -0.25, -0.20002, 0, 0, -1.3, 0, 0.25, -0.20002, 0, 0.25, 0.199941, 0.19998, 0, 0.5, 0, -0.25, 0.199941, -0.5, 0, -3.92199e-05, -0.200078, 0, 0.5, 0, 0.125, 0.5, 0, -0.125, 0.5)
+
 [node name="Python" type="Node3D"]
 script = ExtResource("1_nlurs")
 
@@ -53,3 +56,10 @@ material_override = SubResource("ShaderMaterial_oe5xg")
 libraries = {
 "": SubResource("AnimationLibrary_25ink")
 }
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+top_level = true
+motion_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_u7v2c")

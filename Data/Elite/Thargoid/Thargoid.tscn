@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1pel5s3sdw3c"]
+[gd_scene load_steps=8 format=3 uid="uid://1pel5s3sdw3c"]
 
 [ext_resource type="Script" path="res://Data/Elite/Thargoid/Thargoid.gd" id="1_2eq1f"]
 [ext_resource type="Shader" path="res://Data/Elite/EliteTriangle.gdshader" id="2_ckyot"]
@@ -33,6 +33,9 @@ _data = {
 "dummy": SubResource("Animation_8egbk")
 }
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7c4ev"]
+points = PackedVector3Array(0, -0.15, -1, -0.707126, -0.15, -0.707126, 0, 0.15, -0.400157, 0.70693, -0.15, -0.707126, -1, -0.15, 0, -0.400157, 0.15, 0, -0.28289, 0.15, -0.28289, 0.282694, 0.15, -0.28289, 0.399961, 0.15, 0, 1, -0.15, 0, -0.707126, -0.15, 0.70693, -0.28289, 0.15, 0.282694, 0.282694, 0.15, 0.282694, 0.70693, -0.15, 0.70693, 0, -0.15, 1, 0, 0.15, 0.399961)
+
 [node name="Thargoid" type="Node3D"]
 script = ExtResource("1_2eq1f")
 
@@ -54,3 +57,10 @@ instance_shader_parameters/disintegrationFraction = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_huu5b")
 }
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+top_level = true
+motion_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_7c4ev")

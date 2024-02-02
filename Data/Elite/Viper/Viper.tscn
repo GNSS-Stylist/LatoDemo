@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://35y452o6hg11"]
+[gd_scene load_steps=8 format=3 uid="uid://35y452o6hg11"]
 
 [ext_resource type="Script" path="res://Data/Elite/Viper/Viper.gd" id="1_h5fih"]
 [ext_resource type="Shader" path="res://Data/Elite/EliteTriangle.gdshader" id="2_d5yau"]
@@ -32,6 +32,9 @@ _data = {
 "dummy": SubResource("Animation_i05xd")
 }
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ha3v0"]
+points = PackedVector3Array(0, 0, -0.5, -0.5, 0, 0.5, 0, 0.15, 0, 0.5, 0, 0.5, 0, -0.15, 0, -0.25, -0.15, 0.5, -0.25, 0.15, 0.5, 0.25, 0.15, 0.5, 0.25, -0.15, 0.5)
+
 [node name="Viper" type="Node3D"]
 script = ExtResource("1_h5fih")
 
@@ -48,3 +51,10 @@ material_override = SubResource("ShaderMaterial_uwu0a")
 libraries = {
 "": SubResource("AnimationLibrary_tl05y")
 }
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+top_level = true
+motion_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ha3v0")

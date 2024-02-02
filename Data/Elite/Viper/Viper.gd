@@ -136,3 +136,10 @@ func stashPullToolData():
 		print("Stash pulling tool data (Viper)")
 		mainBody_Blue.mesh = stashStorage.mainBodyMesh_Blue
 		mainBody_Red.mesh = stashStorage.mainBodyMesh_Red
+
+func _physics_process(delta):
+	# We are not really interested about collision detection here as the
+	# CharacterBody is only used to detect laser hits.
+	# Therefore just cloning transform from the "main object"
+	
+	$CharacterBody3D.global_transform = self.global_transform
