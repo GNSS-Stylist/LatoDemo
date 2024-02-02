@@ -38,14 +38,14 @@ func _physics_process(delta):
 		var elapsed = Global.masterReplayTime - shootTime
 		
 		if (elapsed > 0):
-			var leadingEdgeDistance = clamp(elapsed * flyingSpeed, 0, 10000)
-			var trailingEdgeDistance = clamp(leadingEdgeDistance - beamLength, 0, 10000)
+			var leadingEdgeDistance = max(elapsed * flyingSpeed, 0)
+			var trailingEdgeDistance = max(leadingEdgeDistance - beamLength, 0)
 			
 			if ((hitDistance == 0) && (lastLeadingEdgeDistance > 10)):
 				var space_state = get_world_3d().direct_space_state
 				var params:PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
-				params.from = self.global_position + lastLeadingEdgeDistance * (-self.global_transform.basis.z)
-				params.to = self.global_position + leadingEdgeDistance * (-self.global_transform.basis.z)
+				params.from = self.global_position - lastLeadingEdgeDistance * self.global_transform.basis.z
+				params.to = self.global_position - leadingEdgeDistance * self.global_transform.basis.z
 				var result = space_state.intersect_ray(params)
 				if (!result.is_empty()):
 					# Hit something, get distance along the fly path
@@ -54,7 +54,10 @@ func _physics_process(delta):
 
 			lastLeadingEdgeDistance = leadingEdgeDistance
 				
-			if (hitDistance != 0):
+			if ((selfDestructDistance != 0) && (leadingEdgeDistance > selfDestructDistance)):
+				queue_free()
+				beam.visible = false
+			elif (hitDistance != 0):
 				if (trailingEdgeDistance >= hitDistance):
 					# Whole beam already past the hit
 					beam.visible = false
@@ -72,9 +75,6 @@ func _physics_process(delta):
 			beam.set_instance_shader_parameter("leadingEdge", leadingEdgeDistance)
 			beam.set_instance_shader_parameter("trailingEdge", trailingEdgeDistance)
 			
-			if ((selfDestructDistance != 0) && (leadingEdgeDistance > selfDestructDistance)):
-				queue_free()
-
 		else:
 			beam.visible = false
 	else:
