@@ -57,7 +57,7 @@ var lowPassFilteredSoundDataTexture:ImageTexture
 # TODO: Update this somewhere!
 var scanTrackerShaderBaseTime:float = 2415057	# 2415057 from walkaround2
 
-var oscilloscopeDataStorage:OscilloscopeDataStorage
+var oscilloscopeDataStorage	#:OscilloscopeDataStorage
 
 var blockableGNSSSignalRaycast:bool = true
 
