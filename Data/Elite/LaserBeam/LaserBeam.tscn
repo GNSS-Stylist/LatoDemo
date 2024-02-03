@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://chd1yy08jf5w4"]
+[gd_scene load_steps=7 format=3 uid="uid://chd1yy08jf5w4"]
 
 [ext_resource type="Script" path="res://Data/Elite/LaserBeam/LaserBeam.gd" id="1_2j646"]
 [ext_resource type="Shader" path="res://Data/Elite/LaserBeam/LaserBeam.gdshader" id="2_t6ujq"]
@@ -14,15 +14,33 @@ bottom_radius = 0.05
 radial_segments = 6
 rings = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmal2"]
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(10, 5, 5, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a2xll"]
+radius = 0.15
+height = 0.3
+radial_segments = 8
+rings = 4
+
 [node name="LaserBeam" type="Node3D"]
 top_level = true
 script = ExtResource("1_2j646")
 
 [node name="Beam" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 material_override = SubResource("ShaderMaterial_euctv")
 cast_shadow = 0
 instance_shader_parameters/albedo = Color(5, 0, 0, 1)
 instance_shader_parameters/leadingEdge = 0.0
 instance_shader_parameters/trailingEdge = 0.0
 mesh = SubResource("CylinderMesh_kfo35")
+
+[node name="HitGlow" type="MeshInstance3D" parent="Beam"]
+top_level = true
+material_override = SubResource("StandardMaterial3D_fmal2")
+mesh = SubResource("SphereMesh_a2xll")
+skeleton = NodePath("../..")

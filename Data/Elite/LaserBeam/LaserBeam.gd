@@ -3,7 +3,7 @@ extends Node3D
 
 #@export var timeOverride:float
 
-const flyingSpeed:float = 10
+const flyingSpeed:float = 100
 const beamLength:float = 10
 
 var shootTime:float = 0
@@ -13,6 +13,7 @@ var selfDestructDistance:float = 10000
 var lastLeadingEdgeDistance = 0
 
 @onready var beam:MeshInstance3D = $Beam
+@onready var hitGlow:MeshInstance3D = $Beam/HitGlow
 
 # Use origin/direction in global coordinates!
 func shoot(origin_p:Vector3, direction_p:Vector3, selfDestructDistance_p:float = 0):
@@ -65,12 +66,16 @@ func _physics_process(delta):
 					# Currently hitting
 					leadingEdgeDistance = hitDistance
 					beam.visible = true
+					hitGlow.visible = true
+					hitGlow.position = self.global_position - hitDistance * self.global_transform.basis.z
 				else:
 					# Not yet hit (may get here when rewinding)
 					beam.visible = true
+					hitGlow.visible = false
 			else:
 				# Not yet hit
 				beam.visible = true
+				hitGlow.visible = false
 			
 			beam.set_instance_shader_parameter("leadingEdge", leadingEdgeDistance)
 			beam.set_instance_shader_parameter("trailingEdge", trailingEdgeDistance)
