@@ -1,6 +1,8 @@
 @tool
 extends Node3D
 
+class_name  LaserBeamScene
+
 #@export var timeOverride:float
 
 const flyingSpeed:float = 100
@@ -15,8 +17,11 @@ var lastLeadingEdgeDistance = 0
 @onready var beam:MeshInstance3D = $Beam
 @onready var hitGlow:MeshInstance3D = $Beam/HitGlow
 
+func shootFromNode(originNode:Node3D, albedo:Color, selfDestructDistance:float = 0):
+	shoot(originNode.global_position, -originNode.global_transform.basis.z, albedo, selfDestructDistance)
+
 # Use origin/direction in global coordinates!
-func shoot(origin_p:Vector3, direction_p:Vector3, selfDestructDistance_p:float = 0):
+func shoot(origin_p:Vector3, direction_p:Vector3, albedo:Color, selfDestructDistance_p:float = 0):
 	shootTime = Global.masterReplayTime
 	self.global_position = origin_p
 	self.look_at(origin_p + direction_p)
@@ -24,6 +29,7 @@ func shoot(origin_p:Vector3, direction_p:Vector3, selfDestructDistance_p:float =
 	hitDistance = 0
 	lastLeadingEdgeDistance = 0
 	beam.visible = false
+	beam.set_instance_shader_parameter("albedo", albedo)
 
 func reset():
 	shootTime = 0
