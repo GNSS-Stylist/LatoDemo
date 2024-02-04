@@ -14,7 +14,8 @@ const camera_angle_filter_coeff:float = 0.1
 
 enum NavigationMode {
 	NAVMODE_FPS,
-	NAVMODE_6DOF }
+	NAVMODE_6DOF,
+	NAVMODE_ELITE }
 
 const mouse_sensitivity = 0.15
 var camera_change = Vector2()
@@ -145,7 +146,7 @@ func _process(delta):
 			var laserScene = load("res://Data/Elite/LaserBeam/LaserBeam.tscn")
 			var beam = laserScene.instantiate()
 			rootNode.add_child(beam)
-			beam.shoot($LaserBeamOrigin.global_position, -($LaserBeamOrigin.global_transform.basis.z), 1000)
+			beam.shootFromNode($LaserBeamOrigin, Color(0, 5, 0), 1000)
 
 func _input(event):
 	if mouse_captured and (event is InputEventMouseMotion):
@@ -211,6 +212,8 @@ func aim(delta):
 	if Input.is_action_just_pressed("switch_navigation_mode"):
 		if (navMode == NavigationMode.NAVMODE_FPS):
 			navMode = NavigationMode.NAVMODE_6DOF
+		elif (navMode == NavigationMode.NAVMODE_6DOF):
+			navMode = NavigationMode.NAVMODE_ELITE
 		else:
 			navMode = NavigationMode.NAVMODE_FPS
 			camera_angle_x_filtered = -rad_to_deg(asin(transform.basis.z.y))
@@ -220,8 +223,10 @@ func aim(delta):
 			
 	if (navMode == NavigationMode.NAVMODE_FPS):
 		aimFPS(delta)
-	else:
+	elif (navMode == NavigationMode.NAVMODE_6DOF):
 		aim6DOF(delta)
+	else:
+		aimElite(delta)
 	
 
 func aimFPS(delta):
@@ -284,6 +289,46 @@ func aim6DOF(delta):
 	tempBasis = tempBasis.rotated(tempBasis.x, deg_to_rad(camera_angle_x_filtered_change))
 	tempBasis = tempBasis.rotated(tempBasis.y, deg_to_rad(camera_angle_y_filtered_change))
 	tempBasis = tempBasis.rotated(tempBasis.z, deg_to_rad(ZAxis6DOFTurningSpeed * delta))
+	transform.basis = tempBasis.orthonormalized()
+
+func aimElite(delta):
+	if camera_change.length() > 0:
+#		$Head.rotate_y(deg2rad(-camera_change.x * mouse_sensitivity))
+		camera_angle_y_unfiltered -= camera_change.x * mouse_sensitivity
+		camera_angle_x_unfiltered -= camera_change.y * mouse_sensitivity
+		
+		camera_change = Vector2()
+
+	var correctedCoeff = pow(camera_angle_filter_coeff, delta)
+		
+	camera_angle_x_filtered = camera_angle_x_filtered * correctedCoeff + camera_angle_x_unfiltered * (1 - correctedCoeff)
+	camera_angle_y_filtered = camera_angle_y_filtered * correctedCoeff + camera_angle_y_unfiltered * (1 - correctedCoeff)
+
+	var camera_angle_x_filtered_change = camera_angle_x_filtered - last_camera_angle_x_filtered
+	var camera_angle_y_filtered_change = camera_angle_y_filtered - last_camera_angle_y_filtered
+
+	last_camera_angle_x_filtered = camera_angle_x_filtered
+	last_camera_angle_y_filtered = camera_angle_y_filtered
+	
+	var unFilteredXAxisTurningSpeed = 0
+	
+	# "Elite control mode" doesn't have native turning along Y-axis
+	# so repurpose these actions for it to make it easier to orientate
+	if Input.is_action_pressed("6dof_rotate_z_left"):
+		unFilteredXAxisTurningSpeed += ZAxisMax6DOFTurningSpeed
+	if Input.is_action_pressed("6dof_rotate_z_right"):
+		unFilteredXAxisTurningSpeed -= ZAxisMax6DOFTurningSpeed
+
+	correctedCoeff = pow(1 - ZAxis6DOFTurningSpeedAcceleration, delta)
+	
+	ZAxis6DOFTurningSpeed = ZAxis6DOFTurningSpeed * correctedCoeff + unFilteredXAxisTurningSpeed * (1 -  correctedCoeff)
+	
+	var tempBasis = transform.basis
+	
+	tempBasis = tempBasis.rotated(tempBasis.x, deg_to_rad(camera_angle_x_filtered_change))
+	tempBasis = tempBasis.rotated(tempBasis.z, deg_to_rad(camera_angle_y_filtered_change))
+	tempBasis = tempBasis.rotated(tempBasis.y, deg_to_rad(ZAxis6DOFTurningSpeed * delta))
+
 	transform.basis = tempBasis.orthonormalized()
 
 func set_LocationOrientation(newTransform: Transform3D):
