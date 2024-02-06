@@ -42,6 +42,8 @@ var headDetachment:Vector3 = Vector3()
 
 var mouse_captured = false
 
+@onready var shipTracker:ShipTracker = $ShipTracker
+
 func _ready():
 	var manipulator = get_node("ManipulatorCollisionShape")
 	var capsule = get_node("Capsule")
@@ -149,6 +151,8 @@ func _process(delta):
 			var beam = laserScene.instantiate()
 			rootNode.add_child(beam)
 			beam.shootFromNode($LaserBeamOrigin, Color(0, 5, 0), 1000)
+			
+			$ShipTracker.recordLaserShotFromNode($LaserBeamOrigin)
 
 func _input(event):
 	if mouse_captured and (event is InputEventMouseMotion):
@@ -183,6 +187,14 @@ func fly(delta):
 		var box = boxScene.instance()
 		box.transform = get_node("ManipulatorMeshes/ManipulatorExtension").global_transform
 		rootNode.add_child(box)
+	
+	if Input.is_action_just_pressed("start_stop_track_recording"):
+		if (shipTracker.workingMode == ShipTracker.WorkingMode.STOPPED):
+			shipTracker.clear()
+			shipTracker.startRecording()
+		elif (shipTracker.workingMode == ShipTracker.WorkingMode.RECORDING):
+			shipTracker.stopRecording()
+			shipTracker.saveToFile()
 	
 	# where would the player go at max speed (m/s)
 	var target = direction * velocityMultiplier

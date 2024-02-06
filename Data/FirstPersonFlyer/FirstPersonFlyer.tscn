@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://be3msxv4st7e1"]
+[gd_scene load_steps=16 format=3 uid="uid://be3msxv4st7e1"]
 
 [ext_resource type="Script" path="res://Data/FirstPersonFlyer/FirstPersonFlyer.gd" id="1_0cyb0"]
 [ext_resource type="Script" path="res://Data/FirstPersonFlyer/Crosshair.gd" id="2_col12"]
 [ext_resource type="PackedScene" uid="uid://dd6jsuufge7y5" path="res://Data/Oscilloscope/BlockableGNSSSignal.tscn" id="4_5qgi4"]
 [ext_resource type="Texture2D" uid="uid://bw0mry6gijxh8" path="res://Data/FirstPersonFlyer/Crosshair.png" id="4_6aj0l"]
+[ext_resource type="PackedScene" uid="uid://bqvfrrgcd17gi" path="res://Data/Elite/ShipTracker.tscn" id="5_w7vaq"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.6
@@ -107,4 +108,6 @@ visible = false
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -0.431994, 0)
 
 [node name="LaserBeamOrigin" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="ShipTracker" parent="." instance=ExtResource("5_w7vaq")]
