@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqvfrrgcd17gi"]
+
+[ext_resource type="Script" path="res://Data/Elite/ShipTracker.gd" id="1_5nh56"]
+
+[node name="ShipTracker" type="Node3D"]
+script = ExtResource("1_5nh56")
+
+[node name="FileDialog_Save" type="FileDialog" parent="."]
+size = Vector2i(392, 162)
+
+[node name="FileDialog_Load" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+
+[node name="LaserShots" type="Node3D" parent="."]
+top_level = true
+
+[connection signal="file_selected" from="FileDialog_Save" to="." method="_on_file_dialog_save_file_selected"]
+[connection signal="file_selected" from="FileDialog_Load" to="." method="_on_file_dialog_load_file_selected"]
