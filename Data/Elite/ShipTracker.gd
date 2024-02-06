@@ -20,10 +20,6 @@ class LOData:
 	var origin:Vector3
 	var quat:Quaternion
 	
-class LaserData:
-	var origin:Vector3
-	var direction:Vector3
-	
 var lastRecordLocation:Vector3
 var lastRecordOrientation:Quaternion = Quaternion.IDENTITY
 var lastRecordTime:float = -1e12
@@ -31,7 +27,7 @@ var lastRecordTime:float = -1e12
 var loData = {}	# Key = Time, value = LOData
 var loDataKeys = []
 
-var laserData = {}	# Key = Time, value = LaserData
+var laserData = {}	# Key = Time, value = LOData
 var laserDataKeys = []
 
 enum WorkingMode {
@@ -183,19 +179,19 @@ func startRecording():
 
 func recordLaserShot():
 	if (workingMode == WorkingMode.RECORDING):
-		var shot:LaserData = LaserData.new()
+		var shot:LOData = LOData.new()
 		
 		shot.origin = self.global_position
-		shot.direction = -self.global_transform.basis.z.normalized()
+		shot.quat = self.global_transform.basis.orthonormalized().get_rotation_quaternion()
 		
 		laserData[Global.masterReplayTime] = shot
 	
 func recordLaserShotFromNode(shotNode:Node3D):
 	if (workingMode == WorkingMode.RECORDING):
-		var shot:LaserData = LaserData.new()
+		var shot:LOData = LOData.new()
 		
 		shot.origin = shotNode.global_position
-		shot.direction = -shotNode.global_transform.basis.z.normalized()
+		shot.quat = shotNode.global_transform.basis.orthonormalized().get_rotation_quaternion()
 		
 		laserData[Global.masterReplayTime] = shot
 
@@ -229,15 +225,16 @@ func saveToFile(fileName:String = ""):
 			file.store_float(loItem.quat.w)
 
 		for itemIndex in range(0, laserDataKeys.size()):
-			var laserItem:LaserData = laserData[laserDataKeys[itemIndex]]
+			var laserItem:LOData = laserData[laserDataKeys[itemIndex]]
 			file.store_8(1)	# data ident (laser beams start location/orientation)
 			file.store_float(laserDataKeys[itemIndex])
 			file.store_float(laserItem.origin.x)
 			file.store_float(laserItem.origin.y)
 			file.store_float(laserItem.origin.z)
-			file.store_float(laserItem.direction.x)
-			file.store_float(laserItem.direction.y)
-			file.store_float(laserItem.direction.z)
+			file.store_float(laserItem.quat.x)
+			file.store_float(laserItem.quat.y)
+			file.store_float(laserItem.quat.z)
+			file.store_float(laserItem.quat.w)
 			
 		file.close()
 
@@ -270,9 +267,9 @@ func loadFromFile(fileName:String = ""):
 					newLOData.quat = Quaternion(file.get_float(), file.get_float(), file.get_float(),file.get_float())
 					loData[time] = newLOData
 				1:
-					var newLaserData:LaserData = LaserData.new();
+					var newLaserData:LOData = LOData.new();
 					newLaserData.origin = Vector3(file.get_float(), file.get_float(), file.get_float())
-					newLaserData.direction = Vector3(file.get_float(), file.get_float(), file.get_float())
+					newLaserData.quat = Quaternion(file.get_float(), file.get_float(), file.get_float(),file.get_float())
 					laserData[time] = newLaserData
 				_:
 					print("Unknown datatype in ShipTrackerData file ", fileName, ", quitting")
@@ -290,12 +287,13 @@ func loadFromFile(fileName:String = ""):
 
 		for shotIndex in range(laserDataKeys.size()):
 			var time:float = laserDataKeys[shotIndex]
-			var laserItem:LaserData = laserData[time]
+			var laserItem:LOData = laserData[time]
 			
 			var rootNode = $LaserShots
 			var beam = laserScene.instantiate()
 			rootNode.add_child(beam)
-			beam.shoot(laserItem.origin, laserItem.direction, replayLaserShotColor, 0, time)
+			beam.shoot(laserItem.origin, -Basis(laserItem.quat).z.normalized(), replayLaserShotColor, 0, time)
+#			beam.shoot(laserItem.origin, laserItem.direction, replayLaserShotColor, 0, time)
 
 func play():
 	workingMode = WorkingMode.PLAYING
