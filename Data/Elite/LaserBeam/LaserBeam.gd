@@ -5,8 +5,8 @@ class_name  LaserBeamScene
 
 #@export var timeOverride:float
 
-const flyingSpeed:float = 100
-const beamLength:float = 10
+const flyingSpeed:float = 1000
+const beamLength:float = 100
 
 var shootTime:float = 0
 var hitDistance:float = 0		# Fly distance along shootDirection
@@ -17,12 +17,16 @@ var lastLeadingEdgeDistance = 0
 @onready var beam:MeshInstance3D = $Beam
 @onready var hitGlow:MeshInstance3D = $Beam/HitGlow
 
-func shootFromNode(originNode:Node3D, albedo:Color, selfDestructDistance:float = 0):
-	shoot(originNode.global_position, -originNode.global_transform.basis.z, albedo, selfDestructDistance)
+func shootFromNode(originNode:Node3D, albedo:Color, selfDestructDistance_p:float = 0, shootTime_p:float = 0):
+	shoot(originNode.global_position, -originNode.global_transform.basis.z, albedo, selfDestructDistance_p, shootTime_p)
 
 # Use origin/direction in global coordinates!
-func shoot(origin_p:Vector3, direction_p:Vector3, albedo:Color, selfDestructDistance_p:float = 0):
-	shootTime = Global.masterReplayTime
+func shoot(origin_p:Vector3, direction_p:Vector3, albedo:Color, selfDestructDistance_p:float = 0, shootTime_p:float = 0):
+	if (shootTime_p == 0):
+		shootTime = Global.masterReplayTime
+	else:
+		shootTime = shootTime_p
+		
 	self.global_position = origin_p
 	self.look_at(origin_p + direction_p)
 	self.selfDestructDistance = selfDestructDistance_p
@@ -49,9 +53,13 @@ func _physics_process(delta):
 			var trailingEdgeDistance = max(leadingEdgeDistance - beamLength, 0)
 			
 			if ((hitDistance == 0) && (lastLeadingEdgeDistance > 10)):
+				# TODO: Hitpoint should be updated continuously while hitting
 				var space_state = get_world_3d().direct_space_state
 				var params:PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
-				params.from = self.global_position - lastLeadingEdgeDistance * self.global_transform.basis.z
+				if (lastLeadingEdgeDistance > leadingEdgeDistance):
+					params.from = self.global_position
+				else:
+					params.from = self.global_position - lastLeadingEdgeDistance * self.global_transform.basis.z
 				params.to = self.global_position - leadingEdgeDistance * self.global_transform.basis.z
 				var result = space_state.intersect_ray(params)
 				if (!result.is_empty()):

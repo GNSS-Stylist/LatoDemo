@@ -9,8 +9,8 @@ shader = ExtResource("2_t6ujq")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kfo35"]
 custom_aabb = AABB(0, 0, 0, 0.1, 4000, 0.1)
-top_radius = 0.05
-bottom_radius = 0.05
+top_radius = 0.25
+bottom_radius = 0.25
 radial_segments = 6
 rings = 1
 
@@ -20,8 +20,8 @@ disable_ambient_light = true
 albedo_color = Color(10, 5, 5, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_a2xll"]
-radius = 0.15
-height = 0.3
+radius = 4.0
+height = 8.0
 radial_segments = 8
 rings = 4
 
