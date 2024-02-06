@@ -443,6 +443,8 @@ func controlPlayback(delta:float):
 		tunePlayer.my_seek(tunePlayer.getFilteredPlaybackPosition() - 5)
 	if Input.is_action_just_pressed("restart_playback"):
 		tunePlayer.my_seek(0)
+	if Input.is_action_just_pressed("animation_jump_to_bookmark"):
+		tunePlayer.my_seek(290)
 
 	if Input.is_action_just_pressed("playback_speed_100_pros"):
 		tunePlayer.pitch_scale = 1
@@ -481,6 +483,10 @@ func controlPlayback(delta:float):
 			
 	if Input.is_action_pressed("play_backward_non_locked"):
 		tunePlayer.my_seek(tunePlayer.getFilteredPlaybackPosition() - delta)
+	
+	if Input.is_action_just_pressed("debug_load_recorded_track"):
+		$Elite/DebugShipTrackReplayer.loadFromFile()
+		$Elite/DebugShipTrackReplayer.play()
 
 func camSwitch(uptime):
 	var oldCamera = get_viewport().get_camera_3d()
