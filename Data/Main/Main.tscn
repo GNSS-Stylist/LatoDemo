@@ -1,4 +1,4 @@
-[gd_scene load_steps=208 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=215 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -87,6 +87,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bqcjngtfhlwbp" path="res://Data/Elite/Thargoid/Thargoid_Mesh.tres" id="83_24ox8"]
 [ext_resource type="PackedScene" uid="uid://1pel5s3sdw3c" path="res://Data/Elite/Thargoid/Thargoid.tscn" id="83_slc3d"]
 [ext_resource type="ArrayMesh" uid="uid://drxj0u8pvy2vl" path="res://Data/Elite/Viper/Viper_Mesh.tres" id="85_70q2d"]
+[ext_resource type="Shader" path="res://Data/Elite/Wormhole.gdshader" id="88_5f475"]
+[ext_resource type="Script" path="res://Data/Elite/Wormhole.gd" id="89_pw1o0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lubd1"]
 render_priority = 0
@@ -14659,6 +14661,29 @@ tracks/321/keys = {
 "update": 1,
 "values": [NodePath("../../../FlyingSpace_Station_Rotating/DockingBayCenter")]
 }
+tracks/322/type = "value"
+tracks/322/imported = false
+tracks/322/enabled = true
+tracks/322/path = NodePath("Elite/ShipDrawMeshes/Thargoid/ThargoidDebrisMesh:visible")
+tracks/322/interp = 1
+tracks/322/loop_wrap = true
+tracks/322/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/323/type = "bezier"
+tracks/323/imported = false
+tracks/323/enabled = true
+tracks/323/path = NodePath("Elite/SubViewport/Ships/Thargoid/Thargoid:disintegrationFraction")
+tracks/323/interp = 1
+tracks/323/loop_wrap = true
+tracks/323/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -16206,6 +16231,29 @@ tracks/41/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [NodePath("../../../FlyingSpace_Station_Rotating/Path_Docking/PathFollow_Dock"), NodePath("../../../ShipTrackReplayers/ShipTracker_CobraMkIII")]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Elite/ShipDrawMeshes/Thargoid/ThargoidDebrisMesh:visible")
+tracks/42/interp = 1
+tracks/42/loop_wrap = false
+tracks/42/keys = {
+"times": PackedFloat32Array(284, 418, 436),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/43/type = "bezier"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Elite/SubViewport/Ships/Thargoid/Thargoid:disintegrationFraction")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(418, 435)
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -19301,6 +19349,21 @@ render_priority = 0
 shader = ExtResource("13_kvhy7")
 shader_parameter/texture_albedo = SubResource("ViewportTexture_omyo2")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_8e3of"]
+viewport_path = NodePath("Elite/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wyo6"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("13_kvhy7")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_8e3of")
+
+[sub_resource type="SphereMesh" id="SphereMesh_0nopv"]
+radius = 10.0
+height = 20.0
+radial_segments = 6
+rings = 3
+
 [sub_resource type="Curve3D" id="Curve3D_m6xa2"]
 bake_interval = 10.0
 _data = {
@@ -19331,6 +19394,25 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xd0ml"]
+render_priority = 0
+shader = ExtResource("88_5f475")
+shader_parameter/baseAlbedo = Color(0, 1, 0, 1)
+shader_parameter/centerHoleRadius = 0.0
+shader_parameter/numOfSamples = 1542747
+shader_parameter/soundPos = 0.0
+shader_parameter/soundOffset = -3.41905e+06
+shader_parameter/soundLength = -40000.0
+shader_parameter/soundPreCutStart = 0.0
+shader_parameter/soundPreCutEnd = 0.0
+shader_parameter/soundPostCut = 1e+09
+shader_parameter/soundAmplification = 1.0
+shader_parameter/baseAlpha = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_whk81"]
+size = Vector2(1000, 1000)
+orientation = 2
 
 [node name="Main" type="Node3D"]
 process_priority = 100
@@ -20963,6 +21045,12 @@ mesh = ExtResource("83_24ox8")
 
 [node name="DebugThargoid" parent="Elite/ShipDrawMeshes/Thargoid" instance=ExtResource("83_slc3d")]
 
+[node name="ThargoidDebrisMesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Thargoid"]
+visible = false
+material_override = SubResource("ShaderMaterial_6wyo6")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_0nopv")
+
 [node name="Viper" type="Node3D" parent="Elite/ShipDrawMeshes"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1414, 1414, 0)
 visible = false
@@ -21012,7 +21100,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958915, 0.0592353, -0.298843, 0, 0.98, 0.224917, 0.283366, 0.200453, -1.01129, 0, 0, 50)
+transform = Transform3D(-0.958915, 0.0592353, -0.30003, 0, 0.98, 0.22581, 0.283366, 0.200453, -1.01531, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21020,7 +21108,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885968, -0.327557, -0.326797, -1.48983e-08, 0.703258, -0.708758, 0.463332, 0.626343, 0.624889, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885968, -0.327553, -0.326797, -1.48983e-08, 0.703249, -0.708758, 0.463332, 0.626336, 0.624889, -180.814, -993.197, 880.29)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -21054,6 +21142,14 @@ top_level = true
 [node name="ShipTracker_Camera" parent="Elite/ShipTrackReplayers" instance=ExtResource("82_mn0we")]
 transform = Transform3D(0.909595, 0.131188, 0.394241, -0.415444, 0.272138, 0.867956, 0.00657785, -0.953274, 0.302037, 1459.82, 1517.61, 40.3566)
 top_level = true
+
+[node name="Wormhole" type="MeshInstance3D" parent="Elite"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 315.484, 421.788, 2473.35)
+material_override = SubResource("ShaderMaterial_xd0ml")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_whk81")
+skeleton = NodePath("../..")
+script = ExtResource("89_pw1o0")
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]

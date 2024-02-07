@@ -1,7 +1,7 @@
 // NOTE: Shader automatically converted from Godot Engine 4.0.2.stable's StandardMaterial3D.
 
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,unshaded;
+render_mode blend_mix,depth_draw_opaque,cull_disabled,unshaded;
 uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_disable;
 //uniform vec2 resolution = vec2(320.0, 180.0);
 global uniform vec2 eliteOverlayResolution;

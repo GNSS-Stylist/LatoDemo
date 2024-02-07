@@ -746,6 +746,7 @@ class Stash:
 	var jellyPlanetData
 	var syncHelpScopeData
 	var deathTextData
+	var wormholeData
 #	var blackHoleData = [3]
 
 var stashStorage:Stash = Stash.new()
@@ -760,10 +761,11 @@ func stashToolData():
 	var jellyPlanet = get_node_or_null("World/JellyPlanet")
 	var syncHelpScope = get_node_or_null("AnimatedCamera/SyncHelpScope")
 	var deathText = get_node_or_null("CameraFlyingSpace_Ascend/DeathText")
+	var wormhole = get_node_or_null("Elite/Wormhole")
 
 	if (Global && barnMesh && groundMesh && latoTextMesh && 
 			soundImageDbg && planetCrust && jellyPlanet &&
-			syncHelpScope && deathText):
+			syncHelpScope && deathText && wormhole):
 				
 		stashStorage.globalData = Global.stashToolData()
 		stashStorage.barnData = barnMesh.stashToolData()
@@ -784,6 +786,7 @@ func stashToolData():
 		stashStorage.syncHelpScopeData = syncHelpScope.stashToolData()
 		
 		stashStorage.deathTextData = deathText.stashToolData()
+		stashStorage.wormholeData = wormhole.stashToolData()
 
 		stashStorage.valid = true
 
@@ -799,10 +802,11 @@ func stashPullToolData():
 		var jellyPlanet = get_node_or_null("World/JellyPlanet")
 		var syncHelpScope = get_node_or_null("AnimatedCamera/SyncHelpScope")
 		var deathText = get_node_or_null("CameraFlyingSpace_Ascend/DeathText")
-
+		var wormhole = get_node_or_null("Elite/Wormhole")
+	
 		if (Global && barnMesh && groundMesh && latoTextMesh && 
 				soundImageDbg && planetCrust && jellyPlanet &&
-				syncHelpScope && deathText):
+				syncHelpScope && deathText && wormhole):
 					
 			Global.stashPullToolData(stashStorage.globalData)
 			barnMesh.stashPullToolData(stashStorage.barnData)
@@ -815,6 +819,7 @@ func stashPullToolData():
 			jellyPlanet.stashPullToolData(stashStorage.jellyPlanetData)
 			syncHelpScope.stashPullToolData(stashStorage.syncHelpScopeData)
 			deathText.stashPullToolData(stashStorage.deathTextData)
+			wormhole.stashPullToolData(stashStorage.wormholeData)
 	else:
 		print("Stash data not valid")
 	

@@ -58,6 +58,7 @@ func _ready():
 	createMainBodyMesh()
 	createDebrisField()
 
+
 var lastDisintegrationFraction:float = 42
 func _process(_delta):
 	if (animResetStashDone):
@@ -67,16 +68,12 @@ func _process(_delta):
 	if (disintegrationFraction != lastDisintegrationFraction):
 		$MainBody.set_instance_shader_parameter("disintegrationFraction", disintegrationFraction)
 		$DebrisField.set_instance_shader_parameter("disintegrationFraction", disintegrationFraction)
+		$DebrisField.visible = disintegrationFraction != 0
 		lastDisintegrationFraction = disintegrationFraction
 
 func createMainBodyMesh():
-	# These give warnings like
-	# W 0:00:02:0981   The variable "mainBodyVertices" was used but never assigned a value.
-	# -> Replaced with non-typed arrays
-#	var mainBodyVertices:Array[Vector3]
-#	var mainBodyFaces:Array[EliteFace]
-	var mainBodyVertices = []
-	var mainBodyFaces = []
+	var mainBodyVertices:Array[Vector3] = []
+	var mainBodyFaces:Array[EliteFace] = []
 
 	for i in range(8):
 		var rad = float(i) * 2.0 * PI / 8
@@ -85,17 +82,13 @@ func createMainBodyMesh():
 		mainBodyVertices.append(Vector3(sin(rad) * lowerLevelRadius, lowerLevelY, cos(rad) * lowerLevelRadius))
 
 	# Top plate
-	# Replaced with non-typed array (Why? -> See beginning of this function)
-#	var upperPlateVerts:Array[int]
-	var upperPlateVerts = []
+	var upperPlateVerts:Array[int] = []
 	for i in range(14, -2, -2):
 		upperPlateVerts.append(i)
 	mainBodyFaces.append(EliteFace.new(upperPlateVerts, 6, 6, Vector3.ZERO))
 
 	# Bottom plate
-	# Replaced with non-typed array (Why? -> See beginning of this function)
-#	var lowerPlateVerts:Array[int]
-	var lowerPlateVerts = []
+	var lowerPlateVerts:Array[int] = []
 	for i in range(1, 16, 2):
 		lowerPlateVerts.append(i)
 	mainBodyFaces.append(EliteFace.new(lowerPlateVerts, 4, 4, Vector3(0, lowerLevelY, 0)))
@@ -117,13 +110,8 @@ func createMainBodyMesh():
 	$MainBody.mesh = EliteShipMesh.createMesh(mainBodyVertices, mainBodyFaces)
 
 func createDebrisField():
-	# These give warnings like
-	# W 0:00:02:0981   The variable "mainBodyVertices" was used but never assigned a value.
-	# -> Replaced with non-typed array
-	#var debrisFieldVertices:Array[Vector3]
-	#var debrisFieldFaces:Array[EliteFace]
-	var debrisFieldVertices = []
-	var debrisFieldFaces = []
+	var debrisFieldVertices:Array[Vector3] = []
+	var debrisFieldFaces:Array[EliteFace] = []
 	
 	myRandInit(debrisFieldRandomSeed)
 
@@ -141,10 +129,8 @@ func createDebrisField():
 		var numOfVertices:int = 3 + myRandGetInt() % (maxNumOfDebrisParticlePoints - 2)
 		
 		# Replaced with non-typed array (Why? -> See beginning of this function)
-#		var particleFaceVerts:Array[int]
-#		var particleVertices:Array[Vector3]
-		var particleFaceVerts = []
-		var particleVertices = []
+		var particleFaceVerts:Array[int] = []
+		var particleVertices:Array[Vector3] = []
 
 		for subVertexIndex in range(numOfVertices):
 			var vert = particleCenterPoint + Vector3(myRandf_range(-maxDebrisParticleSize, maxDebrisParticleSize), myRandf_range(-maxDebrisParticleSize, maxDebrisParticleSize), myRandf_range(-maxDebrisParticleSize, maxDebrisParticleSize))

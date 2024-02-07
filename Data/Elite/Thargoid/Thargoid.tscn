@@ -43,14 +43,19 @@ script = ExtResource("1_2eq1f")
 layers = 262144
 material_override = SubResource("ShaderMaterial_nrxd1")
 instance_shader_parameters/autoFragmentScalingStartFraction = 0.5
+instance_shader_parameters/autoFragmentScalingEndFraction = 100.0
+instance_shader_parameters/autoFragmentScalingStartFraction = 100.0
 instance_shader_parameters/disintegrationFraction = 0.0
 instance_shader_parameters/displacementMaxDeviation = Vector3(1, 1, 1)
 instance_shader_parameters/displacementMinDeviation = Vector3(-1, -1, -1)
 instance_shader_parameters/randomSeed = 1.335
 
 [node name="DebrisField" type="MeshInstance3D" parent="."]
+visible = false
 layers = 262144
 material_override = SubResource("ShaderMaterial_nrxd1")
+instance_shader_parameters/autoFragmentScalingEndFraction = 100.0
+instance_shader_parameters/autoFragmentScalingStartFraction = 100.0
 instance_shader_parameters/disintegrationFraction = 0.0
 
 [node name="AnimationPlayer_ToolDataStasher" type="AnimationPlayer" parent="."]
