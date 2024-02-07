@@ -12,6 +12,7 @@ class_name ShipTracker
 
 @export var originInterpolationMethod:OriginInterpolationMethod = OriginInterpolationMethod.CUBIC
 @export var quatInterpolationMethod:QuatInterpolationMethod = QuatInterpolationMethod.SLERP
+@export var laserOriginShift:Vector3 = Vector3.ZERO
 
 enum OriginInterpolationMethod { LAST_VALUE, NEXT_VALUE, NEAREST_VALUE, LINEAR, CUBIC }
 enum QuatInterpolationMethod { LAST_VALUE, NEXT_VALUE, NEAREST_VALUE, SLERP, SLERPNI, SPERICAL_CUBIC }
@@ -292,7 +293,9 @@ func loadFromFile(fileName:String = ""):
 			var rootNode = $LaserShots
 			var beam = laserScene.instantiate()
 			rootNode.add_child(beam)
-			beam.shoot(laserItem.origin, -Basis(laserItem.quat).z.normalized(), replayLaserShotColor, 0, time)
+			var shotBasis = Basis(laserItem.quat)
+			var shotOrigin = laserItem.origin + shotBasis * laserOriginShift
+			beam.shoot(shotOrigin, -Basis(laserItem.quat).z.normalized(), replayLaserShotColor, 0, time)
 #			beam.shoot(laserItem.origin, laserItem.direction, replayLaserShotColor, 0, time)
 
 func play():
