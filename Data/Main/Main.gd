@@ -177,6 +177,11 @@ func _ready():
 	animationCameraAnchorNodes.push_back($FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator)
 	animationCameraAnchorSpaceNames.push_back("Cobra follow")
 
+	# 11:
+	animationCameraAnchorSpaces.push_back($Elite)
+	animationCameraAnchorNodes.push_back($Elite/ShipTrackReplayers/ShipTracker_Camera)
+	animationCameraAnchorSpaceNames.push_back("Elite track playback")
+
 	$DebugThings/Panel_CurrentCameraTransform/OptionButton_PosReference.clear()
 
 	for i in range(animationCameraAnchorSpaceNames.size()):
@@ -184,6 +189,19 @@ func _ready():
 		$DebugThings/Panel_CurrentCameraTransform/OptionButton_PosReference.add_item(outString, i)
 	
 	$AnimatedCamera.current = true;
+
+	if (Engine.is_editor_hint()):
+		# These are normally loaded when running the demo with the happier ending
+		# but to see these in the editor, load them always when using it.
+		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.loadFromFile("res://Data/Elite/FlyTracks/Thargoid.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.loadFromFile("res://Data/Elite/FlyTracks/CobraChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_Camera.loadFromFile("res://Data/Elite/FlyTracks/CamChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Camera.play()
+
 
 #	$MeshInstance_DbgShit.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[0]
 #	$MeshInstance_DbgShit2.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[1]
@@ -305,16 +323,8 @@ func _process(delta):
 
 	if (demoStarted):
 		if (!demoStartRitualsDone):
-			mainAnimationPlayer.play()
-				
-			$MainTunePlayer.play(dbgPlayStartPos)
-			demoStartRitualsDone = true;
-			
-			if ($Panel_Start/OptionButton_Ending.get_selected_id() == 1):
-				subAnimationSelector.current_animation = "EndOfTheWorld"
-			else:
-				subAnimationSelector.current_animation = "PartyOn"
-		
+			handleDemoStartInits()
+			demoStartRitualsDone = true
 
 	if (!Engine.is_editor_hint()):
 		accumulatedDelta += delta
@@ -419,8 +429,25 @@ func _process(delta):
 
 	handleAnimatedCamera()
 	
+func handleDemoStartInits():
+	mainAnimationPlayer.play()
+		
+	$MainTunePlayer.play(dbgPlayStartPos)
 	
-	
+	# TODO: Add ending-related inits here
+	if ($Panel_Start/OptionButton_Ending.get_selected_id() == 1):
+		subAnimationSelector.current_animation = "EndOfTheWorld"
+	else:
+		subAnimationSelector.current_animation = "PartyOn"
+		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.loadFromFile("res://Data/Elite/FlyTracks/Thargoid.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.loadFromFile("res://Data/Elite/FlyTracks/CobraChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_Camera.loadFromFile("res://Data/Elite/FlyTracks/CamChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Camera.play()
+
 func handleAnimatedCamera():
 	var originA:Vector3 = animationCameraAnchorNodes[animationCameraAnchorIndexA].global_transform.origin
 	var originB:Vector3 = animationCameraAnchorNodes[animationCameraAnchorIndexB].global_transform.origin
@@ -515,7 +542,13 @@ func camSwitch(uptime):
 		newCamera = get_node("World/CameraRig/CameraObject/CameraLensAnchor/DevCamera")
 		camera_InterpolationTime = camera_InterpolationTime_Fast
 		
+	if Input.is_action_just_pressed("camera_cobra_mk_iii"):
+		newCamera = get_node("Elite/ShipDrawMeshes/CobraMKIII/DbgCamera")
+		camera_InterpolationTime = camera_InterpolationTime_Fast
 		
+	if Input.is_action_just_pressed("camera_debug_ship_tracker"):
+		newCamera = get_node("Elite/DebugShipTrackReplayer/Camera3D")
+		camera_InterpolationTime = camera_InterpolationTime_Fast
 		
 		
 		
