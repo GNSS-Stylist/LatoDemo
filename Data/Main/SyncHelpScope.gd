@@ -16,7 +16,7 @@ func _ready():
 		return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 	

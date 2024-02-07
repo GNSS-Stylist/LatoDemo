@@ -59,7 +59,7 @@ func _ready():
 	createDebrisField()
 
 var lastDisintegrationFraction:float = 42
-func _process(delta):
+func _process(_delta):
 	if (animResetStashDone):
 		stashPullToolData()
 		animResetStashDone = false
@@ -70,8 +70,13 @@ func _process(delta):
 		lastDisintegrationFraction = disintegrationFraction
 
 func createMainBodyMesh():
-	var mainBodyVertices:Array[Vector3]
-	var mainBodyFaces:Array[EliteFace]
+	# These give warnings like
+	# W 0:00:02:0981   The variable "mainBodyVertices" was used but never assigned a value.
+	# -> Replaced with non-typed arrays
+#	var mainBodyVertices:Array[Vector3]
+#	var mainBodyFaces:Array[EliteFace]
+	var mainBodyVertices = []
+	var mainBodyFaces = []
 
 	for i in range(8):
 		var rad = float(i) * 2.0 * PI / 8
@@ -80,13 +85,17 @@ func createMainBodyMesh():
 		mainBodyVertices.append(Vector3(sin(rad) * lowerLevelRadius, lowerLevelY, cos(rad) * lowerLevelRadius))
 
 	# Top plate
-	var upperPlateVerts:Array[int]
+	# Replaced with non-typed array (Why? -> See beginning of this function)
+#	var upperPlateVerts:Array[int]
+	var upperPlateVerts = []
 	for i in range(14, -2, -2):
 		upperPlateVerts.append(i)
 	mainBodyFaces.append(EliteFace.new(upperPlateVerts, 6, 6, Vector3.ZERO))
 
 	# Bottom plate
-	var lowerPlateVerts:Array[int]
+	# Replaced with non-typed array (Why? -> See beginning of this function)
+#	var lowerPlateVerts:Array[int]
+	var lowerPlateVerts = []
 	for i in range(1, 16, 2):
 		lowerPlateVerts.append(i)
 	mainBodyFaces.append(EliteFace.new(lowerPlateVerts, 4, 4, Vector3(0, lowerLevelY, 0)))
@@ -108,8 +117,13 @@ func createMainBodyMesh():
 	$MainBody.mesh = EliteShipMesh.createMesh(mainBodyVertices, mainBodyFaces)
 
 func createDebrisField():
-	var debrisFieldVertices:Array[Vector3]
-	var debrisFieldFaces:Array[EliteFace]
+	# These give warnings like
+	# W 0:00:02:0981   The variable "mainBodyVertices" was used but never assigned a value.
+	# -> Replaced with non-typed array
+	#var debrisFieldVertices:Array[Vector3]
+	#var debrisFieldFaces:Array[EliteFace]
+	var debrisFieldVertices = []
+	var debrisFieldFaces = []
 	
 	myRandInit(debrisFieldRandomSeed)
 
@@ -126,8 +140,11 @@ func createDebrisField():
 
 		var numOfVertices:int = 3 + myRandGetInt() % (maxNumOfDebrisParticlePoints - 2)
 		
-		var particleFaceVerts:Array[int]
-		var particleVertices:Array[Vector3]
+		# Replaced with non-typed array (Why? -> See beginning of this function)
+#		var particleFaceVerts:Array[int]
+#		var particleVertices:Array[Vector3]
+		var particleFaceVerts = []
+		var particleVertices = []
 
 		for subVertexIndex in range(numOfVertices):
 			var vert = particleCenterPoint + Vector3(myRandf_range(-maxDebrisParticleSize, maxDebrisParticleSize), myRandf_range(-maxDebrisParticleSize, maxDebrisParticleSize), myRandf_range(-maxDebrisParticleSize, maxDebrisParticleSize))
@@ -158,8 +175,8 @@ func createDebrisField():
 
 var randVal:int = 0
 
-func myRandInit(seed:int):
-	randVal = seed & 0xFFFFFFFF
+func myRandInit(seed_p:int):
+	randVal = seed_p & 0xFFFFFFFF
 
 func myRandGetInt() -> int:
 	randVal = (randVal * 1664525 + 1013904223) & 0xFFFFFFFF;
@@ -199,7 +216,7 @@ func stashPullToolData():
 		mainBody.mesh = stashStorage.mainBodyMesh
 		debrisField.mesh = stashStorage.debrisMesh
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# We are not really interested about collision detection here as the
 	# CharacterBody is only used to detect laser hits.
 	# Therefore just cloning transform from the "main object"

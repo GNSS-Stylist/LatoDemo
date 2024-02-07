@@ -7,7 +7,7 @@ class_name RemoteVisibility
 
 @export var remotePath:NodePath
 
-func _process(delta):
+func _process(_delta):
 	var remoteNode = get_node_or_null(remotePath)
 	if (remoteNode && (remoteNode is Node3D)):
 		remoteNode.visible = get_parent().is_visible_in_tree()

@@ -44,7 +44,7 @@ func reset():
 func _ready():
 	reset()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if ((shootTime != 0) && (Global.masterReplayTime > shootTime)):
 		var elapsed = Global.masterReplayTime - shootTime
 		

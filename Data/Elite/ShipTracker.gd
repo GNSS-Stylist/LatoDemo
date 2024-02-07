@@ -44,7 +44,7 @@ var nextReplayTimeIndex:int = 0
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	match (workingMode):
 		WorkingMode.RECORDING:
 			if (((self.global_position.distance_to(lastRecordLocation) >= minRecMovement) ||

@@ -5,7 +5,7 @@ extends SubViewport
 
 var oldSize:Vector2i
 
-func _process(delta):
+func _process(_delta):
 	var currSize:Vector2i = mainNode.get_viewport().size
 
 	if (Engine.is_editor_hint()):

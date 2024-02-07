@@ -98,7 +98,7 @@ var animResetStashDone:bool = false
 func _ready():
 	$MainBody.mesh = EliteShipMesh.createMesh(vertexArray, faceArray)
 
-func _process(delta):
+func _process(_delta):
 	if (animResetStashDone):
 		stashPullToolData()
 		animResetStashDone = false
@@ -123,7 +123,7 @@ func stashPullToolData():
 		print("Stash pulling tool data (CobraMkIII)")
 		mainBody.mesh = stashStorage.mainBodyMesh
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# We are not really interested about collision detection here as the
 	# CharacterBody is only used to detect laser hits.
 	# Therefore just cloning transform from the "main object"

@@ -72,7 +72,7 @@ func _ready():
 #		newSolarCell.angular_velocity = Vector3(myRandf_range(-0.1, 0.1), myRandf_range(-0.1, 0.1), myRandf_range(-0.1, 0.1))
 #		$Debris.add_child(newSolarCell)
 
-func _process(delta):
+func _process(_delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
 
@@ -82,7 +82,7 @@ func _process(delta):
 	
 
 var oldRotation:float = 0
-func _physics_process(delta):
+func _physics_process(_delta):
 	mainWreckRotationMutex.lock()
 	var newRotation = mainWreckRotation
 	mainWreckRotationMutex.unlock()
@@ -158,8 +158,8 @@ func regenerateRandomDebris():
 
 var randVal:int = 0
 
-func myRandInit(seed:int):
-	randVal = seed & 0xFFFFFFFF
+func myRandInit(seed_p:int):
+	randVal = seed_p & 0xFFFFFFFF
 
 func myRandGetInt() -> int:
 	randVal = (randVal * 1664525 + 1013904223) & 0xFFFFFFFF;

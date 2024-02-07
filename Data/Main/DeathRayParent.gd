@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	# Something broke in godot sometime around oct-2022 (or so) and
 	# the global_translate below doesn't work any more.
 	# (Likely related to handling of top level-property)

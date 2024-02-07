@@ -88,8 +88,8 @@ func _ready():
 	else:
 		shaderBaseTimeInUse = forcedShaderBaseTime
 		
-	var numOfFaces:int = 0
-	var vertexIndex:int = 0
+#	var numOfFaces:int = 0
+#	var vertexIndex:int = 0
 
 	# * 3 / 3 here comes from 3 values for each face (consisting of 3 points)
 	var imageHeight_Mesh = nearest_po2(int(((additiveGeometryStorage.getNumOfVertices() * 3 / 3) / 4096) + 1))
@@ -119,7 +119,7 @@ func _ready():
 			originFromLidarKnown = true
 		
 		for subItem in additiveGeometryStorage.faceSync[currentFaceSyncItemTime]:
-			numOfFaces += 1
+#			numOfFaces += 1
 			
 			var shotTime:float = currentFaceSyncItemTime - shaderBaseTimeInUse
 			

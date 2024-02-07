@@ -80,7 +80,7 @@ class ScrollerTextLinePoolItem:
 var sourceTextLines = {}	# Key = yCoord, Value = SourceTextLine
 var sourceTextLineKeys = []	# YCoords
 
-func _process(delta):
+func _process(_delta):
 	if (picPlateTexturesChanged):
 		$ScrollerPicPlate1.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
 		$ScrollerPicPlate1.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
