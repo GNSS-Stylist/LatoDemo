@@ -57,7 +57,14 @@ var animResetStashDone:bool = false
 func _ready():
 	createMainBodyMesh()
 	createDebrisField()
-
+	# This is a workaround for bug
+	# https://github.com/godotengine/godot/issues/86369
+	# (Can't set custom aabb in inspector)
+	# causing debris to disappear when flying through them.
+	# Extra cull margin could also work but it crashed the editor:
+	# https://github.com/godotengine/godot/issues/80504
+	$MainBody.custom_aabb = AABB(Vector3(0,0,0), Vector3(100, 100, 100))
+	$DebrisField.custom_aabb = AABB(Vector3(0,0,0), Vector3(100, 100, 100))
 
 var lastDisintegrationFraction:float = 42
 func _process(_delta):
