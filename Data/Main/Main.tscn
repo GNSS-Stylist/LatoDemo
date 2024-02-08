@@ -21135,7 +21135,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958929, 0.0592443, -0.305131, 0, 0.980149, 0.229649, 0.28337, 0.200484, -1.03257, 0, 0, 50)
+transform = Transform3D(-0.958929, 0.0592443, -0.305131, 0, 0.980149, 0.22965, 0.28337, 0.200484, -1.03257, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21148,7 +21148,9 @@ transform = Transform3D(0.885999, -0.327545, -0.326803, -1.48988e-08, 0.703232, 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
 [node name="DebugShipTrackReplayer" parent="Elite" instance=ExtResource("82_mn0we")]
+process_mode = 4
 top_level = true
+visible = false
 laserOriginShift = Vector3(0, -2, -20)
 
 [node name="CobraMkIII" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("74_otxia")]
@@ -21187,8 +21189,8 @@ skeleton = NodePath("../..")
 script = ExtResource("89_pw1o0")
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 
