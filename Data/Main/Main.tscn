@@ -15968,10 +15968,10 @@ tracks/16/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(294, 296),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(294, 296, 364),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -20964,7 +20964,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -21030,7 +21030,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/Viper")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -21135,7 +21135,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958929, 0.0592443, -0.305131, 0, 0.980149, 0.22965, 0.28337, 0.200484, -1.03257, 0, 0, 50)
+transform = Transform3D(-0.958929, 0.0592443, -0.305144, 0, 0.980149, 0.22966, 0.28337, 0.200484, -1.03261, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21143,7 +21143,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885999, -0.327545, -0.326803, -1.48988e-08, 0.703232, -0.708772, 0.463349, 0.626321, 0.624901, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885999, -0.327544, -0.326803, -1.48988e-08, 0.70323, -0.708772, 0.463349, 0.626319, 0.624901, -180.814, -993.197, 880.29)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
