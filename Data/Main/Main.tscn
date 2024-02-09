@@ -13726,7 +13726,7 @@ tracks/240/interp = 1
 tracks/240/loop_wrap = true
 tracks/240/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-10, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/241/type = "value"
@@ -20888,6 +20888,7 @@ far = 20.0
 
 [node name="Scroller" parent="SubViewport_Scroller/ScrollerMainNode" instance=ExtResource("62_u3t3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+scrollPos = -10.0
 smoothMeshHighLimit = 0.5
 picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("72_yn12k"), ExtResource("71_i6gor"), ExtResource("73_hsdux")])
 
@@ -20975,7 +20976,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, 2.98023e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -21041,7 +21042,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/Viper")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, 2.98023e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
