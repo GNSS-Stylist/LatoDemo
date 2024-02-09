@@ -8584,10 +8584,10 @@ tracks/19/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/19/interp = 0
 tracks/19/loop_wrap = false
 tracks/19/keys = {
-"times": PackedFloat32Array(390, 420, 460),
+"times": PackedFloat32Array(390, 425, 460),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [-1.9, -6.72, -12.5]
+"values": [-1.9, -7.7, -14.1]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -8596,10 +8596,10 @@ tracks/20/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/20/interp = 0
 tracks/20/loop_wrap = false
 tracks/20/keys = {
-"times": PackedFloat32Array(390, 430),
+"times": PackedFloat32Array(390, 434),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-3.5, -7.7]
+"values": [-3.7, -9.1]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
@@ -8608,10 +8608,10 @@ tracks/21/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/21/interp = 0
 tracks/21/loop_wrap = false
 tracks/21/keys = {
-"times": PackedFloat32Array(390, 438),
+"times": PackedFloat32Array(390, 441),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-4.5, -8.9]
+"values": [-4.9, -10.3]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -8620,7 +8620,7 @@ tracks/22/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/22/interp = 0
 tracks/22/loop_wrap = false
 tracks/22/keys = {
-"times": PackedFloat32Array(390, 420, 460),
+"times": PackedFloat32Array(390, 425, 460),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 4, -1]
@@ -8632,7 +8632,7 @@ tracks/23/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/23/interp = 0
 tracks/23/loop_wrap = false
 tracks/23/keys = {
-"times": PackedFloat32Array(390, 430),
+"times": PackedFloat32Array(390, 434),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 5]
@@ -8644,7 +8644,7 @@ tracks/24/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/24/interp = 0
 tracks/24/loop_wrap = false
 tracks/24/keys = {
-"times": PackedFloat32Array(390, 438),
+"times": PackedFloat32Array(390, 441),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 6]
@@ -8656,7 +8656,7 @@ tracks/25/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/25/interp = 0
 tracks/25/loop_wrap = false
 tracks/25/keys = {
-"times": PackedFloat32Array(390, 444),
+"times": PackedFloat32Array(390, 447),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [3, 7]
@@ -8668,10 +8668,10 @@ tracks/26/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/26/interp = 0
 tracks/26/loop_wrap = false
 tracks/26/keys = {
-"times": PackedFloat32Array(390, 444),
+"times": PackedFloat32Array(390, 447),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-5.5, -10.1]
+"values": [-6.3, -11.7]
 }
 
 [sub_resource type="Animation" id="Animation_odyq8"]

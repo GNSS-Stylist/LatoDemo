@@ -4,7 +4,7 @@ Lato
 Great leaders (extended depression) remix
 
 A demo made with Godot engine
-Original version released at Revision 2021 demo party
+Original version released at Revision 2022 demo party
 
 3rd party assets used (in order of appearance):
 
@@ -17,27 +17,34 @@ by ESO/S. Brunier (CC BY 4.0)
 Sound: "Sputnik: Beep"
 by NASA (CC BY-NC 3.0)
 (https://soundcloud.com/nasa/sputnik-beep)
+Individual beeps duplicated, edited and volume (envelope) adjusted
 
 Satellite morph:
 Sound: "Luca Parmitano soyuz launch 28052013"
 by European Space Agency (CC BY-NC-SA 3.0)
 (https://soundcloud.com/esa/luca-parmitano-soyuz-launch)
+Only part of the sound used and volume (envelope) adjusted
 
 Probing the planet:
 Sound / waveform: "Huygens Alien Descent Radar"
 by European Space Agency (CC BY-NC-SA 3.0)
 (https://soundcloud.com/esa/huygens-alien-descent-radar)
+Only part of the sound used, individual pulses reorganized
+and volume (envelope) adjusted
 
 Descent:
 Sound: "Sounds of Saturn: Hear Radio Emissions of the
 Planet and Its Moon Enceladus"
 by NASA (CC BY-NC 3.0)
 (https://soundcloud.com/nasa/enceladus-hiss-audio)
+Only part of the sound used and volume (envelope) adjusted
 
 Construction:
 Sound: "Vega 28231406"
 by Ezequiel Rodríguez (CC BY-NC-SA 3.0)
 (https://soundcloud.com/ezequiel-rodr-guez-1/vega-28231406)
+Only part of the sound used and volume (envelope) adjusted
+
 
 GNSS-tracked camera:
 Camera model: "Sony A6100 Camera Game Props"
@@ -50,84 +57,29 @@ Sound: "Beware of Jupiter’s Largest Moon Ganymede"
 by NASA (CC BY-NC 3.0)
 (https://soundcloud.com/nasa/
 beware-of-jupiters-largest-moon-ganymede)
+Volume (envelope) adjusted and part of the sound played twice
 
 Great leaders:
 Sound: "Sputnik: Beep" (same as in the first part)
+Font: "Fette National Fraktur"
+by Peter Wiegel (SIL Open Font License (OFL))
+(https://www.1001fonts.com/fette-national-fraktur-font.html)
 ECG(/EKG)-waveform: ECG-ID Database (Person 10, rec 3 (male, 23))
 by Tatiana Lugovaya (ODC-By v1.0)
 (https://physionet.org/content/ecgiddb/1.0.0/)
-Font: "Fette National Fraktur"
-by Peter Wiegel
-(https://www.1001fonts.com/fette-national-fraktur-font.html)
 As the ECG was taken from material used for master's thesis for
-russian university, it needs to be said that the parties mentioned
-here do not have any affiliation with this demo!
+russian university, it needs to be emphasized that the parties
+mentioned do not have any affiliation with this demo!
 
 Satellite wreck flyby / end scroller:
 Sound: "Black Hole Sonification: Perseus"
 by NASA (CC BY-NC 3.0)
 (https://soundcloud.com/nasa/black-hole-sonification-perseus)
+Volume (envelope) adjusted,
+parts of the sound mirrored and duplicated
 Font: Godot's default
-
-
-
-
-
-Hello world!
-And outworld beings also!
-
-That was an empty line
-!Style:	H1
-Header
-!Style:	normal
-Normal
-!Style:	PicDesc
-!Posx:	-0.2
-This is picture description text
-And yet another line of it
-(Those lines and this should be indented)
 !Style:	normal
 !Posx:	0
-And this should be normal text again
-Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor
-incididunt ut labore
-et dolore magna aliqua.
-Ut enim ad minim veniam,
-quis nostrud exercitation
-ullamco laboris nisi ut
-aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit
-in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur.
-Excepteur sint occaecat cupidatat
-non proident, sunt in culpa qui
-officia deserunt mollit anim id
-est laborum.
-123456789012345678901234567890
-12345678901234567890
-1234567890
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
+
+Mashing aforementioned assets up, rig building, snow scuplting,
+lidar scanning, post-processing the data, coding, animating etc. by Nupo.
