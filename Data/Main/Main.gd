@@ -847,3 +847,14 @@ func clearScrollerPicPlateScreenCloneTexture():
 
 	$SubViewport_Scroller/ScrollerMainNode/Scroller.picPlateScreenCloneTexture = null
 #	print("picPlateScreenCloneTexture cleared")
+
+func _on_rich_text_label_3_rd_party_credits_meta_clicked(meta):
+	# This is for 3rd party credits url-handling
+	OS.shell_open(str(meta))
+
+
+func _on_button_show_3_rd_party_assets_pressed():
+	$Panel_3rdPartyCredits.visible = true
+
+func _on_button_close_3_rd_party_credits_pressed():
+	$Panel_3rdPartyCredits.visible = false
