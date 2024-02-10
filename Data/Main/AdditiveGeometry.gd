@@ -19,12 +19,22 @@ extends MeshInstance3D
 @export var overrideReplayTime_AdditiveGeometry_Local:bool = 0
 @export var localReplayTimeOverride_AdditiveGeometry:float = 0
 
+@export var generateOnReady:bool = false	# Force synchronous generating in _ready
+
+signal loadingCompleted
+
 var additiveGeometryStorage:AdditiveGeometryStorage
 var lidarDataStorage:LidarDataStorage
 
 var shaderBaseTimeInUse:float = 0
 
 var generatedMesh:Mesh
+
+var meshGenThread:Thread = Thread.new()
+
+var generationFraction:float = 0
+var fractionMutex:Mutex = Mutex.new()
+var generatingAsynchronously:bool = false
 
 class WireframeLine:
 	var startPointIndex:int
@@ -36,6 +46,19 @@ class WireframeLine:
 		self.endPointIndex = endPointIndex_p
 		self.minShotTime = minShotTime_p
 		self.maxShotTime = maxShotTime_p
+
+# 0...1, 1 = Fully generated
+func getGenerationProgress() -> float:
+	fractionMutex.lock()
+	var fraction = generationFraction
+	fractionMutex.unlock()
+
+	if (fraction >= 1):
+		if (meshGenThread.is_alive()):
+			# This is to make sure mesh generating thread really has done it's work
+			fraction = 0.99
+
+	return fraction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,22 +72,31 @@ func _ready():
 		wireframeMaterial.set_shader_parameter("customDataSampler", null)
 		return
 
-# Tried to make editing more agile (no regenerating everything every time) with this. Didn't work
-#	elif (Engine.is_editor_hint() && mesh):
-#		print(self.name, ": mesh already created (loaded from .tscn?). Using it instead of creating new.")
-#		return
-
 	additiveGeometryStorage = get_node(additiveGeometryStorageNodePath)
 	lidarDataStorage = get_node(lidarDataStorageNodePath)
+	
+	mesh = null
 
-	var meshGenThread = Thread.new()
+	if (generateOnReady):
+		generateMeshSynchronously()
+
+func generateMeshSynchronously():
 	meshGenThread.start(Callable(self, "generateMeshThread"))
 	meshGenThread.wait_to_finish()
 	mesh = generatedMesh
 
+func startAsyncMeshGenerating():
+	mesh = null
+	meshGenThread.start(Callable(self, "generateMeshThread"), Thread.PRIORITY_LOW)
+	generatingAsynchronously = true
+
 func generateMeshThread():
-	var elapsedStartTime = Time.get_ticks_usec()
+	var elapsedStartTime = Time.get_ticks_msec()
 	
+	fractionMutex.lock()
+	generationFraction = 0
+	fractionMutex.unlock()
+
 	# Lidar's position when this vertex (of a face) was "shot":
 	# Not actually centroid since face is zero-sized here
 	#var faceCentroidStartOrigins = PackedColorArray()
@@ -112,6 +144,13 @@ func generateMeshThread():
 	var customDataImagePointer_Wireframe:int = 0
 
 	for currentFaceSyncItemIndex in range(0, additiveGeometryStorage.faceSyncKeys.size()):
+		var currentFraction = float(currentFaceSyncItemIndex) / additiveGeometryStorage.faceSyncKeys.size()
+		
+		if (abs(currentFraction - generationFraction) > 0.01):
+			fractionMutex.lock()
+			generationFraction = currentFraction
+			fractionMutex.unlock()
+
 		var currentFaceSyncItemTime:int = additiveGeometryStorage.faceSyncKeys[currentFaceSyncItemIndex]
 		var originFromLidar:Vector3
 		var originFromLidarKnown:bool = false
@@ -241,14 +280,24 @@ func generateMeshThread():
 	var customDataImageTexture_Wireframe = ImageTexture.create_from_image(customDataImage_Wireframe)
 	wireframeMaterial.set_shader_parameter("customDataSampler", customDataImageTexture_Wireframe)
 
-	var elapsed = Time.get_ticks_usec() - elapsedStartTime
-	print("Additive geometry mesh creation time: ", elapsed, " us")
+	var elapsed = Time.get_ticks_msec() - elapsedStartTime
+	print("Additive geometry mesh creation time: ", elapsed, " ms")
 
+	fractionMutex.lock()
+	generationFraction = 1
+	fractionMutex.unlock()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (mesh && Global):
+	if (generatingAsynchronously):
+		var progress = getGenerationProgress()
+		if (progress >= 1):
+			mesh = generatedMesh
+			generatingAsynchronously = false
+			loadingCompleted.emit()
+	
+	elif (mesh && Global):
 		if (overrideReplayTime_AdditiveGeometry_Local):
 			get_active_material(0).set_shader_parameter("replayTime", localReplayTimeOverride_AdditiveGeometry - shaderBaseTimeInUse)
 		elif (Global.overrideReplayTime_AdditiveGeometries):
@@ -270,6 +319,9 @@ class StashData:
 
 func stashToolData():
 	var stashStorage:StashData = StashData.new()
+
+	if (generatingAsynchronously):
+		meshGenThread.wait_to_finish()
 	
 	stashStorage.mesh = mesh
 	stashStorage.customDataSampler_Mesh = meshMaterial.get_shader_parameter("customDataSampler")
@@ -285,5 +337,14 @@ func stashPullToolData(stashStorage:StashData):
 	mesh = stashStorage.mesh
 	meshMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Mesh)
 	wireframeMaterial.set_shader_parameter("customDataSampler", stashStorage.customDataSampler_Wireframe)
-	mesh.surface_set_material((mesh.get_surface_count() - 1), wireframeMaterial)
-	mesh.surface_set_material((mesh.get_surface_count() - 2), meshMaterial)
+	if (mesh):
+		mesh.surface_set_material((mesh.get_surface_count() - 1), wireframeMaterial)
+		mesh.surface_set_material((mesh.get_surface_count() - 2), meshMaterial)
+
+func waitThreadExit(threadToWait:Thread):
+	if (threadToWait.is_started()):
+		threadToWait.wait_to_finish()
+
+func _exit_tree():
+	print("Exit tree (AdditiveGeometry)")
+	waitThreadExit(meshGenThread)

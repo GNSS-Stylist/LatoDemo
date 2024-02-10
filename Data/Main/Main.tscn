@@ -15316,7 +15316,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [0]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -20314,6 +20314,7 @@ localReplayTimeOverride_AdditiveGeometry = 1e+08
 [node name="Storage" type="Node" parent="World/AdditiveGeometries/Ground"]
 script = ExtResource("4_cchge")
 baseFileName = "res://Data/AdditiveGeometries/Ground_HoleUnderBarn_ExcessEdgesRemoved"
+loadOnReady = true
 
 [node name="LatoText" type="MeshInstance3D" parent="World/AdditiveGeometries"]
 process_priority = 1
@@ -20330,6 +20331,7 @@ forcedShaderBaseTime = 2.415e+06
 [node name="Storage" type="Node" parent="World/AdditiveGeometries/LatoText"]
 script = ExtResource("4_cchge")
 baseFileName = "res://Data/AdditiveGeometries/Text_LATO_24kFaces"
+loadOnReady = true
 
 [node name="Barn" type="RigidBody3D" parent="World/AdditiveGeometries"]
 mass = 5000.0
@@ -20363,6 +20365,7 @@ lidarDataStorageNodePath = NodePath("../../../../LidarDataStorage")
 script = ExtResource("4_cchge")
 baseFileName = "res://Data/AdditiveGeometries/Barn_Translated_480_129_631_dm"
 loadTextureData = true
+loadOnReady = true
 
 [node name="CollisionShape_Roof" type="CollisionShape3D" parent="World/AdditiveGeometries/Barn"]
 transform = Transform3D(0.858065, 0, 0.513541, 0, 1, 0, -0.513541, 0, 0.858065, -0.014, 2.9, -0.408)
@@ -21313,6 +21316,9 @@ text = "Close"
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
+[connection signal="loadingCompleted" from="World/AdditiveGeometries/LatoText/Storage" to="World/AdditiveGeometries/LatoText" method="startAsyncMeshGenerating"]
+[connection signal="loadingCompleted" from="World/AdditiveGeometries/Barn/BarnMesh/Storage" to="World/AdditiveGeometries/Barn/BarnMesh" method="startAsyncMeshGenerating"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Show3rdPartyAssets" to="." method="_on_button_show_3_rd_party_assets_pressed"]
