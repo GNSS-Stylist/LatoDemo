@@ -24,6 +24,8 @@ var lidarDataStorage:LidarDataStorage
 
 var shaderBaseTimeInUse:float = 0
 
+var generatedMesh:Mesh
+
 class WireframeLine:
 	var startPointIndex:int
 	var endPointIndex:int
@@ -51,10 +53,16 @@ func _ready():
 #	elif (Engine.is_editor_hint() && mesh):
 #		print(self.name, ": mesh already created (loaded from .tscn?). Using it instead of creating new.")
 #		return
-	
+
 	additiveGeometryStorage = get_node(additiveGeometryStorageNodePath)
 	lidarDataStorage = get_node(lidarDataStorageNodePath)
 
+	var meshGenThread = Thread.new()
+	meshGenThread.start(Callable(self, "generateMeshThread"))
+	meshGenThread.wait_to_finish()
+	mesh = generatedMesh
+
+func generateMeshThread():
 	var elapsedStartTime = Time.get_ticks_usec()
 	
 	# Lidar's position when this vertex (of a face) was "shot":
@@ -200,7 +208,7 @@ func _ready():
 	for i in range(vertices.size()):
 		vertexIndexes.push_back(i)
 
-	mesh = ArrayMesh.new()
+	generatedMesh = ArrayMesh.new()
 
 	var arrayMeshArrays_MainMesh = []
 	arrayMeshArrays_MainMesh.resize(ArrayMesh.ARRAY_MAX)
@@ -213,7 +221,7 @@ func _ready():
 
 
 	# Solid / flying:
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrayMeshArrays_MainMesh)
+	generatedMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrayMeshArrays_MainMesh)
 
 	var arrayMeshArrays_Wireframe = []
 	arrayMeshArrays_Wireframe.resize(ArrayMesh.ARRAY_MAX)
@@ -221,10 +229,10 @@ func _ready():
 	arrayMeshArrays_Wireframe[ArrayMesh.ARRAY_VERTEX] = vertices
 
 	# Wireframe:
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrayMeshArrays_Wireframe)
+	generatedMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrayMeshArrays_Wireframe)
 
-	mesh.surface_set_material((mesh.get_surface_count() - 1), wireframeMaterial)
-	mesh.surface_set_material((mesh.get_surface_count() - 2), meshMaterial)
+	generatedMesh.surface_set_material((generatedMesh.get_surface_count() - 1), wireframeMaterial)
+	generatedMesh.surface_set_material((generatedMesh.get_surface_count() - 2), meshMaterial)
 
 	var customDataImageTexture_Mesh = ImageTexture.create_from_image(customDataImage_Mesh)
 
