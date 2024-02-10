@@ -16,7 +16,9 @@ func _ready():
 		self.material_override.set_shader_parameter("customDataSampler", null)
 		return
 
+	var elapsedStartTime = Time.get_ticks_msec()
 	breakGeometry()
+	print("Breaking the planet took ", Time.get_ticks_msec() - elapsedStartTime, " ms")
 	
 func breakGeometry():
 	# This breaks indexed geometry into separate faces
@@ -230,9 +232,9 @@ func breakGeometry():
 	destMeshArrays[Mesh.ARRAY_TEX_UV] = uvs
 	destMeshArrays[Mesh.ARRAY_NORMAL] = normals
 
-	print(vertices.size())
-	print(centerPoints.size())
-	print(uvs.size())
+#	print(vertices.size())
+#	print(centerPoints.size())
+#	print(uvs.size())
 
 	newMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, destMeshArrays)
 	
