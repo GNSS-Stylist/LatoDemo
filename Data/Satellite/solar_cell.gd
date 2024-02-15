@@ -21,6 +21,7 @@ class_name SolarCell
 #var localCellColor:Color
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 # Wondering these: Read above
 #	localBaseMaterial = baseMaterial.duplicate(true)
 #	localCellMaterial = cellMaterial.duplicate(true)

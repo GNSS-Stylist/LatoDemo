@@ -9,6 +9,10 @@ extends Node3D
 
 var lastTransform:Transform3D
 
+func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
+	pass
+
 func _process(_delta):
 	if (cloneQuat):
 		# For editor: This way you can edit the node's quaternion and clone it to "override"

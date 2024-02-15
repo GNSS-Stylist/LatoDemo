@@ -4,6 +4,7 @@ extends MeshInstance3D
 var initDone:bool = false
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	pass # Replace with function body.
 
 func _process(_delta):

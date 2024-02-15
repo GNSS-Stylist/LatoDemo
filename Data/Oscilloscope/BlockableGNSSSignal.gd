@@ -13,6 +13,7 @@ var animResetStashDone:bool = false
 		return false
 		
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	if (!Global):
 		return
 	

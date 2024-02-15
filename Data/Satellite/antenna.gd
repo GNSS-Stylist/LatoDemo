@@ -6,6 +6,10 @@ extends Node3D
 @export var baseAngle:float
 @export var collisionObjectEnabled:bool = false
 
+func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
+	pass
+	
 func _process(_delta):
 	if (collisionObjectEnabled):
 		if ($CharacterBody3D_Rod.process_mode != PROCESS_MODE_INHERIT):

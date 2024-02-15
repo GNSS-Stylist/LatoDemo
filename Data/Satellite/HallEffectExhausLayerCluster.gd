@@ -19,6 +19,7 @@ var exhaustLayers = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	exhaustLayers.resize(numOfLayers)
 	for i in range(numOfLayers):
 		var newLayer = HallThrusterExhaustLayer.instantiate()

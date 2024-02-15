@@ -21,12 +21,11 @@ var lastReplayTimeToShow:int = -1
 
 var wasVisible:bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	pass
 #	self.material_override = Global.lidarPointMaterial
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if (mesh):
 		if ((Global.replayTime_Lidar < (lastReplayTimeToShow + Global.lidarPointVisibleTime)) and

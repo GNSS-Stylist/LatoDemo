@@ -42,6 +42,7 @@ var loadingElapsedStartTime:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	if (loadOnReady):
 		if (loadOnReadyBehavior == LoadOnReadyBehavior.SYNCHRONOUS):
 			var elapsedStartTime = Time.get_ticks_msec()

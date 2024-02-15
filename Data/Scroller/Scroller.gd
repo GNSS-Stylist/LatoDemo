@@ -194,6 +194,7 @@ func addScrollLine(line:SourceTextLine, yCoord:float):
 
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	$ScrollerPicPlate1.disintegratedMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
 	$ScrollerPicPlate1.solidMesh.material_override.set_shader_parameter("albedoTextures", picPlateTextures)
 

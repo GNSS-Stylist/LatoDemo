@@ -4,6 +4,7 @@ extends Node3D
 @export var solarPanelFraction:float
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	$AnimationPlayer_SolarPanel.current_animation = "SolarPanelConstruction"
 
 func _process(_delta):

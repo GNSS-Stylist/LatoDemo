@@ -59,6 +59,7 @@ var solarCells = []
 const cellDiameter:float = 0.1
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	var rng = RandomNumberGenerator.new()
 	rng.seed = randomSeed
 #	var totalCells:int = rows * columns

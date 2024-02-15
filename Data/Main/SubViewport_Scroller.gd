@@ -5,6 +5,10 @@ extends SubViewport
 
 var oldSize:Vector2i
 
+func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
+	pass
+
 func _process(_delta):
 	var currSize:Vector2i = mainNode.get_viewport().size
 

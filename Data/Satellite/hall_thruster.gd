@@ -16,6 +16,7 @@ var filteredAccelerationAlongLocalYAxis:float = 0
 var instanceExhaustMaterial:Material
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	instanceExhaustMaterial = exhaustMaterial.duplicate()
 	$HallEffectExhaustLayerCluster.material = instanceExhaustMaterial
 

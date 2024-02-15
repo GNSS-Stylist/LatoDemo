@@ -42,6 +42,7 @@ func reset():
 	lastLeadingEdgeDistance = 0
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	reset()
 
 func _physics_process(_delta):

@@ -23,6 +23,7 @@ var nextReplayTimeIndex:int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	if loFilename.length() > 0:
 		# Try to load file at this phase only if defined.
 		loadFile(loFilename)

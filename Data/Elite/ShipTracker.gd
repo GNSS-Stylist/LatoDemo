@@ -42,6 +42,7 @@ var workingMode:WorkingMode = WorkingMode.STOPPED
 var nextReplayTimeIndex:int = 0
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	pass # Replace with function body.
 
 func _process(_delta):

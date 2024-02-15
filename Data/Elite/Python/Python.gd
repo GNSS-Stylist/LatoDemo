@@ -118,6 +118,7 @@ var faceArray_Red = [
 ]
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	$MainBody_Green.mesh = EliteShipMesh.createMesh(vertexArray, faceArray_Green)
 	$MainBody_Red.mesh = EliteShipMesh.createMesh(vertexArray, faceArray_Red)
 

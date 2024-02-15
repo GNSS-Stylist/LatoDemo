@@ -56,6 +56,7 @@ var mainWreckRotationMutex:Mutex = Mutex.new()
 var physicsProcessCalledAfterRegeneratingDebris:bool = false
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	regeneratePredefinedDebris()
 	regenerateRandomDebris()
 	physicsProcessCalledAfterRegeneratingDebris = false

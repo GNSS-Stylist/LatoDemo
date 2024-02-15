@@ -45,6 +45,7 @@ var mouse_captured = false
 @onready var shipTracker:ShipTracker = $ShipTracker
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	var manipulator = get_node("ManipulatorCollisionShape")
 	var capsule = get_node("Capsule")
 	var manipulatorMeshes = get_node("ManipulatorMeshes")

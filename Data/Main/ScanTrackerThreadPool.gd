@@ -53,6 +53,7 @@ var workerThreadData = []	# Instances of ThreadData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 #	var textureIndex = 0
 #	for time in dataStorage.beamDataKeys:
 #		textureIndexes[time] = textureIndex

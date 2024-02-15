@@ -7,6 +7,7 @@ var initDone:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		# @tool-scripts will generate changes that are saved into .tscn (scene)-files.
 		# Clean them when requested

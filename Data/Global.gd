@@ -63,6 +63,7 @@ var blockableGNSSSignalRaycast:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	if (Engine.is_editor_hint() && cleanTempToolData):
 		# @tool-scripts will generate changes that are saved into .tscn (scene)-files.
 		# Clean them when requested

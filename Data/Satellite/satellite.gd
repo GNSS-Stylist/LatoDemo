@@ -55,6 +55,7 @@ var animResetStashDone:bool = false
 		return false
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	$AnimationPlayer_BodyMorph.current_animation = "Morph"
 	$AnimationPlayer_ExoFrames.current_animation = "ExoFramesFlying"
 

@@ -23,6 +23,7 @@ enum ShownMesh { SMOOTH, DISINTEGRATED }
 		return shownMesh
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	super._ready()
 	disintegratedMesh.set_instance_shader_parameter("basePosY",basePosY)
 	smoothMesh.set_instance_shader_parameter("basePosY",basePosY)

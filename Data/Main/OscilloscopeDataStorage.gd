@@ -28,6 +28,7 @@ var lowPassFilteredAmplitudeImageTexture:ImageTexture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	readFileData(dataFileName)
 
 func readFileData(fileName:String, compression=CompressionMode.NO_COMPRESSION):

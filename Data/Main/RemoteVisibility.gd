@@ -7,6 +7,10 @@ class_name RemoteVisibility
 
 @export var remotePath:NodePath
 
+func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
+	pass
+
 func _process(_delta):
 	var remoteNode = get_node_or_null(remotePath)
 	if (remoteNode && (remoteNode is Node3D)):

@@ -25,6 +25,7 @@ const MeshDisintegrator = preload("res://Data/MeshDisintegrator/MeshDisintegrato
 @export var randomSeed:int = 0
 
 func _ready():
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	greatAnimationPlayer.play("GreatText")
 	meshDisintegrator.randomSeed = randomSeed
 	meshDisintegrator.textOverride = text
