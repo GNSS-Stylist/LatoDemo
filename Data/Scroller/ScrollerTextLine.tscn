@@ -10,12 +10,12 @@ depth = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tarbi"]
 render_priority = 0
 shader = ExtResource("2_b4eyd")
-shader_parameter/albedo = Color(1, 0, 0, 1)
+shader_parameter/albedo = Color(1, 1, 0.188235, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nfcy5"]
 render_priority = 0
 shader = ExtResource("2_ayc54")
-shader_parameter/albedo = Color(1, 1, 0, 1)
+shader_parameter/albedo = Color(1, 1, 0.188235, 1)
 shader_parameter/maxEndAngle = 6.0
 
 [node name="ScrollerTextLine" type="Node3D"]
