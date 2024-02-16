@@ -19993,61 +19993,6 @@ scopeActive = false
 scopeLightEnergy = 10.0
 rotationOverride = Vector3(0, 2000, 1600)
 
-[node name="SputnikRing_Upper" parent="Satellite" index="7"]
-transform = Transform3D(1.014, 0, 0, 0, -3.67067e-06, -1.014, 0, 1.014, -3.67067e-06, 0, 0.051503, 0)
-
-[node name="SputnikRing_Lower" parent="Satellite" index="8"]
-transform = Transform3D(9.92626e-07, -1.02798, 3.72139e-06, 0, -3.72128e-06, -1.02801, 1.02799, 9.92617e-07, -3.59337e-12, 0, 0, 0)
-
-[node name="Frame_Upper" parent="Satellite" index="9"]
-transform = Transform3D(0.173652, -0.984806, 0, -0.925417, -0.163179, -0.342017, 0.336821, 0.0593917, -0.939693, 0, 10, 0)
-
-[node name="HallThrusterCluster" parent="Satellite/Frame_Upper" index="1"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="HallThrusterCluster2" parent="Satellite/Frame_Upper" index="2"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="HallThrusterCluster3" parent="Satellite/Frame_Upper" index="3"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="HallThrusterCluster4" parent="Satellite/Frame_Upper" index="4"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="Frame_Lower" parent="Satellite" index="10"]
-transform = Transform3D(-0.939694, -0.342017, 0, 0.0593918, -0.163179, -0.984807, 0.336821, -0.925417, 0.173651, 0, -10, 0)
-
-[node name="ScopeLight" parent="Satellite/Frame_Lower/DishAntenna" index="3"]
-visible = false
-light_energy = 0.0
-
-[node name="BlockableGNSSSignal" parent="Satellite/Frame_Lower/DishAntenna/DbgSignal" index="0"]
-visible = false
-
-[node name="HallThrusterCluster" parent="Satellite/Frame_Lower" index="2"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="HallThrusterCluster2" parent="Satellite/Frame_Lower" index="3"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="HallThrusterCluster3" parent="Satellite/Frame_Lower" index="4"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="HallThrusterCluster4" parent="Satellite/Frame_Lower" index="5"]
-maxAcceleration = 5.0
-globalSpeedFilterCoeff = 0.1
-
-[node name="SoundHalo" parent="Satellite" index="11"]
-transform = Transform3D(-0.352865, -0.846784, -0.39805, -0.00467774, -0.423813, 0.905738, 0.935663, -0.321465, -0.145588, 3.9805, -9.05738, 1.45588)
-editorCameraPath = NodePath("../../AnimatedCamera")
-
 [node name="DebugIndicator" type="MeshInstance3D" parent="Satellite"]
 visible = false
 cast_shadow = 0
@@ -21325,8 +21270,6 @@ text = "Close"
 [connection signal="meta_clicked" from="Panel_3rdPartyCredits/RichTextLabel_3rdPartyCredits" to="." method="_on_rich_text_label_3_rd_party_credits_meta_clicked"]
 [connection signal="pressed" from="Panel_3rdPartyCredits/Button_Close3rdPartyCredits" to="." method="_on_button_close_3_rd_party_credits_pressed"]
 
-[editable path="Satellite"]
-[editable path="Satellite/Frame_Lower/DishAntenna"]
 [editable path="World/LidarRig"]
 [editable path="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent/DeathRay"]
 [editable path="World/DeathRayParent/DeathRay"]
