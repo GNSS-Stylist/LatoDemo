@@ -1,7 +1,19 @@
 @tool
 extends Node3D
 
-@export var scrollTextFilename:String
+@export var scrollTextFilename:String:
+	set(fileName):
+		if (fileName != scrollTextFilename):
+			# This check is mostly to allow adding setting of scrollTextFilename
+			# into animation without stuttering on the final demo
+			# where loading of the scroll text is done in init-func
+			# (loadFile is not called on init when running the demo on the editor,
+			# therefore to see the real text it needs to be done by an animation)
+			scrollTextFilename = fileName
+			loadFile(fileName)
+	get:
+		return scrollTextFilename
+		
 @export var createAheadMargin:float = 2
 @export var destroyAfterMargin:float = 2
 @export var scrollPos:float = -1000
@@ -218,10 +230,13 @@ func _ready():
 	
 	
 func loadFile(fileName):
+	scrollTextFilename = fileName
 	sourceTextLines.clear()
 	sourceTextLineKeys = []
 
 	var file = FileAccess.open(fileName, FileAccess.READ)
+	
+	print_debug("loading scroll text file ", fileName)
 
 	if (!file):
 		print("Can't open file " + fileName)

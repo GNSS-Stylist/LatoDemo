@@ -80,5 +80,5 @@ Font: Godot's default
 !Style:	normal
 !Posx:	0
 
-Mashing aforementioned assets up, rig building, snow scuplting,
+Mashing aforementioned assets up, rig building, snow sculpting,
 lidar scanning, post-processing the data, coding, animating etc. by Nupo.

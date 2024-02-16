@@ -439,6 +439,7 @@ func handleDemoStartInits():
 	# TODO: Add ending-related inits here
 	if ($Panel_Start/OptionButton_Ending.get_selected_id() == 1):
 		subAnimationSelector.current_animation = "EndOfTheWorld"
+		$SubViewport_Scroller/ScrollerMainNode/Scroller.loadFile("res://Data/Scroller/ScrollText_GreatLeaders.txt")
 	else:
 		subAnimationSelector.current_animation = "PartyOn"
 		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.loadFromFile("res://Data/Elite/FlyTracks/Thargoid.trk")
@@ -449,6 +450,8 @@ func handleDemoStartInits():
 
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.loadFromFile("res://Data/Elite/FlyTracks/CamChase.trk")
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.play()
+
+		$SubViewport_Scroller/ScrollerMainNode/Scroller.loadFile("res://Data/Scroller/ScrollText_PartyOn.txt")
 
 func handleAnimatedCamera():
 	var originA:Vector3 = animationCameraAnchorNodes[animationCameraAnchorIndexA].global_transform.origin

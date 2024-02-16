@@ -1,0 +1,68 @@
+!Style:	H1
+Lato
+!Style:	normal
+Party on (extended progression) remix
+
+A demo made with Godot engine
+Original version released at Revision 2022 demo party
+
+3rd party assets used (in order of appearance):
+
+!Style:	PicDesc
+!Posx:	-1.2
+Sputnik / dawn of the space age:
+Background: "The Milky way panorama"
+by ESO/S. Brunier (CC BY 4.0)
+(https://www.hq.eso.org/public/images/eso0932a/)
+Sound: "Sputnik: Beep"
+by NASA (CC BY-NC 3.0)
+(https://soundcloud.com/nasa/sputnik-beep)
+Individual beeps duplicated, edited and volume (envelope) adjusted
+
+Satellite morph:
+Sound: "Luca Parmitano soyuz launch 28052013"
+by European Space Agency (CC BY-NC-SA 3.0)
+(https://soundcloud.com/esa/luca-parmitano-soyuz-launch)
+Only part of the sound used and volume (envelope) adjusted
+
+Probing the planet:
+Sound / waveform: "Huygens Alien Descent Radar"
+by European Space Agency (CC BY-NC-SA 3.0)
+(https://soundcloud.com/esa/huygens-alien-descent-radar)
+Only part of the sound used, individual pulses reorganized
+and volume (envelope) adjusted
+
+Descent:
+Sound: "Sounds of Saturn: Hear Radio Emissions of the
+Planet and Its Moon Enceladus"
+by NASA (CC BY-NC 3.0)
+(https://soundcloud.com/nasa/enceladus-hiss-audio)
+Only part of the sound used and volume (envelope) adjusted
+
+Construction:
+Sound: "Vega 28231406"
+by Ezequiel Rodríguez (CC BY-NC-SA 3.0)
+(https://soundcloud.com/ezequiel-rodr-guez-1/vega-28231406)
+Only part of the sound used and volume (envelope) adjusted
+
+GNSS-tracked camera:
+Camera model: "Sony A6100 Camera Game Props"
+by antoineallardchoquette (CC-BY-4.0)
+(https://skfb.ly/o9sNB)
+Some textures (button symbols/texts) slightly modified
+
+Ascension to Space station / flyby / end scroller:
+Space station model: "Space Station V (2001: A Space Odyssey)"
+by uperesito (CC BY 4.0)
+(https://skfb.ly/6oRz8)
+Original created by Michael Powell for The Celestia Motherlode
+Sound: "???"
+by ??? (???)
+(https://????)
+Volume (envelope) adjusted,
+Font: Godot's default
+!Style:	normal
+!Posx:	0
+
+Mashing aforementioned assets up, rig building, snow sculpting,
+lidar scanning, post-processing the data, coding, animating etc. by Nupo.

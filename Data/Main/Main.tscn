@@ -9505,6 +9505,18 @@ tracks/68/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:scrollTextFilename")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://Data/Scroller/ScrollText_GreatLeaders.txt"]
+}
 
 [sub_resource type="Animation" id="Animation_ks6w7"]
 resource_name = "GreatTexts"
@@ -14708,6 +14720,18 @@ tracks/324/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/325/type = "value"
+tracks/325/imported = false
+tracks/325/enabled = true
+tracks/325/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:scrollTextFilename")
+tracks/325/interp = 1
+tracks/325/loop_wrap = true
+tracks/325/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -16305,7 +16329,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["AscensionToSpaceStation_INIT"]
+"values": ["SpaceStationFlyby_INIT"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -17564,6 +17588,18 @@ tracks/105/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/106/type = "value"
+tracks/106/imported = false
+tracks/106/enabled = true
+tracks/106/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:scrollTextFilename")
+tracks/106/interp = 1
+tracks/106/loop_wrap = true
+tracks/106/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://Data/Scroller/ScrollText_PartyOn.txt"]
+}
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
 resource_name = "WreckFlyBy"
@@ -18683,6 +18719,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [""]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedCamera:quaternion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58csn"]
 _data = {
@@ -19489,7 +19549,7 @@ libraries = {
 }
 
 [node name="AnimatedCamera" type="Camera3D" parent="."]
-transform = Transform3D(0.322804, -0.0260546, -0.946107, 0.000279148, 0.999624, -0.0274331, 0.946466, 0.00859142, 0.322689, -3.55005, 0.265015, 1.335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 rotation_edit_mode = 1
 current = true
 fov = 42.0
@@ -20836,6 +20896,7 @@ far = 20.0
 
 [node name="Scroller" parent="SubViewport_Scroller/ScrollerMainNode" instance=ExtResource("62_u3t3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+scrollTextFilename = ""
 scrollPos = -10.0
 smoothMeshHighLimit = 0.5
 picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("72_yn12k"), ExtResource("71_i6gor"), ExtResource("73_hsdux")])
@@ -20924,7 +20985,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -20990,7 +21051,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/Viper")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -21095,7 +21156,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958929, 0.0592443, -0.305155, 0, 0.980149, 0.229668, 0.28337, 0.200484, -1.03265, 0, 0, 50)
+transform = Transform3D(-0.958909, 0.0592451, -0.305218, 0, 0.980162, 0.229715, 0.283364, 0.200487, -1.03286, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21103,7 +21164,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885999, -0.327544, -0.326803, -1.48988e-08, 0.70323, -0.708772, 0.463349, 0.626319, 0.624901, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885991, -0.327537, -0.326802, -1.48987e-08, 0.703215, -0.708771, 0.463345, 0.626305, 0.6249, -180.814, -993.197, 880.29)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -21259,8 +21320,8 @@ grow_horizontal = 0
 text = "Close"
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/LatoText/Storage" to="World/AdditiveGeometries/LatoText" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Barn/BarnMesh/Storage" to="World/AdditiveGeometries/Barn/BarnMesh" method="startAsyncMeshGenerating"]
