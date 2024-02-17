@@ -6,10 +6,15 @@
 script = ExtResource("1_5nh56")
 
 [node name="FileDialog_Save" type="FileDialog" parent="."]
-size = Vector2i(392, 162)
+process_priority = -1000000
+size = Vector2i(400, 200)
+min_size = Vector2i(400, 200)
 
 [node name="FileDialog_Load" type="FileDialog" parent="."]
+process_priority = -1000000
 title = "Open a File"
+size = Vector2i(400, 200)
+min_size = Vector2i(400, 200)
 ok_button_text = "Open"
 file_mode = 0
 
