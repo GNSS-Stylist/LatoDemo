@@ -15153,7 +15153,7 @@ tracks/34/path = NodePath("StaticSolarPanels:process_mode")
 tracks/34/interp = 1
 tracks/34/loop_wrap = false
 tracks/34/keys = {
-"times": PackedFloat32Array(27, 40.6),
+"times": PackedFloat32Array(27, 42),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 4]
@@ -20052,6 +20052,7 @@ transform = Transform3D(0.883022, -0.34202, 0.321394, -0.321394, -0.939693, -0.1
 scopeActive = false
 scopeLightEnergy = 10.0
 rotationOverride = Vector3(0, 2000, 1600)
+editorCameraPath = NodePath("../AnimatedCamera")
 
 [node name="DebugIndicator" type="MeshInstance3D" parent="Satellite"]
 visible = false
@@ -21156,7 +21157,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958909, 0.0592451, -0.305218, 0, 0.980162, 0.229715, 0.283364, 0.200487, -1.03286, 0, 0, 50)
+transform = Transform3D(-0.958909, 0.0592451, -0.305217, 0, 0.980162, 0.229714, 0.283364, 0.200487, -1.03286, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21320,8 +21321,8 @@ grow_horizontal = 0
 text = "Close"
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/LatoText/Storage" to="World/AdditiveGeometries/LatoText" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Barn/BarnMesh/Storage" to="World/AdditiveGeometries/Barn/BarnMesh" method="startAsyncMeshGenerating"]

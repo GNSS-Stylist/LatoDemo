@@ -39,6 +39,8 @@ extends Node3D
 @export var useRotationOverride:bool = true
 @export var rotationOverride:Vector3 = Vector3(0,0,0)
 
+@export var editorCameraPath:NodePath
+
 #@onready var tunePlayer:AudioStreamPlayer = get_node("/root/Main/MainTunePlayer")
 
 var initDone:bool = false
@@ -71,6 +73,11 @@ func _ready():
 func _process(_delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		return
+		
+	var editorCameraNode = get_node_or_null(editorCameraPath)
+	
+	if (editorCameraNode && (editorCameraNode is Node3D)):
+		$SoundHalo.editorCameraNode = editorCameraNode
 
 	if (Global.lowPassFilteredSoundDataTexture != null) && (!initDone):
 		$SoundHalo.material_override.set_shader_parameter("soundDataSampler", Global.lowPassFilteredSoundDataTexture)

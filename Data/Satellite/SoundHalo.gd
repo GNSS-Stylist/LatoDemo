@@ -1,7 +1,7 @@
 @tool
 extends MeshInstance3D
 
-@export var editorCameraPath:NodePath
+@export var editorCameraNode:Node3D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,16 +17,8 @@ func _process(_delta):
 	# (moving the halo farther away to get the satellite itself not distracted by it)
 	# As this kind-of billboarding is done here anyway, also basis is calculated here
 
-	var camera:Camera3D = null
-	
-	if (Engine.is_editor_hint()):
-		if (!editorCameraPath.is_empty()):
-			camera = get_node(editorCameraPath)
-	else:
-		camera = get_viewport().get_camera_3d()
-		
-	if (camera):
-		var cameraTransform = camera.global_transform
+	if (editorCameraNode && (editorCameraNode is Node3D)):
+		var cameraTransform = editorCameraNode.global_transform
 		var newBasisZ = -(get_parent().global_transform.origin - cameraTransform.origin).normalized()
 		var newOrigin = (get_parent().global_transform.origin + 
 				newBasisZ * -10)
