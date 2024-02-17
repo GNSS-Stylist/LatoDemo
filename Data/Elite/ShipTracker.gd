@@ -168,9 +168,15 @@ func _process(_delta):
 			#	print("Original basis inverse: ", basis.inverse())
 				
 				transform = Transform3D(quat, origin)
-					
 			else:
-				self.global_transform = Transform3D.IDENTITY
+				# Out of sight if no data (collision shape will cause problems
+				# otherwise, like throwing the barn out of it's place)
+				self.global_transform = Transform3D(Basis.IDENTITY, Vector3(0, 1e9, 0))
+		WorkingMode.STOPPED:
+			# Out of sight if no data (collision shape will cause problems
+			# otherwise, like throwing the barn out of it's place)
+			if (loData.is_empty()):
+				self.global_transform = Transform3D(Basis.IDENTITY, Vector3(0, 1e9, 0))
 
 
 
