@@ -16008,7 +16008,7 @@ tracks/17/keys = {
 "times": PackedFloat32Array(296, 326, 366),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [-1.9, -6.72, -12.5]
+"values": [-1.9, -7.7, -12.5]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -16032,7 +16032,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(296, 336),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-3.5, -7.7]
+"values": [-3.7, -8.9]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -16056,7 +16056,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(296, 344),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-4.5, -8.9]
+"values": [-4.9, -10.1]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -16068,7 +16068,7 @@ tracks/22/keys = {
 "times": PackedFloat32Array(296, 344),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 6]
+"values": [2, -1]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
@@ -16077,10 +16077,10 @@ tracks/23/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(296, 350),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(296),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-5.5, -10.1]
+"values": [-6.3]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
@@ -16089,10 +16089,10 @@ tracks/24/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(296, 350),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(296),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3, 7]
+"values": [3]
 }
 tracks/25/type = "bezier"
 tracks/25/imported = false
@@ -21112,7 +21112,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -21178,7 +21178,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/Viper")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -21283,7 +21283,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958909, 0.0592452, -0.305218, 0, 0.980163, 0.229715, 0.283364, 0.200487, -1.03286, 0, 0, 50)
+transform = Transform3D(-0.958908, 0.0592453, -0.305239, 0, 0.980165, 0.229731, 0.283364, 0.200487, -1.03294, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21291,7 +21291,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885991, -0.327537, -0.326802, -1.48987e-08, 0.703215, -0.708771, 0.463345, 0.626305, 0.6249, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885988, -0.32752, -0.326802, -1.48986e-08, 0.703178, -0.708771, 0.463343, 0.626272, 0.6249, -180.814, -993.197, 880.29)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
