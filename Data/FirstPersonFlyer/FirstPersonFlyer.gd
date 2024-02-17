@@ -184,8 +184,8 @@ func fly(delta):
 
 	if Input.is_action_just_pressed("create_new_box"):
 		var rootNode = get_node("/root")
-		var boxScene = load("res://BasicCube.tscn")
-		var box = boxScene.instance()
+		var boxScene = load("res://Data/Main/PhysicsDbgCube.tscn")
+		var box = boxScene.instantiate()
 		box.transform = get_node("ManipulatorMeshes/ManipulatorExtension").global_transform
 		rootNode.add_child(box)
 	
