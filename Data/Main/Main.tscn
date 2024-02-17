@@ -1,4 +1,4 @@
-[gd_scene load_steps=216 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=217 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cffm7mp1d1xfy" path="res://Data/Oscilloscope/BunchOfGNSSSignals.tscn" id="19_r0yum"]
 [ext_resource type="PackedScene" uid="uid://dfuymc6rqotx8" path="res://Data/Satellite/hall_thruster_cluster.tscn" id="20_18lgt"]
 [ext_resource type="PackedScene" uid="uid://bbpofx61m3y0f" path="res://Data/Main/GNSSAntenna.tscn" id="20_akcw6"]
+[ext_resource type="Script" path="res://Data/Main/Panel_Help.gd" id="20_x548t"]
 [ext_resource type="PackedScene" uid="uid://c0nih8qqfqt4c" path="res://Data/Satellite/solar_panel.tscn" id="22_a7teh"]
 [ext_resource type="Script" path="res://Data/Main/EKG.gd" id="22_bcusc"]
 [ext_resource type="Script" path="res://Data/Main/OscilloscopeDataStorage.gd" id="24_p06cu"]
@@ -19682,6 +19683,7 @@ transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, -0.0205084, -11.0195)
 visible = false
 
 [node name="Panel_CurrentCameraTransform" type="Panel" parent="DebugThings"]
+visible = false
 offset_right = 450.0
 offset_bottom = 154.0
 
@@ -19870,6 +19872,7 @@ mesh = SubResource("SphereMesh_ll0fu")
 skeleton = NodePath("../..")
 
 [node name="Panel_Bottom" type="Panel" parent="DebugThings"]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -20001,6 +20004,129 @@ max_value = 1e+08
 step = 0.1
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
+
+[node name="Panel_Help" type="Panel" parent="DebugThings"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -397.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 160.0
+grow_horizontal = 0
+script = ExtResource("20_x548t")
+
+[node name="CheckBox_ShowKeys" type="CheckBox" parent="DebugThings/Panel_Help"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 189.0
+offset_bottom = 41.0
+text = "Show controls/keys"
+
+[node name="CheckBox_ShowCurrentCameraTransform" type="CheckBox" parent="DebugThings/Panel_Help"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 35.0
+offset_right = 255.0
+offset_bottom = 66.0
+text = "Show debug coordinate info"
+
+[node name="CheckBox_ShowStatusBar" type="CheckBox" parent="DebugThings/Panel_Help"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 60.0
+offset_right = 236.0
+offset_bottom = 91.0
+text = "Show bottom status bar"
+
+[node name="CheckBox_ShowDebugShips" type="CheckBox" parent="DebugThings/Panel_Help"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 85.0
+offset_right = 230.0
+offset_bottom = 116.0
+text = "Show debug \"Elite\"-ships"
+
+[node name="Button_Close" type="Button" parent="DebugThings/Panel_Help"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Close panel (H)"
+
+[node name="Label_TrackReplayerShip" type="Label" parent="DebugThings/Panel_Help"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 117.0
+offset_right = 224.0
+offset_bottom = 143.0
+text = "Debug track replayer ship:"
+
+[node name="OptionButton_TrackReplayerShip" type="OptionButton" parent="DebugThings/Panel_Help"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 115.0
+offset_right = 385.0
+offset_bottom = 146.0
+item_count = 5
+selected = 0
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Cobra Mk III"
+popup/item_1/id = 1
+popup/item_2/text = "Python"
+popup/item_2/id = 2
+popup/item_3/text = "Viper"
+popup/item_3/id = 3
+popup/item_4/text = "Thargoid"
+popup/item_4/id = 4
+
+[node name="Panel_Keys" type="Panel" parent="DebugThings"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.003
+anchor_bottom = 1.0
+offset_top = 0.056
+offset_right = 525.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel_Keys" type="RichTextLabel" parent="DebugThings/Panel_Keys"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Keys:
+Esc: Immediate exit
+F1: First person flyer camera
+F2: Demo camera
+F3: Origin camera
+F4: Satellite camera
+F5: Camera rig camera
+F6: Cobra MkIII camera
+F7: Debug ship tracker camera
+C: Activate/deactivate first person flyer controls
+WSAD/EQ/Mouse: Move first person flyer
+RF: Roll first person flyer (when in 6DOF or \"Elite\"-mode)
+TG/Mouse wheel: Change first person flyer movement speed
+Z: Switch between FPS/6DOF/Elite first person flyer flying modes
+P: Pause demo
+Page up/down: seek demo 5 s back/forth
++-: seek demo 1 s back/forth
+Backspace: Restart demo playback
+Number keys 1-8: Set demo playback speed (5 = 100%)
+Up/Down: play demo forward/backward when pressed
+X&left mouse button: Shoot laser
+O: Start/Stop first person flyer track recording
+I: Load recorded track (camera F7 / playback ship)
+H: Show/hide help"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e3id5")
@@ -20920,7 +21046,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21003,7 +21129,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -21074,7 +21200,7 @@ near = 10.0
 far = 2000.0
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -21124,7 +21250,7 @@ mesh = ExtResource("85_70q2d")
 [node name="DebugViper" parent="Elite/ShipDrawMeshes/Viper" instance=ExtResource("81_h8242")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -21157,7 +21283,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958909, 0.0592451, -0.305217, 0, 0.980162, 0.229714, 0.283364, 0.200487, -1.03286, 0, 0, 50)
+transform = Transform3D(-0.958909, 0.0592452, -0.305218, 0, 0.980163, 0.229715, 0.283364, 0.200487, -1.03286, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21170,7 +21296,7 @@ transform = Transform3D(0.885991, -0.327537, -0.326802, -1.48987e-08, 0.703215, 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
 [node name="DebugShipTrackReplayer" parent="Elite" instance=ExtResource("82_mn0we")]
-process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1e+09, 0)
 top_level = true
 visible = false
 laserOriginShift = Vector3(0, -2, -20)
@@ -21185,8 +21311,14 @@ visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Elite/DebugShipTrackReplayer"]
 fov = 42.0
-near = 10.0
+near = 20.0
 far = 3000.0
+
+[node name="Viper" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("81_h8242")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="Python" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("79_tcqdf")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="ShipTrackReplayers" type="Node3D" parent="Elite"]
 
@@ -21323,6 +21455,7 @@ text = "Close"
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/LatoText/Storage" to="World/AdditiveGeometries/LatoText" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Barn/BarnMesh/Storage" to="World/AdditiveGeometries/Barn/BarnMesh" method="startAsyncMeshGenerating"]
