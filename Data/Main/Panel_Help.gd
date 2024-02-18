@@ -25,6 +25,8 @@ func _ready():
 func _process(delta):
 	if (Input.is_action_just_pressed("show_help")):
 		self.visible = !self.visible
+		if (self.visible):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	node_Keys.visible = chkBox_ShowKeys.button_pressed
 	node_CurrentCameraTransform.visible = chkBox_ShowCurrentCameraTransform.button_pressed
