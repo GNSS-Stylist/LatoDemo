@@ -17124,7 +17124,7 @@ tracks/35/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.05]
+"values": [5.0]
 }
 tracks/36/type = "value"
 tracks/36/imported = false
@@ -19210,6 +19210,7 @@ shader = ExtResource("12_r1wpw")
 shader_parameter/texture_albedo = SubResource("ViewportTexture_1qivo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kbxch"]
+size = Vector2(20, 20)
 orientation = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7kla3"]
@@ -19222,6 +19223,7 @@ shader = ExtResource("13_kvhy7")
 shader_parameter/texture_albedo = SubResource("ViewportTexture_7kla3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hu3su"]
+size = Vector2(50, 50)
 orientation = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_7rcwt"]
@@ -19990,13 +19992,13 @@ mesh = SubResource("PlaneMesh_72wkd")
 surface_material_override/0 = SubResource("StandardMaterial3D_5wbrc")
 
 [node name="ScrollerPlane" type="MeshInstance3D" parent="AnimatedCamera"]
-transform = Transform3D(1, -8.75443e-08, 0, -1.47149e-07, 1, -2.98023e-08, 4.47035e-08, 2.98023e-08, 1, 0, 0, -1.262)
+transform = Transform3D(1, -8.75443e-08, 0, -1.47149e-07, 1, -2.98023e-08, 4.47035e-08, 2.98023e-08, 1, 0, 0, -6)
 visible = false
 material_override = SubResource("ShaderMaterial_3dkj5")
 mesh = SubResource("PlaneMesh_kbxch")
 
 [node name="ElitePlane" type="MeshInstance3D" parent="AnimatedCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
 visible = false
 material_override = SubResource("ShaderMaterial_k4y4h")
 mesh = SubResource("PlaneMesh_hu3su")
@@ -21657,7 +21659,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958908, 0.0592453, -0.305241, 0, 0.980165, 0.229732, 0.283364, 0.200487, -1.03294, 0, 0, 50)
+transform = Transform3D(-0.958929, 0.0592617, -0.308086, 0, 0.980436, 0.231874, 0.28337, 0.200543, -1.04257, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21665,7 +21667,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885988, -0.327519, -0.326802, -1.48986e-08, 0.703177, -0.708771, 0.463343, 0.626271, 0.6249, -180.814, -993.197, 880.29)
+transform = Transform3D(0.886003, -0.327519, -0.326805, -1.48989e-08, 0.703175, -0.708776, 0.463351, 0.62627, 0.624905, -180.814, -993.197, 880.29)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -21827,8 +21829,8 @@ grow_horizontal = 0
 text = "Close"
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/LatoText/Storage" to="World/AdditiveGeometries/LatoText" method="startAsyncMeshGenerating"]
