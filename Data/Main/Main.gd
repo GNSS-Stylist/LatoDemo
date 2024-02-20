@@ -433,6 +433,29 @@ func _process(delta):
 	
 func handleDemoStartInits():
 	mainAnimationPlayer.play()
+	
+	var msaa = Viewport.MSAA_DISABLED
+	
+	match ($Panel_Start/OptionButton_MSAA.get_selected_id()):
+		0:
+			msaa = Viewport.MSAA_DISABLED
+		1:
+			msaa = Viewport.MSAA_2X
+		2:
+			msaa = Viewport.MSAA_4X
+		3:
+			msaa = Viewport.MSAA_8X
+
+	get_viewport().msaa_3d = msaa
+	$SubViewport_Scroller.msaa_3d = msaa
+
+	get_viewport().scaling_3d_scale = $Panel_Start/SpinBox_Scaling.value
+	$SubViewport_Scroller.scaling_3d_scale = $Panel_Start/SpinBox_Scaling.value
+
+	if ($Panel_Start/CheckBox_VSync.button_pressed):
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 		
 	$MainTunePlayer.play(dbgPlayStartPos)
 	

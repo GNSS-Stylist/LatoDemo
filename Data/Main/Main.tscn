@@ -1,4 +1,4 @@
-[gd_scene load_steps=217 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=218 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -19734,6 +19734,9 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3cd3"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
 albedo_color = Color(0, 2, 0, 1)
@@ -21143,77 +21146,151 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -213.0
-offset_top = -63.0
-offset_right = 205.0
-offset_bottom = 120.0
+offset_top = -221.0
+offset_right = 254.0
+offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3cd3")
 metadata/_edit_use_custom_anchors = false
+
+[node name="Label_Scaling" type="Label" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 21.0
+offset_right = 103.0
+offset_bottom = 47.0
+text = "Resolution scaling:"
+horizontal_alignment = 2
+
+[node name="SpinBox_Scaling" type="SpinBox" parent="Panel_Start"]
+offset_left = 177.0
+offset_top = 18.0
+offset_right = 317.0
+offset_bottom = 49.0
+min_value = 0.25
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="Label_MSAA" type="Label" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 65.0
+offset_right = 172.0
+offset_bottom = 91.0
+text = "MSAA:
+"
+horizontal_alignment = 2
+
+[node name="OptionButton_MSAA" type="OptionButton" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 61.0
+offset_right = 316.0
+offset_bottom = 92.0
+item_count = 4
+selected = 2
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+popup/item_3/text = "8"
+popup/item_3/id = 3
+
+[node name="CheckBox_Shadows" type="CheckBox" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 104.0
+offset_right = 183.0
+offset_bottom = 135.0
+button_pressed = true
+text = "Shadows (in space)"
+
+[node name="CheckBox_VSync" type="CheckBox" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 138.0
+offset_right = 210.0
+offset_bottom = 169.0
+button_pressed = true
+text = "VSync (recommended)"
 
 [node name="Label_Ending" type="Label" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 16.0
-offset_right = 183.0
-offset_bottom = 42.0
+offset_left = 10.0
+offset_top = 221.0
+offset_right = 456.0
+offset_bottom = 247.0
 text = "Choose your ending:"
-horizontal_alignment = 2
-metadata/_edit_layout_mode = 0
-metadata/_edit_use_custom_anchors = false
-
-[node name="OptionButton_Ending" type="OptionButton" parent="Panel_Start"]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 14.0
-offset_right = 406.0
-offset_bottom = 45.0
-item_count = 2
-selected = 0
-popup/item_0/text = "End of the world"
-popup/item_0/id = 1
-popup/item_1/text = "Party on!"
-popup/item_1/id = 2
+horizontal_alignment = 1
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
 
 [node name="CheckBox_Fullscreen" type="CheckBox" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 50.0
-offset_right = 132.0
-offset_bottom = 81.0
+offset_left = 9.0
+offset_top = 174.0
+offset_right = 120.0
+offset_bottom = 205.0
 button_pressed = true
 text = "Fullscreen"
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
 
-[node name="Button_Demo" type="Button" parent="Panel_Start"]
+[node name="HSeparator" type="HSeparator" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 95.0
-offset_right = 173.0
-offset_bottom = 126.0
-text = "Demo!"
-metadata/_edit_layout_mode = 0
-metadata/_edit_use_custom_anchors = false
+offset_left = 12.0
+offset_top = 208.0
+offset_right = 461.0
+offset_bottom = 224.0
 
-[node name="Button_Die" type="Button" parent="Panel_Start"]
+[node name="OptionButton_Ending" type="OptionButton" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 188.0
-offset_top = 95.0
-offset_right = 339.0
-offset_bottom = 126.0
-text = "Die!"
+offset_left = 9.0
+offset_top = 256.0
+offset_right = 456.0
+offset_bottom = 287.0
+item_count = 2
+selected = 0
+popup/item_0/text = "Great leaders (extended depression remix)"
+popup/item_0/id = 1
+popup/item_1/text = "Pompous maximus (extended progression remix)"
+popup/item_1/id = 2
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
 
 [node name="Button_Show3rdPartyAssets" type="Button" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 136.0
-offset_right = 339.0
-offset_bottom = 167.0
+offset_left = 9.0
+offset_top = 297.0
+offset_right = 456.0
+offset_bottom = 328.0
 text = "Show 3rd party assets used"
+
+[node name="Button_Demo" type="Button" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 337.0
+offset_right = 163.0
+offset_bottom = 368.0
+text = "Start demo
+"
+metadata/_edit_layout_mode = 0
+metadata/_edit_use_custom_anchors = false
+
+[node name="Button_Die" type="Button" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 337.0
+offset_right = 455.0
+offset_bottom = 368.0
+text = "Quit
+"
+metadata/_edit_layout_mode = 0
+metadata/_edit_use_custom_anchors = false
 
 [node name="Label_Subtitle" type="Label" parent="."]
 visible = false
@@ -21422,7 +21499,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21505,7 +21582,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -21576,7 +21653,7 @@ near = 10.0
 far = 2000.0
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -21611,7 +21688,7 @@ cast_shadow = 0
 mesh = SubResource("SphereMesh_0nopv")
 
 [node name="Viper" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1414, 1414, 0)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Viper"]
@@ -21626,7 +21703,7 @@ mesh = ExtResource("85_70q2d")
 [node name="DebugViper" parent="Elite/ShipDrawMeshes/Viper" instance=ExtResource("81_h8242")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -21835,9 +21912,9 @@ text = "Close"
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/LatoText/Storage" to="World/AdditiveGeometries/LatoText" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Barn/BarnMesh/Storage" to="World/AdditiveGeometries/Barn/BarnMesh" method="startAsyncMeshGenerating"]
+[connection signal="pressed" from="Panel_Start/Button_Show3rdPartyAssets" to="." method="_on_button_show_3_rd_party_assets_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Demo" to="." method="_on_button_demo_pressed"]
 [connection signal="pressed" from="Panel_Start/Button_Die" to="." method="_on_button_die_pressed"]
-[connection signal="pressed" from="Panel_Start/Button_Show3rdPartyAssets" to="." method="_on_button_show_3_rd_party_assets_pressed"]
 [connection signal="meta_clicked" from="Panel_3rdPartyCredits/RichTextLabel_3rdPartyCredits" to="." method="_on_rich_text_label_3_rd_party_credits_meta_clicked"]
 [connection signal="pressed" from="Panel_3rdPartyCredits/Button_Close3rdPartyCredits" to="." method="_on_button_close_3_rd_party_credits_pressed"]
 
