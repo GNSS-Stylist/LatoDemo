@@ -48,6 +48,7 @@ func _ready():
 func _process(_delta):
 	match (workingMode):
 		WorkingMode.RECORDING:
+			transform = Transform3D(Basis.IDENTITY, Vector3(0, 0, 0))
 			if (((self.global_position.distance_to(lastRecordLocation) >= minRecMovement) ||
 					(rad_to_deg(self.global_transform.basis.orthonormalized().get_rotation_quaternion().angle_to(lastRecordOrientation)) > minRecAngleChange)) &&
 					absf(Global.masterReplayTime - lastRecordTime) >= minRecTimeDiff):
