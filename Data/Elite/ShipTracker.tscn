@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Data/Elite/ShipTracker.gd" id="1_5nh56"]
 
 [node name="ShipTracker" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1e+09, 0)
 script = ExtResource("1_5nh56")
 
 [node name="FileDialog_Save" type="FileDialog" parent="."]
@@ -22,4 +23,6 @@ file_mode = 0
 top_level = true
 
 [connection signal="file_selected" from="FileDialog_Save" to="." method="_on_file_dialog_save_file_selected"]
+[connection signal="visibility_changed" from="FileDialog_Save" to="." method="_on_file_dialog_save_visibility_changed"]
 [connection signal="file_selected" from="FileDialog_Load" to="." method="_on_file_dialog_load_file_selected"]
+[connection signal="visibility_changed" from="FileDialog_Load" to="." method="_on_file_dialog_load_visibility_changed"]

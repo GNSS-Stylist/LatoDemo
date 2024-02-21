@@ -96,13 +96,14 @@ func _process(delta):
 		if mouse_captured:
 			mouse_captured = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
+		elif (Global.processActionKeys):
 			mouse_captured = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	# This is outside the mouse_captured-branch below to keep flying speed
 	# identical between all first persons (there may be many instances)
-	handleFlyingSpeed(delta)
+	if (Global.processActionKeys):
+		handleFlyingSpeed(delta)
 
 	if !mouse_captured or !(get_node("Head/FirstPersonCamera").current):
 		# Do not react if camera is not in use
@@ -124,7 +125,7 @@ func _process(delta):
 
 		return
 
-	if mouse_captured:
+	if (mouse_captured && Global.processActionKeys):
 		aim(delta)
 		fly(delta)
 

@@ -12,6 +12,8 @@ extends Panel
 @onready var chkBox_ShowDebugShips:CheckBox = $CheckBox_ShowDebugShips
 var debugShipsWereVisible:bool = false
 
+@onready var chkBox_ProcessActionKeys = $CheckBox_ProcessActionKeys
+
 @onready var OptionButton_TrackReplayerShip:OptionButton = $OptionButton_TrackReplayerShip
 var lastTrackReplayerShip = 0
 
@@ -27,6 +29,8 @@ func _process(delta):
 		self.visible = !self.visible
 		if (self.visible):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	chkBox_ProcessActionKeys.set_pressed_no_signal(Global.processActionKeys)
 	
 	node_Keys.visible = chkBox_ShowKeys.button_pressed
 	node_CurrentCameraTransform.visible = chkBox_ShowCurrentCameraTransform.button_pressed
@@ -65,7 +69,8 @@ func setEliteTrackReplayerShip(ship:int):
 		4:
 			get_node("../../Elite/DebugShipTrackReplayer/Thargoid").visible = true
 
-			
-
 func _on_button_close_pressed():
 	visible = false
+
+func _on_check_box_process_action_keys_toggled(button_pressed):
+	Global.processActionKeys = button_pressed

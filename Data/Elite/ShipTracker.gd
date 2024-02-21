@@ -316,6 +316,11 @@ func clear():
 func _on_file_dialog_save_file_selected(path):
 	saveToFile(path)
 
-
 func _on_file_dialog_load_file_selected(path):
 	loadFromFile(path)
+
+func _on_file_dialog_load_visibility_changed():
+	Global.processActionKeys = !$FileDialog_Load.visible
+
+func _on_file_dialog_save_visibility_changed():
+	Global.processActionKeys = !$FileDialog_Save.visible

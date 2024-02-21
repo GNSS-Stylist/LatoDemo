@@ -327,8 +327,9 @@ func _process(delta):
 		if (!demoStartRitualsDone):
 			handleDemoStartInits()
 			demoStartRitualsDone = true
+			Global.processActionKeys = true
 
-	if (!Engine.is_editor_hint()):
+	if (!Engine.is_editor_hint() && Global.processActionKeys):
 		accumulatedDelta += delta
 		camSwitch(accumulatedDelta * 1000)
 	#	replayTime_float += delta * 1000 * (replaySpeed_float / 100)
@@ -414,15 +415,8 @@ func _process(delta):
 	if (!Engine.is_editor_hint()):
 		updateCameraCopyPasteFields()
 
-#	Global.oscilloscopeMaterial.set_shader_param("soundPos", int(tunePlaybackPosition * 8000))
-	
-#	Global.oscilloscopeSoundMasterPosition = int(tunePlaybackPosition * 8000)
-#	ProjectSettings.set_setting("Shader Globals/soundPos", Global.oscilloscopeSoundMasterPosition)
-	
-#	$AdditiveGeometry.get_active_material(0).set_shader_param("replayTime", replayTime_float)
-#	$AdditiveGeometry.replayTime = replayTime_float
-#	ScanTracker.replayTime = replayTime_float
-		controlPlayback(delta)
+		if (Global.processActionKeys):
+			controlPlayback(delta)
 	
 	# Can't get a shader parameter here (commented out section)
 	# due to https://github.com/godotengine/godot/issues/44454
@@ -578,48 +572,7 @@ func camSwitch(uptime):
 		newCamera = get_node("Elite/DebugShipTrackReplayer/Camera3D")
 		camera_InterpolationTime = camera_InterpolationTime_Fast
 		
-		
-		
-		
-		
-		
-		
 	if false:	
-			
-		if Input.is_action_just_pressed("camera_first_person_van"):
-			var cameraRig = get_node("LOSolver_VanScanner")
-			var firstPerson = get_node("LOSolver_VanScanner/FirstPerson")
-			var flyCamera = get_node("LOSolver_VanScanner/FirstPerson/Head/FirstPersonCamera")
-			var sourceCameraGlobal = get_viewport().get_camera().get_global_transform()
-			var rigGlobal = cameraRig.get_global_transform()
-			var newTransform = rigGlobal.inverse() * sourceCameraGlobal
-			firstPerson.set_LocationOrientation(newTransform)
-			newCamera = flyCamera
-			camera_InterpolationTime = camera_InterpolationTime_Fast
-		if Input.is_action_just_pressed("camera_follow_van"):
-			newCamera = get_node("LOSolver_VanScanner/BackCamera")
-			camera_InterpolationTime = camera_InterpolationTime_Slow
-		if Input.is_action_just_pressed("camera_camerarig"):
-			newCamera = get_node("LOSolver_CameraEye/RigCamera")
-			camera_InterpolationTime = camera_InterpolationTime_Slow
-		if Input.is_action_just_pressed("camera_lidarrig_down"):
-			# This camera doesn't have a separate LOScript
-			newCamera = get_node("LOSolver_VanScanner/LidarAndCameraRig/Camera/CameraBody/RigCamera")
-			camera_InterpolationTime = camera_InterpolationTime_Slow
-		if Input.is_action_just_pressed("camera_first_person_car"):
-			var cameraRig = get_node("LOSolver_CameraRigAndCar")
-			var firstPerson = get_node("LOSolver_CameraRigAndCar/FirstPerson")
-			var flyCamera = get_node("LOSolver_CameraRigAndCar/FirstPerson/Head/FirstPersonCamera")
-			var sourceCameraGlobal = get_viewport().get_camera().get_global_transform()
-			var rigGlobal = cameraRig.get_global_transform()
-			var newTransform = rigGlobal.inverse() * sourceCameraGlobal
-			firstPerson.set_LocationOrientation(newTransform)
-			newCamera = flyCamera
-			camera_InterpolationTime = camera_InterpolationTime_Fast
-		if Input.is_action_just_pressed("camera_start_still"):
-			newCamera = get_node("StartStillCamera")
-			camera_InterpolationTime = camera_InterpolationTime_Slow
-
 		if Input.is_action_just_pressed("camera_memory_store"):
 			var memCamera = get_node("MemoryCamera")
 			var sourceCamera = get_viewport().get_camera()
@@ -631,18 +584,6 @@ func camSwitch(uptime):
 		if Input.is_action_just_pressed("camera_memory_recall"):
 			newCamera = get_node("MemoryCamera")
 			camera_InterpolationTime = camera_InterpolationTime_Slow
-
-
-
-
-
-
-
-
-
-
-
-
 
 	if (newCamera):
 		if (newCamera == oldCamera):

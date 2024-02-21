@@ -20392,7 +20392,7 @@ anchor_right = 1.0
 offset_left = -397.0
 offset_top = 1.0
 offset_right = -1.0
-offset_bottom = 160.0
+offset_bottom = 185.0
 grow_horizontal = 0
 script = ExtResource("20_x548t")
 
@@ -20402,7 +20402,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 189.0
 offset_bottom = 41.0
-text = "Show controls/keys"
+text = "Show controls / action keys"
 
 [node name="CheckBox_ShowCurrentCameraTransform" type="CheckBox" parent="DebugThings/Panel_Help"]
 layout_mode = 0
@@ -20428,30 +20428,28 @@ offset_right = 230.0
 offset_bottom = 116.0
 text = "Show debug \"Elite\"-ships"
 
-[node name="Button_Close" type="Button" parent="DebugThings/Panel_Help"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -50.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "Close panel (H)"
+[node name="CheckBox_ProcessActionKeys" type="CheckBox" parent="DebugThings/Panel_Help"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 110.0
+offset_right = 203.0
+offset_bottom = 141.0
+text = "Process action keys"
 
 [node name="Label_TrackReplayerShip" type="Label" parent="DebugThings/Panel_Help"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 117.0
-offset_right = 224.0
-offset_bottom = 143.0
+offset_left = 11.0
+offset_top = 145.0
+offset_right = 225.0
+offset_bottom = 171.0
 text = "Debug track replayer ship:"
 
 [node name="OptionButton_TrackReplayerShip" type="OptionButton" parent="DebugThings/Panel_Help"]
 layout_mode = 0
-offset_left = 230.0
-offset_top = 115.0
-offset_right = 385.0
-offset_bottom = 146.0
+offset_left = 231.0
+offset_top = 143.0
+offset_right = 386.0
+offset_bottom = 174.0
 item_count = 5
 selected = 0
 popup/item_0/text = "None"
@@ -20464,6 +20462,16 @@ popup/item_3/text = "Viper"
 popup/item_3/id = 3
 popup/item_4/text = "Thargoid"
 popup/item_4/id = 4
+
+[node name="Button_Close" type="Button" parent="DebugThings/Panel_Help"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -123.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Close panel (H)"
 
 [node name="Panel_Keys" type="Panel" parent="DebugThings"]
 visible = false
@@ -21164,6 +21172,7 @@ text = "Resolution scaling:"
 horizontal_alignment = 2
 
 [node name="SpinBox_Scaling" type="SpinBox" parent="Panel_Start"]
+layout_mode = 0
 offset_left = 177.0
 offset_top = 18.0
 offset_right = 317.0
@@ -21499,7 +21508,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21582,7 +21591,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -21653,7 +21662,7 @@ near = 10.0
 far = 2000.0
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -21703,7 +21712,7 @@ mesh = ExtResource("85_70q2d")
 [node name="DebugViper" parent="Elite/ShipDrawMeshes/Viper" instance=ExtResource("81_h8242")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -21749,7 +21758,6 @@ transform = Transform3D(0.886003, -0.327519, -0.326805, -1.48989e-08, 0.703175, 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
 [node name="DebugShipTrackReplayer" parent="Elite" instance=ExtResource("82_mn0we")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1e+09, 0)
 top_level = true
 visible = false
 laserOriginShift = Vector3(0, -2, -20)
@@ -21908,6 +21916,7 @@ text = "Close"
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/LatoText/Storage" to="World/AdditiveGeometries/LatoText" method="startAsyncMeshGenerating"]
