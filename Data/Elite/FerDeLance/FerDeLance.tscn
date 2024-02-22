@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba820b5yyc4g7"]
+
+[ext_resource type="Script" path="res://Data/Elite/FerDeLance/FerDeLance.gd" id="1_7w22f"]
+[ext_resource type="Shader" path="res://Data/Elite/EliteTriangle.gdshader" id="2_bfbvh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f07x0"]
+render_priority = 0
+shader = ExtResource("2_bfbvh")
+shader_parameter/pointColors = PackedColorArray(0, 0, 0, 1, 0.0862745, 0, 0.815686, 1, 0.262745, 0.384314, 0.811765, 1, 0.533333, 0.662745, 0.941176, 1, 0.266667, 0.4, 0, 1, 0.4, 0.666667, 0, 1, 0.533333, 0.933333, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0.258824, 0.258824, 0.258824, 1, 0.937255, 0.937255, 0.937255, 1)
+
+[sub_resource type="Animation" id="Animation_ph0gf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:trigStashToolData")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ce8tp"]
+resource_name = "dummy"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qb68l"]
+_data = {
+"RESET": SubResource("Animation_ph0gf"),
+"dummy": SubResource("Animation_ce8tp")
+}
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5jf5q"]
+points = PackedVector3Array(0.3, 0.0999804, 0.0998923, 0.3, -0.1, 0.0998923, 0, -0.1, -0.75, 0, 0.15, 0.199966, 0.0999608, 0.0299922, 0.4, 0.0999608, -0.1, 0.4, -0.3, -0.1, 0.0998923, -0.3, 0.0999804, 0.0998923, -0.10002, 0.0299922, 0.4, -0.10002, -0.1, 0.4)
+
+[node name="FerDeLance" type="Node3D"]
+script = ExtResource("1_7w22f")
+
+[node name="MainBody" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_f07x0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qb68l")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_5jf5q")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=220 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -89,7 +89,9 @@
 [ext_resource type="PackedScene" uid="uid://1pel5s3sdw3c" path="res://Data/Elite/Thargoid/Thargoid.tscn" id="83_slc3d"]
 [ext_resource type="ArrayMesh" uid="uid://drxj0u8pvy2vl" path="res://Data/Elite/Viper/Viper_Mesh.tres" id="85_70q2d"]
 [ext_resource type="Shader" path="res://Data/Elite/Wormhole.gdshader" id="88_5f475"]
+[ext_resource type="ArrayMesh" uid="uid://iomnafexfeww" path="res://Data/Elite/FerDeLance/FerDeLance_Mesh.tres" id="88_11ddh"]
 [ext_resource type="Script" path="res://Data/Elite/Wormhole.gd" id="89_pw1o0"]
+[ext_resource type="PackedScene" uid="uid://ba820b5yyc4g7" path="res://Data/Elite/FerDeLance/FerDeLance.tscn" id="89_yq2kf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lubd1"]
 render_priority = 0
@@ -20450,7 +20452,7 @@ offset_left = 231.0
 offset_top = 143.0
 offset_right = 386.0
 offset_bottom = 174.0
-item_count = 5
+item_count = 6
 selected = 0
 popup/item_0/text = "None"
 popup/item_0/id = 0
@@ -20462,6 +20464,8 @@ popup/item_3/text = "Viper"
 popup/item_3/id = 3
 popup/item_4/text = "Thargoid"
 popup/item_4/id = 4
+popup/item_5/text = "FerDeLance"
+popup/item_5/id = 5
 
 [node name="Button_Close" type="Button" parent="DebugThings/Panel_Help"]
 layout_mode = 1
@@ -21508,7 +21512,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21591,7 +21595,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -21662,7 +21666,7 @@ near = 10.0
 far = 2000.0
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -21711,8 +21715,20 @@ mesh = ExtResource("85_70q2d")
 
 [node name="DebugViper" parent="Elite/ShipDrawMeshes/Viper" instance=ExtResource("81_h8242")]
 
+[node name="FerDeLance" type="Node3D" parent="Elite/ShipDrawMeshes"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/FerDeLance"]
+material_override = SubResource("ShaderMaterial_xy8no")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/FerDeLance"]
+cast_shadow = 3
+mesh = ExtResource("88_11ddh")
+
+[node name="DebugFerDeLance" parent="Elite/ShipDrawMeshes/FerDeLance" instance=ExtResource("89_yq2kf")]
+
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -21780,6 +21796,9 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="Python" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("79_tcqdf")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="FerDeLance" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("89_yq2kf")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 
 [node name="ShipTrackReplayers" type="Node3D" parent="Elite"]
 
@@ -21914,8 +21933,8 @@ grow_horizontal = 0
 text = "Close"
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]

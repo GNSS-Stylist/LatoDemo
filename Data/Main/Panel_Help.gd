@@ -49,12 +49,14 @@ func setEliteDebugShipVisibility(visible_p:bool):
 	get_node("../../Elite/ShipDrawMeshes/Python/DebugPython").visible = visible_p
 	get_node("../../Elite/ShipDrawMeshes/Thargoid/DebugThargoid").visible = visible_p
 	get_node("../../Elite/ShipDrawMeshes/Viper/DebugViper").visible = visible_p
+	get_node("../../Elite/ShipDrawMeshes/FerDeLance/DebugFerDeLance").visible = visible_p
 
 func setEliteTrackReplayerShip(ship:int):
 	get_node("../../Elite/DebugShipTrackReplayer/CobraMkIII").visible = false
 	get_node("../../Elite/DebugShipTrackReplayer/Python").visible = false
 	get_node("../../Elite/DebugShipTrackReplayer/Viper").visible = false
 	get_node("../../Elite/DebugShipTrackReplayer/Thargoid").visible = false
+	get_node("../../Elite/DebugShipTrackReplayer/FerDeLance").visible = false
 	get_node("../../Elite/DebugShipTrackReplayer").visible = true
 
 	match (ship):
@@ -68,6 +70,8 @@ func setEliteTrackReplayerShip(ship:int):
 			get_node("../../Elite/DebugShipTrackReplayer/Viper").visible = true
 		4:
 			get_node("../../Elite/DebugShipTrackReplayer/Thargoid").visible = true
+		5:
+			get_node("../../Elite/DebugShipTrackReplayer/FerDeLance").visible = true
 
 func _on_button_close_pressed():
 	visible = false
