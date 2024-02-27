@@ -78,7 +78,7 @@ var lastActiveAnim:String = ""
 		return animDbgPrint
 
 var shaderPrecompilerAnimStops_GreatLeaders:Array[float] = [2, 6, 21, 34, 48, 52, 56, 77, 90, 125, 142, 146, 196, 236, 262, 306, 330, 338, 343, 377, 398]
-var shaderPrecompilerAnimStops_PartyOn:Array[float] = [2, 6, 21, 34, 48, 52, 56, 77, 90, 125, 142, 146, 196, 236]
+var shaderPrecompilerAnimStops_PartyOn:Array[float] = [2, 6, 21, 34, 48, 52, 56, 77, 90, 125, 142, 146, 196, 236, 275, 290, 308, 377, 430]
 
 #@export var cleanTempToolData:bool:
 #	set(_dummy):
@@ -269,7 +269,7 @@ func animChangeCheck(delta: float) -> bool:
 var shaderPrecompilerStopIndex:int = 0
 var shaderPrecompilerFrameCount:int = 0
 var shaderPrecompilerAnimStops:Array[float]
-const shaderPreCompilerNumOfFramesToWait:int = 5
+const shaderPreCompilerNumOfFramesToWait:int = 300
 
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
