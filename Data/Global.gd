@@ -63,6 +63,14 @@ var blockableGNSSSignalRaycast:bool = true
 
 var processActionKeys:bool = false
 
+enum DemoState {
+	DS_SHOWING_START_DIALOG, 
+	DS_INIT, 
+	DS_PRECOMPILING_SHADERS,
+	DS_RUNNING }
+
+var demoState:DemoState = DemoState.DS_SHOWING_START_DIALOG
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())

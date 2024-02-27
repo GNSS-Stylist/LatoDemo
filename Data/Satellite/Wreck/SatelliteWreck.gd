@@ -92,7 +92,7 @@ func _physics_process(_delta):
 		mainWreck.rotation_degrees = Vector3(0, newRotation, -45)
 		oldRotation = newRotation
 	
-	if (!Engine.is_editor_hint() && debrisActive):
+	if (!Engine.is_editor_hint() && debrisActive && Global.demoState == Global.DemoState.DS_RUNNING):
 #		print("Wreck physics_process called, enabled")
 		physicsProcessCalledAfterRegeneratingDebris = true
 	
@@ -101,7 +101,7 @@ func _physics_process(_delta):
 	if (predefinedDebris && randomDebris):
 		predefinedDebris.visible = debrisVisible
 		randomDebris.visible = debrisVisible
-		if (debrisActive):
+		if (debrisActive && Global.demoState == Global.DemoState.DS_RUNNING):
 			predefinedDebris.process_mode = Node.PROCESS_MODE_INHERIT
 			randomDebris.process_mode = Node.PROCESS_MODE_INHERIT
 		else:

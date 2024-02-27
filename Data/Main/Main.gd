@@ -77,8 +77,8 @@ var lastActiveAnim:String = ""
 	get:
 		return animDbgPrint
 
-var demoStarted:bool = false
-var demoStartRitualsDone:bool = false
+var shaderPrecompilerAnimStops_GreatLeaders:Array[float] = [2, 6, 21, 34, 48, 52, 56, 77, 90, 125, 142, 146, 196, 236, 262, 306, 330, 338, 343, 377, 398]
+var shaderPrecompilerAnimStops_PartyOn:Array[float] = [2, 6, 21, 34, 48, 52, 56, 77, 90, 125, 142, 146, 196, 236]
 
 #@export var cleanTempToolData:bool:
 #	set(_dummy):
@@ -203,7 +203,15 @@ func _ready():
 
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.loadFromFile("res://Data/Elite/FlyTracks/CamChase.trk")
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.play()
+	else:
+		await get_tree().process_frame
+		await get_tree().process_frame
 
+		var img = get_viewport().get_texture().get_image()
+		var tex:ImageTexture = ImageTexture.create_from_image(img)
+		$TextureRect_StartBackground.texture = tex
+		$TextureRect_StartBackground.visible = true
+		$Panel_Start.visible = true
 
 #	$MeshInstance_DbgShit.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[0]
 #	$MeshInstance_DbgShit2.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[1]
@@ -258,6 +266,10 @@ func animChangeCheck(delta: float) -> bool:
 		return true
 	return false
 
+var shaderPrecompilerStopIndex:int = 0
+var shaderPrecompilerFrameCount:int = 0
+var shaderPrecompilerAnimStops:Array[float]
+const shaderPreCompilerNumOfFramesToWait:int = 5
 
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
@@ -323,11 +335,61 @@ func _process(delta):
 	
 	var subAnimChanged = animChangeCheck(delta)
 
-	if (demoStarted):
-		if (!demoStartRitualsDone):
+	match Global.demoState:
+		Global.DemoState.DS_SHOWING_START_DIALOG:
+			pass
+		Global.DemoState.DS_INIT:
 			handleDemoStartInits()
-			demoStartRitualsDone = true
-			Global.processActionKeys = true
+			shaderPrecompilerStopIndex = 0
+			shaderPrecompilerFrameCount = 0
+			Global.demoState = Global.DemoState.DS_PRECOMPILING_SHADERS
+		Global.DemoState.DS_PRECOMPILING_SHADERS:
+			if (shaderPrecompilerStopIndex >= shaderPrecompilerAnimStops.size()):
+				mainAnimationPlayer.speed_scale = 1
+				mainAnimationPlayer.seek(0)
+				mainAnimationPlayer.play()
+				$MainTunePlayer.play(dbgPlayStartPos)
+				Global.processActionKeys = true
+				$TextureRect_StartBackground.visible = false
+				if (shaderPrecompilerFrameCount >= 1):
+					# Wait for one frame to allow animation to update it's tracks
+					# (otherwise the satellite wreck debris will be regenerated 
+					# "on the fly", which causes massive freeze on "death"-text)
+					Global.demoState = Global.DemoState.DS_RUNNING
+
+			elif (shaderPrecompilerFrameCount == 0):
+				if (absf(mainAnimationPlayer.current_animation_position - shaderPrecompilerAnimStops[shaderPrecompilerStopIndex]) > 0.001):
+					# Update animation position
+					# seek doesn't seem to update things if not played for at least one frame
+					# Bit hacky way to do this, but seems to work...
+					mainAnimationPlayer.speed_scale = 0
+	#						mainAnimationPlayer.playback_speed = 0
+					mainAnimationPlayer.play()
+					var pos:float = shaderPrecompilerAnimStops[shaderPrecompilerStopIndex]
+					mainAnimationPlayer.seek(pos)
+				else:
+					mainAnimationPlayer.pause()
+
+			elif (shaderPrecompilerFrameCount > shaderPreCompilerNumOfFramesToWait):
+				mainAnimationPlayer.pause()
+				shaderPrecompilerStopIndex += 1
+				shaderPrecompilerFrameCount = -1	# += 1 below will set this to 0
+
+			shaderPrecompilerFrameCount += 1
+			
+#		Global.DemoState.DS_RUNNING:
+#			pass
+			
+			
+
+#	if (demoStarted):
+#		if (!demoStartRitualsDone):
+#			handleDemoStartInits()
+#			demoStartRitualsDone = true
+#			Global.processActionKeys = true
+
+
+
 
 	if (!Engine.is_editor_hint() && Global.processActionKeys):
 		accumulatedDelta += delta
@@ -376,39 +438,41 @@ func _process(delta):
 			dbgAnimJump = 0
 	
 	else:
-		Global.masterReplayTime = tunePlaybackPosition
-#		for animationPlayer in syncedAnimationPlayers:
-		if (absf(mainAnimationPlayer.current_animation_position - tunePlaybackPosition) > 0.1) && (tunePlayer.playing):
-			# Animation playback position differs too much from the tune -> Hard sync
-			print("anim hard resync: ", mainAnimationPlayer.current_animation_position - tunePlaybackPosition)
-			mainAnimationPlayer.seek(tunePlaybackPosition)
-			mainAnimationPlayer.speed_scale = tunePlayer.pitch_scale
-#				mainAnimationPlayer.playback_speed = tunePlayer.pitch_scale
-		else:
-			if (tunePlayer.playing):
-				if (!mainAnimationPlayer.is_playing()):
-					mainAnimationPlayer.play()
-				var playbackSpeed = (tunePlayer.pitch_scale * 
-					(1.0 + (tunePlaybackPosition - mainAnimationPlayer.current_animation_position) * 1.0))
-				mainAnimationPlayer.speed_scale = playbackSpeed
-#					mainAnimationPlayer.playback_speed = playbackSpeed
-	#			print(playbackSpeed)
+		if Global.demoState == Global.DemoState.DS_PRECOMPILING_SHADERS:
+			Global.masterReplayTime = animationPosition
+		elif Global.demoState == Global.DemoState.DS_RUNNING:
+			Global.masterReplayTime = tunePlaybackPosition
+			if (absf(mainAnimationPlayer.current_animation_position - tunePlaybackPosition) > 0.1) && (tunePlayer.playing):
+				# Animation playback position differs too much from the tune -> Hard sync
+				print("anim hard resync: ", mainAnimationPlayer.current_animation_position - tunePlaybackPosition)
+				mainAnimationPlayer.seek(tunePlaybackPosition)
+				mainAnimationPlayer.speed_scale = tunePlayer.pitch_scale
+	#				mainAnimationPlayer.playback_speed = tunePlayer.pitch_scale
 			else:
-				if (absf(mainAnimationPlayer.current_animation_position - tunePlaybackPosition) > 0.001):
-					# seek doesn't seem to update things if not played for at least one frame
-					# Bit hacky way to do this, but seems to work...
-					mainAnimationPlayer.speed_scale = 0
-#						mainAnimationPlayer.playback_speed = 0
-					mainAnimationPlayer.play()
-					mainAnimationPlayer.seek(tunePlaybackPosition)
+				if (tunePlayer.playing):
+					if (!mainAnimationPlayer.is_playing()):
+						mainAnimationPlayer.play()
+					var playbackSpeed = (tunePlayer.pitch_scale * 
+						(1.0 + (tunePlaybackPosition - mainAnimationPlayer.current_animation_position) * 1.0))
+					mainAnimationPlayer.speed_scale = playbackSpeed
+	#					mainAnimationPlayer.playback_speed = playbackSpeed
+		#			print(playbackSpeed)
 				else:
-					mainAnimationPlayer.pause()
-#						mainAnimationPlayer.stop(false)
-		
-		if (dbgAnimJump != 0):
-			if (!subAnimChanged):
-				tunePlayer.my_seek(tunePlayer.getFilteredPlaybackPosition() - dbgAnimJump)
-			dbgAnimJump = 0
+					if (absf(mainAnimationPlayer.current_animation_position - tunePlaybackPosition) > 0.001):
+						# seek doesn't seem to update things if not played for at least one frame
+						# Bit hacky way to do this, but seems to work...
+						mainAnimationPlayer.speed_scale = 0
+	#						mainAnimationPlayer.playback_speed = 0
+						mainAnimationPlayer.play()
+						mainAnimationPlayer.seek(tunePlaybackPosition)
+					else:
+						mainAnimationPlayer.pause()
+	#						mainAnimationPlayer.stop(false)
+			
+			if (dbgAnimJump != 0):
+				if (!subAnimChanged):
+					tunePlayer.my_seek(tunePlayer.getFilteredPlaybackPosition() - dbgAnimJump)
+				dbgAnimJump = 0
 
 	RenderingServer.global_shader_parameter_set("masterReplayTime", Global.masterReplayTime)
 
@@ -426,8 +490,6 @@ func _process(delta):
 	handleAnimatedCamera()
 	
 func handleDemoStartInits():
-	mainAnimationPlayer.play()
-	
 	var msaa = Viewport.MSAA_DISABLED
 	
 	match ($Panel_Start/OptionButton_MSAA.get_selected_id()):
@@ -451,14 +513,14 @@ func handleDemoStartInits():
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 		
-	$MainTunePlayer.play(dbgPlayStartPos)
-	
 	# TODO: Add ending-related inits here
 	if ($Panel_Start/OptionButton_Ending.get_selected_id() == 1):
 		subAnimationSelector.current_animation = "EndOfTheWorld"
+		shaderPrecompilerAnimStops = shaderPrecompilerAnimStops_GreatLeaders
 		$SubViewport_Scroller/ScrollerMainNode/Scroller.loadFile("res://Data/Scroller/ScrollText_GreatLeaders.txt")
 	else:
 		subAnimationSelector.current_animation = "PartyOn"
+		shaderPrecompilerAnimStops = shaderPrecompilerAnimStops_PartyOn
 		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.loadFromFile("res://Data/Elite/FlyTracks/Thargoid.trk")
 		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.play()
 
@@ -690,7 +752,7 @@ func _on_button_demo_pressed():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 #		OS.window_fullscreen = true
-	demoStarted = true
+	Global.demoState = Global.DemoState.DS_INIT
 
 func killMe():
 	OS.kill(OS.get_process_id())	# Immediate exit
