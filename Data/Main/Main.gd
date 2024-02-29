@@ -269,7 +269,7 @@ func animChangeCheck(delta: float) -> bool:
 var shaderPrecompilerStopIndex:int = 0
 var shaderPrecompilerFrameCount:int = 0
 var shaderPrecompilerAnimStops:Array[float]
-const shaderPreCompilerNumOfFramesToWait:int = 300
+const shaderPreCompilerNumOfFramesToWait:int = 5
 
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
@@ -343,7 +343,11 @@ func _process(delta):
 			shaderPrecompilerStopIndex = 0
 			shaderPrecompilerFrameCount = 0
 			Global.demoState = Global.DemoState.DS_PRECOMPILING_SHADERS
+
 		Global.DemoState.DS_PRECOMPILING_SHADERS:
+#			if (shaderPrecompilerStopIndex < shaderPrecompilerAnimStops.size()):
+#				print("Shader precomp, time: ", shaderPrecompilerAnimStops[shaderPrecompilerStopIndex], ", delta: ", delta)
+
 			if (shaderPrecompilerStopIndex >= shaderPrecompilerAnimStops.size()):
 				mainAnimationPlayer.speed_scale = 1
 				mainAnimationPlayer.seek(0)
@@ -376,7 +380,7 @@ func _process(delta):
 				shaderPrecompilerFrameCount = -1	# += 1 below will set this to 0
 
 			shaderPrecompilerFrameCount += 1
-			
+		
 #		Global.DemoState.DS_RUNNING:
 #			pass
 			
