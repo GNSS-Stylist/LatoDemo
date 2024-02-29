@@ -119,6 +119,8 @@ func _process(_delta):
 				
 				poolItem.active = false
 				poolItem.scrollerTextLineItem.visible = false
+				poolItem.scrollerTextLineItem.shownMesh = poolItem.scrollerTextLineItem.ShownMesh.NONE
+				poolItem.scrollerTextLineItem.basePosY = 1e6
 				poolItem.scrollerTextLineItem.process_mode = Node.PROCESS_MODE_DISABLED
 			else:
 				highestYCoord = max(poolItem.yCoord, highestYCoord)

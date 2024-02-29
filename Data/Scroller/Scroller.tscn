@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvwyyg2hmgyd"]
+[gd_scene load_steps=7 format=3 uid="uid://cvwyyg2hmgyd"]
 
 [ext_resource type="Script" path="res://Data/Scroller/Scroller.gd" id="1_ni0wg"]
 [ext_resource type="PackedScene" uid="uid://ccjgv0ecp7bvw" path="res://Data/Scroller/ScrollerPicPlate.tscn" id="2_1pucx"]
@@ -20,15 +20,17 @@ vertical_alignment = 0
 curve_step = 2.0
 depth = 0.0
 
+[sub_resource type="TextMesh" id="TextMesh_8b8h5"]
+
 [node name="Scroller" type="Node3D"]
 script = ExtResource("1_ni0wg")
 scrollTextFilename = "res://Data/Scroller/ScrollText.txt"
 scrollPos = 0.0
 smoothMeshHighLimit = 0.0
-styleNames = Array[String](["NORMAL", "H1", "PICDESC"])
-styleBaseTextMeshes = Array[TextMesh]([SubResource("TextMesh_pquem"), SubResource("TextMesh_pysxh"), SubResource("TextMesh_68lme")])
-styleLineHeights = Array[float]([0.2, 0.45, 0.2])
-styleDepths = Array[float]([0.0, 0.1, 0.0])
+styleNames = Array[String](["NORMAL", "H1", "PICDESC", "STARTBLANK"])
+styleBaseTextMeshes = Array[TextMesh]([SubResource("TextMesh_pquem"), SubResource("TextMesh_pysxh"), SubResource("TextMesh_68lme"), SubResource("TextMesh_8b8h5")])
+styleLineHeights = Array[float]([0.2, 0.45, 0.2, 10.0])
+styleDepths = Array[float]([0.0, 0.1, 0.0, 0.0])
 
 [node name="ScrollerPicPlate1" parent="." instance=ExtResource("2_1pucx")]
 height = 0.563

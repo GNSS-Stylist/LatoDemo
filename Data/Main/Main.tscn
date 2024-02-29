@@ -8844,7 +8844,7 @@ tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-10, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 30, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(326, 521)
 }
 tracks/13/type = "value"
@@ -8934,7 +8934,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(390, 425, 460),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [-1.9, -7.7, -13.9]
+"values": [-11.9, -17.7, -23.9]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -8946,7 +8946,7 @@ tracks/20/keys = {
 "times": PackedFloat32Array(390, 434),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-3.7, -8.9]
+"values": [-13.7, -18.9]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
@@ -8958,7 +8958,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(390, 441),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-4.9, -10.1]
+"values": [-14.9, -20.1]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -9018,7 +9018,7 @@ tracks/26/keys = {
 "times": PackedFloat32Array(390, 447),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-6.3, -11.5]
+"values": [-16.3, -21.5]
 }
 
 [sub_resource type="Animation" id="Animation_odyq8"]
@@ -16565,7 +16565,7 @@ tracks/17/keys = {
 "times": PackedFloat32Array(296, 326, 366),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [-1.9, -7.7, -12.5]
+"values": [-11.9, -17.7, -22.5]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -16589,7 +16589,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(296, 336),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-3.7, -8.9]
+"values": [-13.7, -18.9]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -16613,7 +16613,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(296, 344),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-4.9, -10.1]
+"values": [-14.9, -20.1]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -16637,7 +16637,7 @@ tracks/23/keys = {
 "times": PackedFloat32Array(296),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-6.3]
+"values": [-16.3]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
@@ -16659,7 +16659,7 @@ tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(291, 393)
 }
 tracks/26/type = "value"
@@ -19917,7 +19917,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_omjfl"]
+[sub_resource type="Image" id="Image_34syf"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -19927,7 +19927,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_omjfl")
+image = SubResource("Image_34syf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -21780,7 +21780,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -21846,7 +21846,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/Viper")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -21963,7 +21963,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958929, 0.0592617, -0.308086, 0, 0.980436, 0.231874, 0.28337, 0.200543, -1.04257, 0, 0, 50)
+transform = Transform3D(-0.958929, 0.0592617, -0.308138, 0, 0.980437, 0.231912, 0.28337, 0.200543, -1.04274, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -21971,7 +21971,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.886003, -0.327519, -0.326805, -1.48989e-08, 0.703175, -0.708776, 0.463351, 0.62627, 0.624905, -180.814, -993.197, 880.29)
+transform = Transform3D(0.886001, -0.327518, -0.326805, -1.48989e-08, 0.703173, -0.708776, 0.46335, 0.626268, 0.624905, -180.814, -993.197, 880.29)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 

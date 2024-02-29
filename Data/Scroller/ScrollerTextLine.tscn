@@ -19,8 +19,9 @@ shader_parameter/albedo = Color(1, 1, 0.188235, 1)
 shader_parameter/maxEndAngle = 6.0
 
 [node name="ScrollerTextLine" type="Node3D"]
+visible = false
 script = ExtResource("1_71k4q")
-basePosY = -0.527
+basePosY = 1e+06
 sourceTextMesh = SubResource("TextMesh_5jy0s")
 maxEdgeLength = 0.01
 depth = 0.01
@@ -34,6 +35,7 @@ ignore_occlusion_culling = true
 gi_mode = 0
 
 [node name="DisintegratedMesh" type="MeshInstance3D" parent="."]
+visible = false
 layers = 524288
 material_override = SubResource("ShaderMaterial_nfcy5")
 cast_shadow = 0

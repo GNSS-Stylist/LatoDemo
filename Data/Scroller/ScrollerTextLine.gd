@@ -2,7 +2,7 @@
 extends MeshDisintegratorBase
 class_name ScrollerTextLine
 
-enum ShownMesh { SMOOTH, DISINTEGRATED }
+enum ShownMesh { NONE, SMOOTH, DISINTEGRATED }
 
 @export var basePosY:float:
 	set(newPos):
@@ -13,12 +13,14 @@ enum ShownMesh { SMOOTH, DISINTEGRATED }
 	get:
 		return basePosY
 
-@export var shownMesh:ShownMesh = ShownMesh.DISINTEGRATED:
+@export var shownMesh:ShownMesh = ShownMesh.NONE:
 	set(newShownMesh):
 		shownMesh = newShownMesh
 		if (disintegratedMesh && smoothMesh):
 			disintegratedMesh.visible = (newShownMesh == ShownMesh.DISINTEGRATED)
 			smoothMesh.visible = (newShownMesh == ShownMesh.SMOOTH)
+
+		self.visible = (newShownMesh != ShownMesh.NONE)
 	get:
 		return shownMesh
 

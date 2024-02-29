@@ -1,3 +1,5 @@
+!Style:	StartBlank
+
 !Style:	H1
 Lato
 !Style:	normal
@@ -68,7 +70,7 @@ by Tatiana Lugovaya (ODC-By v1.0)
 (https://physionet.org/content/ecgiddb/1.0.0/)
 As the ECG was taken from material used for master's thesis for
 russian university, it needs to be emphasized that the parties
-mentioned do not have any affiliation with this demo!
+mentioned here do not have any affiliation with this demo!
 
 Satellite wreck flyby / end scroller:
 Sound: "Black Hole Sonification: Perseus"
@@ -80,5 +82,19 @@ Font: Godot's default
 !Style:	normal
 !Posx:	0
 
-Mashing aforementioned assets up, rig building, snow sculpting,
-lidar scanning, post-processing the data, coding, animating etc. by Nupo.
+Mashing up the aforementioned assets, rig building, snow sculpting,
+lidar scanning, post-processing the GNSS & lidar-data, coding,
+animating etc. by Nupo.
+
+Some tools used when making this demo (in approximate order of usage):
+- GNSS-Stylus to collect GNSS & lidar-data, constructing point clouds and
+creating "paths" for the lidar scanner & camera rig. Modified version
+used to generate data to better visualize and animate the lidar scans.
+- MeshLab to post-process those point clouds into 3D-objects.
+- Godot Engine to make the demo itself.
+- GIMP: to create solar cell texture and generic gfx-editing.
+- Material Maker to create "golden" (=polyimide) surface for the satellite.
+- Blender to create satellite wreck main body.
+
+These are all free and open source software (FOSS). This demo would not 
+be possible to make without the free assets and tools mentioned. 
