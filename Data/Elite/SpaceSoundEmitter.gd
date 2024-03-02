@@ -13,7 +13,7 @@ class_name SpaceSoundEmitter
 @export var distanceChangeFilterCoeff:float = 0.01
 
 func _ready():
-	pass # Replace with function body.
+	reset()
 
 var attackElapsed:float = 0
 var decayElapsed:float = 0
@@ -118,3 +118,10 @@ func _physics_process(delta):
 	volume_db = tempVolume
 
 	lastCameraDistance = currentCameraDistance
+
+func reset():
+	state = EnvelopeState.NONE
+	attackElapsed = 0
+	decayElapsed = 0
+	lastCameraDistance = 0
+	stop()

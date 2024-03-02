@@ -16,7 +16,9 @@ var lastLeadingEdgeDistance = 0
 
 @onready var beam:MeshInstance3D = $Beam
 @onready var hitGlow:MeshInstance3D = $Beam/HitGlow
-@onready var sound:SpaceSoundEmitter = $SpaceSoundEmitter
+@onready var beamSound:SpaceSoundEmitter = $SpaceSoundEmitter_Beam
+@onready var hitSound:SpaceSoundEmitter = $SpaceSoundEmitter_Hit
+@onready var fireSound:SpaceSoundEmitter = $SpaceSoundEmitter_Fire
 
 func shootFromNode(originNode:Node3D, albedo:Color, selfDestructDistance_p:float = 0, shootTime_p:float = 0):
 	shoot(originNode.global_position, -originNode.global_transform.basis.z, albedo, selfDestructDistance_p, shootTime_p)
@@ -45,6 +47,8 @@ func reset():
 func _ready():
 #	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
 	reset()
+	
+var wasShot:bool = false
 
 func _physics_process(_delta):
 	if ((shootTime != 0) && (Global.masterReplayTime > shootTime)):
@@ -54,8 +58,12 @@ func _physics_process(_delta):
 			var leadingEdgeDistance = max(elapsed * flyingSpeed, 0)
 			var trailingEdgeDistance = max(leadingEdgeDistance - beamLength, 0)
 			
+			if (!wasShot):
+				fireSound.reset()
+				fireSound.visible = true
+			
 #			sound.transform.origin.z = -(leadingEdgeDistance + trailingEdgeDistance) / 2
-			sound.transform.origin.z = -(leadingEdgeDistance) / 2
+			beamSound.transform.origin.z = -(leadingEdgeDistance) / 2
 			
 			if ((hitDistance == 0) && (lastLeadingEdgeDistance > 10)):
 				# TODO: Hitpoint should be updated continuously while hitting
@@ -71,6 +79,8 @@ func _physics_process(_delta):
 					# Hit something, get distance along the fly path
 					var hitPos:Vector3 = result.position
 					hitDistance = (hitPos - self.global_position).dot(-self.global_transform.basis.z)
+					hitSound.reset()
+					fireSound.visible = false
 
 			lastLeadingEdgeDistance = leadingEdgeDistance
 				
@@ -83,6 +93,7 @@ func _physics_process(_delta):
 					beam.visible = false
 				elif (leadingEdgeDistance > hitDistance):
 					# Currently hitting
+					hitSound.visible = true
 					leadingEdgeDistance = hitDistance
 					beam.visible = true
 					hitGlow.visible = true
@@ -99,10 +110,17 @@ func _physics_process(_delta):
 			beam.set_instance_shader_parameter("leadingEdge", leadingEdgeDistance)
 			beam.set_instance_shader_parameter("trailingEdge", trailingEdgeDistance)
 			
+			wasShot = true
+			
 		else:
+			wasShot = false
 			beam.visible = false
+			fireSound.visible = false
 
 	else:
+		wasShot = false
 		beam.visible = false
+		hitSound.visible = false
+		fireSound.visible = false
 
-	sound.visible = beam.visible
+	beamSound.visible = beam.visible
