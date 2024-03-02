@@ -80,6 +80,7 @@ func _physics_process(_delta):
 					var hitPos:Vector3 = result.position
 					hitDistance = (hitPos - self.global_position).dot(-self.global_transform.basis.z)
 					hitSound.reset()
+					hitSound.transform.origin.z = -hitDistance
 					fireSound.visible = false
 
 			lastLeadingEdgeDistance = leadingEdgeDistance
