@@ -8876,7 +8876,7 @@ tracks/13/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:ev
 tracks/13/interp = 1
 tracks/13/loop_wrap = false
 tracks/13/keys = {
-"times": PackedFloat32Array(494, 504),
+"times": PackedFloat32Array(530, 540),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -8888,7 +8888,7 @@ tracks/14/path = NodePath("World/Planet/BlackHole_Eater2:eventHorizonRadius")
 tracks/14/interp = 1
 tracks/14/loop_wrap = false
 tracks/14/keys = {
-"times": PackedFloat32Array(494, 504),
+"times": PackedFloat32Array(530, 540),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -8900,7 +8900,7 @@ tracks/15/path = NodePath("World/Planet/BlackHole_Eater3:eventHorizonRadius")
 tracks/15/interp = 1
 tracks/15/loop_wrap = false
 tracks/15/keys = {
-"times": PackedFloat32Array(494, 504),
+"times": PackedFloat32Array(530, 540),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -8912,7 +8912,7 @@ tracks/16/path = NodePath("WorldEnvironment:environment:adjustment_brightness")
 tracks/16/interp = 1
 tracks/16/loop_wrap = false
 tracks/16/keys = {
-"times": PackedFloat32Array(498, 504),
+"times": PackedFloat32Array(534, 540),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.01]
@@ -19950,7 +19950,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_4oau6"]
+[sub_resource type="Image" id="Image_u6mhv"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -19960,7 +19960,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_4oau6")
+image = SubResource("Image_u6mhv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -21377,15 +21377,13 @@ transform = Transform3D(-0.478556, 0.878036, -0.00604505, -0.671901, -0.361757, 
 directional_shadow_max_distance = 1000.0
 
 [node name="TextureRect_StartBackground" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -832.0
-offset_bottom = -352.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("ImageTexture_pxyoe")
-expand_mode = 1
 
 [node name="Panel_Start" type="Panel" parent="."]
 anchors_preset = 8
@@ -21996,7 +21994,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958929, 0.0592617, -0.308137, 0, 0.980437, 0.231912, 0.28337, 0.200543, -1.04274, 0, 0, 50)
+transform = Transform3D(-0.958938, 0.0592686, -0.310575, 0, 0.98055, 0.233746, 0.283373, 0.200566, -1.05099, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22004,7 +22002,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.886001, -0.327518, -0.326805, -1.48989e-08, 0.703173, -0.708776, 0.46335, 0.626268, 0.624905, -180.814, -993.197, 880.29)
+transform = Transform3D(0.886003, -0.327519, -0.326804, -1.48989e-08, 0.703175, -0.708775, 0.463351, 0.62627, 0.624904, -180.814, -993.197, 880.29)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -22018,7 +22016,6 @@ visible = false
 
 [node name="Thargoid" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("83_slc3d")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Elite/DebugShipTrackReplayer"]
 fov = 42.0
@@ -22166,9 +22163,24 @@ offset_bottom = 31.0
 grow_horizontal = 0
 text = "Close"
 
+[node name="Label_LoadingInfo" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -51.5
+offset_right = 271.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]

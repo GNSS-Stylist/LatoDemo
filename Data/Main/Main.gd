@@ -100,7 +100,7 @@ func _ready():
 		deathRaySurface.material_override.set_shader_parameter("soundDataSamplerB", null)
 
 		return
-		
+
 	mainAnimationPlayer.stop()
 	subAnimationSelector.current_animation = "EndOfTheWorld"
 
@@ -207,12 +207,6 @@ func _ready():
 		await get_tree().process_frame
 		await get_tree().process_frame
 
-		var img = get_viewport().get_texture().get_image()
-		var tex:ImageTexture = ImageTexture.create_from_image(img)
-		$TextureRect_StartBackground.texture = tex
-		$TextureRect_StartBackground.visible = true
-		$Panel_Start.visible = true
-
 #	$MeshInstance_DbgShit.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[0]
 #	$MeshInstance_DbgShit2.material_override = $OscilloscopeDataStorage.scopeBlockMaterials[1]
 
@@ -270,6 +264,7 @@ var shaderPrecompilerStopIndex:int = 0
 var shaderPrecompilerFrameCount:int = 0
 var shaderPrecompilerAnimStops:Array[float]
 const shaderPreCompilerNumOfFramesToWait:int = 5
+var demoInitSubState:int = 0
 
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
@@ -337,31 +332,55 @@ func _process(delta):
 
 	match Global.demoState:
 		Global.DemoState.DS_SHOWING_START_DIALOG:
-			pass
+			demoInitSubState = 0
+			$Label_Subtitle.visible = false
 		Global.DemoState.DS_INIT:
-			handleDemoStartInits()
-			shaderPrecompilerStopIndex = 0
-			shaderPrecompilerFrameCount = 0
-			Global.demoState = Global.DemoState.DS_PRECOMPILING_SHADERS
+			match (demoInitSubState):
+				0:
+					Global.muted = true	# To prevent SpaceSoundEmitters to emit sound
+					handleDemoStartInits()
+				1:
+					pass
+				2:
+					var img = get_viewport().get_texture().get_image()
+					var tex:ImageTexture = ImageTexture.create_from_image(img)
+					$TextureRect_StartBackground.texture = tex
+					$TextureRect_StartBackground.visible = true
+					shaderPrecompilerStopIndex = 0
+					shaderPrecompilerFrameCount = 0
+					Global.demoState = Global.DemoState.DS_PRECOMPILING_SHADERS
+					
+			demoInitSubState += 1
+
 
 		Global.DemoState.DS_PRECOMPILING_SHADERS:
 #			if (shaderPrecompilerStopIndex < shaderPrecompilerAnimStops.size()):
 #				print("Shader precomp, time: ", shaderPrecompilerAnimStops[shaderPrecompilerStopIndex], ", delta: ", delta)
 
 			if (shaderPrecompilerStopIndex >= shaderPrecompilerAnimStops.size()):
-				mainAnimationPlayer.speed_scale = 1
+				mainAnimationPlayer.speed_scale = 0
 				mainAnimationPlayer.seek(0)
 				mainAnimationPlayer.play()
-				$MainTunePlayer.play(dbgPlayStartPos)
+				$MainTunePlayer.my_seek(0)
 				Global.processActionKeys = true
-				$TextureRect_StartBackground.visible = false
-				if (shaderPrecompilerFrameCount >= 1):
+				if (shaderPrecompilerFrameCount >= 2):
+					$TextureRect_StartBackground.visible = false
 					# Wait for one frame to allow animation to update it's tracks
 					# (otherwise the satellite wreck debris will be regenerated 
 					# "on the fly", which causes massive freeze on "death"-text)
+					# And wait for another frame to allow screen to update
+					Global.muted = false
 					Global.demoState = Global.DemoState.DS_RUNNING
+					$MainTunePlayer.play(dbgPlayStartPos)
+					mainAnimationPlayer.speed_scale = 1
+					$Label_Subtitle.visible = false
+					$Label_LoadingInfo.visible = false
 
 			elif (shaderPrecompilerFrameCount == 0):
+				var subTitle:String = "Precompiling shaders\n%d / %d (%d%% ready)" % [shaderPrecompilerStopIndex + 1, shaderPrecompilerAnimStops.size(), 100 * shaderPrecompilerStopIndex / shaderPrecompilerAnimStops.size()]
+				$Label_LoadingInfo.text = subTitle
+				$Label_LoadingInfo.visible = true
+
 				if (absf(mainAnimationPlayer.current_animation_position - shaderPrecompilerAnimStops[shaderPrecompilerStopIndex]) > 0.001):
 					# Update animation position
 					# seek doesn't seem to update things if not played for at least one frame
@@ -383,17 +402,6 @@ func _process(delta):
 		
 #		Global.DemoState.DS_RUNNING:
 #			pass
-			
-			
-
-#	if (demoStarted):
-#		if (!demoStartRitualsDone):
-#			handleDemoStartInits()
-#			demoStartRitualsDone = true
-#			Global.processActionKeys = true
-
-
-
 
 	if (!Engine.is_editor_hint() && Global.processActionKeys):
 		accumulatedDelta += delta
