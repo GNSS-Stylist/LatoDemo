@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnhwibe8wql0n"]
+
+[ext_resource type="Script" path="res://Data/Elite/SpaceSoundEmitter.gd" id="1_8ctj1"]
+
+[node name="SpaceSoundEmitter" type="AudioStreamPlayer3D"]
+attenuation_model = 3
+script = ExtResource("1_8ctj1")
+speedOfSound = 300.0
