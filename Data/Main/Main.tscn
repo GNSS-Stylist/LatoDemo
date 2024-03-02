@@ -1,4 +1,4 @@
-[gd_scene load_steps=221 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=223 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -88,6 +88,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bqcjngtfhlwbp" path="res://Data/Elite/Thargoid/Thargoid_Mesh.tres" id="83_24ox8"]
 [ext_resource type="PackedScene" uid="uid://1pel5s3sdw3c" path="res://Data/Elite/Thargoid/Thargoid.tscn" id="83_slc3d"]
 [ext_resource type="ArrayMesh" uid="uid://drxj0u8pvy2vl" path="res://Data/Elite/Viper/Viper_Mesh.tres" id="85_70q2d"]
+[ext_resource type="PackedScene" uid="uid://dnhwibe8wql0n" path="res://Data/Elite/SpaceSoundEmitter.tscn" id="87_jwgut"]
+[ext_resource type="AudioStream" uid="uid://hueho7bu8t5m" path="res://Data/Sound/ThargoidHum.wav" id="88_4faq8"]
 [ext_resource type="Shader" path="res://Data/Elite/Wormhole.gdshader" id="88_5f475"]
 [ext_resource type="ArrayMesh" uid="uid://iomnafexfeww" path="res://Data/Elite/FerDeLance/FerDeLance_Mesh.tres" id="88_11ddh"]
 [ext_resource type="Script" path="res://Data/Elite/Wormhole.gd" id="89_pw1o0"]
@@ -16389,6 +16391,54 @@ tracks/51/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("Elite/SubViewport/Ships/CobraMkIII:visible")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("Elite/SubViewport/Ships/Python:visible")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("Elite/SubViewport/Ships/Thargoid:visible")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("Elite/SubViewport/Ships/Viper:visible")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_old0x"]
 resource_name = "SpaceStationFlyby"
@@ -19950,7 +20000,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_u6mhv"]
+[sub_resource type="Image" id="Image_27wi7"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -19960,7 +20010,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_u6mhv")
+image = SubResource("Image_27wi7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -21745,7 +21795,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21828,7 +21878,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -21898,8 +21948,13 @@ fov = 42.0
 near = 10.0
 far = 2000.0
 
+[node name="SpaceSoundEmitter" parent="Elite/ShipDrawMeshes/CobraMKIII" instance=ExtResource("87_jwgut")]
+stream = ExtResource("88_4faq8")
+attenuation_model = 0
+basePitch = 2.0
+
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -21933,6 +21988,12 @@ material_override = SubResource("ShaderMaterial_6wyo6")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_0nopv")
 
+[node name="SpaceSoundEmitter" parent="Elite/ShipDrawMeshes/Thargoid" instance=ExtResource("87_jwgut")]
+stream = ExtResource("88_4faq8")
+attenuation_model = 0
+max_distance = 1000.0
+sustainVolume = 20.0
+
 [node name="Viper" type="Node3D" parent="Elite/ShipDrawMeshes"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1414, 1414, 0)
 visible = false
@@ -21961,7 +22022,7 @@ mesh = ExtResource("88_11ddh")
 [node name="DebugFerDeLance" parent="Elite/ShipDrawMeshes/FerDeLance" instance=ExtResource("89_yq2kf")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -22016,6 +22077,7 @@ visible = false
 
 [node name="Thargoid" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("83_slc3d")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Elite/DebugShipTrackReplayer"]
 fov = 42.0
@@ -22024,12 +22086,15 @@ far = 3000.0
 
 [node name="Viper" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("81_h8242")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+visible = false
 
 [node name="Python" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("79_tcqdf")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+visible = false
 
 [node name="FerDeLance" parent="Elite/DebugShipTrackReplayer" instance=ExtResource("89_yq2kf")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+visible = false
 
 [node name="ShipTrackReplayers" type="Node3D" parent="Elite"]
 
