@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://chd1yy08jf5w4"]
+[gd_scene load_steps=9 format=3 uid="uid://chd1yy08jf5w4"]
 
 [ext_resource type="Script" path="res://Data/Elite/LaserBeam/LaserBeam.gd" id="1_2j646"]
 [ext_resource type="Shader" path="res://Data/Elite/LaserBeam/LaserBeam.gdshader" id="2_t6ujq"]
+[ext_resource type="PackedScene" uid="uid://dnhwibe8wql0n" path="res://Data/Elite/SpaceSoundEmitter.tscn" id="3_lubux"]
+[ext_resource type="AudioStream" uid="uid://b44mb56x4jls4" path="res://Data/Sound/LaserSawLoop1kHz.wav" id="4_f4yyl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_euctv"]
 render_priority = 0
@@ -44,3 +46,11 @@ top_level = true
 material_override = SubResource("StandardMaterial3D_fmal2")
 mesh = SubResource("SphereMesh_a2xll")
 skeleton = NodePath("../..")
+
+[node name="SpaceSoundEmitter" parent="." instance=ExtResource("3_lubux")]
+visible = false
+stream = ExtResource("4_f4yyl")
+attenuation_model = 0
+max_distance = 1000.0
+speedOfSound = 3000.0
+sustainVolume = 20.0

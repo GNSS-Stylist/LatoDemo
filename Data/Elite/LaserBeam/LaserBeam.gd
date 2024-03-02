@@ -16,6 +16,7 @@ var lastLeadingEdgeDistance = 0
 
 @onready var beam:MeshInstance3D = $Beam
 @onready var hitGlow:MeshInstance3D = $Beam/HitGlow
+@onready var sound:SpaceSoundEmitter = $SpaceSoundEmitter
 
 func shootFromNode(originNode:Node3D, albedo:Color, selfDestructDistance_p:float = 0, shootTime_p:float = 0):
 	shoot(originNode.global_position, -originNode.global_transform.basis.z, albedo, selfDestructDistance_p, shootTime_p)
@@ -52,6 +53,9 @@ func _physics_process(_delta):
 		if (elapsed > 0):
 			var leadingEdgeDistance = max(elapsed * flyingSpeed, 0)
 			var trailingEdgeDistance = max(leadingEdgeDistance - beamLength, 0)
+			
+#			sound.transform.origin.z = -(leadingEdgeDistance + trailingEdgeDistance) / 2
+			sound.transform.origin.z = -(leadingEdgeDistance) / 2
 			
 			if ((hitDistance == 0) && (lastLeadingEdgeDistance > 10)):
 				# TODO: Hitpoint should be updated continuously while hitting
@@ -97,6 +101,8 @@ func _physics_process(_delta):
 			
 		else:
 			beam.visible = false
+
 	else:
 		beam.visible = false
-		
+
+	sound.visible = beam.visible
