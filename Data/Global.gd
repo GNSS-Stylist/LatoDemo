@@ -63,8 +63,8 @@ var blockableGNSSSignalRaycast:bool = true
 
 var processActionKeys:bool = false
 
-# Master mute for sound (used for effects mostly)
-var muted:bool = false
+# Master mute for sound effects (track can be muted with tunePlayer itself)
+var muteSfx:bool = false
 
 enum DemoState {
 	DS_SHOWING_START_DIALOG, 

@@ -39,6 +39,7 @@ points = PackedVector3Array(0.3, 0.0999804, 0.0998923, 0.3, -0.1, 0.0998923, 0, 
 script = ExtResource("1_7w22f")
 
 [node name="MainBody" type="MeshInstance3D" parent="."]
+layers = 262144
 material_override = SubResource("ShaderMaterial_f07x0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

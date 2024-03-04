@@ -113,7 +113,7 @@ func _physics_process(delta):
 			decayElapsed += delta
 				
 	
-	if (Global.muted):
+	if (Global.muteSfx):
 		tempVolume = -100
 	
 	volume_db = tempVolume

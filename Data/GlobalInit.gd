@@ -48,6 +48,7 @@ extends Node
 
 @export var editorCameraNodePath:NodePath	# = get_node("/root/Main/InterpolatedCamera")
 @export var blockableGNSSSignalRaycast:bool = false
+@export var muteSfx:bool = false	# Master mute for sound effects (track can be muted with tunePlayer itself)
 #@export var cleanTempToolData:bool = false
 
 var scopeAutoSoundPosAdjustStartRefPointNode:Node3D
@@ -105,6 +106,8 @@ func _process(_delta):
 	Global.replayTimeOverride_AdditiveGeometries = replayTimeOverride_AdditiveGeometries + replayTimeShift_Lidar
 	Global.overrideReplayTime_AdditiveGeometries = overrideReplayTime_AdditiveGeometries
 	Global.blockableGNSSSignalRaycast = blockableGNSSSignalRaycast
+	
+	Global.muteSfx = muteSfx
 
 #	blockableGNSSSignalMaterial.set_shader_param("lineWidthLow", scopeLineWidthLow)
 #	blockableGNSSSignalMaterial.set_shader_param("lineWidthHigh", scopeLineWidthHigh)

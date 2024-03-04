@@ -343,7 +343,10 @@ func _process(delta):
 		Global.DemoState.DS_INIT:
 			match (demoInitSubState):
 				0:
-					Global.muted = true	# To prevent SpaceSoundEmitters to emit sound
+					mainAnimationPlayer.speed_scale = 0
+					mainAnimationPlayer.seek(0)
+					mainAnimationPlayer.play()
+					Global.muteSfx = true	# To prevent SpaceSoundEmitters to emit sound
 					handleDemoStartInits()
 				1:
 					pass
@@ -391,7 +394,7 @@ func _process(delta):
 					# (otherwise the satellite wreck debris will be regenerated 
 					# "on the fly", which causes massive freeze on "death"-text)
 					# And wait for another frame to allow screen to update
-					Global.muted = false
+					#Global.muteSfx = false # Muted by default.
 					Global.demoState = Global.DemoState.DS_RUNNING
 					$MainTunePlayer.play(dbgPlayStartPos)
 					mainAnimationPlayer.speed_scale = 1
