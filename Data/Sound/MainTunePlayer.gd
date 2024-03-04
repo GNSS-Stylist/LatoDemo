@@ -27,7 +27,7 @@ func _process(delta):
 			playbackSpeedDeltaMultiplier = 1.0 + (posDiff * 0.1)
 
 func getFilteredPlaybackPosition():
-	if (playing):
+	if (playing && stream):
 		return min(filteredPlaybackPosition, self.stream.get_length())
 	else:
 		return pausePosition
@@ -46,7 +46,11 @@ func my_seek(position:float):
 		super.seek(position)
 		filteredPlaybackPosition = position
 	else:
-		pausePosition = min(max(position, 0), stream.get_length())
+		var streamLength = 3600
+		if (stream):
+			streamLength = stream.get_length()
+			
+		pausePosition = min(max(position, 0), streamLength)
 		filteredPlaybackPosition = pausePosition
 		
 		

@@ -266,6 +266,12 @@ var shaderPrecompilerAnimStops:Array[float]
 const shaderPreCompilerNumOfFramesToWait:int = 5
 var demoInitSubState:int = 0
 
+enum Remix { GREAT_LEADERS, POMPOUS_MAXIMUS }
+
+var remix:Remix = Remix.GREAT_LEADERS
+
+var lastEditorRemixAnimName:String = ""
+
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		#print("Clean (dbg, main)")
@@ -346,6 +352,22 @@ func _process(delta):
 					var tex:ImageTexture = ImageTexture.create_from_image(img)
 					$TextureRect_StartBackground.texture = tex
 					$TextureRect_StartBackground.visible = true
+				3:
+					$Label_LoadingInfo.text = "Loading tune"
+					$Label_LoadingInfo.visible = true
+					
+					var trackFileName:String
+					match remix:
+						Remix.GREAT_LEADERS:
+							trackFileName = "res://Data/Sound/SpaceJunk.mp3"
+						Remix.POMPOUS_MAXIMUS:
+							trackFileName = "res://Data/Sound/SpaceJunk_PompousMaximus.mp3"
+						
+					var file = FileAccess.open(trackFileName, FileAccess.READ)
+					var sound = AudioStreamMP3.new()
+					sound.data = file.get_buffer(file.get_length())
+					$MainTunePlayer.stream = sound
+				4:
 					shaderPrecompilerStopIndex = 0
 					shaderPrecompilerFrameCount = 0
 					Global.demoState = Global.DemoState.DS_PRECOMPILING_SHADERS
@@ -417,6 +439,32 @@ func _process(delta):
 	var tunePlaybackPosition:float = tunePlayer.getFilteredPlaybackPosition()
 	
 	if Engine.is_editor_hint():
+		# Select soundtrack based on selected animation
+		# (setting it on an animation track causes crackling sound, not
+		# investigating it further now)
+		
+		var currentRemix:String = $SubAnimationSelector.current_animation
+		
+		if (currentRemix != lastEditorRemixAnimName):
+			var trackFileName:String
+
+			match (currentRemix):
+				"EndOfTheWorld":
+					trackFileName = "res://Data/Sound/SpaceJunk.mp3"
+				"PartyOn":
+					trackFileName = "res://Data/Sound/SpaceJunk_PompousMaximus.mp3"
+
+			var file = FileAccess.open(trackFileName, FileAccess.READ)
+			if (file):
+				var sound = AudioStreamMP3.new()
+				sound.data = file.get_buffer(file.get_length())
+				$MainTunePlayer.stream = sound
+				print_debug("Switching soundtrack to ", trackFileName)
+			else:
+				$MainTunePlayer.stream = null
+				print_debug("Soundtrack cleared")
+			lastEditorRemixAnimName = currentRemix
+		
 		# Apparently you can not get animation position from a paused animation
 		# Added a new track just for position as a workaround
 #		if (masterAnimationPlayer.current_animation == ""):
@@ -527,10 +575,12 @@ func handleDemoStartInits():
 		
 	# TODO: Add ending-related inits here
 	if ($Panel_Start/OptionButton_Ending.get_selected_id() == 1):
+		remix = Remix.GREAT_LEADERS
 		subAnimationSelector.current_animation = "EndOfTheWorld"
 		shaderPrecompilerAnimStops = shaderPrecompilerAnimStops_GreatLeaders
 		$SubViewport_Scroller/ScrollerMainNode/Scroller.loadFile("res://Data/Scroller/ScrollText_GreatLeaders.txt")
 	else:
+		remix = Remix.POMPOUS_MAXIMUS
 		subAnimationSelector.current_animation = "PartyOn"
 		shaderPrecompilerAnimStops = shaderPrecompilerAnimStops_PartyOn
 		$Elite/ShipTrackReplayers/ShipTracker_Thargoid.loadFromFile("res://Data/Elite/FlyTracks/Thargoid.trk")

@@ -1,3 +1,4 @@
+@tool
 extends AudioStreamPlayer3D
 
 class_name SpaceSoundEmitter

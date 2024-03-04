@@ -24,7 +24,6 @@
 [ext_resource type="Script" path="res://Data/Sound/MainTunePlayer.gd" id="18_fyjuc"]
 [ext_resource type="PackedScene" uid="uid://bbs7gsw3wkwdo" path="res://Data/Main/DebugTransformIndicator.tscn" id="19_iu4rg"]
 [ext_resource type="PackedScene" uid="uid://wbaalqedwstv" path="res://Data/Satellite/satellite.tscn" id="19_n5l64"]
-[ext_resource type="AudioStream" uid="uid://dtnkjv2avc5o8" path="res://Data/Sound/SpaceJunk.mp3" id="19_qdtb0"]
 [ext_resource type="PackedScene" uid="uid://cffm7mp1d1xfy" path="res://Data/Oscilloscope/BunchOfGNSSSignals.tscn" id="19_r0yum"]
 [ext_resource type="PackedScene" uid="uid://dfuymc6rqotx8" path="res://Data/Satellite/hall_thruster_cluster.tscn" id="20_18lgt"]
 [ext_resource type="PackedScene" uid="uid://bbpofx61m3y0f" path="res://Data/Main/GNSSAntenna.tscn" id="20_akcw6"]
@@ -1401,7 +1400,7 @@ tracks/1/path = NodePath(".:animationCameraAnchorIndexB")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 81.5, 161, 166, 169.87, 170.87, 177.598, 244, 245, 280),
+"times": PackedFloat32Array(0, 81.5, 161, 166, 169.87, 170.87, 177.598, 244, 245, 278.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [1, 6, 6, 2, 2, 3, 2, 2, 3, 9]
@@ -1413,7 +1412,7 @@ tracks/2/path = NodePath(".:animationCameraFraction")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 52, 55.5, 81.5, 82.5, 83.5, 143.069, 145.142, 176.137, 177.598, 179.598, 243, 244, 245, 257.387, 258.387, 281, 282, 283, 320),
+"times": PackedFloat32Array(0, 52, 55.5, 81.5, 82.5, 83.5, 143.069, 145.142, 176.137, 177.598, 179.598, 243, 244, 245, 257.387, 258.387, 279, 280, 281, 320),
 "transitions": PackedFloat32Array(1, 1, 1, 2, 0.5, 1, 1, 1, 1, 0.5, 1, 2, 0.5, 1, 1, 1, 2, 0.5, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.0, 0.0, 0.5, 1.0, 1.0]
@@ -1833,9 +1832,9 @@ tracks/37/path = NodePath("World/Planet/Crust:material_override:shader_parameter
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 2, 0, 0),
-"points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0, 13, 0, 100000, 1, 0, 13, -0.25, 0, 5, 0, 2492.56, -1.56657, -2482.54, 3.13293, 4964.73, 31149.7, -0.5569, -8521.78, 8.63297, 132103, 2e+06, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(256, 260.7, 262.5, 270.1, 274, 287)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(100000, -0.25, 0, 0.25, 0, 13, 0, 100000, 1, 0, 13, -0.25, 0, 6, 0, 2492.56, -1.56657, -2482.54, 3.13293, 4964.73, 31149.7, -0.5569, -8521.78, 8.63297, 132103, 2e+06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(256, 260.7, 262.5, 271, 274, 287)
 }
 tracks/38/type = "bezier"
 tracks/38/imported = false
@@ -1846,7 +1845,7 @@ tracks/38/loop_wrap = true
 tracks/38/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
 "points": PackedFloat32Array(1, -5, 0, 3.786, 0, 56.3527, -0.744427, -22.1332, 12.0862, 359.344, 10000, -8, 0, 5, 0),
-"times": PackedFloat32Array(260, 267.4, 283)
+"times": PackedFloat32Array(260, 267.4, 280.9)
 }
 tracks/39/type = "value"
 tracks/39/imported = false
@@ -3107,18 +3106,6 @@ tracks/95/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/96/type = "value"
-tracks/96/imported = false
-tracks/96/enabled = true
-tracks/96/path = NodePath("MainTunePlayer:volume_db")
-tracks/96/interp = 1
-tracks/96/loop_wrap = false
-tracks/96/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-80.0]
 }
 
 [sub_resource type="Animation" id="Animation_ay6ay"]
@@ -15325,6 +15312,53 @@ tracks/343/keys = {
 "points": PackedFloat32Array(0.09, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/344/type = "value"
+tracks/344/imported = false
+tracks/344/enabled = true
+tracks/344/path = NodePath("AnimatedCamera:position")
+tracks/344/interp = 1
+tracks/344/loop_wrap = true
+tracks/344/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1396.3, 1426.71, -10.095)]
+}
+tracks/345/type = "value"
+tracks/345/imported = false
+tracks/345/enabled = true
+tracks/345/path = NodePath("AnimatedCamera:quaternion")
+tracks/345/interp = 1
+tracks/345/loop_wrap = true
+tracks/345/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0.972097, 0.197527, 0.124629, 0.0218515)]
+}
+tracks/346/type = "value"
+tracks/346/imported = false
+tracks/346/enabled = true
+tracks/346/path = NodePath("MainTunePlayer:stream")
+tracks/346/interp = 1
+tracks/346/loop_wrap = false
+tracks/346/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/347/type = "bezier"
+tracks/347/imported = false
+tracks/347/enabled = true
+tracks/347/path = NodePath("Elite/ShipStaticPaths/Path_FerDeLance_PassBy/PathFollow_FerDeLance_PassBy:progress_ratio")
+tracks/347/interp = 1
+tracks/347/loop_wrap = true
+tracks/347/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -16443,7 +16477,7 @@ tracks/55/keys = {
 [sub_resource type="Animation" id="Animation_old0x"]
 resource_name = "SpaceStationFlyby"
 length = 600.0
-step = 1.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16463,7 +16497,7 @@ tracks/1/path = NodePath(".:animationCameraFraction")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(282, 325, 326, 327, 366.797, 368),
+"times": PackedFloat32Array(280.8, 325, 326, 327, 366.797, 368),
 "transitions": PackedFloat32Array(1, 2, 0.5, 1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.464264, 0.0, 0.0, 1.0]
@@ -16579,8 +16613,8 @@ tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -10, 0, 18.1707, 539.424, 648, -25, 0, 5, 0),
-"times": PackedFloat32Array(283, 325)
+"points": PackedFloat32Array(0, -10, 0, 17.8378, 410.403, 648, -25, 0, 5, 0),
+"times": PackedFloat32Array(282, 325)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
@@ -16601,8 +16635,8 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 6, 0, 1151.01, 0, 0, 0, 0),
-"times": PackedFloat32Array(287, 314.456)
+"points": PackedFloat32Array(0, -0.25, 0, 8, 0, 1151.01, 0, 0, 0, 0),
+"times": PackedFloat32Array(287, 318.3)
 }
 tracks/14/type = "bezier"
 tracks/14/imported = false
@@ -16633,7 +16667,7 @@ tracks/16/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(294, 296, 364),
+"times": PackedFloat32Array(309, 311, 379),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -16645,7 +16679,7 @@ tracks/17/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(296, 326, 366),
+"times": PackedFloat32Array(311, 341, 381),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [-11.9, -17.7, -22.5]
@@ -16657,7 +16691,7 @@ tracks/18/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(296, 326, 366),
+"times": PackedFloat32Array(311, 341, 381),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 4, -1]
@@ -16669,7 +16703,7 @@ tracks/19/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(296, 336),
+"times": PackedFloat32Array(311, 351),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-13.7, -18.9]
@@ -16681,7 +16715,7 @@ tracks/20/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(296, 336),
+"times": PackedFloat32Array(311, 351),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 5]
@@ -16693,7 +16727,7 @@ tracks/21/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(296, 344),
+"times": PackedFloat32Array(311, 359),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-14.9, -20.1]
@@ -16705,7 +16739,7 @@ tracks/22/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(296, 344),
+"times": PackedFloat32Array(311, 359),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, -1]
@@ -16717,7 +16751,7 @@ tracks/23/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(296),
+"times": PackedFloat32Array(311),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [-16.3]
@@ -16729,7 +16763,7 @@ tracks/24/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(296),
+"times": PackedFloat32Array(311),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
@@ -16743,7 +16777,7 @@ tracks/25/loop_wrap = true
 tracks/25/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(8, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(291, 393)
+"times": PackedFloat32Array(306, 408)
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -16955,6 +16989,17 @@ tracks/43/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(418, 435)
+}
+tracks/44/type = "bezier"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Elite/ShipStaticPaths/Path_FerDeLance_PassBy/PathFollow_FerDeLance_PassBy:progress_ratio")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.22, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(294.9, 404.6)
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -19340,7 +19385,7 @@ tracks/0/path = NodePath(".:animChangeReq")
 tracks/0/interp = 0
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 55, 82, 256, 283),
+"times": PackedFloat32Array(0, 55, 82, 256, 281),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": ["SatMorph", "Descent", "Construction", "AscensionToSpaceStation", "SpaceStationFlyby"]
@@ -19359,30 +19404,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [""]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedCamera:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedCamera:quaternion")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Quaternion(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58csn"]
@@ -20000,7 +20021,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_27wi7"]
+[sub_resource type="Image" id="Image_l3faj"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20010,7 +20031,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_27wi7")
+image = SubResource("Image_l3faj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -20146,6 +20167,14 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="Curve3D" id="Curve3D_f44ms"]
+bake_interval = 10.0
+_data = {
+"points": PackedVector3Array(-33.6554, -53.8937, -155.001, 33.6554, 53.8937, 155.001, 208.336, 127.891, -548.475, 136.542, 98.3357, -241.542, -136.542, -98.3357, 241.542, 247.119, 282.962, 133.403, 629.366, 408.526, -629.068, -629.366, -408.526, 629.068, -693.078, -870.224, 1143.1),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xd0ml"]
 render_priority = 0
 shader = ExtResource("88_5f475")
@@ -20207,6 +20236,7 @@ libraries = {
 }
 
 [node name="AnimatedCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.890901, 0.378585, 0.250935, 0.389479, -0.921011, 0.00675156, 0.23367, 0.0917188, -0.96798, 1396.3, 1426.71, -10.095)
 rotation_edit_mode = 1
 current = true
 fov = 42.0
@@ -20289,7 +20319,6 @@ update_scale = false
 
 [node name="MainTunePlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1000000
-stream = ExtResource("19_qdtb0")
 script = ExtResource("18_fyjuc")
 
 [node name="DebugThings" type="Node3D" parent="."]
@@ -21795,7 +21824,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21878,7 +21907,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -21924,6 +21953,22 @@ remote_path = NodePath("../../../../../ShipDrawMeshes/Viper")
 script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/Viper")
 
+[node name="FerDeLance" type="Node3D" parent="Elite/SubViewport/Ships"]
+transform = Transform3D(-0.976593, -0.0670431, -0.204382, -0.00116001, 0.951812, -0.306679, 0.215094, -0.299263, -0.929611, -1207, -1277.96, -547.02)
+script = ExtResource("78_oapl2")
+sourceNodePath = NodePath("../../../ShipStaticPaths/Path_FerDeLance_PassBy/PathFollow_FerDeLance_PassBy")
+destinationNodePath = NodePath("../../../ShipStaticPaths/Path_FerDeLance_PassBy/PathFollow_FerDeLance_PassBy")
+
+[node name="FerDeLance" parent="Elite/SubViewport/Ships/FerDeLance" instance=ExtResource("89_yq2kf")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Elite/SubViewport/Ships/FerDeLance/FerDeLance"]
+remote_path = NodePath("../../../../../ShipDrawMeshes/FerDeLance")
+
+[node name="RemoteVisibility" type="Node" parent="Elite/SubViewport/Ships/FerDeLance/FerDeLance"]
+script = ExtResource("79_qbdnx")
+remotePath = NodePath("../../../../../ShipDrawMeshes/FerDeLance")
+
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
@@ -21951,10 +21996,12 @@ far = 2000.0
 [node name="SpaceSoundEmitter" parent="Elite/ShipDrawMeshes/CobraMKIII" instance=ExtResource("87_jwgut")]
 stream = ExtResource("88_4faq8")
 attenuation_model = 0
+volume_db = -100.0
+pitch_scale = 2.0
 basePitch = 2.0
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -21991,6 +22038,7 @@ mesh = SubResource("SphereMesh_0nopv")
 [node name="SpaceSoundEmitter" parent="Elite/ShipDrawMeshes/Thargoid" instance=ExtResource("87_jwgut")]
 stream = ExtResource("88_4faq8")
 attenuation_model = 0
+volume_db = 20.0
 max_distance = 1000.0
 sustainVolume = 20.0
 
@@ -22010,7 +22058,7 @@ mesh = ExtResource("85_70q2d")
 [node name="DebugViper" parent="Elite/ShipDrawMeshes/Viper" instance=ExtResource("81_h8242")]
 
 [node name="FerDeLance" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 1414, 1500, 0)
+transform = Transform3D(-9.76593, -0.670431, -2.04382, -0.0116001, 9.51812, -3.06679, 2.15094, -2.99263, -9.29611, 206.997, 136.036, -547.02)
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/FerDeLance"]
 material_override = SubResource("ShaderMaterial_xy8no")
@@ -22022,7 +22070,7 @@ mesh = ExtResource("88_11ddh")
 [node name="DebugFerDeLance" parent="Elite/ShipDrawMeshes/FerDeLance" instance=ExtResource("89_yq2kf")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -22055,7 +22103,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958938, 0.0592686, -0.310575, 0, 0.98055, 0.233746, 0.283373, 0.200566, -1.05099, 0, 0, 50)
+transform = Transform3D(-0.958977, 0.0593104, -0.315126, 0, 0.981242, 0.237172, 0.283384, 0.200707, -1.06639, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22063,7 +22111,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.886003, -0.327519, -0.326804, -1.48989e-08, 0.703175, -0.708775, 0.463351, 0.62627, 0.624904, -180.814, -993.197, 880.29)
+transform = Transform3D(0.886004, -0.327506, -0.326804, -1.48989e-08, 0.703148, -0.708775, 0.463351, 0.626246, 0.624904, -180.814, -993.197, 880.29)
+
+[node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
+transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
+curve = SubResource("Curve3D_f44ms")
+
+[node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
+transform = Transform3D(-0.977109, -0.0682544, -0.200878, 0, 0.946704, -0.321674, 0.21216, -0.314348, -0.92515, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -22244,8 +22299,8 @@ grow_vertical = 2
 horizontal_alignment = 1
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
