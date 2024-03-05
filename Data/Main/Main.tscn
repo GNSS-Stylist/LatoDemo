@@ -1376,6 +1376,18 @@ tracks/60/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("SpaceStation:process_mode")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_pp4xi"]
 resource_name = "AscensionToSpaceStation"
@@ -3118,6 +3130,18 @@ tracks/96/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/97/type = "value"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("SpaceStation:process_mode")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_ay6ay"]
@@ -5714,6 +5738,18 @@ tracks/58/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("SpaceStation:process_mode")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_8ht0r"]
 resource_name = "Descent"
@@ -6664,6 +6700,18 @@ tracks/44/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("SpaceStation:process_mode")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_62hyn"]
@@ -8715,6 +8763,18 @@ tracks/111/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/112/type = "value"
+tracks/112/imported = false
+tracks/112/enabled = true
+tracks/112/path = NodePath("SpaceStation:process_mode")
+tracks/112/interp = 1
+tracks/112/loop_wrap = true
+tracks/112/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_dqvmp"]
 resource_name = "EndScroller"
@@ -9889,6 +9949,18 @@ tracks/69/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("SpaceStation:process_mode")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_ks6w7"]
@@ -11251,6 +11323,18 @@ tracks/58/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("SpaceStation:process_mode")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_ss0a7"]
@@ -15386,6 +15470,18 @@ tracks/348/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/349/type = "value"
+tracks/349/imported = false
+tracks/349/enabled = true
+tracks/349/path = NodePath("SpaceStation:process_mode")
+tracks/349/interp = 1
+tracks/349/loop_wrap = true
+tracks/349/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -16499,6 +16595,18 @@ tracks/55/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("SpaceStation:process_mode")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_old0x"]
@@ -18324,6 +18432,18 @@ tracks/106/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/107/type = "value"
+tracks/107/imported = false
+tracks/107/enabled = true
+tracks/107/path = NodePath("SpaceStation:process_mode")
+tracks/107/interp = 1
+tracks/107/loop_wrap = true
+tracks/107/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_y6bt2"]
 resource_name = "WreckFlyBy"
@@ -19371,6 +19491,18 @@ tracks/66/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("SpaceStation:process_mode")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjhbk"]
 _data = {
@@ -20050,7 +20182,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_laexy"]
+[sub_resource type="Image" id="Image_pkq71"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20060,7 +20192,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_laexy")
+image = SubResource("Image_pkq71")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -21834,6 +21966,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
+process_mode = 4
 transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
