@@ -34,7 +34,14 @@ var state:EnvelopeState = EnvelopeState.NONE
 var distanceChangeFilterStorage:float = 0
 
 func _physics_process(delta):
-	var currentCameraDistance:float = self.global_position.distance_to(get_viewport().get_camera_3d().global_position)
+	var camera = get_viewport().get_camera_3d()
+	
+	if (!camera):
+		# This can happen in the editor causing
+		# "Invalid get index 'global_position' (on base: 'null instance')"
+		return
+	
+	var currentCameraDistance:float = self.global_position.distance_to(camera.global_position)
 #	var distanceChangeInstantaneousSpeed = clamp((currentCameraDistance - lastCameraDistance) / delta, -speedOfSound, speedOfSound)
 	var distanceChangeInstantaneousSpeed = (currentCameraDistance - lastCameraDistance) / delta
 
