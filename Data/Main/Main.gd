@@ -33,6 +33,7 @@ var lidarLineSets = []
 
 @onready var mainAnimationPlayer:AnimationPlayer = get_node("MainAnimationPlayer")
 @onready var subAnimationSelector:AnimationPlayer = get_node("SubAnimationSelector")
+@onready var sunLight:DirectionalLight3D = get_node("GlobalLights/DirectionalLight_Sun")
 
 #var syncedAnimationPlayers = []
 
@@ -76,6 +77,11 @@ var lastActiveAnim:String = ""
 			animDbgPrint = dbgString
 	get:
 		return animDbgPrint
+
+# As sun in this case only casts shadows in space,
+# enabling the shadow needs to be filtered.
+@export var sunLightShadowEnable:bool = true
+@export var sunLightShadowRequest:bool = false
 
 var shaderPrecompilerAnimStops_GreatLeaders:Array[float] = [2, 6, 21, 34, 48, 52, 56, 77, 90, 125, 142, 146, 196, 236, 262, 306, 330, 338, 343, 377, 398]
 var shaderPrecompilerAnimStops_PartyOn:Array[float] = [2, 6, 21, 34, 48, 52, 56, 77, 90, 125, 142, 146, 196, 236, 275, 290, 308, 377, 430]
@@ -554,6 +560,8 @@ func _process(delta):
 
 	handleAnimatedCamera()
 	
+	sunLight.shadow_enabled = sunLightShadowEnable && sunLightShadowRequest
+	
 func handleDemoStartInits():
 	var msaa = Viewport.MSAA_DISABLED
 	
@@ -577,8 +585,9 @@ func handleDemoStartInits():
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-		
-	# TODO: Add ending-related inits here
+	
+	self.sunLightShadowEnable = $Panel_Start/CheckBox_Shadows.button_pressed
+	
 	if ($Panel_Start/OptionButton_Ending.get_selected_id() == 1):
 		remix = Remix.GREAT_LEADERS
 		subAnimationSelector.current_animation = "EndOfTheWorld"
