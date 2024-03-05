@@ -3,6 +3,8 @@ extends SubViewport
 
 @onready var mainNode:Node3D = get_parent().get_parent()
 
+const HorizontalResolution:int = 480
+
 var oldSize:Vector2i
 
 func _ready():
@@ -14,12 +16,12 @@ func _process(_delta):
 
 	if (Engine.is_editor_hint()):
 		# main viewport size doesn't work on editor
-		# -> Just use 320 * 180
-		currSize = Vector2i(320, 180)
+		# -> Just use HorizontalResolution * 6 / 9
+		currSize = Vector2i(HorizontalResolution, HorizontalResolution * 6 / 9)
 
 	if (currSize != oldSize):
-		var newYRes = 320 * currSize.y / currSize.x
-		var newRes:Vector2i = Vector2i(320, newYRes)
+		var newYRes = HorizontalResolution * currSize.y / currSize.x
+		var newRes:Vector2i = Vector2i(HorizontalResolution, newYRes)
 		print("New elite viewport size: ", newRes)
 		RenderingServer.global_shader_parameter_set("eliteOverlayResolution", Vector2(newRes))
 		self.size = newRes

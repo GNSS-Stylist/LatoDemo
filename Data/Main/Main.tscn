@@ -20038,7 +20038,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_roim5"]
+[sub_resource type="Image" id="Image_4f4f6"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20048,7 +20048,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_roim5")
+image = SubResource("Image_4f4f6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -20264,7 +20264,6 @@ muteSfx = true
 
 [node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
 process_priority = -1000
-speed_scale = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_cjhbk")
 }
@@ -20283,7 +20282,7 @@ fov = 42.0
 far = 100.0
 
 [node name="BunchOfGNSSSignals" parent="AnimatedCamera" instance=ExtResource("19_r0yum")]
-transform = Transform3D(0.890901, 0.389478, 0.233671, 0.378584, -0.921011, 0.0917188, 0.250936, 0.00675163, -0.96798, 0, 0, 0)
+transform = Transform3D(0.890901, 0.389479, 0.23367, 0.378585, -0.921011, 0.0917188, 0.250935, 0.00675157, -0.96798, 0, 0, 0)
 visible = false
 
 [node name="GNSSAntenna" parent="AnimatedCamera" instance=ExtResource("20_akcw6")]
@@ -21925,7 +21924,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 world_3d = SubResource("World3D_1d12g")
 transparent_bg = true
 canvas_cull_mask = 4294180864
-size = Vector2i(320, 180)
+size = Vector2i(480, 320)
 script = ExtResource("75_lxvg1")
 
 [node name="Camera3D" type="Camera3D" parent="Elite/SubViewport"]
@@ -22160,7 +22159,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958986, 0.0593253, -0.322303, 0, 0.981489, 0.242574, 0.283387, 0.200758, -1.09068, 0, 0, 50)
+transform = Transform3D(-0.958987, 0.0593256, -0.322303, 0, 0.981493, 0.242574, 0.283387, 0.200759, -1.09068, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22168,14 +22167,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885985, -0.327393, -0.326798, -1.48986e-08, 0.702906, -0.708762, 0.463341, 0.62603, 0.624892, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885985, -0.327393, -0.326798, -1.48986e-08, 0.702905, -0.708762, 0.463341, 0.626029, 0.624892, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857429, -0.473707, -0.20116, -0.398995, 0.858631, -0.322125, 0.324904, -0.195689, -0.926448, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857422, -0.473705, -0.20116, -0.398992, 0.858628, -0.322125, 0.324901, -0.195688, -0.926449, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -22363,8 +22362,8 @@ grow_vertical = 2
 horizontal_alignment = 1
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
