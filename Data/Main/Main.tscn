@@ -1,4 +1,4 @@
-[gd_scene load_steps=229 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=228 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -20038,7 +20038,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_fn8op"]
+[sub_resource type="Image" id="Image_roim5"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20048,7 +20048,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_fn8op")
+image = SubResource("Image_roim5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -20086,16 +20086,6 @@ radius = 0.01
 height = 0.02
 radial_segments = 4
 rings = 4
-
-[sub_resource type="TextMesh" id="TextMesh_u082j"]
-text = "Great leaders
-Discrimination
-again nations
-war
-Death"
-font = ExtResource("53_ox4j2")
-curve_step = 10.0
-depth = 0.0
 
 [sub_resource type="TextMesh" id="TextMesh_2e57t"]
 font = ExtResource("53_ox4j2")
@@ -20372,10 +20362,6 @@ process_priority = -1000000
 script = ExtResource("18_fyjuc")
 
 [node name="DebugThings" type="Node3D" parent="."]
-
-[node name="DebugCobraMkIII" parent="DebugThings" instance=ExtResource("74_otxia")]
-transform = Transform3D(0.923338, 0.174972, -0.341807, -0.365525, 0.673213, -0.642788, 0.117639, 0.718449, 0.68556, 0, 0.00012207, 0)
-visible = false
 
 [node name="GroundZero" type="MeshInstance3D" parent="DebugThings"]
 visible = false
@@ -21096,6 +21082,7 @@ mesh = SubResource("QuadMesh_c3jxt")
 transform = Transform3D(1, 0, 0, 0, 1, -4.65661e-10, 0, -4.19095e-09, 1, 0, 0.048, 0.09)
 
 [node name="DebugIndicator" type="MeshInstance3D" parent="World/CameraRig/CameraObject/DisplayCameraAnchor"]
+visible = false
 mesh = SubResource("BoxMesh_gtdhh")
 
 [node name="CameraLensAnchor" type="Node3D" parent="World/CameraRig/CameraObject"]
@@ -21707,13 +21694,9 @@ rotation_mode = 0
 loop = false
 tilt_enabled = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MainPaths/Path_Barn1_LookAt/PathFollow_Barn1_LookAt"]
-mesh = SubResource("SphereMesh_huccv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0757742, 0, 0)
+[node name="DebugIndicator" type="MeshInstance3D" parent="MainPaths/Path_Barn1_LookAt/PathFollow_Barn1_LookAt"]
 visible = false
-mesh = SubResource("TextMesh_u082j")
+mesh = SubResource("SphereMesh_huccv")
 
 [node name="SatelliteWreck" parent="." instance=ExtResource("61_adtc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.22, 1414.22, 0)
@@ -21840,7 +21823,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21957,7 +21940,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -21974,7 +21957,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -22039,7 +22022,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/FerDeLance")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -22069,7 +22052,7 @@ pitch_scale = 2.0
 basePitch = 2.0
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -22144,7 +22127,7 @@ mesh = ExtResource("88_11ddh")
 [node name="DebugFerDeLance" parent="Elite/ShipDrawMeshes/FerDeLance" instance=ExtResource("89_yq2kf")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -22177,7 +22160,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958986, 0.0593253, -0.322302, 0, 0.981489, 0.242573, 0.283387, 0.200758, -1.09068, 0, 0, 50)
+transform = Transform3D(-0.958986, 0.0593253, -0.322303, 0, 0.981489, 0.242574, 0.283387, 0.200758, -1.09068, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22185,7 +22168,7 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885985, -0.327394, -0.326798, -1.48986e-08, 0.702906, -0.708762, 0.463341, 0.62603, 0.624892, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885985, -0.327393, -0.326798, -1.48986e-08, 0.702906, -0.708762, 0.463341, 0.62603, 0.624892, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
