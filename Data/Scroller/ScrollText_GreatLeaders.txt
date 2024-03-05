@@ -4,9 +4,10 @@
 Lato
 !Style:	normal
 Great leaders (extended depression) remix
-
 A demo made with Godot engine
-Original version released at Revision 2022 demo party
+
+Released x-Mar-2024
+Original party-version released at Revision 2022 demoparty
 
 3rd party assets used (in order of appearance):
 
@@ -69,7 +70,7 @@ ECG(/EKG)-waveform: ECG-ID Database (Person 10, rec 3 (male, 23))
 by Tatiana Lugovaya (ODC-By v1.0)
 (https://physionet.org/content/ecgiddb/1.0.0/)
 As the ECG was taken from material used for master's thesis for
-russian university, it needs to be emphasized that the parties
+a Russian university, it needs to be emphasized that the parties
 mentioned here do not have any affiliation with this demo!
 
 Satellite wreck flyby / end scroller:
@@ -86,15 +87,6 @@ Mashing up the aforementioned assets, rig building, snow sculpting,
 lidar scanning, post-processing the GNSS & lidar-data, coding,
 animating etc. by Nupo.
 
-Some tools used when making this demo (in approximate order of usage):
-- GNSS-Stylus to collect GNSS & lidar-data, constructing point clouds and
-creating "paths" for the lidar scanner & camera rig. Modified version
-used to generate data to better visualize and animate the lidar scans.
-- MeshLab to post-process those point clouds into 3D-objects.
-- Godot Engine to make the demo itself.
-- GIMP: to create solar cell texture and generic gfx-editing.
-- Material Maker to create "golden" (=polyimide) surface for the satellite.
-- Blender to create satellite wreck main body.
-
-These are all free and open source software (FOSS). This demo would not 
-be possible to make without the free assets and tools mentioned. 
+This demo was made almost entirely with free and open source
+software (FOSS). Thanks to everyone for sharing.
+Material specific for this demo is licensed under GPLv3.

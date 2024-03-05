@@ -3,10 +3,11 @@
 !Style:	H1
 Lato
 !Style:	normal
-Party on (extended progression) remix
-
+Pompous maximus (extended progression) remix
 A demo made with Godot engine
-Original version released at Revision 2022 demo party
+
+Released x-Mar-2024
+Original party-version released at Revision 2022 demoparty
 
 3rd party assets used (in order of appearance):
 
@@ -54,17 +55,30 @@ by antoineallardchoquette (CC-BY-4.0)
 Some textures (button symbols/texts) slightly modified
 
 Ascension to Space station / flyby / end scroller:
+Sound: "Rosetta (Song for a comet)"
+by April L Gibson (CC BY-NC-SA 3.0)
+(https://on.soundcloud.com/VVwoD)
 Space station model: "Space Station V (2001: A Space Odyssey)"
 by uperesito (CC BY 4.0)
 (https://skfb.ly/6oRz8)
 Original created by Michael Powell for The Celestia Motherlode
-Sound: "???"
-by ??? (???)
-(https://????)
-Volume (envelope) adjusted,
 Font: Godot's default
 !Style:	normal
 !Posx:	0
 
 Mashing aforementioned assets up, rig building, snow sculpting,
 lidar scanning, post-processing the data, coding, animating etc. by Nupo.
+
+Some tools used when making this demo (in approximate order of usage):
+- GNSS-Stylus to collect GNSS & lidar-data, constructing point clouds and
+creating "paths" for the lidar scanner & camera rig. Modified version
+used to generate data to better visualize and animate the lidar scans.
+- MeshLab to post-process those point clouds into 3D-objects.
+- Godot Engine to make the demo itself.
+- GIMP: to create the solar cell texture and generic gfx-editing.
+- Material Maker to create the "golden" (=polyimide) surface for the satellite.
+- Blender to create the satellite wreck main body.
+
+These are all free and open source software (FOSS).
+Thanks to everyone for sharing.
+Material specific for this demo is licensed under GPLv3.

@@ -338,14 +338,16 @@ func _process(delta):
 
 	match Global.demoState:
 		Global.DemoState.DS_SHOWING_START_DIALOG:
+			if (!Engine.is_editor_hint()):
+				tunePlayer.my_seek(0)
+				mainAnimationPlayer.speed_scale = 0
+				mainAnimationPlayer.play()
+				mainAnimationPlayer.seek(0)
 			demoInitSubState = 0
 			$Label_Subtitle.visible = false
 		Global.DemoState.DS_INIT:
 			match (demoInitSubState):
 				0:
-					mainAnimationPlayer.speed_scale = 0
-					mainAnimationPlayer.seek(0)
-					mainAnimationPlayer.play()
 					Global.muteSfx = true	# To prevent SpaceSoundEmitters to emit sound
 					handleDemoStartInits()
 				1:
@@ -642,9 +644,10 @@ func controlPlayback(delta:float):
 	if Input.is_action_just_pressed("pause"):
 		if (tunePlayer.playing):
 			tunePlayer.pause()
-			if ((tunePlayer.getFilteredPlaybackPosition() > 13.36) &&
-				(tunePlayer.getFilteredPlaybackPosition() < 13.38)):
-				$World/Paasiaismuna.visible = true
+			if ((tunePlayer.getFilteredPlaybackPosition() > 256) &&
+				(tunePlayer.getFilteredPlaybackPosition() < 512)):
+				$FlyingSpace_Station_Angled_NotRotating/Paasiaismuna.visible = true
+				$FlyingSpace_Station_Angled_NotRotating/Paasiaismuna.process_mode = Node.PROCESS_MODE_INHERIT
 		else:
 			tunePlayer.resume()
 
@@ -652,7 +655,11 @@ func controlPlayback(delta:float):
 		if (tunePlayer.volume_db < -20):
 			tunePlayer.volume_db = 0
 		else:
-			tunePlayer.volume_db = -80
+			tunePlayer.volume_db = -100
+	
+	if (tunePlayer.volume_db == -100):
+		# Set this all the time since it is handled in the animations also
+		Global.muteSfx = true
 	
 	if Input.is_action_pressed("play_forward_non_locked"):
 		tunePlayer.my_seek(tunePlayer.getFilteredPlaybackPosition() + delta)

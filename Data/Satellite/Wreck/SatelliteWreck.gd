@@ -78,7 +78,7 @@ func _process(_delta):
 		return
 
 	scopeLight.visible = true
-	scopeLight.light_energy = Global.lowPassFilteredSoundAmplitudeData[Global.masterReplayTime * 8000] * scopeLightEnergy
+	scopeLight.light_energy = Global.lowPassFilteredSoundAmplitudeData[min(Global.masterReplayTime * 8000, Global.lowPassFilteredSoundAmplitudeData.size()-1)] * scopeLightEnergy
 	scopeLight.light_color = scopeLightColor
 	
 

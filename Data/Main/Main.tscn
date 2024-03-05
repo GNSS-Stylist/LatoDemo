@@ -1,4 +1,4 @@
-[gd_scene load_steps=223 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=229 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -8715,10 +8715,10 @@ tracks/0/path = NodePath(".:animationPosition")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 600),
+"times": PackedFloat32Array(0, 517),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 600.0]
+"values": [0.0, 517.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -8830,7 +8830,7 @@ tracks/10/path = NodePath("AnimatedCamera:near")
 tracks/10/interp = 1
 tracks/10/loop_wrap = false
 tracks/10/keys = {
-"times": PackedFloat32Array(375, 385),
+"times": PackedFloat32Array(375, 383),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.1, 1.0]
@@ -8865,7 +8865,7 @@ tracks/13/path = NodePath("World/LOScriptReplayer_MainBlackHole/MainBlackHole:ev
 tracks/13/interp = 1
 tracks/13/loop_wrap = false
 tracks/13/keys = {
-"times": PackedFloat32Array(530, 540),
+"times": PackedFloat32Array(505, 515),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -8877,7 +8877,7 @@ tracks/14/path = NodePath("World/Planet/BlackHole_Eater2:eventHorizonRadius")
 tracks/14/interp = 1
 tracks/14/loop_wrap = false
 tracks/14/keys = {
-"times": PackedFloat32Array(530, 540),
+"times": PackedFloat32Array(505, 515),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -8889,7 +8889,7 @@ tracks/15/path = NodePath("World/Planet/BlackHole_Eater3:eventHorizonRadius")
 tracks/15/interp = 1
 tracks/15/loop_wrap = false
 tracks/15/keys = {
-"times": PackedFloat32Array(530, 540),
+"times": PackedFloat32Array(505, 515),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.5, 10.0]
@@ -8901,7 +8901,7 @@ tracks/16/path = NodePath("WorldEnvironment:environment:adjustment_brightness")
 tracks/16/interp = 1
 tracks/16/loop_wrap = false
 tracks/16/keys = {
-"times": PackedFloat32Array(534, 540),
+"times": PackedFloat32Array(509, 515),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.01]
@@ -8913,7 +8913,7 @@ tracks/17/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/17/interp = 1
 tracks/17/loop_wrap = false
 tracks/17/keys = {
-"times": PackedFloat32Array(375.2, 385),
+"times": PackedFloat32Array(375.2, 383),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -8925,14 +8925,17 @@ tracks/18/path = NodePath(".")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(464, 504),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(464, 504, 516.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"setScrollerPicPlateScreenCloneTexture"
 }, {
 "args": [],
 "method": &"clearScrollerPicPlateScreenCloneTexture"
+}, {
+"args": [],
+"method": &"killMe"
 }]
 }
 tracks/19/type = "value"
@@ -8945,7 +8948,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(390, 425, 460),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [-11.9, -17.7, -23.9]
+"values": [-12.1, -17.9, -24.1]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -8957,7 +8960,7 @@ tracks/20/keys = {
 "times": PackedFloat32Array(390, 434),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-13.7, -18.9]
+"values": [-13.9, -19.1]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
@@ -8969,7 +8972,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(390, 441),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-14.9, -20.1]
+"values": [-15.1, -20.3]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -9029,7 +9032,7 @@ tracks/26/keys = {
 "times": PackedFloat32Array(390, 447),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-16.3, -21.5]
+"values": [-16.5, -21.7]
 }
 
 [sub_resource type="Animation" id="Animation_odyq8"]
@@ -9537,7 +9540,7 @@ tracks/41/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [4096.0]
+"values": [409600.0]
 }
 tracks/42/type = "value"
 tracks/42/imported = false
@@ -16690,10 +16693,10 @@ tracks/17/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(311, 341, 381),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(311, 341),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-11.9, -17.7, -22.5]
+"values": [-12.1, -17.9]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -16702,10 +16705,10 @@ tracks/18/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(311, 341, 381),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(311, 341),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 4, -1]
+"values": [0, 4]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -16717,7 +16720,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(311, 351),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-13.7, -18.9]
+"values": [-13.9, -19.1]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -16741,7 +16744,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(311, 359),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-14.9, -20.1]
+"values": [-15.1, -20.3]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -16765,7 +16768,7 @@ tracks/23/keys = {
 "times": PackedFloat32Array(311),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-16.3]
+"values": [-16.5]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
@@ -16788,7 +16791,7 @@ tracks/25/loop_wrap = true
 tracks/25/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(8, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(306, 408)
+"times": PackedFloat32Array(306.9, 408)
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -17021,7 +17024,7 @@ tracks/45/loop_wrap = false
 tracks/45/keys = {
 "times": PackedFloat32Array(280, 396.9),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [true, false]
 }
 
@@ -19384,7 +19387,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_3g7bl"]
 resource_name = "EndOfTheWorld"
-length = 500.0
+length = 1000.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -19400,7 +19403,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_a5ebs"]
 resource_name = "PartyOn"
-length = 500.0
+length = 1000.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -19951,15 +19954,6 @@ absorbent = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_ne5g4"]
 size = Vector3(100, 10, 100)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yt0sr"]
-points = PackedVector3Array(0.0214809, -0.120503, -0.0971455, 0.0104692, 0.0940041, 0.106411, -0.0335091, 0.226016, 0.00736315, -0.0885508, -0.120503, 0.0293738, 0.0875, -0.120503, 0.0293738, 0.0654936, 0.214989, 0.0238711, -0.0720417, -0.126016, -0.0641295, 0.0324755, -0.0544796, -0.108151, 0.0214809, -0.120503, 0.100908, 0.0875, -0.120503, -0.0421188, -0.0225145, 0.0940041, 0.100908, -0.0390064, -0.126016, 0.0954058, 0.00497188, 0.0115093, -0.0916428, 0.0654936, 0.209511, 0.0458818, 0.0599791, -0.126016, 0.0733951, -0.0445209, -0.0159889, -0.0751348, -0.0885508, -0.114989, -0.0256108, 0.0544819, 0.0225017, -0.0696321, -0.0390064, -0.126016, -0.0916428, -0.0335091, 0.226016, 0.0183685, 0.0324755, 0.0225017, -0.0861401, -0.0775218, -0.109511, 0.0568871, -0.0335091, 0.121502, 0.0788978, -0.0225145, 0.220503, 0.00186049, -0.0115027, 0.0940041, 0.106411, 0.0875, -0.126016, -0.0311135, 0.0819855, -0.0215023, -0.0311135, 0.0764882, -0.120503, -0.0641295, 0.0104692, -0.0544796, -0.108151, 0.0434873, 0.104996, 0.0788978, 0.0709909, -0.114989, 0.0623898, 0.0434873, 0.203997, 0.0513845)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l8r0m"]
-points = PackedVector3Array(0.343492, -0.278143, 0.169292, -0.112702, 0.604859, -0.051345, -0.200944, 0.17788, 0.390075, 0.0786149, -0.322214, -0.316359, -0.052399, -0.314266, 0.416069, 0.122736, 0.472275, -0.0218827, -0.222503, 0.445231, -0.231199, 0.00497965, 0.177972, 0.404769, 0.113851, 0.424204, -0.210713, 0.343492, -0.322214, -0.0807339, -0.407018, -0.322307, 0.125135, -0.259823, 0.442955, -0.0366506, -0.127384, -0.307555, -0.301591, 0.225736, -0.322214, 0.360613, -0.245141, -0.307555, 0.360613, -0.34814, -0.322307, -0.139658, 0.210979, -0.322214, -0.257434, -0.00970246, 0.604859, -0.051345, -0.407018, -0.322307, -0.0218827, -0.245141, 0.17788, 0.316456, 0.358249, -0.292803, -0.00718834, 0.314053, -0.307555, 0.257605, -0.0243846, 0.17788, 0.419464, 0.108054, -0.307555, 0.419464, 0.0882897, 0.457877, -0.215834, -0.362822, -0.307555, 0.228143, -0.215627, 0.531191, -0.051345, 0.00432427, -0.326547, -0.307982, -0.247463, 0.287129, -0.226902, 0.284614, -0.307555, -0.183815, -0.246949, 0.439914, -0.170542, -0.0685807, -0.307555, -0.316359)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tdw0n"]
-points = PackedVector3Array(0.0235814, -0.720585, -0.378733, -0.0113852, -0.27402, 0.275161, -0.0394115, -0.271603, 0.285856, 0.0618771, 0.0796778, -0.257818, 0.342739, -0.615407, -0.222998, -0.199897, -0.335262, 0.0178113, 0.0752, 0.0262137, 0.156107, 0.141983, -0.74822, -0.124301, -0.117277, -0.00162254, 0.134976, -0.161809, -0.422362, 0.20441, 0.188353, -0.0073191, -0.246253, -0.0259899, -0.42328, -0.372241, -0.0716327, -0.72153, -0.244446, 0.275549, -0.708227, -0.084183, 0.325599, -0.419374, -0.152447, 0.0989996, -0.37199, 0.211211, 0.137797, -0.410661, -0.346769, -0.0618432, -0.42218, 0.265851, -0.0850118, 0.0128268, -0.0575072, 0.304233, -0.729831, -0.248316, -0.164846, -0.335132, 0.258244, 0.195443, 0.0128268, -0.191025, -0.0622973, -0.434934, -0.331218, 0.151058, 0.00767162, -0.285618, 0.324537, -0.410127, -0.231862, -0.0182288, -0.74822, -0.204397, -0.0401218, -0.00244887, 0.198429, -0.202415, -0.360254, 0.131838, 0.229757, -0.760455, -0.250737, 0.0622384, -0.688757, -0.385665, 0.316073, -0.492481, -0.117256, 0.0119804, -0.385359, 0.269754)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijqi0"]
 render_priority = 0
 shader = ExtResource("45_xnmw6")
@@ -19976,10 +19970,10 @@ height = 1.23808e+07
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrj7d"]
 render_priority = 0
 shader = ExtResource("53_qc6ur")
-shader_parameter/numOfSamplesA = 3542747
+shader_parameter/numOfSamplesA = 4139700
 shader_parameter/soundAmplificationA = 1.0
 shader_parameter/soundPosA = 0.0
-shader_parameter/soundOffsetA = 0
+shader_parameter/soundOffsetA = 2000000
 shader_parameter/soundLengthA = 409600.0
 shader_parameter/numOfSamplesB = 1542747
 shader_parameter/soundAmplificationB = 0.0
@@ -20044,7 +20038,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_lacej"]
+[sub_resource type="Image" id="Image_fn8op"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20054,7 +20048,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_lacej")
+image = SubResource("Image_fn8op")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -20132,6 +20126,37 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmy6y"]
+disable_receive_shadows = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yt0sr"]
+points = PackedVector3Array(0.0214809, -0.120503, -0.0971455, 0.0104692, 0.0940041, 0.106411, -0.0335091, 0.226016, 0.00736315, -0.0885508, -0.120503, 0.0293738, 0.0875, -0.120503, 0.0293738, 0.0654936, 0.214989, 0.0238711, -0.0720417, -0.126016, -0.0641295, 0.0324755, -0.0544796, -0.108151, 0.0214809, -0.120503, 0.100908, 0.0875, -0.120503, -0.0421188, -0.0225145, 0.0940041, 0.100908, -0.0390064, -0.126016, 0.0954058, 0.00497188, 0.0115093, -0.0916428, 0.0654936, 0.209511, 0.0458818, 0.0599791, -0.126016, 0.0733951, -0.0445209, -0.0159889, -0.0751348, -0.0885508, -0.114989, -0.0256108, 0.0544819, 0.0225017, -0.0696321, -0.0390064, -0.126016, -0.0916428, -0.0335091, 0.226016, 0.0183685, 0.0324755, 0.0225017, -0.0861401, -0.0775218, -0.109511, 0.0568871, -0.0335091, 0.121502, 0.0788978, -0.0225145, 0.220503, 0.00186049, -0.0115027, 0.0940041, 0.106411, 0.0875, -0.126016, -0.0311135, 0.0819855, -0.0215023, -0.0311135, 0.0764882, -0.120503, -0.0641295, 0.0104692, -0.0544796, -0.108151, 0.0434873, 0.104996, 0.0788978, 0.0709909, -0.114989, 0.0623898, 0.0434873, 0.203997, 0.0513845)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_psacl"]
+disable_receive_shadows = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l8r0m"]
+points = PackedVector3Array(0.343492, -0.278143, 0.169292, -0.112702, 0.604859, -0.051345, -0.200944, 0.17788, 0.390075, 0.0786149, -0.322214, -0.316359, -0.052399, -0.314266, 0.416069, 0.122736, 0.472275, -0.0218827, -0.222503, 0.445231, -0.231199, 0.00497965, 0.177972, 0.404769, 0.113851, 0.424204, -0.210713, 0.343492, -0.322214, -0.0807339, -0.407018, -0.322307, 0.125135, -0.259823, 0.442955, -0.0366506, -0.127384, -0.307555, -0.301591, 0.225736, -0.322214, 0.360613, -0.245141, -0.307555, 0.360613, -0.34814, -0.322307, -0.139658, 0.210979, -0.322214, -0.257434, -0.00970246, 0.604859, -0.051345, -0.407018, -0.322307, -0.0218827, -0.245141, 0.17788, 0.316456, 0.358249, -0.292803, -0.00718834, 0.314053, -0.307555, 0.257605, -0.0243846, 0.17788, 0.419464, 0.108054, -0.307555, 0.419464, 0.0882897, 0.457877, -0.215834, -0.362822, -0.307555, 0.228143, -0.215627, 0.531191, -0.051345, 0.00432427, -0.326547, -0.307982, -0.247463, 0.287129, -0.226902, 0.284614, -0.307555, -0.183815, -0.246949, 0.439914, -0.170542, -0.0685807, -0.307555, -0.316359)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cucft"]
+disable_receive_shadows = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tdw0n"]
+points = PackedVector3Array(0.0235814, -0.720585, -0.378733, -0.0113852, -0.27402, 0.275161, -0.0394115, -0.271603, 0.285856, 0.0618771, 0.0796778, -0.257818, 0.342739, -0.615407, -0.222998, -0.199897, -0.335262, 0.0178113, 0.0752, 0.0262137, 0.156107, 0.141983, -0.74822, -0.124301, -0.117277, -0.00162254, 0.134976, -0.161809, -0.422362, 0.20441, 0.188353, -0.0073191, -0.246253, -0.0259899, -0.42328, -0.372241, -0.0716327, -0.72153, -0.244446, 0.275549, -0.708227, -0.084183, 0.325599, -0.419374, -0.152447, 0.0989996, -0.37199, 0.211211, 0.137797, -0.410661, -0.346769, -0.0618432, -0.42218, 0.265851, -0.0850118, 0.0128268, -0.0575072, 0.304233, -0.729831, -0.248316, -0.164846, -0.335132, 0.258244, 0.195443, 0.0128268, -0.191025, -0.0622973, -0.434934, -0.331218, 0.151058, 0.00767162, -0.285618, 0.324537, -0.410127, -0.231862, -0.0182288, -0.74822, -0.204397, -0.0401218, -0.00244887, 0.198429, -0.202415, -0.360254, 0.131838, 0.229757, -0.760455, -0.250737, 0.0622384, -0.688757, -0.385665, 0.316073, -0.492481, -0.117256, 0.0119804, -0.385359, 0.269754)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5hbw"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.5
+roughness = 0.01
+clearcoat_roughness = 0.09
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ert4f"]
+size = Vector3(1, 4, 9)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gfgpj"]
+points = PackedVector3Array(-0.5, -2, -4.5, 0.5, -2, -4.5, -0.5, -2, 4.5, -0.5, 2, -4.5, 0.5, 2, -4.5, 0.5, -2, 4.5, -0.5, 2, 4.5, 0.5, 2, 4.5)
 
 [sub_resource type="World3D" id="World3D_1d12g"]
 
@@ -20249,6 +20274,7 @@ muteSfx = true
 
 [node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
 process_priority = -1000
+speed_scale = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_cjhbk")
 }
@@ -20267,7 +20293,7 @@ fov = 42.0
 far = 100.0
 
 [node name="BunchOfGNSSSignals" parent="AnimatedCamera" instance=ExtResource("19_r0yum")]
-transform = Transform3D(0.890901, 0.389479, 0.23367, 0.378585, -0.921011, 0.0917188, 0.250935, 0.00675157, -0.96798, 0, 0, 0)
+transform = Transform3D(0.890901, 0.389478, 0.233671, 0.378584, -0.921011, 0.0917188, 0.250936, 0.00675163, -0.96798, 0, 0, 0)
 visible = false
 
 [node name="GNSSAntenna" parent="AnimatedCamera" instance=ExtResource("20_akcw6")]
@@ -21229,40 +21255,6 @@ physics_material_override = SubResource("PhysicsMaterial_lyw1i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = SubResource("BoxShape3D_ne5g4")
 
-[node name="Paasiaismuna" type="Node3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405012, 1.45056, -2.24467)
-visible = false
-
-[node name="Pupu" type="RigidBody3D" parent="World/Paasiaismuna"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.574432, 0, 0.831261)
-mass = 5.0
-
-[node name="Muoto" type="MeshInstance3D" parent="World/Paasiaismuna/Pupu"]
-mesh = ExtResource("48_edaun")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Paasiaismuna/Pupu"]
-shape = SubResource("ConvexPolygonShape3D_yt0sr")
-
-[node name="HogmaPontto" type="RigidBody3D" parent="World/Paasiaismuna"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.450874, 0, 0)
-mass = 10.0
-
-[node name="Muoto" type="MeshInstance3D" parent="World/Paasiaismuna/HogmaPontto"]
-mesh = ExtResource("49_axv4r")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Paasiaismuna/HogmaPontto"]
-shape = SubResource("ConvexPolygonShape3D_l8r0m")
-
-[node name="ReviPytty" type="RigidBody3D" parent="World/Paasiaismuna"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936214, 0.626357, -0.758516)
-mass = 10.0
-
-[node name="Muoto" type="MeshInstance3D" parent="World/Paasiaismuna/ReviPytty"]
-mesh = ExtResource("50_tuaqt")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Paasiaismuna/ReviPytty"]
-shape = SubResource("ConvexPolygonShape3D_tdw0n")
-
 [node name="PlanetCore" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -6.48042e+06, 0)
 visible = false
@@ -21848,7 +21840,7 @@ textureIndex = 3
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_Scroller/ScrollerMainNode"]
 
 [node name="SpaceStation" parent="." instance=ExtResource("77_0wxmw")]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 1414.21, 1414.21, 0)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
@@ -21892,6 +21884,57 @@ quatOverride = Quaternion(0.138, 0.116, 0.293, 0.939)
 [node name="EditorCamera" type="Camera3D" parent="FlyingSpace_Station_Angled_NotRotating/Path_CobraFollow/PathFollow_CobraFollow/PathFollow_CobraFollow_Orientator"]
 fov = 42.0
 
+[node name="Paasiaismuna" type="Node3D" parent="FlyingSpace_Station_Angled_NotRotating"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)
+visible = false
+
+[node name="Pupu" type="RigidBody3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna"]
+transform = Transform3D(1, 2.98023e-08, -5.96046e-08, -2.98023e-08, 1, -4.47035e-08, 0, 0, 1, -2.5, 0, 0)
+mass = 5.0
+
+[node name="Muoto" type="MeshInstance3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/Pupu"]
+material_override = SubResource("StandardMaterial3D_mmy6y")
+cast_shadow = 0
+mesh = ExtResource("48_edaun")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/Pupu"]
+shape = SubResource("ConvexPolygonShape3D_yt0sr")
+
+[node name="HogmaPontto" type="RigidBody3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna"]
+transform = Transform3D(1, 2.98023e-08, -5.96046e-08, -2.98023e-08, 1, -4.47035e-08, 0, 0, 1, 2.5, -1, 0)
+mass = 10.0
+
+[node name="Muoto" type="MeshInstance3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/HogmaPontto"]
+material_override = SubResource("StandardMaterial3D_psacl")
+mesh = ExtResource("49_axv4r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/HogmaPontto"]
+shape = SubResource("ConvexPolygonShape3D_l8r0m")
+
+[node name="ReviPytty" type="RigidBody3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna"]
+transform = Transform3D(1, 2.98023e-08, -5.96046e-08, -2.98023e-08, 1, -4.47035e-08, 0, 0, 1, 2.5, 3, -0.192)
+mass = 10.0
+
+[node name="Muoto" type="MeshInstance3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/ReviPytty"]
+material_override = SubResource("StandardMaterial3D_cucft")
+mesh = ExtResource("50_tuaqt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/ReviPytty"]
+shape = SubResource("ConvexPolygonShape3D_tdw0n")
+
+[node name="Kivi" type="RigidBody3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna"]
+mass = 1000.0
+sleeping = true
+
+[node name="Kuori" type="MeshInstance3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/Kivi"]
+material_override = SubResource("StandardMaterial3D_i5hbw")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ert4f")
+
+[node name="TormaysMuoto" type="CollisionShape3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/Kivi"]
+shape = SubResource("ConvexPolygonShape3D_gfgpj")
+
 [node name="Elite" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
@@ -21914,7 +21957,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -21931,7 +21974,7 @@ script = ExtResource("79_qbdnx")
 remotePath = NodePath("../../../../../ShipDrawMeshes/CobraMKIII")
 
 [node name="Python" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8153)
+transform = Transform3D(-0.540494, -0.750581, -0.380124, -0.0881331, 0.499828, -0.861629, 0.836719, -0.432204, -0.336305, -1394.99, -1370.92, 16.8152)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../FlyingSpace_Station_Rotating/Path_Lauch/PathFollow_Launch")
@@ -21996,7 +22039,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/FerDeLance")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -22026,7 +22069,7 @@ pitch_scale = 2.0
 basePitch = 2.0
 
 [node name="Python" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8153)
+transform = Transform3D(-5.40494, -7.50581, -3.80124, -0.881331, 4.99828, -8.61629, 8.36719, -4.32204, -3.36305, 19.0062, 43.0814, 16.8152)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/Python"]
@@ -22101,7 +22144,7 @@ mesh = ExtResource("88_11ddh")
 [node name="DebugFerDeLance" parent="Elite/ShipDrawMeshes/FerDeLance" instance=ExtResource("89_yq2kf")]
 
 [node name="FlyingSpace_Station_Rotating" type="Node3D" parent="Elite"]
-transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881332, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
+transform = Transform3D(0.540494, -0.750581, 0.380124, 0.0881331, 0.499828, 0.861629, -0.836719, -0.432204, 0.336305, 0, 0, 0)
 
 [node name="DockingBayCenter" type="Node3D" parent="Elite/FlyingSpace_Station_Rotating"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 6.10352e-05, -3.05176e-05, 50)
@@ -22134,7 +22177,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958988, 0.059325, -0.319811, 0, 0.981483, 0.240698, 0.283387, 0.200757, -1.08225, 0, 0, 50)
+transform = Transform3D(-0.958986, 0.0593253, -0.322302, 0, 0.981489, 0.242573, 0.283387, 0.200758, -1.09068, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22142,14 +22185,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885968, -0.327406, -0.326797, -1.48983e-08, 0.702933, -0.708759, 0.463332, 0.626054, 0.62489, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885985, -0.327394, -0.326798, -1.48986e-08, 0.702906, -0.708762, 0.463341, 0.62603, 0.624892, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857302, -0.473641, -0.200879, -0.398936, 0.858512, -0.321676, 0.324856, -0.195662, -0.925156, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857429, -0.473707, -0.20116, -0.398995, 0.858631, -0.322125, 0.324904, -0.195689, -0.926448, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -22295,13 +22338,20 @@ by NASA ([url=\"https://creativecommons.org/licenses/by-nc/3.0/\"]CC BY-NC 3.0[/
 [url]https://soundcloud.com/nasa/black-hole-sonification-perseus[/url]
 Volume (envelope) adjusted, parts of the sound mirrored and duplicated
 
+[b]Music while ascending to space station / space station flyby / end scroller  (Pompous maximus-remix only):[/b]
+\"Rosetta (Song for a comet)\"
+by April L Gibson  ([url=https://creativecommons.org/licenses/by-nc-sa/3.0/]CC BY-NC-SA 3.0[/url])
+[url]https://on.soundcloud.com/VVwoD[/url]
+
 [b]Space station (Pompous maximus-remix only):[/b]
 \"Space Station V (2001: A Space Odyssey)\"
 by uperesito ([url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url])
 [url]https://skfb.ly/6oRz8[/url]
-Original created by Michael Powell for The Celestia Motherlode (\"The Addon Repository for the 3D Space Simulator Celestia\"). From the original ReadMe.txt: \"This model was made by Michael Powell with textures by BJ West,I had help also from Martin Charest with the textures.\"
+Original created by Michael Powell for The Celestia Motherlode (\"The Addon Repository for the 3D Space Simulator Celestia\"). From the original ReadMe.txt: \"This model was made by Michael Powell with textures by BJ West, I had help also from Martin Charest with the textures.\"
 
-Parties mentioned above do not have any affiliation with this demo. All assets were just found from the internet by searching."
+Parties mentioned above do not have any affiliation with this demo other that making their work available to use. Big thanks for sharing!
+
+Otherwise (not counting the sounds, pictures, waveforms and models mentioned above) this demo is released under GPLv3-license. So you need to follow the individual licenses if using any part of this demo to your purposes."
 
 [node name="Button_Close3rdPartyCredits" type="Button" parent="Panel_3rdPartyCredits"]
 z_index = 2
