@@ -1,4 +1,4 @@
-[gd_scene load_steps=228 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=229 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -8926,9 +8926,9 @@ tracks/12/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:scroll
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 30, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(326, 521)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0, 28.5, 0, 0, 0, 0, 28.5, 0, 0, 0, 0, 31.7, 0, 0, 0, 0, 33.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(326, 511, 514, 516, 526)
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -8973,10 +8973,10 @@ tracks/16/path = NodePath("WorldEnvironment:environment:adjustment_brightness")
 tracks/16/interp = 1
 tracks/16/loop_wrap = false
 tracks/16/keys = {
-"times": PackedFloat32Array(509, 515),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(510, 515, 516, 521),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [1.0, 0.01]
+"values": [1.0, 0.01, 1.0, 1.0]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -8997,7 +8997,7 @@ tracks/18/path = NodePath(".")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(464, 504, 516.9),
+"times": PackedFloat32Array(464, 504, 526),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
@@ -9105,6 +9105,90 @@ tracks/26/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-16.5, -21.7]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("SatelliteWreck:visible")
+tracks/27/interp = 0
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(375, 515),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:smoothMeshLowLimit")
+tracks/28/interp = 1
+tracks/28/loop_wrap = false
+tracks/28/keys = {
+"times": PackedFloat32Array(375, 511, 515),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.0, 1.0, 0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:smoothMeshHighLimit")
+tracks/29/interp = 1
+tracks/29/loop_wrap = false
+tracks/29/keys = {
+"times": PackedFloat32Array(375, 511, 515),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.5, -1.0, 0.0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMinY_Appear")
+tracks/30/interp = 1
+tracks/30/loop_wrap = false
+tracks/30/keys = {
+"times": PackedFloat32Array(375, 511, 515),
+"transitions": PackedFloat32Array(1, 1, 0.965936),
+"update": 0,
+"values": [-1.5, -1.5, -1.0]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMaxY_Appear")
+tracks/31/interp = 1
+tracks/31/loop_wrap = false
+tracks/31/keys = {
+"times": PackedFloat32Array(375, 511, 515),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.0, -1.0, -0.2]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMinY_Disappear")
+tracks/32/interp = 1
+tracks/32/loop_wrap = false
+tracks/32/keys = {
+"times": PackedFloat32Array(375, 511, 515),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.5, 0.5, 0.2]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMaxY_Disappear")
+tracks/33/interp = 1
+tracks/33/loop_wrap = false
+tracks/33/keys = {
+"times": PackedFloat32Array(375, 511, 515),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_odyq8"]
@@ -15482,6 +15566,78 @@ tracks/349/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/350/type = "value"
+tracks/350/imported = false
+tracks/350/enabled = true
+tracks/350/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:smoothMeshLowLimit")
+tracks/350/interp = 1
+tracks/350/loop_wrap = true
+tracks/350/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+tracks/351/type = "value"
+tracks/351/imported = false
+tracks/351/enabled = true
+tracks/351/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:smoothMeshHighLimit")
+tracks/351/interp = 1
+tracks/351/loop_wrap = true
+tracks/351/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/352/type = "value"
+tracks/352/imported = false
+tracks/352/enabled = true
+tracks/352/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMinY_Appear")
+tracks/352/interp = 1
+tracks/352/loop_wrap = true
+tracks/352/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5]
+}
+tracks/353/type = "value"
+tracks/353/imported = false
+tracks/353/enabled = true
+tracks/353/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMaxY_Appear")
+tracks/353/interp = 1
+tracks/353/loop_wrap = true
+tracks/353/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+tracks/354/type = "value"
+tracks/354/imported = false
+tracks/354/enabled = true
+tracks/354/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMinY_Disappear")
+tracks/354/interp = 1
+tracks/354/loop_wrap = true
+tracks/354/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/355/type = "value"
+tracks/355/imported = false
+tracks/355/enabled = true
+tracks/355/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller:disintegrationMaxY_Disappear")
+tracks/355/interp = 1
+tracks/355/loop_wrap = true
+tracks/355/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -20182,7 +20338,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_pkq71"]
+[sub_resource type="Image" id="Image_msqb0"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20192,7 +20348,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_pkq71")
+image = SubResource("Image_msqb0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -20378,6 +20534,8 @@ orientation = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fbp7"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0m6sa"]
 
 [node name="Main" type="Node3D"]
 process_priority = 100
@@ -21420,7 +21578,7 @@ transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4
 transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.25)
 
 [node name="DeathRayParent" type="Node3D" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole"]
-transform = Transform3D(1387, -8218.61, 5512.48, -9819.62, -452.228, 1796.48, -1228.06, -5666.27, -8138.92, 0, 0, 0)
+transform = Transform3D(0.138799, -0.82245, 0.551643, -0.982666, -0.0452552, 0.179777, -0.122894, -0.567033, -0.814476, 0, 0, 0)
 script = ExtResource("51_osqmg")
 
 [node name="DeathRay" parent="World/LOScriptReplayer_MainBlackHole/MainBlackHole/DeathRayParent" instance=ExtResource("52_2li0a")]
@@ -22504,11 +22662,12 @@ offset_right = 271.0
 offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_0m6sa")
 horizontal_alignment = 1
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
