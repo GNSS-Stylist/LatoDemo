@@ -3,6 +3,14 @@ extends AudioStreamPlayer3D
 
 class_name SpaceSoundEmitter
 
+static var muted:bool = true
+
+# This is quite a hack... But as the "muted"-var above
+# is set by animations, a lot of sounds are played while
+# precompiling shaders (=playing animation at some defined times).
+# This causes a loud "crash" on the beginning of the demo.
+static var masterMute:bool = false
+
 @export var speedOfSound:float = 3000
 @export var sustainVolume:float = 10
 @export var attackTime:float = 0.1
@@ -120,7 +128,7 @@ func _physics_process(delta):
 			decayElapsed += delta
 				
 	
-	if (Global.muteSfx):
+	if (muted || masterMute):
 		tempVolume = -100
 	
 	volume_db = tempVolume
