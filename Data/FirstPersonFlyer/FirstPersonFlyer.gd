@@ -1,6 +1,8 @@
 #@tool
 extends CharacterBody3D
 
+@export var targetNodePath:NodePath
+
 var camera_angle_y_unfiltered:float = 0
 var camera_angle_x_unfiltered:float = 0
 var camera_angle_y_filtered:float = 0
@@ -43,6 +45,7 @@ var headDetachment:Vector3 = Vector3()
 var mouse_captured = false
 
 @onready var shipTracker:ShipTracker = $ShipTracker
+@onready var pointer = $Head/Pointer
 
 func _ready():
 #	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
@@ -156,6 +159,10 @@ func _process(delta):
 			
 			$ShipTracker.recordLaserShotFromNode($LaserBeamOrigin)
 
+	var targetNode:Node3D = get_node_or_null(targetNodePath)
+	if (targetNode):
+		pointer.look_at(targetNode.global_position)
+	
 func _input(event):
 	if mouse_captured and (event is InputEventMouseMotion):
 		camera_change += event.relative
