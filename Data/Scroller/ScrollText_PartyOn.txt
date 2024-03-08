@@ -62,7 +62,15 @@ Space station model: "Space Station V (2001: A Space Odyssey)"
 by uperesito (CC BY 4.0)
 (https://skfb.ly/6oRz8)
 Original created by Michael Powell for The Celestia Motherlode
+Low-poly ships: Modeled by hand (and code) based on the ships
+in the game Elite for Amiga-computer (Amiga-version from 1988.
+Original Elite was released 20 September 1984 so it will be
+40 years old later this year).
 Font: Godot's default
+
+End part (will be shown after this scroller):
+Some sound effects: Pixabay (pixabay.com)
+
 !Style:	normal
 !Posx:	0
 
@@ -75,9 +83,10 @@ creating "paths" for the lidar scanner & camera rig. Modified version
 used to generate data to better visualize and animate the lidar scans.
 - MeshLab to post-process those point clouds into 3D-objects.
 - Godot Engine to make the demo itself.
-- GIMP: to create the solar cell texture and generic gfx-editing.
+- GIMP to create the solar cell texture and generic gfx-editing.
 - Material Maker to create the "golden" (=polyimide) surface for the satellite.
 - Blender to create the satellite wreck main body.
+- Krita to edit the camera texture (acknowledgements of appreciation).
 
 These are all free and open source software (FOSS).
 Thanks to everyone for sharing.

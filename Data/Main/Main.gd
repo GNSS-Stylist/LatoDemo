@@ -656,7 +656,8 @@ func controlPlayback(delta:float):
 		if (tunePlayer.playing):
 			tunePlayer.pause()
 			if ((tunePlayer.getFilteredPlaybackPosition() > 256) &&
-				(tunePlayer.getFilteredPlaybackPosition() < 512)):
+				(tunePlayer.getFilteredPlaybackPosition() < 512) &&
+				(remix == Remix.POMPOUS_MAXIMUS)):
 				$FlyingSpace_Station_Angled_NotRotating/Paasiaismuna.visible = true
 				$FlyingSpace_Station_Angled_NotRotating/Paasiaismuna.process_mode = Node.PROCESS_MODE_INHERIT
 		else:

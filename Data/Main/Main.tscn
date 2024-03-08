@@ -16764,10 +16764,23 @@ tracks/56/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("GlobalInit:muteSfx")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_old0x"]
 resource_name = "SpaceStationFlyby"
 length = 600.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16787,7 +16800,7 @@ tracks/1/path = NodePath(".:animationCameraFraction")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(280.8, 314.2, 316.2, 318.2, 397.8, 400.2),
+"times": PackedFloat32Array(280.8, 314.2, 316.2, 318.2, 412.1, 414.5),
 "transitions": PackedFloat32Array(1, 2, 0.5, 1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.464264, 0.0, 0.0, 1.0]
@@ -16957,7 +16970,7 @@ tracks/16/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(309, 311, 412.9),
+"times": PackedFloat32Array(154.7, 269.1, 412.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -16969,7 +16982,7 @@ tracks/17/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(311, 341),
+"times": PackedFloat32Array(291, 322),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-12.1, -17.9]
@@ -16981,7 +16994,7 @@ tracks/18/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(311, 341),
+"times": PackedFloat32Array(291, 322),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 4]
@@ -16993,7 +17006,7 @@ tracks/19/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(311, 351),
+"times": PackedFloat32Array(292, 333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-13.9, -19.1]
@@ -17005,7 +17018,7 @@ tracks/20/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(311, 351),
+"times": PackedFloat32Array(292, 333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 5]
@@ -17017,7 +17030,7 @@ tracks/21/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(311, 359),
+"times": PackedFloat32Array(293, 342),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-15.1, -20.3]
@@ -17029,7 +17042,7 @@ tracks/22/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(311, 359),
+"times": PackedFloat32Array(293, 342),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, -1]
@@ -17041,10 +17054,10 @@ tracks/23/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(311),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(294, 352),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-16.5]
+"values": [-16.5, -23.1]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
@@ -17053,10 +17066,10 @@ tracks/24/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/Scroll
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(311),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(294, 352),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [3]
+"values": [3, 8]
 }
 tracks/25/type = "bezier"
 tracks/25/imported = false
@@ -17066,8 +17079,8 @@ tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(306.9, 408)
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0, 28, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(283.7, 408)
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -17151,8 +17164,8 @@ tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "handle_modes": PackedInt32Array(0, 2, 2, 0, 0),
-"points": PackedFloat32Array(36.321, -0.25, 0, 3, 0, 19.641, -4, 0, 3.26666, 0, 19.641, -3.26666, 0, 6.06667, 0, 22.5, -5.02246, 30.8663, 31.6383, -193.418, -823, -36.0777, 222.032, 0, 0),
-"times": PackedFloat32Array(314.2, 326.2, 336, 354.2, 492.2)
+"points": PackedFloat32Array(36.321, -0.25, 0, 3, 0, 19.641, -4, 0, 3.26666, 0, 19.641, -3.26666, 0, 6.06667, 0, 25, -5.02246, 30.8663, 0, 0, -823, 0, 0, 0, 0),
+"times": PackedFloat32Array(314.2, 326.2, 336, 354.2, 491)
 }
 tracks/33/type = "bezier"
 tracks/33/imported = false
@@ -20338,7 +20351,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_msqb0"]
+[sub_resource type="Image" id="Image_mho0g"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20348,7 +20361,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_msqb0")
+image = SubResource("Image_mho0g")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -20562,7 +20575,6 @@ deathRayAutoSoundPosAdjustStartRefPointNodePath = NodePath("../World/LOScriptRep
 deathRayAutoSoundPosAdjustEndRefPointNodePath = NodePath("../DeathRayAutoSoundPosAdjustStartRefPoint")
 scopeDataStorage = NodePath("../OscilloscopeDataStorage")
 editorCameraNodePath = NodePath("../AnimatedCamera")
-muteSfx = true
 
 [node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
 process_priority = -1000
@@ -21166,6 +21178,7 @@ environment = SubResource("Environment_e3id5")
 [node name="FirstPersonFlyer" parent="." instance=ExtResource("2_s2q3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.22, -11037, -49.534)
 motion_mode = 1
+targetNodePath = NodePath("../SpaceStation")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FirstPersonFlyer"]
 visible = false
@@ -22462,7 +22475,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958987, 0.0593256, -0.322303, 0, 0.981493, 0.242574, 0.283387, 0.200759, -1.09068, 0, 0, 50)
+transform = Transform3D(-0.958962, 0.0593663, -0.330097, 0, 0.982167, 0.248439, 0.28338, 0.200897, -1.11705, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22470,14 +22483,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885985, -0.327393, -0.326798, -1.48986e-08, 0.702905, -0.708762, 0.463341, 0.626029, 0.624892, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885972, -0.327374, -0.326798, -1.48984e-08, 0.702863, -0.708761, 0.463335, 0.625992, 0.624891, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857422, -0.473705, -0.20116, -0.398992, 0.858628, -0.322125, 0.324901, -0.195688, -0.926449, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857349, -0.47366, -0.201824, -0.398958, 0.858546, -0.323189, 0.324874, -0.19567, -0.929509, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -22666,8 +22679,8 @@ label_settings = SubResource("LabelSettings_0m6sa")
 horizontal_alignment = 1
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
