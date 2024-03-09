@@ -103,7 +103,7 @@ void vertex() {
 	vec3 faceCenterPoint = CUSTOM0.xyz;
 
 //	float randomSeed2 = CUSTOM0.a;
-	float randomSeed2 = faceCenterPoint.x + faceCenterPoint.y + faceCenterPoint.z;
+	float randomSeed2 = (faceCenterPoint.x + faceCenterPoint.y + faceCenterPoint.z) * 3.0;
 	
 	// "Randomize" the maximum rotations
 	float maxAngleX = random(randomSeed2 + faceCenterPoint.y) * maxEndAngle * 2.0 - maxEndAngle;
