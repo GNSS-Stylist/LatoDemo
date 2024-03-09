@@ -12,7 +12,7 @@ static var muted:bool = true
 static var masterMute:bool = false
 
 @export var speedOfSound:float = 3000
-@export var sustainVolume:float = 10
+@export var sustainVolume:float = 10	# dB
 @export var attackTime:float = 0.1
 @export var attackStartVolume = -50
 @export var decayTime:float = 0.2
@@ -20,6 +20,7 @@ static var masterMute:bool = false
 @export var enabled:bool = true
 @export var basePitch:float = 1.0
 @export var distanceChangeFilterCoeff:float = 0.01
+@export var masterVolume:float = 0	# dB
 
 func _ready():
 	reset()
@@ -131,7 +132,7 @@ func _physics_process(delta):
 	if (muted || masterMute):
 		tempVolume = -100
 	
-	volume_db = tempVolume
+	volume_db = tempVolume + masterVolume
 
 	lastCameraDistance = currentCameraDistance
 
