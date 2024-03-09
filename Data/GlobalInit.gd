@@ -48,7 +48,7 @@ extends Node
 
 @export var editorCameraNodePath:NodePath	# = get_node("/root/Main/InterpolatedCamera")
 @export var blockableGNSSSignalRaycast:bool = false
-@export var muteSfx:bool = true	# Master mute for sound effects (track can be muted with tunePlayer itself)
+@export var muteSfx:bool = true	# Master mute for sound effects ("Master" soundtrack can be muted with tunePlayer itself)
 #@export var cleanTempToolData:bool = false
 
 var scopeAutoSoundPosAdjustStartRefPointNode:Node3D
