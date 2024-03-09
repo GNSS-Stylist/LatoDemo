@@ -163,6 +163,9 @@ func _process(delta):
 	var targetNode:Node3D = get_node_or_null(targetNodePath)
 	if (targetNode):
 		pointer.look_at(targetNode.global_position, self.global_rotation)
+		pointer.visible = true
+	else:
+		pointer.visible = false
 	
 func _input(event):
 	if mouse_captured and (event is InputEventMouseMotion):
