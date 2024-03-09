@@ -44,8 +44,9 @@ var headDetachment:Vector3 = Vector3()
 
 var mouse_captured = false
 
-@onready var shipTracker:ShipTracker = $ShipTracker
+@onready var shipTracker:ShipTracker = $Head/ShipTracker
 @onready var pointer = $Head/Pointer
+@onready var laserBeamOrigin = $Head/LaserBeamOrigin
 
 func _ready():
 #	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
@@ -155,13 +156,13 @@ func _process(delta):
 			var laserScene = load("res://Data/Elite/LaserBeam/LaserBeam.tscn")
 			var beam = laserScene.instantiate()
 			rootNode.add_child(beam)
-			beam.shootFromNode($LaserBeamOrigin, Color(0, 5, 0), 1000)
+			beam.shootFromNode(laserBeamOrigin, Color(0, 5, 0), 1000)
 			
-			$ShipTracker.recordLaserShotFromNode($LaserBeamOrigin)
+			shipTracker.recordLaserShotFromNode(laserBeamOrigin)
 
 	var targetNode:Node3D = get_node_or_null(targetNodePath)
 	if (targetNode):
-		pointer.look_at(targetNode.global_position)
+		pointer.look_at(targetNode.global_position, self.global_rotation)
 	
 func _input(event):
 	if mouse_captured and (event is InputEventMouseMotion):
