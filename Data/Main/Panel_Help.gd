@@ -24,7 +24,7 @@ func _ready():
 		setEliteDebugShipVisibility(false)
 		setEliteTrackReplayerShip(0)
 
-func _process(delta):
+func _process(_delta):
 	if (Input.is_action_just_pressed("show_help")):
 		self.visible = !self.visible
 		if (self.visible):
