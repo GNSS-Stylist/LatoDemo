@@ -17,7 +17,7 @@ func _process(_delta):
 	if (Engine.is_editor_hint()):
 		# main viewport size doesn't work on editor
 		# -> Just use HorizontalResolution * 6 / 9
-		currSize = Vector2i(HorizontalResolution, HorizontalResolution * 6 / 9)
+		currSize = Vector2i(HorizontalResolution, HorizontalResolution * 9 / 16)
 
 	if (currSize != oldSize):
 		var newYRes = HorizontalResolution * currSize.y / currSize.x
