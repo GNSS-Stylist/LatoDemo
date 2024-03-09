@@ -1,4 +1,4 @@
-[gd_scene load_steps=230 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=231 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -72,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://bu01xqqnapnlx" path="res://Data/Pics/ScrollerPlateTextures/Descent.jpg" id="69_pd8r6"]
 [ext_resource type="Texture2D" uid="uid://b6sh7o0ccdhpg" path="res://Data/Pics/ScrollerPlateTextures/Construction.jpg" id="70_ccrn3"]
 [ext_resource type="Texture2D" uid="uid://3k57qtcw8sud" path="res://Data/Pics/ScrollerPlateTextures/Destruction.jpg" id="71_i6gor"]
+[ext_resource type="Texture2D" uid="uid://b67d83a8s53ji" path="res://Data/Pics/ScrollerPlateTextures/EndPart_Pompous.jpg" id="72_fl7q4"]
 [ext_resource type="Texture2D" uid="uid://ebuh8474pdvo" path="res://Data/Pics/ScrollerPlateTextures/TrackedCamera.jpg" id="72_yn12k"]
 [ext_resource type="Texture2D" uid="uid://blyy5kte0bd1" path="res://Data/Pics/ScrollerPlateTextures/GreatLeaders.jpg" id="73_hsdux"]
 [ext_resource type="PackedScene" uid="uid://c73x1jwdou6hf" path="res://Data/Elite/CobraMkIII/CobraMkIII.tscn" id="74_otxia"]
@@ -17157,7 +17158,7 @@ tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/path = NodePath("AnimatedCamera/ScrollerPlane:visible")
 tracks/16/interp = 1
-tracks/16/loop_wrap = true
+tracks/16/loop_wrap = false
 tracks/16/keys = {
 "times": PackedFloat32Array(154.7, 269.1, 408),
 "transitions": PackedFloat32Array(1, 1, 1),
@@ -17169,7 +17170,7 @@ tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:basePosY")
 tracks/17/interp = 1
-tracks/17/loop_wrap = true
+tracks/17/loop_wrap = false
 tracks/17/keys = {
 "times": PackedFloat32Array(291, 322),
 "transitions": PackedFloat32Array(1, 1),
@@ -17181,7 +17182,7 @@ tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate1:textureIndex")
 tracks/18/interp = 1
-tracks/18/loop_wrap = true
+tracks/18/loop_wrap = false
 tracks/18/keys = {
 "times": PackedFloat32Array(291, 322),
 "transitions": PackedFloat32Array(1, 1),
@@ -17193,7 +17194,7 @@ tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:basePosY")
 tracks/19/interp = 1
-tracks/19/loop_wrap = true
+tracks/19/loop_wrap = false
 tracks/19/keys = {
 "times": PackedFloat32Array(292, 333),
 "transitions": PackedFloat32Array(1, 1),
@@ -17205,7 +17206,7 @@ tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate2:textureIndex")
 tracks/20/interp = 1
-tracks/20/loop_wrap = true
+tracks/20/loop_wrap = false
 tracks/20/keys = {
 "times": PackedFloat32Array(292, 333),
 "transitions": PackedFloat32Array(1, 1),
@@ -17217,7 +17218,7 @@ tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:basePosY")
 tracks/21/interp = 1
-tracks/21/loop_wrap = true
+tracks/21/loop_wrap = false
 tracks/21/keys = {
 "times": PackedFloat32Array(293, 342),
 "transitions": PackedFloat32Array(1, 1),
@@ -17229,7 +17230,7 @@ tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate3:textureIndex")
 tracks/22/interp = 1
-tracks/22/loop_wrap = true
+tracks/22/loop_wrap = false
 tracks/22/keys = {
 "times": PackedFloat32Array(293, 342),
 "transitions": PackedFloat32Array(1, 1),
@@ -17241,7 +17242,7 @@ tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:basePosY")
 tracks/23/interp = 1
-tracks/23/loop_wrap = true
+tracks/23/loop_wrap = false
 tracks/23/keys = {
 "times": PackedFloat32Array(294, 352),
 "transitions": PackedFloat32Array(1, 1),
@@ -17253,7 +17254,7 @@ tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/path = NodePath("SubViewport_Scroller/ScrollerMainNode/Scroller/ScrollerPicPlate4:textureIndex")
 tracks/24/interp = 1
-tracks/24/loop_wrap = true
+tracks/24/loop_wrap = false
 tracks/24/keys = {
 "times": PackedFloat32Array(294, 352),
 "transitions": PackedFloat32Array(1, 1),
@@ -17276,7 +17277,7 @@ tracks/26/imported = false
 tracks/26/enabled = true
 tracks/26/path = NodePath("SubViewport_Scroller/ScrollerMainNode:process_mode")
 tracks/26/interp = 1
-tracks/26/loop_wrap = true
+tracks/26/loop_wrap = false
 tracks/26/keys = {
 "times": PackedFloat32Array(287),
 "transitions": PackedFloat32Array(1),
@@ -20755,7 +20756,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_4r1r2"]
+[sub_resource type="Image" id="Image_ussx7"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20765,7 +20766,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_4r1r2")
+image = SubResource("Image_ussx7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -21582,7 +21583,6 @@ environment = SubResource("Environment_e3id5")
 [node name="FirstPersonFlyer" parent="." instance=ExtResource("2_s2q3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.22, -11037, -49.534)
 motion_mode = 1
-targetNodePath = NodePath("../Elite/ShipTrackReplayers/ShipTracker_Thargoid")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FirstPersonFlyer"]
 visible = false
@@ -22518,10 +22518,9 @@ far = 20.0
 
 [node name="Scroller" parent="SubViewport_Scroller/ScrollerMainNode" instance=ExtResource("62_u3t3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-scrollTextFilename = ""
 scrollPos = -10.0
 smoothMeshHighLimit = 0.5
-picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("72_yn12k"), ExtResource("71_i6gor"), ExtResource("73_hsdux")])
+picPlateTextures = Array[Texture2D]([ExtResource("66_tobyw"), ExtResource("67_2tgs4"), ExtResource("68_ickyo"), ExtResource("69_pd8r6"), ExtResource("70_ccrn3"), ExtResource("72_yn12k"), ExtResource("71_i6gor"), ExtResource("73_hsdux"), ExtResource("72_fl7q4")])
 
 [node name="ScrollerPicPlate1" parent="SubViewport_Scroller/ScrollerMainNode/Scroller" index="0"]
 basePosY = -1.9
@@ -22920,7 +22919,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.95896, 0.0593664, -0.345811, 0, 0.982168, 0.260266, 0.283379, 0.200897, -1.17023, 0, 0, 50)
+transform = Transform3D(-0.95896, 0.0593664, -0.345888, 0, 0.982168, 0.260324, 0.283379, 0.200897, -1.17049, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22928,14 +22927,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885965, -0.327352, -0.326797, -1.48983e-08, 0.702816, -0.708759, 0.463331, 0.62595, 0.62489, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885962, -0.327337, -0.326797, -1.48982e-08, 0.702785, -0.708758, 0.463329, 0.625922, 0.624889, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857289, -0.473635, -0.202022, -0.39893, 0.858502, -0.323505, 0.324851, -0.19566, -0.930418, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857285, -0.473636, -0.202031, -0.398928, 0.858503, -0.32352, 0.324849, -0.19566, -0.930459, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 

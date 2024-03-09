@@ -9,7 +9,7 @@ instance uniform float preXShift = 0.0;
 //render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_lambert,specular_disabled;
 render_mode blend_mix,depth_draw_opaque,diffuse_lambert,specular_disabled,cull_disabled;
 uniform vec4 albedo : source_color;
-uniform sampler2D albedoTextures[8] : source_color;	// : repeat_disable, source_color, filter_linear_mipmap;
+uniform sampler2D albedoTextures[9] : source_color;	// : repeat_disable, source_color, filter_linear_mipmap;
 uniform sampler2D screenCloneAlbedoTexture : source_color, filter_linear_mipmap;
 
 uniform float randomSeed = 0.0;
