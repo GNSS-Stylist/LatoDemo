@@ -117,6 +117,7 @@ func _physics_process(_delta):
 			wasShot = false
 			beam.visible = false
 			fireSound.visible = false
+			hitDistance = 0	# Needs to be updated again when shot because rewinding / fast forwarding breaks it
 
 	else:
 		wasShot = false
