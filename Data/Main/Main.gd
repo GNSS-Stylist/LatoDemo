@@ -207,6 +207,15 @@ func _ready():
 		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.loadFromFile("res://Data/Elite/FlyTracks/CobraChase.trk")
 		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.play()
 
+		$Elite/ShipTrackReplayers/ShipTracker_Python_Green.loadFromFile("res://Data/Elite/FlyTracks/PythonChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Python_Green.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_Viper.loadFromFile("res://Data/Elite/FlyTracks/ViperChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Viper.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_FerDeLance.loadFromFile("res://Data/Elite/FlyTracks/FerDeLanceChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_FerDeLance.play()
+
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.loadFromFile("res://Data/Elite/FlyTracks/CamChase.trk")
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.play()
 	else:
@@ -605,6 +614,15 @@ func handleDemoStartInits():
 		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.loadFromFile("res://Data/Elite/FlyTracks/CobraChase.trk")
 		$Elite/ShipTrackReplayers/ShipTracker_CobraMkIII.play()
 
+		$Elite/ShipTrackReplayers/ShipTracker_Python_Green.loadFromFile("res://Data/Elite/FlyTracks/PythonChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Python_Green.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_Viper.loadFromFile("res://Data/Elite/FlyTracks/ViperChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_Viper.play()
+
+		$Elite/ShipTrackReplayers/ShipTracker_FerDeLance.loadFromFile("res://Data/Elite/FlyTracks/FerDeLanceChase.trk")
+		$Elite/ShipTrackReplayers/ShipTracker_FerDeLance.play()
+
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.loadFromFile("res://Data/Elite/FlyTracks/CamChase.trk")
 		$Elite/ShipTrackReplayers/ShipTracker_Camera.play()
 
@@ -633,7 +651,7 @@ func controlPlayback(delta:float):
 	if Input.is_action_just_pressed("restart_playback"):
 		tunePlayer.my_seek(0)
 	if Input.is_action_just_pressed("animation_jump_to_bookmark"):
-		tunePlayer.my_seek(290)
+		tunePlayer.my_seek(400)
 
 	if Input.is_action_just_pressed("playback_speed_100_pros"):
 		tunePlayer.pitch_scale = 1
