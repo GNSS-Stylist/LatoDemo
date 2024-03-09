@@ -40,7 +40,7 @@ extends Node3D
 		constructionFraction = newValue
 
 class Cell:
-	var node:SolarCell
+	var node:Node3D
 	var frozen_Start:bool
 	var frozen_End:bool
 	var finalPos:Vector3
@@ -77,13 +77,16 @@ func _ready():
 			minDistance = min(minDistance, distance)
 			maxDistance = max(maxDistance, distance)
 
+	var sourceNode = $SourceSolarCell
+
 	for row in range(0, rows):
 		if (rowsToSkip.has(row)):
 			continue
 		for column in range(0, columns):
 			if (columnsToSkip.has(column)):
 				continue
-			var cellNode = solarCellScene.instantiate()
+			var cellNode = sourceNode.duplicate(0)
+			cellNode.visible = true
 #			box.transform = get_node("ManipulatorMeshes/ManipulatorExtension").global_transform
 			var origin = Vector3(row * cellDiameter - (rows - 1) * cellDiameter / 2, 0, column * cellDiameter - (columns - 1) * cellDiameter / 2)
 			cellNode.transform = Transform3D(Basis.IDENTITY, origin)
@@ -141,7 +144,9 @@ func updateFraction(fraction):
 		var cellOrigin:Vector3 = cell.finalPos + (1 - smoothSteppedFraction) * (cell.initialPos - cell.finalPos)
 		var cellBasis:Basis = Basis.from_euler(cell.initialRotations * (1 - smoothSteppedFraction), cell.rotationOrder)
 		cellBasis *= smoothstep(size0Time, size1Time, cellFraction)
-		cell.node.transform = Transform3D(cellBasis, cellOrigin)
+		var newTransform = Transform3D(cellBasis, cellOrigin)
+		if (cell.node.transform != newTransform):
+			cell.node.transform = Transform3D(cellBasis, cellOrigin)
 		
 #		var smoothSteppedAlpha = smoothstep(alpha0Time, alpha1Time, cellFraction)
 		

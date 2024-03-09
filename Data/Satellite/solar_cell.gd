@@ -5,6 +5,8 @@ class_name SolarCell
 @export var baseMaterial:Material
 @export var cellMaterial:Material
 
+#static var count:int = 0
+
 # This does not give "unique" materials(?)
 #@onready var localBaseMaterial:Material = baseMaterial.duplicate()
 #@onready var localCellMaterial:Material = cellMaterial.duplicate()
@@ -21,7 +23,8 @@ class_name SolarCell
 #var localCellColor:Color
 
 func _ready():
-#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path())
+#	count += 1
+#	print_debug("_ready\t",Time.get_ticks_msec(),"\t",self.get_path(), ", count: ", count)
 # Wondering these: Read above
 #	localBaseMaterial = baseMaterial.duplicate(true)
 #	localCellMaterial = cellMaterial.duplicate(true)
