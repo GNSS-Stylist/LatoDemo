@@ -599,7 +599,7 @@ func handleDemoStartInits():
 	
 	self.sunLightShadowEnable = $Panel_Start/CheckBox_Shadows.button_pressed
 	
-	if ($Panel_Start/OptionButton_Ending.get_selected_id() == 1):
+	if ($Panel_Start/CheckBox_GreatLeaders.button_pressed):
 		remix = Remix.GREAT_LEADERS
 		subAnimationSelector.current_animation = "EndOfTheWorld"
 		shaderPrecompilerAnimStops = shaderPrecompilerAnimStops_GreatLeaders

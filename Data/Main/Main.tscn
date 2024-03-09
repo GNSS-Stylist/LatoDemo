@@ -1,4 +1,4 @@
-[gd_scene load_steps=232 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=233 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -16046,10 +16046,11 @@ tracks/17/path = NodePath("Label_Subtitle:text")
 tracks/17/interp = 0
 tracks/17/loop_wrap = false
 tracks/17/keys = {
-"times": PackedFloat32Array(2.5, 9.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5, 11),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": ["Most of the sounds in this demo are from ESA and NASA,
+"values": ["Press H any time to show help about playback controls
+(If not watching a video...)", "Most of the sounds in this demo are from ESA and NASA,
 recordings or sonifications of different phenomena in the universe.", "Also some 3D-models and other assets used were created by 3rd parties.
 Full list of these with their licenses shown at the end credits."]
 }
@@ -16060,10 +16061,10 @@ tracks/18/path = NodePath("Label_Subtitle:visible")
 tracks/18/interp = 0
 tracks/18/loop_wrap = false
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 3.5, 16),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 17.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [true, false]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -16072,10 +16073,10 @@ tracks/19/path = NodePath("Label_Subtitle:modulate")
 tracks/19/interp = 1
 tracks/19/loop_wrap = false
 tracks/19/keys = {
-"times": PackedFloat32Array(3.5, 4, 9, 9.5, 10, 15, 15.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 4.5, 5, 5.5, 10.5, 11, 11.5, 16.5, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -20766,6 +20767,8 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
 image = SubResource("Image_cdged")
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_oflkp"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
 albedo_color = Color(0, 2, 0, 1)
@@ -22193,10 +22196,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = -221.0
-offset_right = 254.0
-offset_bottom = 169.0
+offset_left = -233.0
+offset_top = -192.0
+offset_right = 234.0
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_custom_anchors = false
@@ -22216,8 +22219,10 @@ offset_left = 177.0
 offset_top = 18.0
 offset_right = 317.0
 offset_bottom = 49.0
+tooltip_text = "Rendering resolution in relation to the viewed screen or window. 0.5 means that there is 1/4 of the pixels to draw, 2 means 4 times the pixels.
+So in low-end devices you may want to use values < 1, in low end you may use values like 2 (any higher will not give much visual benefit)."
 min_value = 0.25
-max_value = 2.0
+max_value = 4.0
 step = 0.05
 value = 1.0
 
@@ -22237,6 +22242,7 @@ offset_left = 176.0
 offset_top = 61.0
 offset_right = 316.0
 offset_bottom = 92.0
+tooltip_text = "Multisample anti-aliasing. Higher values will anti-alias the triangle edges more with some performance hit."
 item_count = 4
 selected = 2
 popup/item_0/text = "Disabled"
@@ -22259,71 +22265,68 @@ text = "Shadows (in space)"
 
 [node name="CheckBox_VSync" type="CheckBox" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 9.0
+offset_left = 8.0
 offset_top = 138.0
-offset_right = 210.0
+offset_right = 209.0
 offset_bottom = 169.0
 button_pressed = true
 text = "VSync (recommended)"
 
-[node name="Label_Ending" type="Label" parent="Panel_Start"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 221.0
-offset_right = 456.0
-offset_bottom = 247.0
-text = "Choose your ending:"
-horizontal_alignment = 1
-metadata/_edit_layout_mode = 0
-metadata/_edit_use_custom_anchors = false
-
 [node name="CheckBox_Fullscreen" type="CheckBox" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 9.0
+offset_left = 8.0
 offset_top = 174.0
-offset_right = 120.0
+offset_right = 119.0
 offset_bottom = 205.0
 button_pressed = true
 text = "Fullscreen"
 metadata/_edit_layout_mode = 0
 metadata/_edit_use_custom_anchors = false
 
-[node name="HSeparator" type="HSeparator" parent="Panel_Start"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 208.0
-offset_right = 461.0
-offset_bottom = 224.0
-
-[node name="OptionButton_Ending" type="OptionButton" parent="Panel_Start"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 256.0
-offset_right = 456.0
-offset_bottom = 287.0
-item_count = 2
-selected = 0
-popup/item_0/text = "Great leaders (extended depression remix)"
-popup/item_0/id = 1
-popup/item_1/text = "Pompous maximus (extended progression remix)"
-popup/item_1/id = 2
-metadata/_edit_layout_mode = 0
-metadata/_edit_use_custom_anchors = false
-
 [node name="Button_Show3rdPartyAssets" type="Button" parent="Panel_Start"]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 297.0
+offset_top = 212.0
 offset_right = 456.0
-offset_bottom = 328.0
+offset_bottom = 243.0
 text = "Show 3rd party assets used"
+
+[node name="Label_Ending" type="Label" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 256.0
+offset_right = 456.0
+offset_bottom = 282.0
+text = "Choose your ending:"
+horizontal_alignment = 1
+metadata/_edit_layout_mode = 0
+metadata/_edit_use_custom_anchors = false
+
+[node name="CheckBox_GreatLeaders" type="CheckBox" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 285.0
+offset_right = 367.0
+offset_bottom = 316.0
+button_pressed = true
+button_group = SubResource("ButtonGroup_oflkp")
+text = "Great leaders (extended depression remix)"
+
+[node name="CheckBox_Pompous" type="CheckBox" parent="Panel_Start"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 317.0
+offset_right = 417.0
+offset_bottom = 348.0
+button_group = SubResource("ButtonGroup_oflkp")
+text = "Pompous maximus (extended progression remix)"
 
 [node name="Button_Demo" type="Button" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 337.0
-offset_right = 163.0
-offset_bottom = 368.0
+offset_left = 10.0
+offset_top = 358.0
+offset_right = 164.0
+offset_bottom = 389.0
 text = "Start demo
 "
 metadata/_edit_layout_mode = 0
@@ -22331,10 +22334,10 @@ metadata/_edit_use_custom_anchors = false
 
 [node name="Button_Die" type="Button" parent="Panel_Start"]
 layout_mode = 0
-offset_left = 304.0
-offset_top = 337.0
-offset_right = 455.0
-offset_bottom = 368.0
+offset_left = 305.0
+offset_top = 358.0
+offset_right = 456.0
+offset_bottom = 389.0
 text = "Quit
 "
 metadata/_edit_layout_mode = 0
@@ -23124,7 +23127,9 @@ Original created by Michael Powell for The Celestia Motherlode (\"The Addon Repo
 
 Parties mentioned above do not have any affiliation with this demo other that making their work available to use. Big thanks for sharing!
 
-Otherwise (not counting the sounds, pictures, waveforms and models mentioned above) this demo is released under GPLv3-license. So you need to follow the individual licenses if using any part of this demo to your purposes."
+Otherwise (not counting the sounds, pictures, waveforms and models mentioned above) this demo is released under GPLv3-license. So you need to follow the individual licenses if using any part of this demo to your purposes.
+
+Sources and assets can be found from this project's github repo: [url]https://github.com/GNSS-Stylist/LatoDemo[/url]"
 
 [node name="Button_Close3rdPartyCredits" type="Button" parent="Panel_3rdPartyCredits"]
 z_index = 2
