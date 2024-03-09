@@ -6,8 +6,8 @@ class_name ShipTracker
 @export var minRecAngleChange:float = 0.01	# degrees
 @export var minRecTimeDiff:float = 0.032	# seconds
 
-@export var replayTimeOverride = 0			# 0 = use Global.masterReplayTime
-@export var replayTimeShift = 0
+@export var replayTimeOverride:float = 0			# 0 = use Global.masterReplayTime
+@export var replayTimeShift:float = 0
 @export var replayLaserShotColor:Color = Color(0, 5, 0)
 
 @export var originInterpolationMethod:OriginInterpolationMethod = OriginInterpolationMethod.CUBIC
@@ -253,10 +253,7 @@ func loadFromFile(fileName:String = ""):
 	if (fileName == ""):
 		$FileDialog_Load.show()
 	else:
-		loData.clear()
-		loDataKeys.clear()
-		laserData.clear()
-		laserDataKeys.clear()
+		clear()
 
 		var shots = $LaserShots.get_children()
 		for shot in shots:
@@ -312,6 +309,8 @@ func play():
 func clear():
 	loData.clear()
 	loDataKeys.clear()
+	laserData.clear()
+	laserDataKeys.clear()
 
 func _on_file_dialog_save_file_selected(path):
 	saveToFile(path)
