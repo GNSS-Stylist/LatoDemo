@@ -1,4 +1,4 @@
-[gd_scene load_steps=231 format=3 uid="uid://b5nhtvlsgsxh5"]
+[gd_scene load_steps=232 format=3 uid="uid://b5nhtvlsgsxh5"]
 
 [ext_resource type="Script" path="res://Data/Main/Main.gd" id="1_ysgl0"]
 [ext_resource type="Script" path="res://Data/GlobalInit.gd" id="2_32vy0"]
@@ -20756,7 +20756,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_ussx7"]
+[sub_resource type="Image" id="Image_6f8ex"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20766,7 +20766,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_ussx7")
+image = SubResource("Image_6f8ex")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -20866,6 +20866,19 @@ size = Vector3(1, 4, 9)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gfgpj"]
 points = PackedVector3Array(-0.5, -2, -4.5, 0.5, -2, -4.5, -0.5, -2, 4.5, -0.5, 2, -4.5, 0.5, 2, -4.5, 0.5, -2, 4.5, -0.5, 2, 4.5, 0.5, 2, 4.5)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_8e3of"]
+viewport_path = NodePath("Elite/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wyo6"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("13_kvhy7")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_8e3of")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6k41t"]
+size = Vector2(300, 300)
+orientation = 2
+
 [sub_resource type="World3D" id="World3D_1d12g"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_omyo2"]
@@ -20876,15 +20889,6 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_kvhy7")
 shader_parameter/texture_albedo = SubResource("ViewportTexture_omyo2")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_8e3of"]
-viewport_path = NodePath("Elite/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wyo6"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("13_kvhy7")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_8e3of")
 
 [sub_resource type="SphereMesh" id="SphereMesh_0nopv"]
 radius = 10.0
@@ -22636,6 +22640,12 @@ mesh = SubResource("BoxMesh_ert4f")
 [node name="TormaysMuoto" type="CollisionShape3D" parent="FlyingSpace_Station_Angled_NotRotating/Paasiaismuna/Kivi"]
 shape = SubResource("ConvexPolygonShape3D_gfgpj")
 
+[node name="ThargoidDebrisFieldVisibilityensurer" type="MeshInstance3D" parent="FlyingSpace_Station_Angled_NotRotating"]
+editor_description = "Thargoid debris needs to be drawn onto it's own \"3D-surface\". This was handled using a sphere mesh around the ship, but since we fly through it it will be cut by camera's near field that subsequently throws part of the debris behind the space station. Therefore we need an additional \"surface\" to draw that is placed right \"in front of\" the space station."
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70)
+material_override = SubResource("ShaderMaterial_6wyo6")
+mesh = SubResource("PlaneMesh_6k41t")
+
 [node name="Elite" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
@@ -22658,7 +22668,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -22744,7 +22754,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/FerDeLance")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -22919,7 +22929,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.95896, 0.0593664, -0.345888, 0, 0.982168, 0.260324, 0.283379, 0.200897, -1.17049, 0, 0, 50)
+transform = Transform3D(-0.95896, 0.0593664, -0.346334, 0, 0.982168, 0.26066, 0.283379, 0.200897, -1.172, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -22927,14 +22937,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885962, -0.327337, -0.326797, -1.48982e-08, 0.702785, -0.708758, 0.463329, 0.625922, 0.624889, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885962, -0.327336, -0.326797, -1.48982e-08, 0.702783, -0.708758, 0.463329, 0.62592, 0.624889, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857285, -0.473636, -0.202031, -0.398928, 0.858503, -0.32352, 0.324849, -0.19566, -0.930459, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857285, -0.473635, -0.202031, -0.398928, 0.858502, -0.32352, 0.324849, -0.19566, -0.930461, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -23146,8 +23156,8 @@ label_settings = SubResource("LabelSettings_0m6sa")
 horizontal_alignment = 1
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
