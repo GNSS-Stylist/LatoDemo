@@ -12,8 +12,8 @@ instance uniform float disintegrationDisplacementSpeed = 10.0;
 instance uniform float maxEndAngle = 6;
 instance uniform float randomSeed = 0.0;
 instance uniform float fragmentScaling = 1.0;
-instance uniform float autoFragmentScalingStartFraction = 0.0;
-instance uniform float autoFragmentScalingEndFraction = 1.0;
+instance uniform float autoFragmentScalingStartFraction = 100.0;
+instance uniform float autoFragmentScalingEndFraction = 100.0;
 
 instance uniform vec3 displacementMinDeviation = vec3(0.0, 0.0, 0.0);
 instance uniform vec3 displacementMaxDeviation = vec3(0.0, 0.0, 0.0);
