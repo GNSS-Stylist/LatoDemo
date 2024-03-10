@@ -87,7 +87,7 @@ void vertex() {
 		{
 			vec3 startOrigin = CUSTOM1.xyz;
 			vec3 finalOrigin = currentOrigin;
-
+			
 			// Origin shifted out of the lidar unit:
 //			vec3 shiftedStartOrigin = startOrigin;
 			vec3 shiftedStartOrigin = startOrigin + flyStartOriginShift * normalize(finalOrigin - startOrigin);
@@ -101,7 +101,7 @@ void vertex() {
 			vec4 interpolatedColor = mix(flyStartAlbedo, flyEndAlbedo, fraction);
 			fragmentAlbedo = interpolatedColor.rgb;
 			fragmentAlpha = interpolatedColor.a;
-
+			
 			// I don't understand why this needs 1/pointSize as multiplier...
 			// The whole billboarding-solution was actually quite
 			// shooting in the dark until it worked, though...
@@ -139,7 +139,7 @@ void vertex() {
 			fragmentAlbedo = color.rgb;
 			fragmentAlpha = color.a;
 		}
-		else // < hitAlbedoAttackHighTime
+		else if (timeDiff != 0.0)	// < hitAlbedoAttackHighTime
 		{
 			float fraction = -1.0 + 2.0 * smoothstep(-hitAlbedoAttackHighTime, hitAlbedoAttackHighTime, timeDiff); // (timeDiff - hitAlbedoAttackHighTime) / (hitAlbedoAttackFadeoutTime - hitAlbedoAttackHighTime);
 			vec4 color = mix(flyEndAlbedo, hitAlbedoAttackColor, fraction);
