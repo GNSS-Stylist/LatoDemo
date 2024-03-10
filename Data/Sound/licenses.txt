@@ -1,0 +1,82 @@
+Main tunes (SpaceJunk.mp3 and SpaceJunk_PompousMaximus.mp3) use samples from these sources:
+
+Satellite beeping sound:
+"Sputnik: Beep"
+by NASA
+https://soundcloud.com/nasa/sputnik-beep
+License: CC BY-NC 3.0 (https://creativecommons.org/licenses/by-nc/3.0/)
+Individual beeps duplicated, edited and volume (envelope) adjusted
+
+Satellite morphing sound:
+"Luca Parmitano soyuz launch 28052013"
+by European Space Agency
+https://soundcloud.com/esa/luca-parmitano-soyuz-launch
+License: CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/)
+Only part of the sound used and volume (envelope) adjusted
+
+Planet probing sound/waveform:
+"Huygens Alien Descent Radar"
+by European Space Agency
+https://soundcloud.com/esa/huygens-alien-descent-radar
+License: CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/)
+Individual pulses reorganized slightly and volume (envelope) adjusted
+
+Descent sound/waveform:
+"Sounds of Saturn: Hear Radio Emissions of the Planet and Its Moon Enceladus"
+by NASA
+https://soundcloud.com/nasa/enceladus-hiss-audio
+License: CC BY-NC 3.0 (https://creativecommons.org/licenses/by-nc/3.0/)
+Only part of the sound used and volume (envelope) adjusted
+
+Main music while "constructing" the barn:
+"Vega 28231406"
+by Ezequiel Rodríguez
+https://soundcloud.com/ezequiel-rodr-guez-1/vega-28231406
+License: CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/)
+Only part of the sound used and volume (envelope) adjusted
+
+Sound while destroying the barn/planet and ascending to space (Great leaders-remix only):
+"Beware of Jupiter’s Largest Moon Ganymede"
+by NASA
+https://soundcloud.com/nasa/beware-of-jupiters-largest-moon-ganymede
+License: CC BY-NC 3.0 (https://creativecommons.org/licenses/by-nc/3.0/)
+Volume (envelope) adjusted and part of the sound played twice
+
+Satellite wreck flyby / end scroller sound (Great leaders-remix only):
+"Black Hole Sonification: Perseus"
+by NASA
+https://soundcloud.com/nasa/black-hole-sonification-perseus
+License: CC BY-NC 3.0 (https://creativecommons.org/licenses/by-nc/3.0/)
+Volume (envelope) adjusted, parts of the sound mirrored and duplicated
+
+Music while ascending to space station / space station flyby / end scroller  (Pompous maximus-remix only):
+"Rosetta (Song for a comet)"
+by April L Gibson
+https://on.soundcloud.com/VVwoD
+License: CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+Main tunes (SpaceJunk.mp3 and SpaceJunk_PompousMaximus.mp3) are licensed under
+CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/)
+as required.
+
+Other files:
+
+File "ekg.raw": ECG(/EKG)-waveform (Great leaders-remix only):
+ECG-ID Database (Person 10, rec 3 (male, 23))
+by Tatiana Lugovaya
+https://physionet.org/content/ecgiddb/1.0.0/
+License: ODC-By v1.0 (https://physionet.org/content/ecgiddb/view-license/1.0.0/)
+Original publication: (https://www.physionet.org/physiobank/database/ecgiddb/biometric.shtml)
+Lugovaya T.S. Biometric human identification based on electrocardiogram. [Master's thesis]
+Faculty of Computing Technologies and Informatics, Electrotechnical University "LETI",
+Saint-Petersburg, Russian Federation; June 2005.
+As the ECG was taken from material used for master's thesis for Russian university, it needs
+to be emphasized that the parties mentioned do not have any affiliation with this demo!
+
+Some of files were created by Pixabay and downloaded from pixabay.org and some of these
+were edited (mostly cut) to fit their use.
+License: https://pixabay.com/service/license-summary/
+
+Spacejunk.raw is just downsampled version of the SpaceJunk.mp3 and used for "oscilloscopes".
+
+Some other files were generated using Audacity.
