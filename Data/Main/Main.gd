@@ -287,6 +287,10 @@ var remix:Remix = Remix.GREAT_LEADERS
 
 var lastEditorRemixAnimName:String = ""
 
+var timeFromLastProgressQuery:float = 1
+var progressTextAlpha:float = 1.0
+const progressTextFadingSpeed = 0.333333
+
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
 		#print("Clean (dbg, main)")
@@ -358,21 +362,49 @@ func _process(delta):
 				mainAnimationPlayer.speed_scale = 0
 				mainAnimationPlayer.play()
 				mainAnimationPlayer.seek(0)
+
+				timeFromLastProgressQuery += delta
+				if (timeFromLastProgressQuery >= 0.1):
+					$Label_BackgroundLoadingInfo.visible = true
+					var loadingProgress:float = getAsyncLoadingProgress()
+					if (loadingProgress != 1.0):
+						$Label_BackgroundLoadingInfo.text = "Processing (\"loading\") data on background\n%1.2f%% done" % (loadingProgress * 100.0)
+					else:
+						progressTextAlpha = clamp (progressTextAlpha - timeFromLastProgressQuery * progressTextFadingSpeed, 0, 1)
+						$Label_BackgroundLoadingInfo.text = "\nBackground loading done"
+						$Label_BackgroundLoadingInfo.modulate = Color(1, 1, 1, progressTextAlpha)
+					timeFromLastProgressQuery = 0
+
 			demoInitSubState = 0
-			$Label_Subtitle.visible = false
+
+		Global.DemoState.DS_WAIT_FOR_ASYNC_LOADING:
+			$Label_BackgroundLoadingInfo.visible = false
+			timeFromLastProgressQuery += delta
+			
+			if (timeFromLastProgressQuery >= 0.1):
+				timeFromLastProgressQuery = 0
+				var loadingProgress:float = getAsyncLoadingProgress()
+				
+				$Label_LoadingInfo.text = "Processing (\"loading\") data\n%1.2f%% done" % (loadingProgress * 100.0)
+				$Label_LoadingInfo.visible = true
+				
+				if loadingProgress == 1.0:
+					Global.demoState = Global.DemoState.DS_INIT
+
 		Global.DemoState.DS_INIT:
 			match (demoInitSubState):
 				0:
-					$GlobalInit.muteSfx = true	# To prevent SpaceSoundEmitters to emit sound
-					SpaceSoundEmitter.masterMute = true
-					handleDemoStartInits()
+					$Label_LoadingInfo.visible = false
+					$Label_BackgroundLoadingInfo.visible = false
 				1:
-					pass
-				2:
 					var img = get_viewport().get_texture().get_image()
 					var tex:ImageTexture = ImageTexture.create_from_image(img)
 					$TextureRect_StartBackground.texture = tex
 					$TextureRect_StartBackground.visible = true
+				2:
+					$GlobalInit.muteSfx = true	# To prevent SpaceSoundEmitters to emit sound
+					SpaceSoundEmitter.masterMute = true
+					handleDemoStartInits()
 				3:
 					$Label_LoadingInfo.text = "Loading tune"
 					$Label_LoadingInfo.visible = true
@@ -394,8 +426,7 @@ func _process(delta):
 					Global.demoState = Global.DemoState.DS_PRECOMPILING_SHADERS
 					
 			demoInitSubState += 1
-
-
+			
 		Global.DemoState.DS_PRECOMPILING_SHADERS:
 #			if (shaderPrecompilerStopIndex < shaderPrecompilerAnimStops.size()):
 #				print("Shader precomp, time: ", shaderPrecompilerAnimStops[shaderPrecompilerStopIndex], ", delta: ", delta)
@@ -417,11 +448,10 @@ func _process(delta):
 					Global.demoState = Global.DemoState.DS_RUNNING
 					$MainTunePlayer.play(dbgPlayStartPos)
 					mainAnimationPlayer.speed_scale = 1
-					$Label_Subtitle.visible = false
 					$Label_LoadingInfo.visible = false
 
 			elif (shaderPrecompilerFrameCount == 0):
-				var subTitle:String = "Precompiling shaders\n%d / %d (%d%% ready)" % [shaderPrecompilerStopIndex + 1, shaderPrecompilerAnimStops.size(), 100 * shaderPrecompilerStopIndex / shaderPrecompilerAnimStops.size()]
+				var subTitle:String = "Precompiling shaders\n%d / %d (%d%% done)" % [shaderPrecompilerStopIndex + 1, shaderPrecompilerAnimStops.size(), 100 * shaderPrecompilerStopIndex / shaderPrecompilerAnimStops.size()]
 				$Label_LoadingInfo.text = subTitle
 				$Label_LoadingInfo.visible = true
 
@@ -572,7 +602,23 @@ func _process(delta):
 	handleAnimatedCamera()
 	
 	sunLight.shadow_enabled = sunLightShadowEnable && sunLightShadowRequest
+
+# returns 0..1
+func getAsyncLoadingProgress() -> float:
+	var loadProgress:float = 0
 	
+	loadProgress += $World/AdditiveGeometries/Ground/Storage.getLoadingProgress()
+	loadProgress += $World/AdditiveGeometries/Ground.getGenerationProgress()
+
+	loadProgress += $World/AdditiveGeometries/LatoText/Storage.getLoadingProgress()
+	loadProgress += $World/AdditiveGeometries/LatoText.getGenerationProgress()
+
+	loadProgress += $World/AdditiveGeometries/Barn/BarnMesh/Storage.getLoadingProgress()
+	loadProgress += $World/AdditiveGeometries/Barn/BarnMesh.getGenerationProgress()
+
+	loadProgress /= 6.0;	# divide by number of instances
+	return loadProgress
+
 func handleDemoStartInits():
 	var msaa = Viewport.MSAA_DISABLED
 	
@@ -854,7 +900,7 @@ func _on_button_demo_pressed():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 #		OS.window_fullscreen = true
-	Global.demoState = Global.DemoState.DS_INIT
+	Global.demoState = Global.DemoState.DS_WAIT_FOR_ASYNC_LOADING
 
 func killMe():
 	OS.kill(OS.get_process_id())	# Immediate exit

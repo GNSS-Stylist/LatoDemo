@@ -291,7 +291,6 @@ anti_aliasing/screen_space_roughness_limiter/enabled=false
 scaling_3d/mode=1
 environment/defaults/default_environment="res://default_env.tres"
 environment/glow/use_high_quality=true
-anti_aliasing/quality/msaa=3
 
 [shader_globals]
 

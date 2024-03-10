@@ -64,8 +64,9 @@ var blockableGNSSSignalRaycast:bool = true
 var processActionKeys:bool = false
 
 enum DemoState {
-	DS_SHOWING_START_DIALOG, 
-	DS_INIT, 
+	DS_SHOWING_START_DIALOG,
+	DS_WAIT_FOR_ASYNC_LOADING,
+	DS_INIT,
 	DS_PRECOMPILING_SHADERS,
 	DS_RUNNING }
 

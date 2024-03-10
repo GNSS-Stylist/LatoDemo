@@ -20872,7 +20872,9 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Image" id="Image_cm6w0"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_oflkp"]
+
+[sub_resource type="Image" id="Image_22tb4"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20882,9 +20884,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_cm6w0")
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_oflkp"]
+image = SubResource("Image_22tb4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -22298,15 +22298,6 @@ directional_shadow_pancake_size = 0.0
 transform = Transform3D(-0.478556, 0.878036, -0.00604505, -0.671901, -0.361757, 0.646282, 0.565272, 0.313344, 0.763075, -0.0757465, 5.81279, -0.0714557)
 directional_shadow_max_distance = 1000.0
 
-[node name="TextureRect_StartBackground" type="TextureRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("ImageTexture_pxyoe")
-
 [node name="Panel_Start" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -22475,6 +22466,29 @@ text = "
 Made with Godot game engine"
 horizontal_alignment = 1
 metadata/_edit_use_custom_anchors = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_BackgroundLoadingInfo" type="Label" parent="."]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -83.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+metadata/_edit_use_custom_anchors = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect_StartBackground" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_pxyoe")
 
 [node name="CameraFlyingSpace_Descent" type="Node3D" parent="."]
 transform = Transform3D(-4.37123e-08, -0.707115, 0.707115, 0, 0.707115, 0.707115, -1.00002, 3.0909e-08, -3.0909e-08, -0.00012207, 0, -2.61386e-06)
@@ -23052,7 +23066,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.95896, 0.0593664, -0.34634, 0, 0.982168, 0.260664, 0.283379, 0.200897, -1.17202, 0, 0, 50)
+transform = Transform3D(-0.95896, 0.0593664, -0.346355, 0, 0.982168, 0.260676, 0.283379, 0.200897, -1.17207, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -23060,14 +23074,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885962, -0.327335, -0.326797, -1.48982e-08, 0.702781, -0.708758, 0.463329, 0.625919, 0.624889, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885962, -0.327335, -0.326797, -1.48982e-08, 0.70278, -0.708758, 0.463329, 0.625918, 0.624889, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857285, -0.473636, -0.202032, -0.398928, 0.858503, -0.323521, 0.324849, -0.19566, -0.930463, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857285, -0.473635, -0.202032, -0.398928, 0.858502, -0.323522, 0.324849, -0.19566, -0.930466, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
