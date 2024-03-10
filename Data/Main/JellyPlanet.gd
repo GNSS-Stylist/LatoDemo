@@ -24,7 +24,7 @@ func _ready():
 	sourceMeshArrays = sourceMesh.surface_get_arrays(0)
 
 	var vertices = PackedVector3Array()
-#	var uvs = PackedVector2Array()
+	var uvs = PackedVector2Array()
 	var normals = PackedVector3Array()
 
 	for vertexIndex in range(0, sourceMeshArrays[Mesh.ARRAY_INDEX].size(), 3):
@@ -101,37 +101,10 @@ func _ready():
 		vertices.push_back(v3)
 		normals.push_back((v3-orig).normalized())
 
-#	normals.push_back(Vector3(0, 0, 1))
-#	normals.push_back(Vector3(0, 0, 1))
-#	normals.push_back(Vector3(0, 0, 1))
+	for vert in vertices:
+		uvs.push_back(Vector2(vert.length(), 0))
 
-#	edgeIds.push_back(Color(0, 1, 0, 0))
-#	edgeIds.push_back(Color(0, 0, 1, 0))
-#	edgeIds.push_back(Color(0, 0, 0, 1))
 
-	if 0:
-		# Overlaid triangles. Not good as this causes a lot of overdraw
-		# and alphas "get multiplied"
-		for i in range(14):
-			var newV1 = (v1 + v2) / 2
-			var newV2 = (v2 + v3) / 2
-			var newV3 = (v3 + v1) / 2
-
-			v1 = newV1
-			v2 = newV2
-			v3 = newV3
-
-			vertices.push_back(v1)
-			vertices.push_back(v2)
-			vertices.push_back(v3)
-			
-			normals.push_back(Vector3(0, 0, 1))
-			normals.push_back(Vector3(0, 0, 1))
-			normals.push_back(Vector3(0, 0, 1))
-
-#			edgeIds.push_back(Color(0, 1, 0, 0))
-#			edgeIds.push_back(Color(0, 0, 1, 0))
-#			edgeIds.push_back(Color(0, 0, 0, 1))
 
 	var vertexIndexes = PackedInt32Array()
 	for i in range(vertices.size()):
@@ -141,7 +114,7 @@ func _ready():
 	destMeshArrays.resize(Mesh.ARRAY_MAX)
 	destMeshArrays[Mesh.ARRAY_VERTEX] = vertices
 	destMeshArrays[Mesh.ARRAY_INDEX] = vertexIndexes
-#	destMeshArrays[Mesh.ARRAY_TEX_UV] = uvs
+	destMeshArrays[Mesh.ARRAY_TEX_UV] = uvs
 	destMeshArrays[Mesh.ARRAY_NORMAL] = normals
 
 	newMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, destMeshArrays)

@@ -1,6 +1,6 @@
 shader_type spatial;
 
-render_mode depth_draw_opaque;
+render_mode depth_draw_opaque, world_vertex_coords;
 //render_mode unshaded;
 //render_mode cull_disabled, depth_draw_always;
 
@@ -14,6 +14,8 @@ uniform float wobbleFrequency_Max = 0.01;
 uniform vec4 edgeAlbedo_Front : source_color = vec4(1.0, 1.0, 0.0, 1.0);
 uniform vec4 centerAlbedo_Front : source_color = vec4(1.0, 1.0, 0.0, 0.1);
 uniform float edgeWidth = 0.02;
+uniform float pushBackFactor = 0.0;
+uniform float groundZeroGlowFactor = 1.0;
 //uniform vec4 edgeAlbedo_Back : hint_color = vec4(0.5, 0.5, 0.0, 1.0);
 
 
@@ -87,7 +89,13 @@ void vertex()
 		fragmentDistanceFromEdge = vec3(0.0, 0.0, 1.0);
 	}
 	
-	distanceFromCenter = clamp(length(VERTEX) * 20000.0 , 0.0, 1.0);
+//	distanceFromCenter = clamp(length(VERTEX) * 20000.0 , 0.0, 1.0);
+	distanceFromCenter = clamp(UV.x * 20000.0 , 0.0, 1.0);
+	distanceFromCenter = mix(distanceFromCenter, 1.0, groundZeroGlowFactor);
+
+//	VERTEX += 0.001 * ((inverse(INV_PROJECTION_MATRIX) * vec4(VERTEX, 1.0)).xyz - CAMERA_POSITION_WORLD);
+	VERTEX += pushBackFactor * (VERTEX - CAMERA_POSITION_WORLD);
+
 
 }
 
