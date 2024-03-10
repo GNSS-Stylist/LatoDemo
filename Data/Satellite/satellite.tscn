@@ -485,22 +485,22 @@ size = Vector3(0.9, 0.1, 0.9)
 
 [node name="HallThrusterCluster" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, -0.0707107, 0.0707107, 0.0707107, -5.55112e-18, 0.05, -0.05, 0.0707107, 0.503, 0.784, 0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="HallThrusterCluster2" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, 0.0707107, 0.0707107, 0.0707107, 5.55112e-18, -0.05, 0.05, 0.0707107, 0.503, 0.784, -0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="HallThrusterCluster3" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, 0.0707107, 0.0707107, 0.0707107, 0, -0.05, 0.05, -0.0707107, -0.503, 0.784, -0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="HallThrusterCluster4" parent="Frame_Upper" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, -0.0707107, 0.0707107, 0.0707107, 0, 0.05, -0.05, -0.0707107, -0.503, 0.784, 0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="Frame_Lower" type="Node3D" parent="."]
@@ -537,22 +537,22 @@ light_energy = 0.00137255
 
 [node name="HallThrusterCluster" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, 0.0707107, -0.0707107, -0.0707107, 0, 0.05, -0.05, -0.0707107, 0.503, -0.784, 0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="HallThrusterCluster2" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(0.05, -0.05, -0.0707107, -0.0707107, -0.0707107, 0, -0.05, 0.05, -0.0707107, 0.503, -0.784, -0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="HallThrusterCluster3" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, -0.0707107, -0.0707107, -0.0707107, 0, -0.05, 0.05, 0.0707107, -0.503, -0.784, -0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="HallThrusterCluster4" parent="Frame_Lower" instance=ExtResource("7_e7vab")]
 transform = Transform3D(-0.05, 0.05, 0.0707107, -0.0707107, -0.0707107, 0, 0.05, -0.05, 0.0707107, -0.503, -0.784, 0.503)
-maxAcceleration = 0.01
+maxAcceleration = 5.0
 globalSpeedFilterCoeff = 0.01
 
 [node name="SoundHalo" type="MeshInstance3D" parent="."]
