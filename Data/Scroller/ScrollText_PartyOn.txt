@@ -6,7 +6,7 @@ Lato
 Pompous maximus (extended progression) remix
 A demo made with Godot engine
 
-Released x-Mar-2024
+Released 11-Mar-2024
 Original party-version released at Revision 2022 demoparty
 
 3rd party assets used (in order of appearance):
@@ -85,6 +85,7 @@ used to generate data to better visualize and animate the lidar scans.
 - Godot Engine to make the demo itself.
 - GIMP to create the solar cell texture and generic gfx-editing.
 - Material Maker to create the "golden" (=polyimide) surface for the satellite.
+- Planet generator to generate the planet texture.
 - Blender to create the satellite wreck main body.
 - Krita to edit the camera texture (acknowledgements of appreciation).
 
