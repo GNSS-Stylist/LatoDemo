@@ -15944,6 +15944,18 @@ tracks/374/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/375/type = "value"
+tracks/375/imported = false
+tracks/375/enabled = true
+tracks/375/path = NodePath("SpaceStation/OmniLight_DockingBay:light_color")
+tracks/375/interp = 1
+tracks/375/loop_wrap = true
+tracks/375/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.501961, 1, 0.501961, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qtsft"]
 resource_name = "SatMorph"
@@ -17096,6 +17108,7 @@ tracks/58/keys = {
 [sub_resource type="Animation" id="Animation_old0x"]
 resource_name = "SpaceStationFlyby"
 length = 600.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17833,6 +17846,18 @@ tracks/62/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 2),
 "points": PackedFloat32Array(408, -0.25, 0, 1.1235, 1.11234, 412, -0.876495, -0.329132, 0.510164, 0.191571, 413, -0.235702, -0.235702, 10, 10, 463, -10, -10, 1, 1, 464, -5.43333, 0, 0, 0),
 "times": PackedFloat32Array(408, 411, 413, 463, 473.9)
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("SpaceStation/OmniLight_DockingBay:light_color")
+tracks/63/interp = 1
+tracks/63/loop_wrap = false
+tracks/63/keys = {
+"times": PackedFloat32Array(282, 301, 302, 374, 376, 409, 410),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 1), Color(1, 1, 0, 1), Color(0.501961, 1, 0.501961, 1), Color(0.501961, 1, 0.501961, 1), Color(1, 1, 0.501961, 1), Color(1, 1, 0.501961, 1), Color(1, 0.25098, 0.25098, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_g87eg"]
@@ -20885,7 +20910,7 @@ point_count = 3
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_oflkp"]
 
-[sub_resource type="Image" id="Image_dwhdn"]
+[sub_resource type="Image" id="Image_sgr1j"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20895,7 +20920,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_dwhdn")
+image = SubResource("Image_sgr1j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -22807,6 +22832,15 @@ visible = false
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="SpaceStation"]
 remote_path = NodePath("../../Elite/FlyingSpace_Station_Rotating")
 
+[node name="OmniLight_DockingBay" type="OmniLight3D" parent="SpaceStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+light_color = Color(0.501961, 1, 0.501961, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_cull_mask = 4293918721
+omni_range = 25.0
+omni_attenuation = 1e-05
+
 [node name="FlyingSpace_Station_Angled_NotRotating" type="Node3D" parent="."]
 transform = Transform3D(0.66262, -0.645322, 0.380124, 0, 0.507538, 0.861629, -0.748956, -0.570933, 0.336305, 1414.21, 1414.21, 0)
 
@@ -22925,7 +22959,7 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1414.21, 1414.21, 0)
 
 [node name="CobraMkIII" type="Node3D" parent="Elite/SubViewport/Ships"]
-transform = Transform3D(0.886138, -0.328516, -0.326859, -1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
+transform = Transform3D(0.886138, -0.328516, -0.326859, 1.49012e-08, 0.705316, -0.708893, 0.463421, 0.628177, 0.625008, -1594.81, -2407.2, 880.29)
 visible = false
 script = ExtResource("78_oapl2")
 sourceNodePath = NodePath("../../../ShipStaticPaths/Path_Cobra_Dock/PathFollow_Cobra_Dock")
@@ -23012,7 +23046,7 @@ remotePath = NodePath("../../../../../ShipDrawMeshes/FerDeLance")
 [node name="ShipDrawMeshes" type="Node3D" parent="Elite"]
 
 [node name="CobraMKIII" type="Node3D" parent="Elite/ShipDrawMeshes"]
-transform = Transform3D(8.86138, -3.28516, -3.26859, -1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
+transform = Transform3D(8.86138, -3.28516, -3.26859, 1.49012e-07, 7.05316, -7.08893, 4.63421, 6.28177, 6.25008, -180.814, -993.197, 880.29)
 visible = false
 
 [node name="Mesh" type="MeshInstance3D" parent="Elite/ShipDrawMeshes/CobraMKIII"]
@@ -23192,7 +23226,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.95896, 0.0593664, -0.346367, 0, 0.982168, 0.260684, 0.283379, 0.200897, -1.17211, 0, 0, 50)
+transform = Transform3D(-0.958954, 0.0593697, -0.347549, 0, 0.982223, 0.261574, 0.283377, 0.200908, -1.17611, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -23200,14 +23234,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885962, -0.327335, -0.326797, -1.48982e-08, 0.70278, -0.708758, 0.463329, 0.625918, 0.624889, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885978, -0.327319, -0.326796, -1.48985e-08, 0.702747, -0.708757, 0.463338, 0.625888, 0.624888, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857283, -0.473635, -0.202033, -0.398928, 0.858502, -0.323523, 0.324849, -0.19566, -0.930469, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857355, -0.473665, -0.202098, -0.398961, 0.858555, -0.323628, 0.324876, -0.195672, -0.930769, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -23429,8 +23463,8 @@ libraries = {
 }
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
