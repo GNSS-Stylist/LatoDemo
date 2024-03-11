@@ -16165,8 +16165,8 @@ tracks/17/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": ["Most of the sounds in this demo are from ESA and NASA,
-recordings or sonifications of different phenomena in the universe.", "Also some 3D-models and other assets used were created by 3rd parties.
-Full list of these with their licenses shown at the end credits."]
+recordings or sonifications of different phenomena related to space.", "Also some 3D-models, music, pictures and other assets used were created by 3rd parties.
+Full list of these with their licenses shown in the end credits."]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
@@ -20885,7 +20885,7 @@ point_count = 3
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_oflkp"]
 
-[sub_resource type="Image" id="Image_cgt3g"]
+[sub_resource type="Image" id="Image_dwhdn"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20895,7 +20895,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_cgt3g")
+image = SubResource("Image_dwhdn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -21130,8 +21130,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_woc57"]
 resource_name = "StartWindowTexts"
-length = 60.0
-loop_mode = 1
+length = 114.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -21140,13 +21139,26 @@ tracks/0/path = NodePath("Label_Bottom_StartWindow:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 10, 16, 22),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 5, 11, 16, 22, 28, 41, 46, 50, 56, 64, 72, 80, 88, 96, 104),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["
-Background processing (&loading) done", "
+Background loading and processing done", "Tip: You can choose between two different endings
+by selecting one below the \"Choose your ending\"-text", "
 Tip: Press \"H\"-key any time for some interactivity", "Tip: Press End-key to jump straight to the ending
-(while the demo is running)", "Text", "Text2"]
+(while the demo is running)", "Tip: you can see 3rd-party assets used with clickable links
+by pressing the button \"Show 3rd-party assets used\" above", "Tip: No more tips
+Press \"Start demo\"", "
+Lorem ipsum", "
+Hello world(?)", "So you keep reading these?
+There's nothing to see here really...", "Whatever... I originally started to make this demo early in 2022 with nothing \"political\" in mind
+Then one \"Great Leader\" attacked his neighboring country before the demo was finished", "Then I felt that this demo needs some kind of comment about that (yeah, why indeed? Demos shouldn't be political),
+so I added the black holes (great leaders creating their own realities inside their bubbles, tearing the world apart)", "Now it feels like these \"great leaders\" pop up everywhere on this planet, telling people who is their enemy,
+drawing lines between \"us\" and \"them\"", "Then on the other hand open source-style collaboration feels almost opposite
+of the world view these leaders are feeding to us.", "So I kept using almost exclusively open source tools and free-to-use assets (exluding OS (Windows), sorry about that...)
+when making the final version of this (original version also used free assets/tools)", "The choice of endings here tries to imply that in some parts of this planet people could still choose not so \"great\" leader.
+Once you go down the slippery slope there may not be easy way back", "But I'm ending this naive monologue here. Take care and choose wisely.
+In this demo you can do so as many times as you want."]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -21155,10 +21167,10 @@ tracks/1/path = NodePath("Label_Bottom_StartWindow:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 4, 5, 6, 9, 10, 11, 15, 16, 17, 21, 22, 23),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 4, 5, 6, 10, 11, 12, 15, 16, 17, 21, 22, 23, 27, 28, 29, 40, 41, 42, 45, 46, 47, 49, 50, 51, 55, 56, 57, 63, 64, 65, 71, 72, 73, 79, 80, 81, 87, 88, 89, 95, 96, 97, 103, 104, 105, 112, 113),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -22505,7 +22517,7 @@ offset_left = 9.0
 offset_top = 212.0
 offset_right = 456.0
 offset_bottom = 243.0
-text = "Show 3rd party assets used"
+text = "Show 3rd-party assets used"
 
 [node name="Label_Ending" type="Label" parent="Panel_Start"]
 layout_mode = 0
@@ -23180,7 +23192,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.95896, 0.0593664, -0.346367, 0, 0.982168, 0.260685, 0.283379, 0.200897, -1.17211, 0, 0, 50)
+transform = Transform3D(-0.95896, 0.0593664, -0.346367, 0, 0.982168, 0.260684, 0.283379, 0.200897, -1.17211, 0, 0, 50)
 rotation_mode = 4
 loop = false
 

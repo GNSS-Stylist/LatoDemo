@@ -288,6 +288,7 @@ var remix:Remix = Remix.GREAT_LEADERS
 var lastEditorRemixAnimName:String = ""
 
 var timeFromLastProgressQuery:float = 1
+var monologueAnimStarted:bool = false
 
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
@@ -365,12 +366,13 @@ func _process(delta):
 				if (timeFromLastProgressQuery >= 0.1):
 					var loadingProgress:float = getAsyncLoadingProgress()
 					if (loadingProgress != 1.0):
-						$Label_Bottom_StartWindow.text = "Processing (&loading) data on background\n%1.2f%% done" % (loadingProgress * 100.0)
+						$Label_Bottom_StartWindow.text = "Loading and processing data on background\n%1.2f%% done" % (loadingProgress * 100.0)
 						$Label_Bottom_StartWindow.visible = true
 						$Label_Bottom_StartWindow.modulate = Color.WHITE
 					else:
-						if (!($AnimationPlayer_Tips.is_playing())):
+						if ((!($AnimationPlayer_Tips.is_playing())) && (!monologueAnimStarted)):
 							$AnimationPlayer_Tips.play("StartWindowTexts")
+							monologueAnimStarted = true
 					timeFromLastProgressQuery = 0
 
 			demoInitSubState = 0
