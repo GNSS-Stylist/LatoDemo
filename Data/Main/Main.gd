@@ -288,8 +288,6 @@ var remix:Remix = Remix.GREAT_LEADERS
 var lastEditorRemixAnimName:String = ""
 
 var timeFromLastProgressQuery:float = 1
-var progressTextAlpha:float = 1.0
-const progressTextFadingSpeed = 0.333333
 
 func _process(delta):
 	if ((!Global) ||(Engine.is_editor_hint() && Global.cleanTempToolData)):
@@ -365,20 +363,21 @@ func _process(delta):
 
 				timeFromLastProgressQuery += delta
 				if (timeFromLastProgressQuery >= 0.1):
-					$Label_BackgroundLoadingInfo.visible = true
 					var loadingProgress:float = getAsyncLoadingProgress()
 					if (loadingProgress != 1.0):
-						$Label_BackgroundLoadingInfo.text = "Processing (\"loading\") data on background\n%1.2f%% done" % (loadingProgress * 100.0)
+						$Label_Bottom_StartWindow.text = "Processing (&loading) data on background\n%1.2f%% done" % (loadingProgress * 100.0)
+						$Label_Bottom_StartWindow.visible = true
+						$Label_Bottom_StartWindow.modulate = Color.WHITE
 					else:
-						progressTextAlpha = clamp (progressTextAlpha - timeFromLastProgressQuery * progressTextFadingSpeed, 0, 1)
-						$Label_BackgroundLoadingInfo.text = "\nBackground loading done"
-						$Label_BackgroundLoadingInfo.modulate = Color(1, 1, 1, progressTextAlpha)
+						if (!($AnimationPlayer_Tips.is_playing())):
+							$AnimationPlayer_Tips.play("StartWindowTexts")
 					timeFromLastProgressQuery = 0
 
 			demoInitSubState = 0
 
 		Global.DemoState.DS_WAIT_FOR_ASYNC_LOADING:
-			$Label_BackgroundLoadingInfo.visible = false
+			$AnimationPlayer_Tips.stop()
+			$Label_Bottom_StartWindow.visible = false
 			timeFromLastProgressQuery += delta
 			
 			if (timeFromLastProgressQuery >= 0.1):
@@ -395,7 +394,7 @@ func _process(delta):
 			match (demoInitSubState):
 				0:
 					$Label_LoadingInfo.visible = false
-					$Label_BackgroundLoadingInfo.visible = false
+					$Label_Bottom_StartWindow.visible = false
 				1:
 					var img = get_viewport().get_texture().get_image()
 					var tex:ImageTexture = ImageTexture.create_from_image(img)
@@ -697,7 +696,7 @@ func controlPlayback(delta:float):
 	if Input.is_action_just_pressed("restart_playback"):
 		tunePlayer.my_seek(0)
 	if Input.is_action_just_pressed("animation_jump_to_bookmark"):
-		tunePlayer.my_seek(400)
+		tunePlayer.my_seek(255)
 
 	if Input.is_action_just_pressed("playback_speed_100_pros"):
 		tunePlayer.pitch_scale = 1
