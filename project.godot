@@ -276,6 +276,7 @@ show_help={
 
 3d_render/layer_1="Main"
 3d_render/layer_2="RigCamera"
+3d_render/layer_10="DockingBay"
 3d_render/layer_18="Barn"
 3d_render/layer_19="Elite"
 3d_render/layer_20="EndScroller"

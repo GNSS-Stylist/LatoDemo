@@ -17854,7 +17854,7 @@ tracks/63/path = NodePath("SpaceStation/OmniLight_DockingBay:light_color")
 tracks/63/interp = 1
 tracks/63/loop_wrap = false
 tracks/63/keys = {
-"times": PackedFloat32Array(282, 301, 302, 374, 376, 409, 410),
+"times": PackedFloat32Array(282, 315, 316, 374, 376, 409, 410),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 0, 1), Color(1, 1, 0, 1), Color(0.501961, 1, 0.501961, 1), Color(0.501961, 1, 0.501961, 1), Color(1, 1, 0.501961, 1), Color(1, 1, 0.501961, 1), Color(1, 0.25098, 0.25098, 1)]
@@ -20910,7 +20910,7 @@ point_count = 3
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_oflkp"]
 
-[sub_resource type="Image" id="Image_sgr1j"]
+[sub_resource type="Image" id="Image_a8f18"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20920,7 +20920,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_sgr1j")
+image = SubResource("Image_a8f18")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -22837,7 +22837,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
 light_color = Color(0.501961, 1, 0.501961, 1)
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
-light_cull_mask = 4293918721
+light_cull_mask = 4293919232
 omni_range = 25.0
 omni_attenuation = 1e-05
 
@@ -23226,7 +23226,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958954, 0.0593697, -0.347549, 0, 0.982223, 0.261574, 0.283377, 0.200908, -1.17611, 0, 0, 50)
+transform = Transform3D(-0.958953, 0.0593697, -0.34758, 0, 0.982223, 0.261598, 0.283377, 0.200908, -1.17622, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -23234,14 +23234,14 @@ loop = false
 curve = SubResource("Curve3D_4etdp")
 
 [node name="PathFollow_Cobra_Dock" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Cobra_Dock"]
-transform = Transform3D(0.885978, -0.327319, -0.326796, -1.48985e-08, 0.702747, -0.708757, 0.463338, 0.625888, 0.624888, -180.814, -993.197, 880.29)
+transform = Transform3D(0.885978, -0.327316, -0.326796, -1.48985e-08, 0.70274, -0.708757, 0.463338, 0.625882, 0.624888, -180.814, -993.197, 880.29)
 
 [node name="Path_FerDeLance_PassBy" type="Path3D" parent="Elite/ShipStaticPaths"]
 transform = Transform3D(0.999993, 0.00227446, 0.0029684, -0.00222751, 0.999874, -0.0157258, -0.00300379, 0.0157191, 0.999872, 0, 0, 0)
 curve = SubResource("Curve3D_f44ms")
 
 [node name="PathFollow_FerDeLance_PassBy" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_FerDeLance_PassBy"]
-transform = Transform3D(-0.857355, -0.473665, -0.202098, -0.398961, 0.858555, -0.323628, 0.324876, -0.195672, -0.930769, 208.336, 127.891, -548.475)
+transform = Transform3D(-0.857336, -0.473659, -0.202101, -0.398952, 0.858544, -0.323632, 0.324869, -0.195669, -0.930781, 208.336, 127.891, -548.475)
 
 [node name="LaserBeams" type="Node3D" parent="Elite"]
 
@@ -23463,8 +23463,8 @@ libraries = {
 }
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]
