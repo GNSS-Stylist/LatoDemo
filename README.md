@@ -5,7 +5,7 @@ Great leaders (extended depression remix)\
 Pompous maximus (extended progression remix)
 
 Works on Godot version 4.1.3. AnimationPlayer has changed somewhat in 4.2.x breaking the animations.
-4.3. is still under development at the time of writing this (11-Mar-2024,
+4.3. is still under development at the time of writing this (12-Mar-2024,
 latest 4.3. dev 4 latest version) and also breaks some animations.
 
 This demo uses following assets (in approximate order of appearance):
@@ -116,6 +116,12 @@ as required as derivative works of some similarly licensed sounds.
 
 Otherwise (not counting the sounds, pictures, waveforms and models mentioned above) this demo is released under GPLv3-license.
 So you need to follow the individual licenses if using any part of this demo to your purposes.
+
+Files gathered during scanning of the barn (the "walk around"-scan seen in this demo wasn't used for the model itself),
+photos used for texturing and intermediate files used to create the final object can be found here:\
+https://github.com/GNSS-Stylist/3D_Scan_Barn \
+The barn model itself can be inspected online here:\
+https://skfb.ly/o7YuY
 
 Sources and assets can be found from this project's github repo:
 https://github.com/GNSS-Stylist/LatoDemo
