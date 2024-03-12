@@ -20910,7 +20910,7 @@ point_count = 3
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_oflkp"]
 
-[sub_resource type="Image" id="Image_a8f18"]
+[sub_resource type="Image" id="Image_2f7hh"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGB8",
@@ -20920,7 +20920,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_pxyoe"]
-image = SubResource("Image_a8f18")
+image = SubResource("Image_2f7hh")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2p58"]
 shading_mode = 0
@@ -21823,6 +21823,7 @@ F4: Satellite camera
 F5: Camera rig camera
 F6: Cobra MkIII camera
 F7: Debug ship tracker camera
+F12: Full screen toggle
 C: Activate/deactivate first person flyer controls
 WSAD/EQ/Mouse: Move first person flyer
 RF: Roll first person flyer (when in 6DOF or \"Elite\"-mode)
@@ -23226,7 +23227,7 @@ visible = false
 curve = SubResource("Curve3D_bapki")
 
 [node name="PathFollow_Python_Launch" type="PathFollow3D" parent="Elite/ShipStaticPaths/Path_Python_Launch"]
-transform = Transform3D(-0.958953, 0.0593697, -0.34758, 0, 0.982223, 0.261598, 0.283377, 0.200908, -1.17622, 0, 0, 50)
+transform = Transform3D(-0.958953, 0.0593697, -0.347581, 0, 0.982223, 0.261598, 0.283377, 0.200908, -1.17622, 0, 0, 50)
 rotation_mode = 4
 loop = false
 
@@ -23463,8 +23464,8 @@ libraries = {
 }
 
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_LidarTimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
-[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_time_override_value_changed"]
+[connection signal="value_changed" from="DebugThings/Panel_Bottom/SpinBox_TimeOverride" to="." method="_on_spin_box_lidar_time_override_value_changed"]
 [connection signal="toggled" from="DebugThings/Panel_Help/CheckBox_ProcessActionKeys" to="DebugThings/Panel_Help" method="_on_check_box_process_action_keys_toggled"]
 [connection signal="pressed" from="DebugThings/Panel_Help/Button_Close" to="DebugThings/Panel_Help" method="_on_button_close_pressed"]
 [connection signal="loadingCompleted" from="World/AdditiveGeometries/Ground/Storage" to="World/AdditiveGeometries/Ground" method="startAsyncMeshGenerating"]

@@ -317,6 +317,13 @@ func _process(delta):
 	
 	if (!Engine.is_editor_hint()) && Input.is_action_just_pressed("immediate_exit"):
 		OS.kill(OS.get_process_id())	# Immediate exit
+	
+	if (!Engine.is_editor_hint() &&  Input.is_action_just_pressed("full_screen_toggle")):
+		if (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN):
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	if (firstRound):
 		if ((lidarDataStorage.beamDataKeys) and (!lidarDataStorage.beamDataKeys.is_empty())):
@@ -898,9 +905,14 @@ func _on_button_die_pressed():
 func _on_button_demo_pressed():
 	$Panel_Start.visible = false
 	if ($Panel_Start/CheckBox_Fullscreen.button_pressed):
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-#		OS.window_fullscreen = true
+		if (DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN):
+			# Only capture mouse here if not already fullscreen
+			# This is to prevent mouse being captured and making problems
+			# with video recording
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	Global.demoState = Global.DemoState.DS_WAIT_FOR_ASYNC_LOADING
 
 func killMe():
