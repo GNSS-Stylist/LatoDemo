@@ -6,7 +6,7 @@ Lato
 Pompous maximus (extended progression) remix
 A demo made with Godot engine
 
-Released 11-Mar-2024
+Released 12-Mar-2024
 Original party-version released at Revision 2022 demoparty
 
 3rd party assets used (in order of appearance):

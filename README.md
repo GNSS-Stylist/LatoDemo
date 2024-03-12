@@ -1,10 +1,12 @@
 # LatoDemo
 Lato - PC-demo originally released at Revision 2022
-"Final" version released 11-Mar-2024 with two different "remixes":\
+"Final" version released 12-Mar-2024 with two different "remixes":\
 Great leaders (extended depression remix)\
 Pompous maximus (extended progression remix)
 
-Works on Godot version 4.1.3. AnimationPlayer has changed somewhat in 4.2.x breaking the animations. 4.3. is still under development at the time of writing this (11-Mar-2024, latest 4.3. dev 4 latest version) and also breaks some animations.
+Works on Godot version 4.1.3. AnimationPlayer has changed somewhat in 4.2.x breaking the animations.
+4.3. is still under development at the time of writing this (11-Mar-2024,
+latest 4.3. dev 4 latest version) and also breaks some animations.
 
 This demo uses following assets (in approximate order of appearance):
 
@@ -95,18 +97,25 @@ Space station (Pompous maximus-remix only):\
 by uperesito\
 https://skfb.ly/6oRz8 \
 License: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ ) \
-Original created by Michael Powell for The Celestia Motherlode ("The Addon Repository for the 3D Space Simulator Celestia"). From the original ReadMe.txt: "This model was made by Michael Powell with textures by BJ West, I had help also from Martin Charest with the textures."
+Original created by Michael Powell for The Celestia Motherlode
+("The Addon Repository for the 3D Space Simulator Celestia").
+From the original ReadMe.txt: "This model was made by
+Michael Powell with textures by BJ West, I had help also from
+Martin Charest with the textures."
 
 This planet generator was used to generate texture for the textured planet:\
 http://hjemmesider.diku.dk/~torbenm/Planet/ \
 Generated with command:\
 planet -o test.bmp -s 0.41 -w 4096 -h 4096 -c
 
-Parties mentioned above do not have any affiliation with this demo other than making their work available to use. Big thanks for sharing!
+Parties mentioned above do not have any affiliation with this demo other than making their work available to use.
+Big thanks for sharing!
 
-Soundtracks are licensed under CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/) as required as derivative works of some similarly licensed sounds.
+Soundtracks are licensed under CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/)
+as required as derivative works of some similarly licensed sounds.
 
-Otherwise (not counting the sounds, pictures, waveforms and models mentioned above) this demo is released under GPLv3-license. So you need to follow the individual licenses if using any part of this demo to your purposes.
+Otherwise (not counting the sounds, pictures, waveforms and models mentioned above) this demo is released under GPLv3-license.
+So you need to follow the individual licenses if using any part of this demo to your purposes.
 
 Sources and assets can be found from this project's github repo:
 https://github.com/GNSS-Stylist/LatoDemo
