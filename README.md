@@ -8,6 +8,10 @@ Works on Godot version 4.1.3. AnimationPlayer has changed somewhat in 4.2.x brea
 4.3. is still under development at the time of writing this (12-Mar-2024,
 latest 4.3. dev 4 latest version) and also breaks some animations.
 
+Videos on youtube (created using Godot's movie maker functionality):\
+[Great leaders (extended depression remix)](https://youtu.be/mOrgx728zr4)\
+[Pompous maximus (extended progression remix)](https://youtu.be/1NXdSNNK8R4)
+
 This demo uses following assets (in approximate order of appearance):
 
 Background starfield (picture):\
